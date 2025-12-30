@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}علاقه‌مندی‌ها - {{ site_settings.site_name|default:"فروشگاه" }}{% endblock %}
+
+{% block content %}
+<main class="flex-1 pb-20 lg:pb-0">
+  <div class="container mx-auto px-4 py-6">
+    <!-- Breadcrumb -->
+    <nav class="mb-6">
+      <ol class="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
+        <li><a href="{% url 'core:home' %}" class="hover:text-primary-800">خانه</a></li>
+        <li>/</li>
+        <li class="text-gray-800 font-semibold">علاقه‌مندی‌ها</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">لیست علاقه‌مندی‌ها</h1>
+
+    {% if wishlist %}
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      {% for item in wishlist %}
+      <div class="group relative w-full rounded-lg bg-white p-4 pt-8 shadow-md">
+        <!-- دکمه حذف -->
+        <form action="{% url 'catalog:wishlist_toggle' item.product.id %}" method="POST" class="absolute top-3 right-3">
+          {% csrf_token %}
+          <button type="submit" class="text-red-500 hover:text-red-700 transition-colors" title="حذف از علاقه‌مندی‌ها">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6l-12 12" />
+              <path d="M6 6l12 12" />
+            </svg>
+          </button>
+        </form>
+
+        <!-- تصویر محصول -->
+        <a href="{{ item.product.get_absolute_url }}">
+          {% if item.product.images.exists %}
+          <img src="{{ item.product.images.first.image.url }}" alt="{{ item.product.name }}"
+            class="mb-4 h-40 w-full rounded-md object-contain" />
+          {% else %}
+          <img src="{% static 'images/product/placeholder.jpg' %}" alt="{{ item.product.name }}"
+            class="mb-4 h-40 w-full rounded-md object-contain" />
+          {% endif %}
+        </a>
+
+        <!-- نام محصول -->
+        <a href="{{ item.product.get_absolute_url }}">
+          <h2 class="hover:text-primary-900 mb-3 cursor-pointer text-sm leading-6 font-semibold transition-colors md:text-base line-clamp-2">
+            {{ item.product.name }}
+          </h2>
+        </a>
+
+        <!-- قیمت و دکمه خرید -->
+        <div class="bottom-0 flex items-center justify-between">
+          <!-- دکمه افزودن به سبد خرید -->
+          <div>
+            {% if item.product.is_in_stock %}
+            <form action="{% url 'cart:add' item.product.id %}" method="POST" class="inline">
+              {% csrf_token %}
+              <input type="hidden" name="quantity" value="1">
+              <button type="submit"
+                class="bg-primary-800 hover:bg-primary-900 flex items-center justify-center gap-x-2 rounded-lg px-3 py-2 text-xs md:text-sm font-semibold text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                  <path d="M12.5 17h-6.5v-14h-2" />
+                  <path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5" />
+                  <path d="M16 19h6" />
+                  <path d="M19 16v6" />
+                </svg>
+                <span class="hidden sm:inline">افزودن به سبد</span>
+              </button>
+            </form>
+            {% else %}
+            <span class="text-sm text-red-500 font-semibold">ناموجود</span>
+            {% endif %}
+          </div>
+
+          <!-- قیمت -->
+          <div class="flex flex-col items-end">
+            {% if item.product.compare_at_price and item.product.compare_at_price > item.product.price %}
+            <span class="text-xs text-gray-400 line-through">{{ item.product.compare_at_price|intcomma }} تومان</span>
+            <span class="text-sm font-bold text-primary-800">{{ item.product.price|intcomma }} تومان</span>
+            {% else %}
+            <span class="text-sm font-bold text-gray-800">{{ item.product.price|intcomma }} تومان</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <!-- حالت خالی -->
+    <div class="text-center py-16 bg-white rounded-2xl shadow-sm">
+      <div class="mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+          class="mx-auto text-gray-300">
+          <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+        </svg>
+      </div>
+      <h2 class="text-xl font-bold text-gray-800 mb-2">لیست علاقه‌مندی‌ها خالی است</h2>
+      <p class="text-gray-500 mb-6">محصولات مورد علاقه خود را به این لیست اضافه کنید</p>
+      <a href="{% url 'catalog:shop' %}"
+        class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <path d="M3 21l18 0" />
+          <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
+          <path d="M5 21l0 -10.15" />
+          <path d="M19 21l0 -10.15" />
+          <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+        </svg>
+        مشاهده فروشگاه
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</main>
+{% endblock %}

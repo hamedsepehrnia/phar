@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پرداخت ناموفق</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+
+    <section class="relative flex items-center justify-center min-h-screen w-full">
+        <!-- background -->
+        <div
+            class="pointer-events-none absolute inset-0 bg-login flex w-screen items-center justify-center overflow-hidden">
+        </div>
+
+        <div
+            class="relative w-[27rem] mx-5 flex flex-col justify-center py-12 px-4 md:px-8 bg-white shadow-md rounded-xl">
+            <div
+                class="size-14 rounded-full bg-red-500 absolute -top-6 left-1/2 -translate-x-1/2 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-x text-white">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M18 6l-12 12" />
+                    <path d="M6 6l12 12" />
+                </svg>
+            </div>
+            <div class="mt-10 sm:mx-auto w-full h-full bg-red-500 sm:max-w-sm py-2 rounded-4xl">
+                <p class="text-2xl text-white font-yekan-bakh font-semibold text-center">پرداخت ناموفق</p>
+            </div>
+            <hr class="w-full h-1 my-4 text-primary-200">
+            <div class="flex flex-col">
+                <p class="text-xl text-gray-800 font-yekan-bakh font-semibold text-center">جزییات تراکنش</p>
+                <div class="w-full h-full flex items-center justify-between px-2 my-4">
+                    <p class="text-base text-gray-800 font-yekan-bakh font-medium text-center">درگاه پرداختی :</p>
+                    <p class="text-sm text-gray-400 font-yekan-bakh font-medium text-center">بانک پاسرگاد</p>
+                </div>
+                <div class="w-full h-full flex items-center justify-between px-2 my-4">
+                    <p class="text-base text-gray-800 font-yekan-bakh font-medium text-center"> تاریخ تراکنش :</p>
+                    <p class="text-sm text-gray-400 font-medium text-center">1404/7/8</p>
+                </div>
+                <div class="w-full h-full flex items-center justify-between px-2 my-4">
+                    <p class="text-base text-gray-800 font-yekan-bakh font-medium text-center"> شماره پیگیری :</p>
+                    <p class="text-sm text-gray-400 font-medium text-center">0145122</p>
+                </div>
+                <div class="w-full h-full flex items-center justify-between px-2 my-4">
+                    <p class="text-base text-gray-800 font-yekan-bakh font-medium text-center">مبلغ پرداختی:</p>
+                    <p class="text-sm text-gray-400 font-medium text-center">1,250,000</p>
+                </div>
+            </div>
+            <div class="w-[300px] h-full flex items-center justify-between mx-auto">
+                <button
+                    class="mt-10 sm:mx-auto w-[100px] h-full cursor-pointer bg-gray-800 sm:max-w-sm py-2 rounded-4xl">
+                    <p class="text-base text-white font-yekan-bakh font-semibold text-center">بازگشت</p>
+                </button>
+                <button
+                    class="mt-10 sm:mx-auto w-[100px] h-full cursor-pointer bg-gray-500 sm:max-w-sm py-2 rounded-4xl">
+                    <p class="text-base text-white font-yekan-bakh font-semibold text-center">پیگیری</p>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <script type="module" src="/src/js/main.js"></script>
+    <script src="src/js/script.js"></script>
+
+</body>
+
+</html>

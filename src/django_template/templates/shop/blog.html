@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}وبلاگ - گل ناز{% endblock %}
+
+{% block content %}
+<main class="container mx-auto px-4 py-8">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">وبلاگ گل ناز</h1>
+    <p class="text-gray-600">آخرین مقالات و راهنماهای زیبایی و مراقبت از پوست</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for i in "123456"|make_list %}
+    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+      <a href="{% url 'blog_single' forloop.counter %}">
+        <div class="aspect-video overflow-hidden">
+          <img src="{% static 'images/blog/blog' %}{{ forloop.counter }}.jpg" 
+               alt="مقاله {{ forloop.counter }}" 
+               class="w-full h-full object-cover hover:scale-105 transition-transform">
+        </div>
+        <div class="p-6">
+          <div class="mb-2">
+            <span class="text-primary-600 text-sm font-medium">مراقبت از پوست</span>
+            <span class="text-gray-400 text-sm mr-2">{{ forloop.counter }}۰ آذر ۱۴۰۳</span>
+          </div>
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">راهنمای کامل مراقبت از پوست در فصل {{ forloop.counter }}</h2>
+          <p class="text-gray-600 mb-4">نکات مهم برای حفظ سلامت و زیبایی پوست در شرایط مختلف آب و هوایی و فصلی...</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <span>مطالعه ۵ دقیقه‌ای</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  <div class="mt-12 flex justify-center">
+    <nav class="flex items-center space-x-2">
+      <button class="px-3 py-2 text-sm text-gray-500 hover:text-gray-700 border rounded-md">قبلی</button>
+      <button class="px-3 py-2 text-sm bg-primary-600 text-white border rounded-md">1</button>
+      <button class="px-3 py-2 text-sm text-gray-700 hover:text-gray-900 border rounded-md">2</button>
+      <button class="px-3 py-2 text-sm text-gray-700 hover:text-gray-900 border rounded-md">3</button>
+      <button class="px-3 py-2 text-sm text-gray-700 hover:text-gray-900 border rounded-md">بعدی</button>
+    </nav>
+  </div>
+</main>
+{% endblock %}

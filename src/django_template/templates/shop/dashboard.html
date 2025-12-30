@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}داشبورد - گل ناز{% endblock %}
+
+{% block content %}
+<main class="container mx-auto px-4 py-8">
+  <div class="flex flex-col lg:flex-row gap-8">
+    <!-- Sidebar -->
+    <div class="lg:w-1/4">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="text-center mb-6">
+          <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-gray-900">کاربر عزیز</h3>
+          <p class="text-gray-600 text-sm">user@example.com</p>
+        </div>
+        
+        <nav class="space-y-2">
+          <a href="{% url 'dashboard' %}" class="flex items-center px-4 py-2 text-sm font-medium text-white bg-primary-600 rounded-md">
+            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5v6a1 1 0 102 0V5"/>
+            </svg>
+            داشبورد
+          </a>
+          <a href="{% url 'account_info' %}" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
+            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+            اطلاعات حساب
+          </a>
+          <a href="{% url 'orders' %}" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
+            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+            سفارشات من
+          </a>
+          <a href="{% url 'addresses' %}" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
+            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            آدرس‌ها
+          </a>
+          <a href="{% url 'wishlist' %}" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
+            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+            علاقه‌مندی‌ها
+          </a>
+          <a href="#" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
+            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+            </svg>
+            خروج
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="lg:w-3/4">
+      <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <h1 class="text-2xl font-bold text-gray-900 mb-6">داشبورد</h1>
+        
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div class="bg-blue-50 rounded-lg p-6">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <svg class="h-8 w-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                </svg>
+              </div>
+              <div class="mr-4">
+                <h3 class="text-sm font-medium text-gray-900">کل سفارشات</h3>
+                <p class="text-2xl font-semibold text-blue-600">۱۲</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-green-50 rounded-lg p-6">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <svg class="h-8 w-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div class="mr-4">
+                <h3 class="text-sm font-medium text-gray-900">سفارشات تکمیل شده</h3>
+                <p class="text-2xl font-semibold text-green-600">۸</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 rounded-lg p-6">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <svg class="h-8 w-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div class="mr-4">
+                <h3 class="text-sm font-medium text-gray-900">در حال پردازش</h3>
+                <p class="text-2xl font-semibold text-yellow-600">۳</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-purple-50 rounded-lg p-6">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <svg class="h-8 w-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+              <div class="mr-4">
+                <h3 class="text-sm font-medium text-gray-900">علاقه‌مندی‌ها</h3>
+                <p class="text-2xl font-semibold text-purple-600">۵</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Orders -->
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-semibold text-gray-900">آخرین سفارشات</h2>
+            <a href="{% url 'orders' %}" class="text-sm font-medium text-primary-600 hover:text-primary-500">
+              مشاهده همه
+            </a>
+          </div>
+          
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    شماره سفارش
+                  </th>
+                  <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    تاریخ
+                  </th>
+                  <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    مبلغ
+                  </th>
+                  <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    وضعیت
+                  </th>
+                  <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    عملیات
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                {% for i in "123"|make_list %}
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    #{{ forloop.counter }}00{{ i }}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    ۱۴۰۳/۰۹/{{ forloop.counter }}۰
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {{ forloop.counter }}۵۰,۰۰۰ تومان
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    {% if forloop.counter == 1 %}
+                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        تکمیل شده
+                      </span>
+                    {% elif forloop.counter == 2 %}
+                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                        در حال پردازش
+                      </span>
+                    {% else %}
+                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                        ارسال شده
+                      </span>
+                    {% endif %}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <a href="#" class="text-primary-600 hover:text-primary-900">مشاهده</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}خطا در پرداخت - {{ site_settings.site_name|default:"گلناز" }}{% endblock %}
+
+{% block content %}
+<main class="flex-1 pb-20 lg:pb-0">
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-lg mx-auto text-center">
+      <!-- آیکون خطا -->
+      <div class="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-red-600">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M18 6l-12 12" />
+          <path d="M6 6l12 12" />
+        </svg>
+      </div>
+      
+      <h1 class="text-2xl font-bold text-gray-800 mb-2">پرداخت ناموفق</h1>
+      <p class="text-gray-600 mb-8">متأسفانه پرداخت شما با مشکل مواجه شد</p>
+      
+      <!-- جزئیات خطا -->
+      <div class="bg-white rounded-xl shadow-md p-6 text-right mb-6">
+        <div class="space-y-3">
+          {% if order %}
+          <div class="flex items-center justify-between py-2 border-b border-gray-100">
+            <span class="text-gray-600">شماره سفارش</span>
+            <span class="font-semibold text-gray-800">#{{ order.id }}</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-gray-100">
+            <span class="text-gray-600">مبلغ سفارش</span>
+            <span class="font-semibold text-gray-800">{{ order.total_price|intcomma }} تومان</span>
+          </div>
+          {% endif %}
+          <div class="flex items-center justify-between py-2">
+            <span class="text-gray-600">وضعیت</span>
+            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold">پرداخت ناموفق</span>
+          </div>
+        </div>
+        
+        {% if error_message %}
+        <div class="mt-4 p-4 bg-red-50 rounded-lg">
+          <p class="text-sm text-red-700">{{ error_message }}</p>
+        </div>
+        {% endif %}
+      </div>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        {% if order %}
+        <a href="{% url 'orders:payment' order.id %}" 
+           class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+          تلاش مجدد
+        </a>
+        {% endif %}
+        <a href="{% url 'cart:detail' %}" 
+           class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-8 py-3 rounded-lg font-semibold transition-colors">
+          بازگشت به سبد خرید
+        </a>
+      </div>
+      
+      <p class="mt-8 text-sm text-gray-500">
+        در صورت کسر وجه از حساب شما، مبلغ طی ۷۲ ساعت به حساب شما برگشت داده می‌شود.
+        <br>
+        جهت پیگیری با پشتیبانی تماس بگیرید.
+      </p>
+    </div>
+  </div>
+</main>
+{% endblock %}

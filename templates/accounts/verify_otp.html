@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تایید کد - {{ site_settings.site_name|default:"گلناز" }}</title>
+    <script type="module" crossorigin src="{% static 'js/bundle26.js' %}"></script>
+    <link rel="stylesheet" crossorigin href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+    <section class="relative flex min-h-screen w-full items-center justify-center">
+        <!-- background -->
+        <div class="bg-login pointer-events-none absolute inset-0 flex w-screen items-center justify-center overflow-hidden">
+        </div>
+
+        <div class="relative mx-5 flex w-[27rem] flex-col justify-center rounded-xl bg-white px-4 py-12 shadow-md md:px-8">
+            <div class="flex items-center justify-center">
+                <a href="{% url 'core:home' %}" class="flex flex-col items-center text-center">
+                    <img src="{% static 'images/logo.svg' %}" alt="{{ site_settings.site_name|default:'گلناز' }}">
+                </a>
+            </div>
+            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <p class="font-dana mb-2 text-lg font-semibold text-gray-900">
+                    کد تایید را وارد کنید
+                </p>
+                
+                {% if messages %}
+                {% for message in messages %}
+                <script>
+                    alert('{{ message }}');
+                </script>
+                {% endfor %}
+                {% endif %}
+                
+                {% if form.errors %}
+                <div class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                        <p class="text-sm text-red-600">{{ error }}</p>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    <p class="text-sm text-red-600">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                <form class="space-y-5" action="{% url 'accounts:verify_otp' %}" method="POST" x-data="otpTimer()">
+                    {% csrf_token %}
+                    <div>
+                        <label for="code" class="block text-sm font-medium text-gray-600">
+                            کد تایید برای شماره {{ phone }} ارسال شد
+                        </label>
+                        <div class="mt-3">
+                            <input type="text" name="code" id="code" required maxlength="6"
+                                   placeholder="کد ۶ رقمی"
+                                   class="block w-full appearance-none rounded-lg border-b-4 border-gray-300 bg-slate-200 p-3 text-sm/6 text-gray-800 outline-1 -outline-offset-1 transition-all outline-none placeholder:text-gray-400 focus:border-b-primary-800 text-center tracking-widest text-lg">
+                        </div>
+                    </div>
+                    
+                    <!-- تایمر و ارسال مجدد -->
+                    <div class="text-center">
+                        <template x-if="timeLeft > 0">
+                            <p class="text-sm text-gray-600">
+                                <span class="mx-1 text-center" x-text="formatTime(timeLeft)"></span>
+                                مانده تا دریافت مجدد کد
+                            </p>
+                        </template>
+                        <template x-if="timeLeft <= 0">
+                            <a href="{% url 'accounts:resend_otp' %}" 
+                               class="text-primary-800 text-sm font-semibold hover:underline">
+                                دریافت مجدد کد
+                            </a>
+                        </template>
+                    </div>
+                    
+                    <div>
+                        <button type="submit"
+                                class="bg-primary-600 hover:bg-primary-900 flex w-full justify-center rounded-md px-3 py-3 whitespace-nowrap text-white shadow-sm transition-colors duration-150 ease-in-out">
+                            تایید
+                        </button>
+                    </div>
+                </form>
+                
+                <p class="mt-4 text-center">
+                    <a href="{% url 'accounts:login' %}" class="text-sm text-gray-600 hover:text-primary-800">
+                        تغییر شماره موبایل
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function otpTimer() {
+            return {
+                timeLeft: {{ otp_remaining_time|default:120 }},
+                init() {
+                    this.startTimer();
+                },
+                startTimer() {
+                    const interval = setInterval(() => {
+                        if (this.timeLeft > 0) {
+                            this.timeLeft--;
+                        } else {
+                            clearInterval(interval);
+                        }
+                    }, 1000);
+                },
+                formatTime(seconds) {
+                    const mins = Math.floor(seconds / 60);
+                    const secs = seconds % 60;
+                    return `${mins.toString().padStart(2, '0')} : ${secs.toString().padStart(2, '0')}`;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

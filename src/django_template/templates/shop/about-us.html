@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}درباره ما - گل ناز{% endblock %}
+
+{% block content %}
+<main class="container mx-auto px-4 py-8">
+  <!-- Hero Section -->
+  <div class="text-center mb-16">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">درباره گل ناز</h1>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      ما با افتخار بیش از ۱۰ سال در زمینه ارائه محصولات زیبایی و مراقبت از پوست فعالیت می‌کنیم
+    </p>
+  </div>
+
+  <!-- About Content -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+    <div>
+      <img src="{% static 'images/web/about-us.jpg' %}" alt="درباره ما" class="w-full rounded-lg shadow-md">
+    </div>
+    <div class="flex flex-col justify-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">داستان ما</h2>
+      <div class="space-y-4 text-gray-600">
+        <p>
+          گل ناز در سال ۱۳۹۳ با هدف ارائه بهترین محصولات زیبایی و مراقبت از پوست تأسیس شد. 
+          ما معتقدیم که زیبایی طبیعی هر فرد باید حفظ و تقویت شود.
+        </p>
+        <p>
+          تیم ما متشکل از متخصصان مجرب در زمینه زیبایی و درماتولوژی است که همواره 
+          در جستجوی نوآوری و ارائه بهترین خدمات به مشتریان عزیز هستیم.
+        </p>
+        <p>
+          امروزه گل ناز به یکی از برندهای معتبر در صنعت زیبایی ایران تبدیل شده و 
+          محصولات ما در سراسر کشور توزیع می‌شود.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Values Section -->
+  <div class="mb-16">
+    <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">ارزش‌های ما</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">کیفیت برتر</h3>
+        <p class="text-gray-600">تمام محصولات ما با بالاترین استانداردهای کیفی تولید می‌شوند</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">رضایت مشتری</h3>
+        <p class="text-gray-600">رضایت و خوشحالی مشتریان ما اولویت اصلی ماست</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">تیم متخصص</h3>
+        <p class="text-gray-600">متخصصان مجرب ما همواره در خدمت شما هستند</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="bg-primary-50 rounded-lg p-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="text-3xl font-bold text-primary-600 mb-2">+۱۰</div>
+        <div class="text-gray-600">سال تجربه</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-primary-600 mb-2">+۱۰۰۰</div>
+        <div class="text-gray-600">محصول</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-primary-600 mb-2">+۵۰۰۰</div>
+        <div class="text-gray-600">مشتری راضی</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-primary-600 mb-2">+۵۰</div>
+        <div class="text-gray-600">شهر</div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

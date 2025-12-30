@@ -1,0 +1,111 @@
+{% load static %}
+{% load cart_tags %}
+<style>
+.mobile-nav-container {
+  display: flex !important;
+  width: 100% !important;
+  max-width: 512px !important;
+  margin: 0 auto !important;
+  padding: 8px 0 !important;
+  align-items: center !important;
+}
+
+.mobile-nav-item {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 8px 12px !important;
+}
+</style>
+<!-- Mobile Bottom Navigation - Only visible on mobile/tablet -->
+<nav class="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200 bg-white flex lg:hidden">
+  <div class="mobile-nav-container">
+    <!-- خانه -->
+    <a href="{% url 'core:home' %}" class="mobile-nav-item {% if request.resolver_match.url_name == 'home' %}text-primary-800{% else %}text-gray-600 hover:text-primary-800{% endif %}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-home">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+      </svg>
+      <span class="mt-1 text-xs font-semibold">خانه</span>
+    </a>
+
+    <!-- دسته‌بندی -->
+    <a href="{% url 'catalog:shop' %}" class="mobile-nav-item {% if request.resolver_match.url_name == 'shop' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'product_detail' %}text-primary-800{% else %}text-gray-600 hover:text-primary-800{% endif %}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-category">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M4 4h6v6h-6z" />
+        <path d="M14 4h6v6h-6z" />
+        <path d="M4 14h6v6h-6z" />
+        <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+      </svg>
+      <span class="mt-1 text-xs font-medium">دسته‌بندی</span>
+    </a>
+
+    <!-- سبد خرید -->
+    <a href="{% url 'cart:detail' %}"
+      class="mobile-nav-item relative {% if 'cart' in request.resolver_match.namespace %}text-primary-800{% else %}text-gray-600 hover:text-primary-800{% endif %}">
+      <div class="relative">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+          <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+          <path d="M17 17h-11v-14h-2" />
+          <path d="M6 5l14 1l-1 7h-13" />
+        </svg>
+        {% if cart.items_count > 0 %}
+        <span class="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary-600 text-xs text-white">
+          {{ cart.items_count }}
+        </span>
+        {% endif %}
+      </div>
+      <span class="mt-1 text-xs font-medium">سبد خرید</span>
+    </a>
+
+    <!-- علاقه‌مندی‌ها -->
+    <a href="{% url 'catalog:wishlist' %}" class="mobile-nav-item {% if request.resolver_match.url_name == 'wishlist' %}text-primary-800{% else %}text-gray-600 hover:text-primary-800{% endif %}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+      </svg>
+      <span class="mt-1 text-xs font-medium">علاقه‌مندی</span>
+    </a>
+
+    <!-- حساب کاربری -->
+    {% if user.is_authenticated %}
+    <a href="{% url 'dashboard:home' %}" class="mobile-nav-item {% if 'dashboard' in request.resolver_match.namespace %}text-primary-800{% else %}text-gray-600 hover:text-primary-800{% endif %}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-user">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+      </svg>
+      <span class="mt-1 text-xs font-medium">حساب من</span>
+    </a>
+    {% else %}
+    <a href="{% url 'accounts:login' %}" class="mobile-nav-item {% if 'accounts' in request.resolver_match.namespace %}text-primary-800{% else %}text-gray-600 hover:text-primary-800{% endif %}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-login">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M15 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+        <path d="M21 12h-13l3 -3" />
+        <path d="M11 15l-3 -3" />
+      </svg>
+      <span class="mt-1 text-xs font-medium">ورود</span>
+    </a>
+    {% endif %}
+  </div>
+</nav>

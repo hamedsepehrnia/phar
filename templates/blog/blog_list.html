@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}وبلاگ - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<main class="flex-1 bg-gray-50">
+  <div class="container mx-auto px-4 py-8">
+    <!-- Breadcrumb -->
+    <nav class="mb-8 flex items-center gap-2 text-sm text-gray-600">
+      <a href="{% url 'core:home' %}" class="hover:text-primary-600">خانه</a>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      <span class="font-semibold text-gray-800">وبلاگ</span>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="mb-8 text-center">
+      <h1 class="text-3xl font-bold text-gray-800">وبلاگ داروخانه دکتر واعظ</h1>
+      <p class="mt-2 text-gray-600">آخرین مقالات و نکات آرایشی و بهداشتی</p>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {% for post in posts %}
+      <article class="group hover:border-primary-800 space-y-3 rounded-xl bg-white p-4 drop-shadow-md transition hover:-translate-y-2 hover:border-b-4">
+        <!-- Image Section -->
+        <figure class="block py-4 text-center">
+          <a href="{% url 'blog:post_detail' post.slug %}">
+            {% if post.image %}
+            <img src="{{ post.image.url }}" class="rounded-blog mx-auto block h-50 w-full object-cover" alt="{{ post.title }}" />
+            {% else %}
+            <div class="flex h-50 w-full items-center justify-center rounded-lg bg-gray-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15" />
+              </svg>
+            </div>
+            {% endif %}
+          </a>
+        </figure>
+
+        <!-- Content Section -->
+        <section class="space-y-5">
+          <div class="space-y-4">
+            <!-- Category Tag -->
+            {% if post.category %}
+            <h4 class="before:bg-primary-900 relative before:absolute before:top-1/2 before:right-0 before:z-[-1] before:h-px before:w-full before:-translate-y-1/2 before:rounded-lg">
+              <a href="{% url 'blog:category' post.category.slug %}" class="border-primary-900 rounded-person border-r-2 bg-white px-2.5 py-1 text-sm text-gray-900 shadow-2xl">
+                {{ post.category.name }}
+              </a>
+            </h4>
+            {% endif %}
+
+            <!-- Article Title -->
+            <a href="{% url 'blog:post_detail' post.slug %}" class="group-hover:text-primary-800 line-clamp-2 text-sm font-semibold text-gray-600 transition-colors">
+              {{ post.title }}
+            </a>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="mt-8 flex flex-wrap items-center justify-between">
+            <!-- Views Counter -->
+            <div class="flex items-center text-gray-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                <path d="M12 18c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.09 .15 -.18 .295 -.27 .439" />
+              </svg>
+              <span class="mr-2">{{ post.views|intcomma }} بازدید</span>
+            </div>
+
+            <!-- Read More Button -->
+            <a href="{% url 'blog:post_detail' post.slug %}" class="group group-hover:text-primary-800 flex w-fit items-center justify-center gap-x-1 text-xs text-gray-600 transition md:text-sm">
+              ادامه مطلب
+              <svg class="group-hover:fill-primary-800 size-2 fill-gray-600 transition md:size-4" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256">
+                <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
+              </svg>
+            </a>
+          </div>
+        </section>
+      </article>
+      {% empty %}
+      <!-- Empty State -->
+      <div class="col-span-full flex flex-col items-center justify-center py-16 text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="mb-4 h-16 w-16 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+        </svg>
+        <h3 class="mb-2 text-lg font-semibold text-gray-700">هنوز مقاله‌ای منتشر نشده</h3>
+        <p class="text-sm text-gray-500">به زودی مقالات جدید منتشر خواهد شد</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+    <div class="my-12 flex w-full justify-center">
+      <nav class="flex items-center space-x-2">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="rounded-lg border border-gray-300 p-2 text-gray-600">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M5 12l14 0" />
+            <path d="M13 18l6 -6" />
+            <path d="M13 6l6 6" />
+          </svg>
+        </a>
+        {% endif %}
+        
+        {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+          <span class="bg-primary-600 rounded-lg px-4 py-2 font-medium text-white">{{ num }}</span>
+          {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <a href="?page={{ num }}" class="rounded-lg border border-gray-300 px-4 py-2 text-gray-600 hover:bg-gray-50">{{ num }}</a>
+          {% endif %}
+        {% endfor %}
+        
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="rounded-lg border border-gray-300 p-2 text-gray-600">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M5 12l14 0" />
+            <path d="M5 12l6 6" />
+            <path d="M5 12l6 -6" />
+          </svg>
+        </a>
+        {% endif %}
+      </nav>
+    </div>
+    {% endif %}
+  </div>
+</main>
+{% endblock %}

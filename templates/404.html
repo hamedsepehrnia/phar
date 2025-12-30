@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه یافت نشد - {{ site_settings.site_name|default:"گلناز" }}</title>
+    <script type="module" crossorigin src="{% static 'js/bundle26.js' %}"></script>
+    <link rel="stylesheet" crossorigin href="{% static 'css/main.css' %}">
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center px-4">
+        <div class="text-center max-w-md">
+            <!-- آیکون 404 -->
+            <div class="mb-8">
+                <span class="text-9xl font-bold text-primary-200">۴۰۴</span>
+            </div>
+            
+            <h1 class="text-2xl font-bold text-gray-800 mb-4">صفحه مورد نظر یافت نشد!</h1>
+            <p class="text-gray-600 mb-8">
+                متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد یا حذف شده است.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'core:home' %}" 
+                   class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                    </svg>
+                    صفحه اصلی
+                </a>
+                <a href="{% url 'catalog:shop' %}" 
+                   class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-8 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                        <path d="M12.5 17h-6.5v-14h-2" />
+                        <path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5" />
+                        <path d="M16 19h6" />
+                        <path d="M19 16v6" />
+                    </svg>
+                    فروشگاه
+                </a>
+            </div>
+            
+            <p class="mt-8 text-sm text-gray-500">
+                اگر فکر می‌کنید این یک اشتباه است، لطفاً با 
+                <a href="{% url 'core:contact' %}" class="text-primary-600 hover:underline">پشتیبانی</a>
+                تماس بگیرید.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

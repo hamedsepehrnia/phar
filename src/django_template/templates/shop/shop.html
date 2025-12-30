@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}فروشگاه - گل ناز{% endblock %}
+
+{% block content %}
+<main class="container mx-auto px-4 py-8">
+  <!-- Breadcrumb -->
+  <div class="mb-6">
+    <nav class="flex" aria-label="Breadcrumb">
+      <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <li class="inline-flex items-center">
+          <a href="{% url 'home' %}" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary-600">
+            خانه
+          </a>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <svg class="w-6 h-6 text-gray-400 rotate-180" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="mr-1 text-sm font-medium text-gray-500 md:mr-2">فروشگاه</span>
+          </div>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-8">
+    <!-- Sidebar Filters -->
+    <div class="lg:w-1/4">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <h3 class="font-semibold text-lg mb-4">فیلترها</h3>
+        
+        <!-- Category Filter -->
+        <div class="mb-6">
+          <h4 class="font-medium mb-3">دسته‌بندی</h4>
+          <div class="space-y-2">
+            <label class="flex items-center">
+              <input type="checkbox" class="rounded text-primary-600">
+              <span class="mr-2 text-sm">مرطوب کننده</span>
+            </label>
+            <label class="flex items-center">
+              <input type="checkbox" class="rounded text-primary-600">
+              <span class="mr-2 text-sm">ضد آفتاب</span>
+            </label>
+            <label class="flex items-center">
+              <input type="checkbox" class="rounded text-primary-600">
+              <span class="mr-2 text-sm">سرم</span>
+            </label>
+            <label class="flex items-center">
+              <input type="checkbox" class="rounded text-primary-600">
+              <span class="mr-2 text-sm">ماسک صورت</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="mb-6">
+          <h4 class="font-medium mb-3">محدوده قیمت</h4>
+          <div class="flex items-center space-x-2">
+            <input type="number" placeholder="از" class="w-full px-3 py-2 border rounded-md text-sm">
+            <span class="text-gray-500">تا</span>
+            <input type="number" placeholder="تا" class="w-full px-3 py-2 border rounded-md text-sm">
+          </div>
+        </div>
+
+        <!-- Brand Filter -->
+        <div class="mb-6">
+          <h4 class="font-medium mb-3">برند</h4>
+          <div class="space-y-2">
+            <label class="flex items-center">
+              <input type="checkbox" class="rounded text-primary-600">
+              <span class="mr-2 text-sm">برند A</span>
+            </label>
+            <label class="flex items-center">
+              <input type="checkbox" class="rounded text-primary-600">
+              <span class="mr-2 text-sm">برند B</span>
+            </label>
+            <label class="flex items-center">
+              <input type="checkbox" class="rounded text-primary-600">
+              <span class="mr-2 text-sm">برند C</span>
+            </label>
+          </div>
+        </div>
+
+        <button class="w-full bg-primary-600 text-white py-2 rounded-md hover:bg-primary-700 transition-colors">
+          اعمال فیلتر
+        </button>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="lg:w-3/4">
+      <!-- Sort and View Options -->
+      <div class="flex flex-col sm:flex-row justify-between items-center mb-6">
+        <div class="mb-4 sm:mb-0">
+          <span class="text-gray-600">نمایش ۱-۱۲ از ۴۸ محصول</span>
+        </div>
+        <div class="flex items-center space-x-4">
+          <select class="px-3 py-2 border rounded-md text-sm">
+            <option>مرتب‌سازی بر اساس</option>
+            <option>جدیدترین</option>
+            <option>قیمت: کم به زیاد</option>
+            <option>قیمت: زیاد به کم</option>
+            <option>محبوبیت</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for i in "123456789012"|make_list %}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <a href="{% url 'product_detail' forloop.counter %}">
+            <div class="aspect-square overflow-hidden relative group">
+              <img src="{% static 'images/product/gallery/0' %}{{ forloop.counter }}.jpg" 
+                   alt="محصول {{ forloop.counter }}" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+              
+              <!-- Quick View Button -->
+              <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                <button class="bg-white text-gray-900 px-4 py-2 rounded-md opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0">
+                  مشاهده سریع
+                </button>
+              </div>
+            </div>
+            
+            <div class="p-4">
+              <h3 class="font-semibold text-gray-900 mb-2 line-clamp-1">محصول زیبایی شماره {{ forloop.counter }}</h3>
+              <p class="text-gray-600 text-sm mb-3 line-clamp-2">توضیح کوتاه درباره محصول و خواص مفید آن برای پوست و زیبایی</p>
+              
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center">
+                  {% for star in "12345"|make_list %}
+                    <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                    </svg>
+                  {% endfor %}
+                  <span class="text-gray-600 text-sm mr-1">(۲۴)</span>
+                </div>
+              </div>
+              
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-gray-400 line-through text-sm">۳۰۰,۰۰۰</span>
+                  <span class="text-primary-600 font-bold mr-2">۲۵۰,۰۰۰ تومان</span>
+                </div>
+                <button class="bg-primary-600 text-white px-3 py-1 rounded-md text-sm hover:bg-primary-700 transition-colors flex items-center">
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m-2.4 0L5.4 9M7 13L5.4 9m1.6 4l-2 9m0 0h16m-16 0a1 1 0 100-2m16 2a1 1 0 100-2"/>
+                  </svg>
+                  افزودن
+                </button>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      <div class="mt-12 flex justify-center">
+        <nav class="flex items-center space-x-2">
+          <button class="px-3 py-2 text-sm text-gray-500 hover:text-gray-700 border rounded-md">قبلی</button>
+          
+          <button class="px-3 py-2 text-sm bg-primary-600 text-white border rounded-md">1</button>
+          <button class="px-3 py-2 text-sm text-gray-700 hover:text-gray-900 border rounded-md">2</button>
+          <button class="px-3 py-2 text-sm text-gray-700 hover:text-gray-900 border rounded-md">3</button>
+          <span class="px-3 py-2 text-sm text-gray-500">...</span>
+          <button class="px-3 py-2 text-sm text-gray-700 hover:text-gray-900 border rounded-md">10</button>
+          
+          <button class="px-3 py-2 text-sm text-gray-700 hover:text-gray-900 border rounded-md">بعدی</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

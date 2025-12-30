@@ -1,0 +1,471 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}فروشگاه - {{ site_settings.site_name|default:"داروخانه دکتر واعظ" }}{% endblock %}
+
+{% block content %}
+<style>
+  .shop-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  .shop-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 16px;
+  }
+  .shop-breadcrumb a {
+    color: #6b7280;
+    text-decoration: none;
+  }
+  .shop-breadcrumb a:hover {
+    color: #a954fc;
+  }
+  .shop-topbar {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .shop-topbar .count {
+    font-size: 14px;
+    color: #374151;
+  }
+  .shop-topbar .count strong {
+    color: #111827;
+  }
+  .shop-topbar select {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+  }
+  .shop-layout {
+    display: flex;
+    gap: 24px;
+  }
+  .shop-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+  }
+  .shop-products {
+    flex: 1;
+    min-width: 0;
+  }
+  .sidebar-box {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 100px;
+  }
+  .sidebar-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #111827;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+  }
+  .sidebar-list li {
+    margin-bottom: 8px;
+  }
+  .sidebar-list label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #4b5563;
+  }
+  .sidebar-list label:hover {
+    color: #111827;
+  }
+  .sidebar-list input[type="radio"],
+  .sidebar-list input[type="checkbox"] {
+    accent-color: #a954fc;
+  }
+  .sidebar-price {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .sidebar-price input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  .sidebar-btn {
+    width: 100%;
+    padding: 10px;
+    background: #a954fc;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .sidebar-btn:hover {
+    background: #bc7bfd;
+  }
+  .sidebar-clear {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #6b7280;
+    text-decoration: none;
+  }
+  .sidebar-clear:hover {
+    color: #ef4444;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .product-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  .product-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+  .product-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+    height: 42px;
+    overflow: hidden;
+  }
+  .product-card h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .product-card h3 a:hover {
+    color: #a954fc;
+  }
+  .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .product-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #a954fc;
+  }
+  .product-price .old {
+    font-size: 12px;
+    color: #9ca3af;
+    text-decoration: line-through;
+    font-weight: 400;
+    display: block;
+  }
+  .product-btn {
+    background: #a954fc;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .product-btn:hover {
+    background: #bc7bfd;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 32px;
+  }
+  .pagination a, .pagination span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .pagination a {
+    background: #fff;
+    border: 1px solid #d1d5db;
+    color: #374151;
+  }
+  .pagination a:hover {
+    background: #f7eeff;
+    border-color: #a954fc;
+  }
+  .pagination .current {
+    background: #a954fc;
+    color: #fff;
+  }
+  .empty-state {
+    background: #fff;
+    border-radius: 8px;
+    padding: 48px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .empty-state h3 {
+    font-size: 18px;
+    color: #111827;
+    margin: 0 0 8px 0;
+  }
+  .empty-state p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 16px 0;
+  }
+  .empty-state a {
+    display: inline-block;
+    background: #a954fc;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .empty-state a:hover {
+    background: #bc7bfd;
+  }
+  @media (max-width: 1024px) {
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .shop-layout {
+      flex-direction: column;
+    }
+    .shop-sidebar {
+      width: 100%;
+      display: none;
+    }
+    .shop-sidebar.open {
+      display: block;
+    }
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .mobile-filter-btn {
+      display: flex !important;
+    }
+  }
+  .mobile-filter-btn {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 16px;
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+  }
+</style>
+
+<main style="background: #f9fafb; min-height: 100vh; padding-bottom: 80px;">
+  <div class="shop-container">
+    
+    <!-- Breadcrumb -->
+    <nav class="shop-breadcrumb">
+      <a href="{% url 'core:home' %}">خانه</a>
+      <span>/</span>
+      <span style="color: #111827; font-weight: 600;">فروشگاه</span>
+    </nav>
+
+    <!-- Top Bar -->
+    <div class="shop-topbar">
+      <div class="count">
+        <strong>{{ products.paginator.count }}</strong> محصول
+        {% if current_category or current_brand %}
+        <a href="{% url 'catalog:shop' %}" style="color: #ef4444; font-size: 12px; margin-right: 8px;">حذف فیلترها</a>
+        {% endif %}
+      </div>
+      <select onchange="window.location=this.value">
+        <option value="{% url 'catalog:shop' %}?sort=newest{% if current_category %}&category={{ current_category }}{% endif %}{% if current_brand %}&brand={{ current_brand }}{% endif %}" {% if current_sort == 'newest' %}selected{% endif %}>جدیدترین</option>
+        <option value="{% url 'catalog:shop' %}?sort=price_low{% if current_category %}&category={{ current_category }}{% endif %}{% if current_brand %}&brand={{ current_brand }}{% endif %}" {% if current_sort == 'price_low' %}selected{% endif %}>ارزان‌ترین</option>
+        <option value="{% url 'catalog:shop' %}?sort=price_high{% if current_category %}&category={{ current_category }}{% endif %}{% if current_brand %}&brand={{ current_brand }}{% endif %}" {% if current_sort == 'price_high' %}selected{% endif %}>گران‌ترین</option>
+        <option value="{% url 'catalog:shop' %}?sort=popular{% if current_category %}&category={{ current_category }}{% endif %}{% if current_brand %}&brand={{ current_brand }}{% endif %}" {% if current_sort == 'popular' %}selected{% endif %}>پرفروش‌ترین</option>
+      </select>
+    </div>
+
+    <!-- Mobile Filter Button -->
+    <button class="mobile-filter-btn" onclick="toggleFilters()">
+      <span>فیلترها</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16"/><path d="M7 12h10"/><path d="M10 18h4"/></svg>
+    </button>
+
+    <!-- Main Layout -->
+    <div class="shop-layout">
+      
+      <!-- Sidebar -->
+      <aside class="shop-sidebar" id="shopSidebar">
+        <div class="sidebar-box">
+          <form method="GET" action="{% url 'catalog:shop' %}">
+            <input type="hidden" name="sort" value="{{ current_sort|default:'newest' }}">
+            
+            <!-- Categories -->
+            <h4 class="sidebar-title">دسته‌بندی</h4>
+            <ul class="sidebar-list">
+              {% for category in categories %}
+              <li>
+                <label>
+                  <input type="radio" name="category" value="{{ category.slug }}" {% if current_category == category.slug %}checked{% endif %}>
+                  {{ category.name }}
+                </label>
+              </li>
+              {% endfor %}
+            </ul>
+
+            {% if brands %}
+            <!-- Brands -->
+            <h4 class="sidebar-title">برند</h4>
+            <ul class="sidebar-list">
+              {% for brand in brands %}
+              <li>
+                <label>
+                  <input type="radio" name="brand" value="{{ brand.slug }}" {% if current_brand == brand.slug %}checked{% endif %}>
+                  {{ brand.name }}
+                </label>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+
+            <!-- Price -->
+            <h4 class="sidebar-title">محدوده قیمت</h4>
+            <div class="sidebar-price">
+              <input type="number" name="min_price" value="{{ min_price }}" placeholder="از">
+              <input type="number" name="max_price" value="{{ max_price }}" placeholder="تا">
+            </div>
+
+            <!-- In Stock -->
+            <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151; margin-bottom: 16px;">
+              <input type="checkbox" name="in_stock" value="1" {% if in_stock %}checked{% endif %}>
+              فقط موجود
+            </label>
+
+            <button type="submit" class="sidebar-btn">اعمال فیلتر</button>
+            
+            {% if current_category or current_brand or min_price or max_price or in_stock %}
+            <a href="{% url 'catalog:shop' %}" class="sidebar-clear">حذف همه فیلترها</a>
+            {% endif %}
+          </form>
+        </div>
+      </aside>
+
+      <!-- Products -->
+      <section class="shop-products">
+        {% if products %}
+        <div class="products-grid">
+          {% for product in products %}
+          <div class="product-card">
+            <a href="{{ product.get_absolute_url }}">
+              {% if product.images.exists %}
+              <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+              {% else %}
+              <img src="{% static 'images/product/placeholder.jpg' %}" alt="{{ product.name }}">
+              {% endif %}
+            </a>
+            <h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
+            <div class="product-footer">
+              <div class="product-price">
+                {% if product.compare_at_price and product.compare_at_price > product.price %}
+                <span class="old">{{ product.compare_at_price|intcomma }}</span>
+                {% endif %}
+                {{ product.price|intcomma }} تومان
+              </div>
+              {% if product.is_in_stock %}
+              <form action="{% url 'cart:add' product.id %}" method="POST" style="margin: 0;">
+                {% csrf_token %}
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit" class="product-btn">خرید</button>
+              </form>
+              {% else %}
+              <span style="font-size: 12px; color: #ef4444;">ناموجود</span>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        {% if products.has_other_pages %}
+        <nav class="pagination">
+          {% if products.has_previous %}
+          <a href="?page={{ products.previous_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}{% if current_brand %}&brand={{ current_brand }}{% endif %}{% if current_sort %}&sort={{ current_sort }}{% endif %}">‹</a>
+          {% endif %}
+          
+          {% for num in products.paginator.page_range %}
+            {% if num >= products.number|add:'-2' and num <= products.number|add:'2' %}
+              {% if num == products.number %}
+              <span class="current">{{ num }}</span>
+              {% else %}
+              <a href="?page={{ num }}{% if current_category %}&category={{ current_category }}{% endif %}{% if current_brand %}&brand={{ current_brand }}{% endif %}{% if current_sort %}&sort={{ current_sort }}{% endif %}">{{ num }}</a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          
+          {% if products.has_next %}
+          <a href="?page={{ products.next_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}{% if current_brand %}&brand={{ current_brand }}{% endif %}{% if current_sort %}&sort={{ current_sort }}{% endif %}">›</a>
+          {% endif %}
+        </nav>
+        {% endif %}
+
+        {% else %}
+        <div class="empty-state">
+          <h3>محصولی یافت نشد</h3>
+          <p>با فیلترهای انتخابی محصولی وجود ندارد.</p>
+          <a href="{% url 'catalog:shop' %}">مشاهده همه محصولات</a>
+        </div>
+        {% endif %}
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<script>
+function toggleFilters() {
+  var sidebar = document.getElementById('shopSidebar');
+  sidebar.classList.toggle('open');
+}
+</script>
+{% endblock %}

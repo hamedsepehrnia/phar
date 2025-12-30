@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}جزئیات محصول - گل ناز{% endblock %}
+
+{% block content %}
+<main class="container mx-auto px-4 py-8">
+  <!-- Breadcrumb -->
+  <div class="mb-6">
+    <nav class="flex" aria-label="Breadcrumb">
+      <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <li class="inline-flex items-center">
+          <a href="{% url 'home' %}" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary-600">
+            خانه
+          </a>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <svg class="w-6 h-6 text-gray-400 rotate-180" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <a href="{% url 'shop' %}" class="mr-1 text-sm font-medium text-gray-700 hover:text-primary-600 md:mr-2">فروشگاه</a>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <svg class="w-6 h-6 text-gray-400 rotate-180" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="mr-1 text-sm font-medium text-gray-500 md:mr-2">محصول {{ product_id }}</span>
+          </div>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <!-- Product Images -->
+    <div class="space-y-4">
+      <!-- Main Image -->
+      <div class="aspect-square overflow-hidden rounded-lg">
+        <img src="{% static 'images/product/gallery/01.jpg' %}" 
+             alt="محصول {{ product_id }}" 
+             class="w-full h-full object-cover" 
+             id="mainImage">
+      </div>
+      
+      <!-- Thumbnail Images -->
+      <div class="grid grid-cols-4 gap-4">
+        {% for i in "1234"|make_list %}
+        <div class="aspect-square overflow-hidden rounded-lg cursor-pointer border-2 border-transparent hover:border-primary-600 transition-colors">
+          <img src="{% static 'images/product/gallery/0' %}{{ i }}.jpg" 
+               alt="تصویر {{ i }}" 
+               class="w-full h-full object-cover thumbnail-image"
+               onclick="changeMainImage(this.src)">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="space-y-6">
+      <div>
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">محصول زیبایی شماره {{ product_id }}</h1>
+        <div class="flex items-center mb-4">
+          <div class="flex items-center">
+            {% for star in "12345"|make_list %}
+              <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+            {% endfor %}
+          </div>
+          <span class="text-gray-600 mr-2">(۴۸ نظر)</span>
+          <span class="text-green-600 mr-4">موجود در انبار</span>
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="border-t border-b py-6">
+        <div class="flex items-center space-x-4">
+          <span class="text-gray-400 line-through text-lg">۳۵۰,۰۰۰ تومان</span>
+          <span class="text-3xl font-bold text-primary-600">۲۸۰,۰۰۰ تومان</span>
+          <span class="bg-red-100 text-red-800 text-sm px-2 py-1 rounded-full">۲۰٪ تخفیف</span>
+        </div>
+      </div>
+
+      <!-- Product Description -->
+      <div>
+        <h3 class="text-lg font-semibold mb-3">توضیحات محصول</h3>
+        <p class="text-gray-600 leading-relaxed">
+          این محصول زیبایی با فرمولاسیون پیشرفته و استفاده از بهترین مواد طبیعی، 
+          برای مراقبت روزانه از پوست طراحی شده است. حاوی ویتامین‌ها و مواد مغذی 
+          که به حفظ سلامت و شادابی پوست کمک می‌کند.
+        </p>
+      </div>
+
+      <!-- Product Features -->
+      <div>
+        <h3 class="text-lg font-semibold mb-3">ویژگی‌ها</h3>
+        <ul class="space-y-2">
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span>مناسب برای تمام انواع پوست</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span>حاوی مواد طبیعی و ارگانیک</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span>بدون پارابن و مواد شیمیایی مضر</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span>تست شده توسط درماتولوژیست</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Quantity and Add to Cart -->
+      <div class="space-y-4">
+        <div class="flex items-center space-x-4">
+          <label class="text-gray-700 font-medium">تعداد:</label>
+          <div class="flex items-center border border-gray-300 rounded-md">
+            <button class="px-3 py-2 text-gray-600 hover:text-gray-800" onclick="decreaseQuantity()">-</button>
+            <input type="number" value="1" min="1" class="w-16 text-center border-0 focus:ring-0" id="quantity">
+            <button class="px-3 py-2 text-gray-600 hover:text-gray-800" onclick="increaseQuantity()">+</button>
+          </div>
+        </div>
+
+        <div class="flex space-x-4">
+          <button class="flex-1 bg-primary-600 text-white py-3 rounded-md hover:bg-primary-700 transition-colors flex items-center justify-center">
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m-2.4 0L5.4 9M7 13L5.4 9m1.6 4l-2 9m0 0h16m-16 0a1 1 0 100-2m16 2a1 1 0 100-2"/>
+            </svg>
+            افزودن به سبد خرید
+          </button>
+          <button class="p-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
+            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </button>
+        </div>
+
+        <button class="w-full bg-gray-800 text-white py-3 rounded-md hover:bg-gray-900 transition-colors">
+          خرید سریع
+        </button>
+      </div>
+
+      <!-- Product Meta -->
+      <div class="border-t pt-6">
+        <div class="grid grid-cols-1 gap-2 text-sm">
+          <div class="flex">
+            <span class="text-gray-600 w-20">برند:</span>
+            <span class="text-gray-900">گل ناز</span>
+          </div>
+          <div class="flex">
+            <span class="text-gray-600 w-20">دسته‌بندی:</span>
+            <span class="text-gray-900">مراقبت از پوست</span>
+          </div>
+          <div class="flex">
+            <span class="text-gray-600 w-20">کد محصول:</span>
+            <span class="text-gray-900">GN-{{ product_id|stringformat:"03d" }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <div class="mt-16">
+    <h2 class="text-2xl font-bold text-gray-900 mb-8">محصولات مرتبط</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {% for i in "1234"|make_list %}
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+        <a href="{% url 'product_detail' forloop.counter %}">
+          <div class="aspect-square overflow-hidden">
+            <img src="{% static 'images/product/gallery/0' %}{{ forloop.counter }}.jpg" 
+                 alt="محصول مرتبط {{ forloop.counter }}" 
+                 class="w-full h-full object-cover hover:scale-105 transition-transform">
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-gray-900 mb-2">محصول مرتبط {{ forloop.counter }}</h3>
+            <div class="flex items-center justify-between">
+              <span class="text-primary-600 font-bold">۲۵۰,۰۰۰ تومان</span>
+              <button class="bg-primary-600 text-white px-3 py-1 rounded-md text-sm hover:bg-primary-700 transition-colors">
+                افزودن
+              </button>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  function changeMainImage(src) {
+    document.getElementById('mainImage').src = src;
+    
+    // Remove active class from all thumbnails
+    document.querySelectorAll('.thumbnail-image').forEach(img => {
+      img.parentElement.classList.remove('border-primary-600');
+      img.parentElement.classList.add('border-transparent');
+    });
+    
+    // Add active class to clicked thumbnail
+    event.target.parentElement.classList.remove('border-transparent');
+    event.target.parentElement.classList.add('border-primary-600');
+  }
+
+  function increaseQuantity() {
+    const quantityInput = document.getElementById('quantity');
+    quantityInput.value = parseInt(quantityInput.value) + 1;
+  }
+
+  function decreaseQuantity() {
+    const quantityInput = document.getElementById('quantity');
+    if (parseInt(quantityInput.value) > 1) {
+      quantityInput.value = parseInt(quantityInput.value) - 1;
+    }
+  }
+</script>
+{% endblock %}

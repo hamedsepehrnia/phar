@@ -1,0 +1,253 @@
+{% load static %}
+
+<!-- Desktop Sidebar -->
+<div class="top-1 mb-8 hidden h-fit flex-col items-center gap-y-4 rounded-lg bg-white p-4 shadow-md lg:sticky lg:flex lg:w-1/4">
+  <!-- Name and Avatar -->
+  <div class="border-gray-200 py-3 flex w-full items-center justify-between border-b">
+    <div class="flex items-center gap-x-3">
+      <img src="{% static 'images/user-woman.png' %}" class="size-10 rounded-full ring-2 ring-gray-400/20" alt="آواتار" />
+      <span class="flex flex-col gap-y-2">
+        <p class="font-yekan-bakh text-base font-semibold">{{ user.get_full_name|default:user.phone }}</p>
+        <p class="text-gray-400">{{ user.phone }}</p>
+      </span>
+    </div>
+    <a href="{% url 'dashboard:profile' %}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="text-primary-800 h-6 w-6 cursor-pointer">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+        <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+        <path d="M16 5l3 3" />
+      </svg>
+    </a>
+  </div>
+  
+  <ul class="relative w-full space-y-2">
+    <!-- پنل کاربری -->
+    <li class="{% if active_menu == 'dashboard' %}bg-primary-50{% else %}hover:bg-primary-50{% endif %} group flex cursor-pointer items-center gap-x-2 rounded-lg px-2 py-3 text-base transition-all duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="{% if active_menu == 'dashboard' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %}">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M14 4h6v6h-6z" />
+        <path d="M4 14h6v6h-6z" />
+        <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+        <path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+      </svg>
+      <a href="{% url 'dashboard:home' %}" class="{% if active_menu == 'dashboard' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %} font-yekan-bakh font-semibold">
+        پنل کاربری
+      </a>
+    </li>
+    
+    <!-- سفارش‌ها -->
+    <li class="{% if active_menu == 'orders' %}bg-primary-50{% else %}hover:bg-primary-50{% endif %} group flex cursor-pointer items-center gap-x-2 rounded-lg px-2 py-3 text-base transition-all duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="{% if active_menu == 'orders' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %}">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M10 14a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+        <path d="M5.001 8h13.999a2 2 0 0 1 1.977 2.304l-1.255 7.152a3 3 0 0 1 -2.966 2.544h-9.512a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304z" />
+        <path d="M17 10l-2 -6" />
+        <path d="M7 10l2 -6" />
+      </svg>
+      <a href="{% url 'dashboard:orders' %}" class="{% if active_menu == 'orders' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %} font-yekan-bakh font-semibold">
+        سفارش‌های من
+      </a>
+    </li>
+    
+    <!-- علاقه‌مندی‌ها -->
+    <li class="{% if active_menu == 'wishlist' %}bg-primary-50{% else %}hover:bg-primary-50{% endif %} group flex cursor-pointer items-center gap-x-2 rounded-lg px-2 py-3 text-base transition-all duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="{% if active_menu == 'wishlist' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %}">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M11.5 21h-6.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v6" />
+        <path d="M3 10h18" />
+        <path d="M10 3v18" />
+        <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+      </svg>
+      <a href="{% url 'dashboard:wishlist' %}" class="{% if active_menu == 'wishlist' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %} font-yekan-bakh font-semibold">
+        لیست علاقه‌مندی‌ها
+      </a>
+    </li>
+    
+    <!-- آدرس‌ها -->
+    <li class="{% if active_menu == 'addresses' %}bg-primary-50{% else %}hover:bg-primary-50{% endif %} group flex cursor-pointer items-center gap-x-2 rounded-lg px-2 py-3 text-base transition-all duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="{% if active_menu == 'addresses' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %}">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+        <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+      </svg>
+      <a href="{% url 'dashboard:addresses' %}" class="{% if active_menu == 'addresses' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %} font-yekan-bakh font-semibold">
+        آدرس‌های من
+      </a>
+    </li>
+    
+    <!-- دیدگاه‌ها -->
+    <li class="{% if active_menu == 'reviews' %}bg-primary-50{% else %}hover:bg-primary-50{% endif %} group flex cursor-pointer items-center gap-x-2 rounded-lg px-2 py-3 text-base transition-all duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="{% if active_menu == 'reviews' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %}">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M8 9h8" />
+        <path d="M8 13h6" />
+        <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z" />
+      </svg>
+      <a href="{% url 'dashboard:reviews' %}" class="{% if active_menu == 'reviews' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %} font-yekan-bakh font-semibold">
+        دیدگاه‌های من
+      </a>
+    </li>
+    
+    <!-- اطلاعات شخصی -->
+    <li class="{% if active_menu == 'profile' %}bg-primary-50{% else %}hover:bg-primary-50{% endif %} group flex cursor-pointer items-center gap-x-2 rounded-lg px-2 py-3 text-base transition-all duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="{% if active_menu == 'profile' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %}">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+        <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+        <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+      </svg>
+      <a href="{% url 'dashboard:profile' %}" class="{% if active_menu == 'profile' %}text-primary-800{% else %}text-gray-700 group-hover:text-primary-800{% endif %} font-yekan-bakh font-semibold">
+        اطلاعات شخصی
+      </a>
+    </li>
+    
+    <!-- خروج -->
+    <li class="bg-error-50 flex cursor-pointer items-center gap-x-2 rounded-lg px-2 py-3 text-base transition-all duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="text-error-500">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+        <path d="M9 12h12l-3 -3" />
+        <path d="M18 15l3 -3" />
+      </svg>
+      <a href="{% url 'accounts:logout' %}" class="text-error-500 font-yekan-bakh font-semibold">
+        خروج از حساب
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Mobile Menu Trigger and Panel -->
+<div class="lg:hidden mb-8">
+  <div class="flex flex-col items-center justify-center gap-y-4">
+    <div class="relative">
+      <div class="bg-primary-800 flex h-16 w-16 items-center justify-center rounded-full text-center text-lg font-semibold text-white">
+        <img src="{% static 'images/user-woman.png' %}" class="size-full rounded-full" alt="آواتار" />
+      </div>
+      <a href="{% url 'dashboard:profile' %}"
+        class="text-primary absolute -top-2 -right-3 rounded-full border border-gray-200 bg-white p-1.5 text-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+          <path d="M13.5 6.5l4 4" />
+        </svg>
+      </a>
+    </div>
+    <div class="text-center">
+      <p class="font-yekan-bakh line-clamp-1 font-semibold text-gray-700">{{ user.get_full_name|default:user.phone }}</p>
+      <p class="text-text/95">{{ user.phone }}</p>
+    </div>
+    <div x-data="{ openMobileMenu: false }">
+      <button @click="openMobileMenu = true"
+        class="bg-primary-800 flex cursor-pointer items-center gap-1 rounded-md px-4 py-2 text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M14 4h6v6h-6z" />
+          <path d="M4 14h6v6h-6z" />
+          <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+          <path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+        </svg>
+        منوی پنل کاربری
+      </button>
+      
+      <!-- Mobile Menu Panel -->
+      <div x-show="openMobileMenu" 
+           x-transition:enter="transition ease-out duration-300"
+           x-transition:enter-start="opacity-0"
+           x-transition:enter-end="opacity-100"
+           x-transition:leave="transition ease-in duration-200"
+           x-transition:leave-start="opacity-100"
+           x-transition:leave-end="opacity-0"
+           class="fixed inset-0 z-50 bg-black/50" 
+           @click="openMobileMenu = false">
+      </div>
+      
+      <div x-show="openMobileMenu"
+           x-transition:enter="transition ease-out duration-300"
+           x-transition:enter-start="translate-y-full"
+           x-transition:enter-end="translate-y-0"
+           x-transition:leave="transition ease-in duration-200"
+           x-transition:leave-start="translate-y-0"
+           x-transition:leave-end="translate-y-full"
+           class="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-2xl p-4 max-h-[70vh] overflow-y-auto">
+        <button @click="openMobileMenu = false" class="absolute top-4 left-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-gray-700">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-1.5 7.5a1 1 0 0 0-1.414 1.414L10.586 12l-1.5 1.5a1 1 0 1 0 1.414 1.414L12 13.414l1.5 1.5a1 1 0 0 0 1.414-1.414L13.414 12l1.5-1.5a1 1 0 0 0-1.414-1.414L12 10.586l-1.5-1.5z" />
+          </svg>
+        </button>
+        
+        <ul class="mt-8 space-y-2">
+          <li class="{% if active_menu == 'dashboard' %}bg-primary-50{% endif %} flex items-center gap-x-2 rounded-lg px-2 py-3">
+            <a href="{% url 'dashboard:home' %}" class="{% if active_menu == 'dashboard' %}text-primary-800{% else %}text-gray-700{% endif %} font-yekan-bakh font-semibold flex items-center gap-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M14 4h6v6h-6z" /><path d="M4 14h6v6h-6z" /><path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+              </svg>
+              پنل کاربری
+            </a>
+          </li>
+          <li class="{% if active_menu == 'orders' %}bg-primary-50{% endif %} flex items-center gap-x-2 rounded-lg px-2 py-3">
+            <a href="{% url 'dashboard:orders' %}" class="{% if active_menu == 'orders' %}text-primary-800{% else %}text-gray-700{% endif %} font-yekan-bakh font-semibold flex items-center gap-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 14a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M5.001 8h13.999a2 2 0 0 1 1.977 2.304l-1.255 7.152a3 3 0 0 1 -2.966 2.544h-9.512a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304z" /><path d="M17 10l-2 -6" /><path d="M7 10l2 -6" />
+              </svg>
+              سفارش‌های من
+            </a>
+          </li>
+          <li class="{% if active_menu == 'wishlist' %}bg-primary-50{% endif %} flex items-center gap-x-2 rounded-lg px-2 py-3">
+            <a href="{% url 'dashboard:wishlist' %}" class="{% if active_menu == 'wishlist' %}text-primary-800{% else %}text-gray-700{% endif %} font-yekan-bakh font-semibold flex items-center gap-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+              لیست علاقه‌مندی‌ها
+            </a>
+          </li>
+          <li class="{% if active_menu == 'addresses' %}bg-primary-50{% endif %} flex items-center gap-x-2 rounded-lg px-2 py-3">
+            <a href="{% url 'dashboard:addresses' %}" class="{% if active_menu == 'addresses' %}text-primary-800{% else %}text-gray-700{% endif %} font-yekan-bakh font-semibold flex items-center gap-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+              </svg>
+              آدرس‌های من
+            </a>
+          </li>
+          <li class="{% if active_menu == 'profile' %}bg-primary-50{% endif %} flex items-center gap-x-2 rounded-lg px-2 py-3">
+            <a href="{% url 'dashboard:profile' %}" class="{% if active_menu == 'profile' %}text-primary-800{% else %}text-gray-700{% endif %} font-yekan-bakh font-semibold flex items-center gap-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+              </svg>
+              اطلاعات شخصی
+            </a>
+          </li>
+          <li class="bg-error-50 flex items-center gap-x-2 rounded-lg px-2 py-3">
+            <a href="{% url 'accounts:logout' %}" class="text-error-500 font-yekan-bakh font-semibold flex items-center gap-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-error-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" /><path d="M9 12h12l-3 -3" /><path d="M18 15l3 -3" />
+              </svg>
+              خروج از حساب
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

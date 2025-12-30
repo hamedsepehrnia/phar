@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}پرداخت سفارش - {{ site_settings.site_name|default:"داروخانه دکتر واعظ" }}{% endblock %}
+
+{% block content %}
+<main class="flex-1 pb-20 lg:pb-0">
+  <div class="container mx-auto w-full">
+    <!-- Breadcrumb -->
+    <nav class="my-4 flex px-4 lg:px-0">
+      <ol class="inline-flex items-center space-x-1 md:space-x-2">
+        <li class="group flex items-center">
+          <a href="{% url 'core:home' %}" class="group-hover:text-primary-600 inline-flex items-center text-sm font-medium text-gray-800 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12.707 2.293l9 9c.63 .63 .184 1.707 -.707 1.707h-1v6a3 3 0 0 1 -3 3h-1v-7a3 3 0 0 0 -2.824 -2.995l-.176 -.005h-2a3 3 0 0 0 -3 3v7h-1a3 3 0 0 1 -3 -3v-6h-1c-.89 0 -1.337 -1.077 -.707 -1.707l9 -9a1 1 0 0 1 1.414 0m.293 11.707a1 1 0 0 1 1 1v7h-4v-7a1 1 0 0 1 .883 -.993l.117 -.007z" />
+            </svg>
+            <span class="ms-1 text-sm font-medium text-gray-700 md:ms-2">خانه</span>
+          </a>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <svg class="mx-1 h-3 w-3 text-gray-400 rtl:rotate-180" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"></path>
+            </svg>
+            <a href="{% url 'dashboard:orders' %}" class="ms-1 text-sm font-medium text-gray-700 hover:text-primary-600">سفارش‌ها</a>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <svg class="mx-1 h-3 w-3 text-gray-400 rtl:rotate-180" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"></path>
+            </svg>
+            <span class="ms-1 text-sm font-medium text-gray-700">پرداخت</span>
+          </div>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Payment Details -->
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-lg font-bold text-gray-800 mb-4">پرداخت سفارش</h2>
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <span class="text-gray-600">شماره سفارش:</span>
+          <span class="font-semibold text-gray-800">{{ order.order_number }}</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-gray-600">مبلغ قابل پرداخت:</span>
+          <span class="font-semibold text-primary-800 text-lg">{{ order.total|intcomma }} تومان</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-gray-600">وضعیت:</span>
+          <span class="font-semibold text-gray-800">{{ order.get_status_display }}</span>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <form action="{% url 'orders:payment' order.pk %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="w-full bg-gradient-to-r from-primary-800 to-pink-300 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            اتصال به درگاه پرداخت
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

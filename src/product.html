@@ -1,0 +1,2866 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر</title>
+  <!-- link css -->
+  <link rel="stylesheet" href="src/css/style.css" />
+  <link rel="stylesheet" href="src/plugin/swiper/swiper-bundle.min.css" />
+</head>
+
+<body x-data="{ loaded: true, openCategory: false, activeCategory: null }">
+  <!-- start perloader -->
+  <div x-show="loaded"
+    x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
+    class="fixed top-0 left-0 z-9999999 flex h-screen w-screen items-center justify-center bg-white">
+    <span class="loader"></span>
+  </div>
+  <!-- end perloader  -->
+
+  <div class="h-screen overflow-auto">
+    <!--  header -->
+    <div class="sticky top-0 z-9999 w-full bg-gray-50">
+      <header x-data="{ searchOpen: false, openSearch: false, open: false, query: '' }"
+        class="shadow-1-bottom relative z-5 flex items-start border-0 border-b-[1px] border-solid border-gray-200 bg-gray-50 px-4 py-2 shadow-none">
+        <div class="relative ml-0 w-full">
+          <!-- mobile -->
+          <div class="w-full lg:hidden">
+            <div class="flex items-center justify-between gap-4">
+              <!-- search input -->
+              <div class="flex-1">
+                <div @click="openSearch = true"
+                  class="flex h-10 grow items-center rounded-md border-none bg-gray-100 px-0 transition-colors hover:bg-gray-200 lg:px-4">
+                  <div class="w-full rounded-md lg:rounded-full">
+                    <div class="flex h-9 min-w-0 grow items-center justify-between px-3">
+                      <div class="flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icon-tabler-search text-icon-high-emphasis">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                          <path d="M21 21l-6 -6" />
+                        </svg>
+                      </div>
+                      <span class="flex h-10 grow items-center px-2 text-sm font-medium text-gray-700 lg:px-4">
+                        جستجو در
+                        <span class="text-primary-700 ml-1 font-semibold">گل ناز</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <!-- search panel -->
+                <div x-show="openSearch" x-transition:enter="transition ease-out duration-300"
+                  x-transition:enter-start="opacity-0 translate-y-full"
+                  x-transition:enter-end="opacity-100 translate-y-0"
+                  x-transition:leave="transition ease-in duration-300"
+                  x-transition:leave-start="opacity-100 translate-y-0"
+                  x-transition:leave-end="opacity-0 translate-y-full"
+                  class="fixed inset-0 z-9999 h-full w-full bg-white px-4 py-10 shadow-lg">
+                  <!-- close button -->
+                  <button @click="openSearch = false" class="absolute top-2 right-2 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                      class="text-gray-700">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path
+                        d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-1.5 7.5a1 1 0 0 0-1.414 1.414L10.586 12l-1.5 1.5a1 1 0 1 0 1.414 1.414L12 13.414l1.5 1.5a1 1 0 0 0 1.414-1.414L13.414 12l1.5-1.5a1 1 0 0 0-1.414-1.414L12 10.586l-1.5-1.5z" />
+                    </svg>
+                  </button>
+
+                  <div class="relative w-full">
+                    <!-- Input -->
+                    <input type="text" x-model="query" @focus="open = true" @keydown.escape="open = false"
+                      placeholder="جستجو کنید..."
+                      class="focus:border-primary-800 focus:ring-primary-500/10 w-full rounded-xl border-b-4 border-gray-300 bg-transparent px-3 py-3 text-sm font-semibold text-gray-700 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden" />
+
+                    <!-- Results -->
+                    <div x-show="open && query.length > 0" x-transition
+                      class="absolute top-full left-0 mt-2 w-full rounded-lg border border-gray-200 bg-white shadow-lg">
+                      <ul class="divide-y divide-gray-100">
+                        <template x-for="i in 3" :key="i">
+                          <li>
+                            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50">
+                              <!-- تصویر فرضی محصول -->
+                              <div
+                                class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md bg-gray-100 text-gray-400">
+                                📦
+                              </div>
+                              <!-- عنوان محصول -->
+                              <div>
+                                <p class="text-sm font-semibold text-gray-700">
+                                  محصول: <span x-text="query"></span> شماره
+                                  <span x-text="i"></span>
+                                </p>
+                                <p class="text-xs text-gray-400">
+                                  توضیح کوتاه درباره محصول
+                                </p>
+                              </div>
+                            </a>
+                          </li>
+                        </template>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="mt-8 h-full space-y-6">
+                    <!-- User Recent Search -->
+                    <div>
+                      <div class="mb-6 flex items-center justify-between">
+                        <div class="font-dana font-semibold text-gray-800">
+                          جستجوهای اخیر شما
+                        </div>
+                        <button
+                          class="text-error-500 hover:text-error-500/80 flex items-center gap-2 text-sm duration-200">
+                          حذف همه
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M4 7l16 0" />
+                            <path d="M10 11l0 6" />
+                            <path d="M14 11l0 6" />
+                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                          </svg>
+                        </button>
+                      </div>
+
+                      <div class="flex flex-wrap gap-4 pt-3">
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          رژ لب
+                        </a>
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          کرم پودر
+                        </a>
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          ریمل
+                        </a>
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          سایه چشم
+                        </a>
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          رژگونه
+                        </a>
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          کرم مرطوب‌کننده
+                        </a>
+                      </div>
+                    </div>
+                    <!-- Popular Search -->
+                    <div>
+                      <div class="font-dana font-semibold text-gray-800">
+                        جستجوهای پرتکرار
+                      </div>
+                      <div class="flex flex-wrap gap-4 pt-3">
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          رژ لب
+                        </a>
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          کرم پودر
+                        </a>
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          ریمل
+                        </a>
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          سایه چشم
+                        </a>
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          رژگونه
+                        </a>
+                        <a href="#"
+                          class="hover:bg-primary-100 rounded-2xl border border-gray-200 px-2 py-1 text-sm text-gray-700 duration-200">
+                          کرم مرطوب‌کننده
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- button -->
+              <a href="#"
+                class="border-primary-800 text-primary-800 bg-primary-50 hover:bg-primary-100 relative inline-flex cursor-pointer items-center rounded-lg border p-1.5 tracking-[0.02em] transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-user">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- desktop -->
+          <div class="container mx-auto hidden lg:block">
+            <div class="flex w-full items-center justify-between">
+              <div class="flex items-center gap-x-4">
+                <!-- Logo -->
+                <a href="#">
+                  <img src="images/logo.svg" alt="" class="" />
+                </a>
+
+                <!-- Input Search -->
+                <div class="relative mx-auto w-xl">
+                  <!-- Input -->
+                  <input type="text" x-model="query" @focus="open = true" @keydown.escape="open = false"
+                    placeholder="جستجو کنید..."
+                    class="focus:border-primary-800 focus:ring-primary-500/10 w-full rounded-xl border-b-4 border-gray-300 bg-transparent px-3 py-3 text-sm font-semibold text-gray-700 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden" />
+
+                  <!-- Results -->
+                  <div x-show="open && query.length > 0" x-transition
+                    class="absolute top-full left-0 z-50 mt-2 w-full rounded-lg border border-gray-200 bg-white shadow-lg">
+                    <ul class="divide-y divide-gray-100">
+                      <template x-for="i in 3" :key="i">
+                        <li>
+                          <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50">
+                            <!-- تصویر فرضی محصول -->
+                            <div
+                              class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md bg-gray-100 text-gray-400">
+                              📦
+                            </div>
+                            <!-- عنوان محصول -->
+                            <div>
+                              <p class="text-sm font-semibold text-gray-700">
+                                محصول: <span x-text="query"></span> شماره
+                                <span x-text="i"></span>
+                              </p>
+                              <p class="text-xs text-gray-400">
+                                توضیح کوتاه درباره محصول
+                              </p>
+                            </div>
+                          </a>
+                        </li>
+                      </template>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Left: Account -->
+              <div class="flex items-center gap-2">
+                <div class="relative" x-data="{ open: false }">
+                  <!-- button profile -->
+
+                  <div @click="open = !open" class="flex items-center justify-center gap-x-1">
+                    <div class="relative inline-flex items-center gap-x-2 rounded-xl border-b-5 p-2 transition-colors"
+                      :class="open ? 'border-primary-800' : 'border-gray-300'">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-user-circle text-gray-600">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                        <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+                      </svg>
+                      <span class="font-dana text-sm font-semibold text-gray-600">
+                        حساب کاربری
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- menu profile -->
+                  <div x-show="open" @click.outside="open = false" x-transition
+                    class="absolute left-0 z-50 mt-2 w-64 divide-y divide-gray-200 rounded-xl border border-gray-100 bg-white shadow-lg">
+                    <!-- هدر -->
+                    <div class="flex items-center gap-3 p-4">
+                      <img src="images/user.png" alt="کاربر" class="h-12 w-12 rounded-full" />
+                      <div>
+                        <p class="font-dana font-semibold text-gray-800">
+                          کاربر نازگل
+                        </p>
+                        <p class="truncate text-sm text-gray-500">
+                          user@example.com
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- لینک‌ها -->
+                    <nav class="py-2">
+                      <a href="" class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100">
+                        <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2"
+                          viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M5.121 17.804A9 9 0 1119.364 3.56 9 9 0 015.12 17.804zM15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        حساب کاربری
+                      </a>
+                      <a href="" class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100">
+                        <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2"
+                          viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M20 13V7a2 2 0 00-2-2H6a2 2 0 00-2 2v6m16 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16 0H4" />
+                        </svg>
+                        سفارش‌ها
+                      </a>
+                      <a href="" class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100">
+                        <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2"
+                          viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 
+             4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 
+             4.5 0 010-6.364z" />
+                        </svg>
+                        علاقه‌مندی‌ها
+                      </a>
+                    </nav>
+
+                    <!-- خروج -->
+                    <div class="p-2">
+                      <button class="flex w-full items-center gap-3 px-4 py-2 text-red-600 hover:bg-red-50">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 
+             2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1" />
+                        </svg>
+                        خروج
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- navigation -->
+            <div class="w-full py-2">
+              <ul class="flex items-center gap-x-8">
+                <li class="flex items-center justify-center gap-x-1">
+                  <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-home text-primary-800">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                    </svg>
+                    <span class="font-dana text-primary-800 text-sm font-semibold">
+                      صفحه اصلی
+                    </span>
+                  </a>
+                </li>
+
+                <li class="relative flex items-center justify-center gap-x-1" x-data="{ open: false, activeIndex: 0 }"
+                  @mouseenter="open = true" @mouseleave="open = false">
+                  <!-- Main menu link -->
+                  <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-category text-gray-600">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M4 4h6v6h-6z" />
+                      <path d="M14 4h6v6h-6z" />
+                      <path d="M4 14h6v6h-6z" />
+                      <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                    </svg>
+                    <span class="font-dana text-sm font-semibold text-gray-600">
+                      دسته بندی محصولات
+                    </span>
+                  </a>
+
+                  <!-- Mega menu -->
+                  <div class="absolute top-full right-0 h-[400px] w-[900px] overflow-hidden rounded-b-lg bg-white"
+                    x-show="open" x-transition @click.outside="open = false">
+                    <div class="flex">
+                      <!-- Right side categories -->
+                      <div dir="ltr"
+                        class="bg-background max-h-[400px] min-h-[400px] min-w-[200px] overflow-y-auto py-5">
+                        <ul dir="rtl" class="flex flex-col">
+                          <li>
+                            <a href="#" class="mega-menu-link font-dana font-medium"
+                              :class="activeIndex === 0 ? 'mega-menu-link-active text-primary-800 font-semibold' : 'text-gray-800'"
+                              @mouseenter="activeIndex = 0">
+                              آرایش صورت
+                            </a>
+                          </li>
+
+                          <li>
+                            <a href="#" class="mega-menu-link font-dana font-medium"
+                              :class="activeIndex === 1 ? 'mega-menu-link-active text-primary-800 font-semibold' : 'text-gray-800'"
+                              @mouseenter="activeIndex = 1">
+                              آرایش چشم و ابرو
+                            </a>
+                          </li>
+
+                          <li>
+                            <a href="#" class="mega-menu-link font-dana font-medium"
+                              :class="activeIndex === 2 ? 'mega-menu-link-active text-primary-800 font-semibold' : 'text-gray-800'"
+                              @mouseenter="activeIndex = 2">
+                              آرایش لب
+                            </a>
+                          </li>
+
+                          <li>
+                            <a href="#" class="mega-menu-link font-dana font-medium"
+                              :class="activeIndex === 3 ? 'mega-menu-link-active text-primary-800 font-semibold' : 'text-gray-800'"
+                              @mouseenter="activeIndex = 3">
+                              مراقبت پوست
+                            </a>
+                          </li>
+
+                          <li>
+                            <a href="#" class="mega-menu-link font-dana font-medium"
+                              :class="activeIndex === 4 ? 'mega-menu-link-active text-primary-800 font-semibold' : 'text-gray-800'"
+                              @mouseenter="activeIndex = 4">
+                              مراقبت مو
+                            </a>
+                          </li>
+
+                          <li>
+                            <a href="#" class="mega-menu-link font-dana font-medium"
+                              :class="activeIndex === 5 ? 'mega-menu-link-active text-primary-800 font-semibold' : 'text-gray-800'"
+                              @mouseenter="activeIndex = 5">
+                              عطر و ادکلن
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <!-- Left side subcategories -->
+                      <div dir="ltr" class="relative max-h-[400px] min-h-[400px] w-full overflow-hidden p-6">
+                        <div dir="rtl" class="relative h-full">
+                          <!-- Subcategory: آرایش صورت -->
+                          <div class="absolute inset-0 overflow-y-auto transition-opacity duration-200"
+                            :class="activeIndex === 0 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'">
+                            <div class="mb-6">
+                              <a href="#"
+                                class="text-primary-800 hover:text-primary-800/80 flex items-center gap-x-1 text-sm duration-200">
+                                <span>مشاهده همه</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round" class="icon icon-tabler icon-tabler-arrow-left">
+                                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                  <path d="M5 12h14" />
+                                  <path d="M5 12l6 6" />
+                                  <path d="M5 12l6 -6" />
+                                </svg>
+                              </a>
+                            </div>
+                            <ul class="flex flex-col space-y-4">
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">کرم پودر</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">پنکیک</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">رژگونه</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">هایلایتر</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">پرایمر</a>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <!-- Subcategory: آرایش چشم و ابرو -->
+                          <div class="absolute inset-0 overflow-y-auto transition-opacity duration-200"
+                            :class="activeIndex === 1 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'">
+                            <div class="mb-6">
+                              <a href="#"
+                                class="text-primary-800 hover:text-primary-800/80 flex items-center gap-x-1 text-sm duration-200">
+                                <span>مشاهده همه</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round" class="icon icon-tabler icon-tabler-arrow-left">
+                                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                  <path d="M5 12h14" />
+                                  <path d="M5 12l6 6" />
+                                  <path d="M5 12l6 -6" />
+                                </svg>
+                              </a>
+                            </div>
+                            <ul class="flex flex-col space-y-4">
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">سایه چشم</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">ریمل</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">مداد چشم</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">خط چشم</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">ابرو</a>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <!-- Subcategory: آرایش لب -->
+                          <div class="absolute inset-0 overflow-y-auto transition-opacity duration-200"
+                            :class="activeIndex === 2 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'">
+                            <div class="mb-6">
+                              <a href="#"
+                                class="text-primary-800 hover:text-primary-800/80 flex items-center gap-x-1 text-sm duration-200">
+                                <span>مشاهده همه</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round" class="icon icon-tabler icon-tabler-arrow-left">
+                                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                  <path d="M5 12h14" />
+                                  <path d="M5 12l6 6" />
+                                  <path d="M5 12l6 -6" />
+                                </svg>
+                              </a>
+                            </div>
+                            <ul class="flex flex-col space-y-4">
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">رژ لب</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">بالم لب</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">خط لب</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">برق لب</a>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <!-- Subcategory: مراقبت پوست -->
+                          <div class="absolute inset-0 overflow-y-auto transition-opacity duration-200"
+                            :class="activeIndex === 3 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'">
+                            <div class="mb-6">
+                              <a href="#"
+                                class="text-primary-800 hover:text-primary-800/80 flex items-center gap-x-1 text-sm duration-200">
+                                <span>مشاهده همه</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round" class="icon icon-tabler icon-tabler-arrow-left">
+                                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                  <path d="M5 12h14" />
+                                  <path d="M5 12l6 6" />
+                                  <path d="M5 12l6 -6" />
+                                </svg>
+                              </a>
+                            </div>
+                            <ul class="flex flex-col space-y-4">
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">کرم مرطوب‌کننده</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">تونر</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">سرم پوست</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">ماسک صورت</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">ضد آفتاب</a>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <!-- Subcategory: مراقبت مو -->
+                          <div class="absolute inset-0 overflow-y-auto transition-opacity duration-200"
+                            :class="activeIndex === 4 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'">
+                            <div class="mb-6">
+                              <a href="#"
+                                class="text-primary-800 hover:text-primary-800/80 flex items-center gap-x-1 text-sm duration-200">
+                                <span>مشاهده همه</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round" class="icon icon-tabler icon-tabler-arrow-left">
+                                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                  <path d="M5 12h14" />
+                                  <path d="M5 12l6 6" />
+                                  <path d="M5 12l6 -6" />
+                                </svg>
+                              </a>
+                            </div>
+                            <ul class="flex flex-col space-y-4">
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">شامپو</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">ماسک مو</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">روغن مو</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">سرم مو</a>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <!-- Subcategory: عطر و ادکلن -->
+                          <div class="absolute inset-0 overflow-y-auto transition-opacity duration-200"
+                            :class="activeIndex === 5 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'">
+                            <div class="mb-6">
+                              <a href="#"
+                                class="text-primary-800 hover:text-primary-800/80 flex items-center gap-x-1 text-sm duration-200">
+                                <span>مشاهده همه</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round" class="icon icon-tabler icon-tabler-arrow-left">
+                                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                  <path d="M5 12h14" />
+                                  <path d="M5 12l6 6" />
+                                  <path d="M5 12l6 -6" />
+                                </svg>
+                              </a>
+                            </div>
+                            <ul class="flex flex-col space-y-4">
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">عطر زنانه</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">عطر مردانه</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">بادی اسپلش</a>
+                              </li>
+                              <li>
+                                <a href="#" class="hover:text-primary-800 block text-sm">ست هدیه</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="flex items-center justify-center gap-x-1">
+                  <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-discount text-gray-600">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M9 15l6 -6" />
+                      <circle cx="9.5" cy="9.5" r=".5" fill="currentColor" />
+                      <circle cx="14.5" cy="14.5" r=".5" fill="currentColor" />
+                      <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                    </svg>
+                    <span class="font-dana text-sm font-semibold text-gray-600">
+                      تخفیف ها / ویژه ها
+                    </span>
+                  </a>
+                </li>
+
+                <li class="flex items-center justify-center gap-x-1">
+                  <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle text-gray-600">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                      <path d="M12 9h.01" />
+                      <path d="M11 12h1v4h1" />
+                    </svg>
+                    <span class="font-dana text-sm font-semibold text-gray-600">
+                      جدیدترین ها
+                    </span>
+                  </a>
+                </li>
+
+                <li class="flex items-center justify-center gap-x-1">
+                  <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-bag-discount text-gray-600">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path
+                        d="M12.5 21h-3.926a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304h11.339a2 2 0 0 1 1.977 2.304l-.416 2.7" />
+                      <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+                      <path d="M16 21l5 -5" />
+                      <path d="M21 21v.01" />
+                      <path d="M16 16v.01" />
+                    </svg>
+                    <span class="font-dana text-sm font-semibold text-gray-600">
+                      پرفروشترین ها
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <!-- Main container -->
+    <div class="flex h-screen flex-col">
+      <main class="flex-1">
+        <div class="container mx-auto w-full">
+          <!-- breadcrumb -->
+          <nav class="my-4 flex px-4 lg:px-0">
+            <ol class="inline-flex items-center space-x-1 md:space-x-2">
+              <li class="group flex items-center">
+                <a href="/"
+                  class="group-hover:text-primary-600 inline-flex items-center text-sm font-medium text-gray-800 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-home">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M12.707 2.293l9 9c.63 .63 .184 1.707 -.707 1.707h-1v6a3 3 0 0 1 -3 3h-1v-7a3 3 0 0 0 -2.824 -2.995l-.176 -.005h-2a3 3 0 0 0 -3 3v7h-1a3 3 0 0 1 -3 -3v-6h-1c-.89 0 -1.337 -1.077 -.707 -1.707l9 -9a1 1 0 0 1 1.414 0m.293 11.707a1 1 0 0 1 1 1v7h-4v-7a1 1 0 0 1 .883 -.993l.117 -.007z" />
+                  </svg>
+                  <a href="#"
+                    class="group-hover:text-primary-600 ms-1 text-sm font-medium text-gray-700 transition-colors md:ms-2">
+                    <span>خانه</span>
+                  </a>
+                </a>
+              </li>
+              <li>
+                <div class="flex items-center">
+                  <svg class="mx-1 h-3 w-3 text-gray-400 rtl:rotate-180" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 9 4-4-4-4"></path>
+                  </svg>
+                  <a href="#" class="hover:text-primary-600 ms-1 text-sm font-medium text-gray-700 transition-colors">
+                    <span>فروشگاه</span>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center">
+                  <svg class="mx-1 h-3 w-3 text-gray-400 rtl:rotate-180" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 9 4-4-4-4"></path>
+                  </svg>
+                  <span class="ms-1 text-sm font-medium text-gray-700">
+                    کرم شب بازسازی....
+                  </span>
+                </div>
+              </li>
+            </ol>
+          </nav>
+
+          <!-- main -->
+          <div class="rounded-lg border border-gray-100 bg-white px-4 pt-4 drop-shadow-lg">
+            <div class="grid grid-cols-6 place-items-start gap-4">
+              <!-- gallery -->
+              <section class="top-0 col-span-6 mt-7 w-full gap-y-10 pb-10 lg:sticky lg:col-span-2">
+                <header class="relative z-10 ms-3 mt-2 flex items-center justify-between">
+                  <div class="absolute start-0 top-1 flex flex-col space-y-3 rounded bg-white p-1">
+                    <button class="group relative cursor-pointer hover:text-gray-400"
+                      aria-label="افزودن به علاقه‌مندی‌ها">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
+                        </path>
+                      </svg>
+                      <span
+                        class="absolute top-1/2 right-full mr-2 hidden -translate-y-1/2 rounded-md bg-gray-900 px-2 py-1 text-sm text-nowrap text-white shadow-lg group-hover:block">
+                        <span
+                          class="absolute top-1/2 left-full h-0 w-0 -translate-y-1/2 border-y-4 border-l-4 border-y-transparent border-l-gray-900"></span>
+                        افزودن به علاقه‌مندی‌ها
+                      </span>
+                    </button>
+                    <button data-modal-target="shareModal"
+                      class="modal-trigger group relative cursor-pointer hover:text-gray-400" aria-label="اشتراک گذاری">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z">
+                        </path>
+                      </svg>
+                      <span
+                        class="absolute top-1/2 right-full mr-2 hidden -translate-y-1/2 rounded-md bg-gray-900 px-2 py-1 text-sm text-nowrap text-white shadow-lg group-hover:block">
+                        <span
+                          class="absolute top-1/2 left-full h-0 w-0 -translate-y-1/2 border-y-4 border-l-4 border-y-transparent border-l-gray-900"></span>
+                        اشتراک گذاری
+                      </span>
+                    </button>
+                    <button class="group relative cursor-pointer hover:text-gray-400" aria-label="مقایسه محصول">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"></path>
+                      </svg>
+                      <span
+                        class="absolute top-1/2 right-full mr-2 hidden -translate-y-1/2 rounded-md bg-gray-900 px-2 py-1 text-sm text-nowrap text-white shadow-lg group-hover:block">
+                        <span
+                          class="absolute top-1/2 left-full h-0 w-0 -translate-y-1/2 border-y-4 border-l-4 border-y-transparent border-l-gray-900"></span>
+                        مقایسه محصول
+                      </span>
+                    </button>
+                  </div>
+                </header>
+                <div class="swiper mb-4" id="productGalleryTwo">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide !pl-1">
+                      <img src="/images/product/gallery/01.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="rounded-lg border border-gray-300 p-2" />
+                    </div>
+                    <div class="swiper-slide !pl-1">
+                      <img src="/images/product/gallery/02.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="rounded-lg border border-gray-300 p-2" />
+                    </div>
+                    <div class="swiper-slide !pl-1">
+                      <img src="/images/product/gallery/03.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="rounded-lg border border-gray-300 p-2" />
+                    </div>
+                    <div class="swiper-slide !pl-1">
+                      <img src="/images/product/gallery/04.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="rounded-lg border border-gray-300 p-2" />
+                    </div>
+                    <div class="swiper-slide !pl-1">
+                      <img src="/images/product/gallery/05.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="rounded-lg border border-gray-300 p-2" />
+                    </div>
+                    <div class="swiper-slide !pl-1">
+                      <img src="/images/product/gallery/06.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="rounded-lg border border-gray-300 p-2" />
+                    </div>
+                  </div>
+                  <div
+                    class="swiper-button-prev after:text-primary !size-12 rounded-full border-gray-200 bg-white px-3 after:!text-xl">
+                  </div>
+                  <div
+                    class="swiper-button-next after:text-primary !size-12 rounded-full border-gray-200 bg-white px-3 after:!text-xl">
+                  </div>
+                  <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                </div>
+                <div id="productGalleryOne" class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="/images/product/gallery/01.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="cursor-pointer rounded-lg border border-gray-300 p-2" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="/images/product/gallery/02.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="cursor-pointer rounded-lg border border-gray-300 p-2" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="/images/product/gallery/03.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="cursor-pointer rounded-lg border border-gray-300 p-2" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="/images/product/gallery/04.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="cursor-pointer rounded-lg border border-gray-300 p-2" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="/images/product/gallery/05.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="cursor-pointer rounded-lg border border-gray-300 p-2" />
+                    </div>
+                    <div class="swiper-slide !pl-1">
+                      <img src="/images/product/gallery/06.webp"
+                        alt="کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر"
+                        class="cursor-pointer rounded-lg border border-gray-300 p-2" />
+                    </div>
+                  </div>
+                  <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                </div>
+              </section>
+              <!-- meta -->
+              <section class="col-span-6 my-7 w-full lg:col-span-4">
+                <!-- title -->
+                <div class="space-y-5">
+                  <h1 class="pb-3 text-xl leading-7 font-semibold text-gray-800">
+                    کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی لیتر
+                  </h1>
+                </div>
+                <!-- rating -->
+                <div class="mt-5 flex w-full items-center gap-1.5">
+                  <div class="rounded-person flex items-center justify-center gap-x-2 bg-white px-2 py-1 shadow-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                      fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star text-orange-300">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path
+                        d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                    </svg>
+                    <span class="text-xs">5 امتیاز</span>
+                  </div>
+                  <div class="rounded-person flex items-center justify-center gap-x-1 bg-white px-2 py-1 shadow-xs">
+                    <span class="text-xs text-gray-700">2 دیدگاه</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left text-gray-700">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M15 6l-6 6l6 6" />
+                    </svg>
+                  </div>
+                  <div class="rounded-person flex items-center justify-center gap-x-1 bg-white px-2 py-1 shadow-xs">
+                    <span class="text-xs text-gray-700">6 پرسش</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left text-gray-700">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M15 6l-6 6l6 6" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- feature and meta -->
+                <div class="grid grid-cols-4 gap-4">
+                  <!-- feature -->
+                  <section class="col-span-4 w-full lg:col-span-2">
+                    <!-- color -->
+                    <div class="my-4">
+                      <div class="my-4 flex flex-wrap items-center space-x-3">
+                        <div class="flex items-center">
+                          <input type="radio" name="color" checked="" id="pinkColor" class="peer hidden" />
+                          <label for="pinkColor"
+                            class="flex cursor-pointer items-center justify-center rounded-full border-2 border-gray-200 px-2 py-2 text-gray-700 transition-colors duration-200 ease-in-out select-none peer-checked:border-pink-800/70">
+                            <span class="size-4 rounded-full bg-pink-600"></span>
+                          </label>
+                        </div>
+                        <div class="flex items-center">
+                          <input type="radio" name="color" checked="" id="yellowColor" class="peer hidden" />
+                          <label for="yellowColor"
+                            class="flex cursor-pointer items-center justify-center rounded-full border-2 border-gray-200 px-2 py-2 text-gray-700 transition-colors duration-200 ease-in-out select-none peer-checked:border-yellow-800/70">
+                            <span class="size-4 rounded-full bg-yellow-500"></span>
+                          </label>
+                        </div>
+                        <div class="flex items-center">
+                          <input type="radio" name="color" checked="" id="orangeColor" class="peer hidden" />
+                          <label for="orangeColor"
+                            class="flex cursor-pointer items-center justify-center rounded-full border-2 border-gray-200 px-2 py-2 text-gray-700 transition-colors duration-200 ease-in-out select-none peer-checked:border-orange-800/70">
+                            <span class="size-4 rounded-full bg-orange-600"></span>
+                          </label>
+                        </div>
+                        <div class="flex items-center">
+                          <input type="radio" name="color" checked="" id="amberColor" class="peer hidden" />
+                          <label for="amberColor"
+                            class="flex cursor-pointer items-center justify-center rounded-full border-2 border-gray-200 px-2 py-2 text-gray-700 transition-colors duration-200 ease-in-out select-none peer-checked:border-amber-800/70 peer-checked:text-gray-900">
+                            <span class="size-4 rounded-full bg-amber-600"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- feature -->
+                    <div class="space-y-5">
+                      <h4 class="text-lg font-semibold text-gray-800">
+                        ویژگی‌های محصول:
+                      </h4>
+                      <ul class="flex flex-col flex-wrap items-start space-y-3 space-x-3">
+                        <li>
+                          <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="icon icon-tabler icons-tabler-filled icon-tabler-square-rounded-check text-gray-700">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path
+                                d="M12 2c-.218 0 -.432 .002 -.642 .005l-.616 .017l-.299 .013l-.579 .034l-.553 .046c-4.785 .464 -6.732 2.411 -7.196 7.196l-.046 .553l-.034 .579c-.005 .098 -.01 .198 -.013 .299l-.017 .616l-.004 .318l-.001 .324c0 .218 .002 .432 .005 .642l.017 .616l.013 .299l.034 .579l.046 .553c.464 4.785 2.411 6.732 7.196 7.196l.553 .046l.579 .034c.098 .005 .198 .01 .299 .013l.616 .017l.642 .005l.642 -.005l.616 -.017l.299 -.013l.579 -.034l.553 -.046c4.785 -.464 6.732 -2.411 7.196 -7.196l.046 -.553l.034 -.579c.005 -.098 .01 -.198 .013 -.299l.017 -.616l.005 -.642l-.005 -.642l-.017 -.616l-.013 -.299l-.034 -.579l-.046 -.553c-.464 -4.785 -2.411 -6.732 -7.196 -7.196l-.553 -.046l-.579 -.034a28.058 28.058 0 0 0 -.299 -.013l-.616 -.017l-.318 -.004l-.324 -.001zm2.293 7.293a1 1 0 0 1 1.497 1.32l-.083 .094l-4 4a1 1 0 0 1 -1.32 .083l-.094 -.083l-2 -2a1 1 0 0 1 1.32 -1.497l.094 .083l1.293 1.292l3.293 -3.292z"
+                                fill="currentColor" stroke-width="0" />
+                            </svg>
+
+                            <span class="inline-block text-sm text-gray-700">حاوی اسموسید (کاهش حساسیت و نگهدارنده
+                              کمتر)</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="icon icon-tabler icons-tabler-filled icon-tabler-square-rounded-check text-gray-700">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path
+                                d="M12 2c-.218 0 -.432 .002 -.642 .005l-.616 .017l-.299 .013l-.579 .034l-.553 .046c-4.785 .464 -6.732 2.411 -7.196 7.196l-.046 .553l-.034 .579c-.005 .098 -.01 .198 -.013 .299l-.017 .616l-.004 .318l-.001 .324c0 .218 .002 .432 .005 .642l.017 .616l.013 .299l.034 .579l.046 .553c.464 4.785 2.411 6.732 7.196 7.196l.553 .046l.579 .034c.098 .005 .198 .01 .299 .013l.616 .017l.642 .005l.642 -.005l.616 -.017l.299 -.013l.579 -.034l.553 -.046c4.785 -.464 6.732 -2.411 7.196 -7.196l.046 -.553l.034 -.579c.005 -.098 .01 -.198 .013 -.299l.017 -.616l.005 -.642l-.005 -.642l-.017 -.616l-.013 -.299l-.034 -.579l-.046 -.553c-.464 -4.785 -2.411 -6.732 -7.196 -7.196l-.553 -.046l-.579 -.034a28.058 28.058 0 0 0 -.299 -.013l-.616 -.017l-.318 -.004l-.324 -.001zm2.293 7.293a1 1 0 0 1 1.497 1.32l-.083 .094l-4 4a1 1 0 0 1 -1.32 .083l-.094 -.083l-2 -2a1 1 0 0 1 1.32 -1.497l.094 .083l1.293 1.292l3.293 -3.292z"
+                                fill="currentColor" stroke-width="0" />
+                            </svg>
+
+                            <span class="inline-block text-sm text-gray-700">سرشار از آنتی‌اکسیدان‌ها (رزماری،
+                              ماکادامیا،
+                              ویتامین E)</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="icon icon-tabler icons-tabler-filled icon-tabler-square-rounded-check text-gray-700">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path
+                                d="M12 2c-.218 0 -.432 .002 -.642 .005l-.616 .017l-.299 .013l-.579 .034l-.553 .046c-4.785 .464 -6.732 2.411 -7.196 7.196l-.046 .553l-.034 .579c-.005 .098 -.01 .198 -.013 .299l-.017 .616l-.004 .318l-.001 .324c0 .218 .002 .432 .005 .642l.017 .616l.013 .299l.034 .579l.046 .553c.464 4.785 2.411 6.732 7.196 7.196l.553 .046l.579 .034c.098 .005 .198 .01 .299 .013l.616 .017l.642 .005l.642 -.005l.616 -.017l.299 -.013l.579 -.034l.553 -.046c4.785 -.464 6.732 -2.411 7.196 -7.196l.046 -.553l.034 -.579c.005 -.098 .01 -.198 .013 -.299l.017 -.616l.005 -.642l-.005 -.642l-.017 -.616l-.013 -.299l-.034 -.579l-.046 -.553c-.464 -4.785 -2.411 -6.732 -7.196 -7.196l-.553 -.046l-.579 -.034a28.058 28.058 0 0 0 -.299 -.013l-.616 -.017l-.318 -.004l-.324 -.001zm2.293 7.293a1 1 0 0 1 1.497 1.32l-.083 .094l-4 4a1 1 0 0 1 -1.32 .083l-.094 -.083l-2 -2a1 1 0 0 1 1.32 -1.497l.094 .083l1.293 1.292l3.293 -3.292z"
+                                fill="currentColor" stroke-width="0" />
+                            </svg>
+
+                            <span class="inline-block text-sm text-gray-700">بازسازی و تحریک کلاژن‌سازی در طول شب</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="icon icon-tabler icons-tabler-filled icon-tabler-square-rounded-check text-gray-700">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path
+                                d="M12 2c-.218 0 -.432 .002 -.642 .005l-.616 .017l-.299 .013l-.579 .034l-.553 .046c-4.785 .464 -6.732 2.411 -7.196 7.196l-.046 .553l-.034 .579c-.005 .098 -.01 .198 -.013 .299l-.017 .616l-.004 .318l-.001 .324c0 .218 .002 .432 .005 .642l.017 .616l.013 .299l.034 .579l.046 .553c.464 4.785 2.411 6.732 7.196 7.196l.553 .046l.579 .034c.098 .005 .198 .01 .299 .013l.616 .017l.642 .005l.642 -.005l.616 -.017l.299 -.013l.579 -.034l.553 -.046c4.785 -.464 6.732 -2.411 7.196 -7.196l.046 -.553l.034 -.579c.005 -.098 .01 -.198 .013 -.299l.017 -.616l.005 -.642l-.005 -.642l-.017 -.616l-.013 -.299l-.034 -.579l-.046 -.553c-.464 -4.785 -2.411 -6.732 -7.196 -7.196l-.553 -.046l-.579 -.034a28.058 28.058 0 0 0 -.299 -.013l-.616 -.017l-.318 -.004l-.324 -.001zm2.293 7.293a1 1 0 0 1 1.497 1.32l-.083 .094l-4 4a1 1 0 0 1 -1.32 .083l-.094 -.083l-2 -2a1 1 0 0 1 1.32 -1.497l.094 .083l1.293 1.292l3.293 -3.292z"
+                                fill="currentColor" stroke-width="0" />
+                            </svg>
+
+                            <span class="inline-block text-sm text-gray-700">بافت سبک و جذب سریع بدون چربی</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="icon icon-tabler icons-tabler-filled icon-tabler-square-rounded-check text-gray-700">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path
+                                d="M12 2c-.218 0 -.432 .002 -.642 .005l-.616 .017l-.299 .013l-.579 .034l-.553 .046c-4.785 .464 -6.732 2.411 -7.196 7.196l-.046 .553l-.034 .579c-.005 .098 -.01 .198 -.013 .299l-.017 .616l-.004 .318l-.001 .324c0 .218 .002 .432 .005 .642l.017 .616l.013 .299l.034 .579l.046 .553c.464 4.785 2.411 6.732 7.196 7.196l.553 .046l.579 .034c.098 .005 .198 .01 .299 .013l.616 .017l.642 .005l.642 -.005l.616 -.017l.299 -.013l.579 -.034l.553 -.046c4.785 -.464 6.732 -2.411 7.196 -7.196l.046 -.553l.034 -.579c.005 -.098 .01 -.198 .013 -.299l.017 -.616l.005 -.642l-.005 -.642l-.017 -.616l-.013 -.299l-.034 -.579l-.046 -.553c-.464 -4.785 -2.411 -6.732 -7.196 -7.196l-.553 -.046l-.579 -.034a28.058 28.058 0 0 0 -.299 -.013l-.616 -.017l-.318 -.004l-.324 -.001zm2.293 7.293a1 1 0 0 1 1.497 1.32l-.083 .094l-4 4a1 1 0 0 1 -1.32 .083l-.094 -.083l-2 -2a1 1 0 0 1 1.32 -1.497l.094 .083l1.293 1.292l3.293 -3.292z"
+                                fill="currentColor" stroke-width="0" />
+                            </svg>
+
+                            <span class="inline-block text-sm text-gray-700">کارکرد چندگانه (مرطوب‌کننده، ضدچروک،
+                              لیفتینگ،
+                              بازسازی)</span>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- see all feature -->
+                      <a href="#metaData" class="text-primary-800 flex space-x-1 text-sm">
+                        <span> بررسی کامل ویژگی‌ها</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-badge-down">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M17 13v-6l-5 4l-5 -4v6l5 4z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </section>
+                  <!-- meta -->
+                  <section class="col-span-4 w-full lg:col-span-2">
+                    <div class="mx-auto rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+                      <!-- Specifications -->
+                      <ul class="space-y-2 divide-y divide-gray-200 text-sm leading-6 text-zinc-700">
+                        <li class="flex items-start justify-between gap-2 pb-2">
+                          <div class="flex flex-col space-y-3">
+                            <div class="flex items-center space-x-3">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-car text-gray-500">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" />
+                              </svg>
+                              <span class="text-gray-700">ارسال رایگان برای خریدهای ویژه</span>
+                            </div>
+                            <div class="block text-xs text-gray-500">
+                              هدیه ارسال رایگان برای سفارش‌های بالای ۵ میلیون
+                              تومان
+                            </div>
+                          </div>
+                        </li>
+                        <li class="flex items-start justify-between gap-2 pb-2">
+                          <div class="flex flex-col space-y-3">
+                            <div class="flex items-center space-x-3">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-rosette-discount-check text-gray-500">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                  d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                                <path d="M9 12l2 2l4 -4" />
+                              </svg>
+                              <span class="text-gray-700">تضمین اصالت کالا و سلامت هنگام تحویل</span>
+                            </div>
+                            <div class="block text-xs text-gray-500">
+                              افیست خرید شما به این مبلغ برسد تا بدون پرداخت
+                              هیچ هزینه اضافی
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+
+                      <div class="mt-4 mb-2 flex items-center justify-between space-x-4">
+                        <!-- counter -->
+                        <div x-data="{ count: 1 }" class="flex space-x-1">
+                          <div
+                            class="inline-flex w-full items-center justify-center space-x-2 rounded-lg border border-gray-200 bg-white px-4 shadow">
+                            <button class="flex size-10 cursor-pointer items-center justify-center rounded-full text-lg"
+                              @click="count++">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
+                              </svg>
+                            </button>
+                            <span x-text="count" class="inline-block px-5 text-lg">1</span>
+                            <button class="flex size-10 cursor-pointer items-center justify-center rounded-full text-lg"
+                              @click="if(count > 1) count--">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14"></path>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <!-- Prices -->
+                        <div class="flex items-center">
+                          <div class="flex flex-col items-center text-gray-700">
+                            <div class="flex items-center justify-between">
+                              <del class="text-zinc-400">
+                                <span class="fa-number">760000</span>
+                              </del>
+                              <span class="bg-danger ms-3 rounded-xl px-2 text-sm text-white">10%</span>
+                            </div>
+                            <span class="fa-number text-xl font-semibold">548000</span>
+                          </div>
+                          <span class="text-xs font-semibold">تومان</span>
+                        </div>
+                      </div>
+
+                      <!--Add to cart-->
+                      <div class="flex items-center justify-center">
+                        <button
+                          class="bg-primary-800 mt-3 w-full cursor-pointer rounded-md px-6 py-3 text-sm font-semibold text-white">
+                          افزودن به سبد خرید
+                        </button>
+                      </div>
+                    </div>
+                  </section>
+                  <!-- shop feature -->
+                  <section class="col-span-4 w-full">
+                    <section class="col-span-4 w-full border-t border-t-gray-300">
+                      <div class="grid gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-5">
+                        <article>
+                          <div
+                            class="flex items-center rounded-lg bg-white px-3 pt-3 transition duration-300 max-lg:space-x-3 lg:flex-col lg:justify-center">
+                            <div class="bg-primary-800 flex size-10 items-center justify-center rounded-lg text-white">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-map-2">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7.5" />
+                                <path d="M9 4v13" />
+                                <path d="M15 7v5.5" />
+                                <path
+                                  d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879z" />
+                                <path d="M19 18v.01" />
+                              </svg>
+                            </div>
+                            <div class="space-y-1 text-center lg:mt-4">
+                              <h3 class="text-sm font-semibold text-gray-700">
+                                پرداخت در محل
+                              </h3>
+                            </div>
+                          </div>
+                        </article>
+
+                        <article>
+                          <div
+                            class="flex items-center rounded-lg bg-white px-3 pt-3 transition duration-300 max-lg:space-x-3 lg:flex-col lg:justify-center">
+                            <div class="bg-primary-800 flex size-10 items-center justify-center rounded-lg text-white">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-square-check">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                  d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                <path d="M9 12l2 2l4 -4" />
+                              </svg>
+                            </div>
+                            <div class="space-y-1 text-center lg:mt-4">
+                              <h3 class="text-sm font-semibold text-gray-700">
+                                تضمین اصالت و کیفیت
+                              </h3>
+                            </div>
+                          </div>
+                        </article>
+
+                        <article>
+                          <div
+                            class="flex items-center rounded-lg bg-white px-3 pt-3 transition duration-300 max-lg:space-x-3 lg:flex-col lg:justify-center">
+                            <div class="bg-primary-800 flex size-10 items-center justify-center rounded-lg text-white">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                                <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
+                                <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                                <path d="M17 10h2a2 2 0 0 1 2 2v1" />
+                                <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                                <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
+                              </svg>
+                            </div>
+                            <div class="space-y-1 text-center lg:mt-4">
+                              <h3 class="text-sm font-semibold text-gray-700">
+                                پشتیبانی ۲۴ ساعته
+                              </h3>
+                            </div>
+                          </div>
+                        </article>
+
+                        <article>
+                          <div
+                            class="flex items-center rounded-lg bg-white px-3 pt-3 transition duration-300 max-lg:space-x-3 lg:flex-col lg:justify-center">
+                            <div class="bg-primary-800 flex size-10 items-center justify-center rounded-lg text-white">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-tax">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                  d="M8.487 21h7.026a4 4 0 0 0 3.808 -5.224l-1.706 -5.306a5 5 0 0 0 -4.76 -3.47h-1.71a5 5 0 0 0 -4.76 3.47l-1.706 5.306a4 4 0 0 0 3.808 5.224" />
+                                <path d="M15 3q -1 4 -3 4t -3 -4z" />
+                                <path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" />
+                                <path d="M12 10v1" />
+                                <path d="M12 17v1" />
+                              </svg>
+                            </div>
+                            <div class="space-y-1 text-center lg:mt-4">
+                              <h3 class="text-sm font-semibold text-gray-700">
+                                خرید آسان و سریع
+                              </h3>
+                            </div>
+                          </div>
+                        </article>
+
+                        <article>
+                          <div
+                            class="flex items-center rounded-lg bg-white px-3 pt-3 transition duration-300 max-lg:space-x-3 lg:flex-col lg:justify-center">
+                            <div class="bg-primary-800 flex size-10 items-center justify-center rounded-lg text-white">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-phone-done">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                  d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2c-8.072 -.49 -14.51 -6.928 -15 -15a2 2 0 0 1 2 -2" />
+                                <path d="M15 5l2 2l4 -4" />
+                              </svg>
+                            </div>
+                            <div class="space-y-1 text-center lg:mt-4">
+                              <h3 class="text-sm font-semibold text-gray-700">
+                                ارسال به سراسر کشور
+                              </h3>
+                            </div>
+                          </div>
+                        </article>
+                      </div>
+                    </section>
+                  </section>
+                </div>
+              </section>
+            </div>
+          </div>
+          <!-- icon feature shop -->
+          <section class="col-span-4 my-4 w-full">
+            <!-- Header Section for Best Selling Products -->
+            <div class="flex items-center justify-between px-2 pb-10 lg:px-0">
+              <!-- Title & Icon -->
+              <div class="flex w-[280px] items-center gap-x-4">
+                <!-- Layout Icon Button -->
+                <button
+                  class="text-primary-900 relative inline-flex cursor-pointer items-center rounded-lg bg-white p-2 tracking-[0.02em] shadow-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-layout">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M4 4m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                    <path d="M4 13m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                    <path d="M14 4m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                  </svg>
+                </button>
+                <!-- Section Title -->
+                <h3 class="font-dana text-xl font-semibold">کالاهای مشابه</h3>
+              </div>
+            </div>
+
+            <!-- content -->
+            <div class="swiper product-relation h-full w-full">
+              <div class="swiper-wrapper py-5">
+                <!-- slider -->
+                <div class="swiper-slide">
+                  <div class="group relative w-full rounded-lg bg-white p-4 pt-8 shadow-md">
+                    <!-- Product Colors -->
+                    <div class="absolute top-5 left-4 flex flex-col space-y-2">
+                      <span class="h-4 w-4 rounded-full bg-blue-900"></span>
+                      <span class="h-4 w-4 rounded-full bg-yellow-500"></span>
+                      <span class="h-4 w-4 rounded-full bg-blue-400"></span>
+                    </div>
+
+                    <!-- Product Image-->
+                    <img src="/images/product/01.jpg" alt="Prime Matex Night Recovery Cream"
+                      class="mb-4 h-40 w-full rounded-md object-contain" />
+
+                    <!-- Action Icons -->
+                    <div class="absolute top-4 right-4 flex flex-col space-y-2 text-gray-600">
+                      <!-- Icon: Quick View -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Compare -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-diff">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M11 16h10" />
+                          <path d="M11 16l4 4" />
+                          <path d="M11 16l4 -4" />
+                          <path d="M13 8h-10" />
+                          <path d="M13 8l-4 4" />
+                          <path d="M13 8l-4 -4" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Basket Heart -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-basket-heart">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M17 10l-2 -6" />
+                          <path d="M7 10l2 -6" />
+                          <path
+                            d="M10.5 20h-3.256a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304h13.999a2 2 0 0 1 1.977 2.304l-.143 .817" />
+                          <path d="M12.602 12.092a2 2 0 0 0 -2.233 3.066" />
+                          <path
+                            d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <!-- Product Title-->
+                    <h2
+                      class="hover:text-primary-900 mb-3 cursor-pointer text-sm leading-6 font-semibold transition-colors md:text-base">
+                      کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی
+                      لیتر
+                    </h2>
+
+                    <!--  Price & Add to Cart -->
+                    <div class="bottom-0 flex items-center justify-between">
+                      <!-- Add to Cart Button -->
+                      <div>
+                        <button
+                          class="from-primary-900 via-primary-700 to-primary-600 relative inline-flex cursor-pointer items-center rounded-lg bg-gradient-to-tr p-3 tracking-[0.02em] text-white transition-all group-hover:-translate-y-0.5">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart-plus">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                            <path d="M12.5 17h-6.5v-14h-2" />
+                            <path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5" />
+                            <path d="M16 19h6" />
+                            <path d="M19 16v6" />
+                          </svg>
+                        </button>
+                      </div>
+                      <!-- Old Price + Discount -->
+                      <div class="flex flex-col items-end gap-y-2">
+                        <div class="flex items-center gap-x-2">
+                          <del class="text-sm font-semibold text-gray-500">
+                            <span class="fa-number"> 1500000 </span>
+                            تومان
+                          </del>
+                          <span
+                            class="bg-primary-600 rounded-person flex items-center justify-center px-3 py-1 text-xs font-semibold text-white">
+                            10%
+                          </span>
+                        </div>
+                        <div class="flex items-center gap-x-1 text-sm font-semibold text-gray-700">
+                          <span class="fa-number">546000</span>
+                          تومان
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="group relative w-full rounded-lg bg-white p-4 pt-8 shadow-md">
+                    <!-- Product Colors -->
+                    <div class="absolute top-5 left-4 flex flex-col space-y-2">
+                      <span class="h-4 w-4 rounded-full bg-blue-900"></span>
+                      <span class="h-4 w-4 rounded-full bg-yellow-500"></span>
+                      <span class="h-4 w-4 rounded-full bg-blue-400"></span>
+                    </div>
+
+                    <!-- Product Image-->
+                    <img src="/images/product/02.jpg" alt="Prime Matex Night Recovery Cream"
+                      class="mb-4 h-40 w-full rounded-md object-contain" />
+
+                    <!-- Action Icons -->
+                    <div class="absolute top-4 right-4 flex flex-col space-y-2 text-gray-600">
+                      <!-- Icon: Quick View -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Compare -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-diff">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M11 16h10" />
+                          <path d="M11 16l4 4" />
+                          <path d="M11 16l4 -4" />
+                          <path d="M13 8h-10" />
+                          <path d="M13 8l-4 4" />
+                          <path d="M13 8l-4 -4" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Basket Heart -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-basket-heart">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M17 10l-2 -6" />
+                          <path d="M7 10l2 -6" />
+                          <path
+                            d="M10.5 20h-3.256a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304h13.999a2 2 0 0 1 1.977 2.304l-.143 .817" />
+                          <path d="M12.602 12.092a2 2 0 0 0 -2.233 3.066" />
+                          <path
+                            d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <!-- Product Title-->
+                    <h2
+                      class="hover:text-primary-900 mb-3 cursor-pointer text-sm leading-6 font-semibold transition-colors md:text-base">
+                      کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی
+                      لیتر
+                    </h2>
+
+                    <!--  Price & Add to Cart -->
+                    <div class="bottom-0 flex items-center justify-between">
+                      <!-- Add to Cart Button -->
+                      <div>
+                        <button
+                          class="from-primary-900 via-primary-700 to-primary-600 relative inline-flex cursor-pointer items-center rounded-lg bg-gradient-to-tr p-3 tracking-[0.02em] text-white transition-all group-hover:-translate-y-0.5">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart-plus">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                            <path d="M12.5 17h-6.5v-14h-2" />
+                            <path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5" />
+                            <path d="M16 19h6" />
+                            <path d="M19 16v6" />
+                          </svg>
+                        </button>
+                      </div>
+                      <!-- Old Price + Discount -->
+                      <div class="flex flex-col items-end gap-y-2">
+                        <div class="flex items-center gap-x-2">
+                          <del class="text-sm font-semibold text-gray-500">
+                            <span class="fa-number"> 1500000 </span>
+                            تومان
+                          </del>
+                          <span
+                            class="bg-primary-600 rounded-person flex items-center justify-center px-3 py-1 text-xs font-semibold text-white">
+                            10%
+                          </span>
+                        </div>
+                        <div class="flex items-center gap-x-1 text-sm font-semibold text-gray-700">
+                          <span class="fa-number">546000</span>
+                          تومان
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="group relative w-full rounded-lg bg-white p-4 pt-8 shadow-md">
+                    <!-- Product Colors -->
+                    <div class="absolute top-5 left-4 flex flex-col space-y-2">
+                      <span class="h-4 w-4 rounded-full bg-blue-900"></span>
+                      <span class="h-4 w-4 rounded-full bg-yellow-500"></span>
+                      <span class="h-4 w-4 rounded-full bg-blue-400"></span>
+                    </div>
+
+                    <!-- Product Image-->
+                    <img src="/images/product/03.jpg" alt="Prime Matex Night Recovery Cream"
+                      class="mb-4 h-40 w-full rounded-md object-contain" />
+
+                    <!-- Action Icons -->
+                    <div class="absolute top-4 right-4 flex flex-col space-y-2 text-gray-600">
+                      <!-- Icon: Quick View -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Compare -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-diff">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M11 16h10" />
+                          <path d="M11 16l4 4" />
+                          <path d="M11 16l4 -4" />
+                          <path d="M13 8h-10" />
+                          <path d="M13 8l-4 4" />
+                          <path d="M13 8l-4 -4" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Basket Heart -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-basket-heart">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M17 10l-2 -6" />
+                          <path d="M7 10l2 -6" />
+                          <path
+                            d="M10.5 20h-3.256a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304h13.999a2 2 0 0 1 1.977 2.304l-.143 .817" />
+                          <path d="M12.602 12.092a2 2 0 0 0 -2.233 3.066" />
+                          <path
+                            d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <!-- Product Title-->
+                    <h2
+                      class="hover:text-primary-900 mb-3 cursor-pointer text-sm leading-6 font-semibold transition-colors md:text-base">
+                      کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی
+                      لیتر
+                    </h2>
+
+                    <!--  Price & Add to Cart -->
+                    <div class="bottom-0 flex items-center justify-between">
+                      <!-- Add to Cart Button -->
+                      <div>
+                        <button
+                          class="from-primary-900 via-primary-700 to-primary-600 relative inline-flex cursor-pointer items-center rounded-lg bg-gradient-to-tr p-3 tracking-[0.02em] text-white transition-all group-hover:-translate-y-0.5">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart-plus">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                            <path d="M12.5 17h-6.5v-14h-2" />
+                            <path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5" />
+                            <path d="M16 19h6" />
+                            <path d="M19 16v6" />
+                          </svg>
+                        </button>
+                      </div>
+                      <!-- Old Price + Discount -->
+                      <div class="flex flex-col items-end gap-y-2">
+                        <div class="flex items-center gap-x-2">
+                          <del class="text-sm font-semibold text-gray-500">
+                            <span class="fa-number"> 1500000 </span>
+                            تومان
+                          </del>
+                          <span
+                            class="bg-primary-600 rounded-person flex items-center justify-center px-3 py-1 text-xs font-semibold text-white">
+                            10%
+                          </span>
+                        </div>
+                        <div class="flex items-center gap-x-1 text-sm font-semibold text-gray-700">
+                          <span class="fa-number">546000</span>
+                          تومان
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="group relative w-full rounded-lg bg-white p-4 pt-8 shadow-md">
+                    <!-- Product Colors -->
+                    <div class="absolute top-5 left-4 flex flex-col space-y-2">
+                      <span class="h-4 w-4 rounded-full bg-blue-900"></span>
+                      <span class="h-4 w-4 rounded-full bg-yellow-500"></span>
+                      <span class="h-4 w-4 rounded-full bg-blue-400"></span>
+                    </div>
+
+                    <!-- Product Image-->
+                    <img src="/images/product/04.jpg" alt="Prime Matex Night Recovery Cream"
+                      class="mb-4 h-40 w-full rounded-md object-contain" />
+
+                    <!-- Action Icons -->
+                    <div class="absolute top-4 right-4 flex flex-col space-y-2 text-gray-600">
+                      <!-- Icon: Quick View -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Compare -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-diff">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M11 16h10" />
+                          <path d="M11 16l4 4" />
+                          <path d="M11 16l4 -4" />
+                          <path d="M13 8h-10" />
+                          <path d="M13 8l-4 4" />
+                          <path d="M13 8l-4 -4" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Basket Heart -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-basket-heart">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M17 10l-2 -6" />
+                          <path d="M7 10l2 -6" />
+                          <path
+                            d="M10.5 20h-3.256a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304h13.999a2 2 0 0 1 1.977 2.304l-.143 .817" />
+                          <path d="M12.602 12.092a2 2 0 0 0 -2.233 3.066" />
+                          <path
+                            d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <!-- Product Title-->
+                    <h2
+                      class="hover:text-primary-900 mb-3 cursor-pointer text-sm leading-6 font-semibold transition-colors md:text-base">
+                      کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی
+                      لیتر
+                    </h2>
+
+                    <!--  Price & Add to Cart -->
+                    <div class="bottom-0 flex items-center justify-between">
+                      <!-- Add to Cart Button -->
+                      <div>
+                        <button
+                          class="from-primary-900 via-primary-700 to-primary-600 relative inline-flex cursor-pointer items-center rounded-lg bg-gradient-to-tr p-3 tracking-[0.02em] text-white transition-all group-hover:-translate-y-0.5">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart-plus">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                            <path d="M12.5 17h-6.5v-14h-2" />
+                            <path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5" />
+                            <path d="M16 19h6" />
+                            <path d="M19 16v6" />
+                          </svg>
+                        </button>
+                      </div>
+                      <!-- Old Price + Discount -->
+                      <div class="flex flex-col items-end gap-y-2">
+                        <div class="flex items-center gap-x-2">
+                          <del class="text-sm font-semibold text-gray-500">
+                            <span class="fa-number"> 1500000 </span>
+                            تومان
+                          </del>
+                          <span
+                            class="bg-primary-600 rounded-person flex items-center justify-center px-3 py-1 text-xs font-semibold text-white">
+                            10%
+                          </span>
+                        </div>
+                        <div class="flex items-center gap-x-1 text-sm font-semibold text-gray-700">
+                          <span class="fa-number">546000</span>
+                          تومان
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="group relative w-full rounded-lg bg-white p-4 pt-8 shadow-md">
+                    <!-- Product Colors -->
+                    <div class="absolute top-5 left-4 flex flex-col space-y-2">
+                      <span class="h-4 w-4 rounded-full bg-blue-900"></span>
+                      <span class="h-4 w-4 rounded-full bg-yellow-500"></span>
+                      <span class="h-4 w-4 rounded-full bg-blue-400"></span>
+                    </div>
+
+                    <!-- Product Image-->
+                    <img src="/images/product/05.jpg" alt="Prime Matex Night Recovery Cream"
+                      class="mb-4 h-40 w-full rounded-md object-contain" />
+
+                    <!-- Action Icons -->
+                    <div class="absolute top-4 right-4 flex flex-col space-y-2 text-gray-600">
+                      <!-- Icon: Quick View -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Compare -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-diff">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M11 16h10" />
+                          <path d="M11 16l4 4" />
+                          <path d="M11 16l4 -4" />
+                          <path d="M13 8h-10" />
+                          <path d="M13 8l-4 4" />
+                          <path d="M13 8l-4 -4" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Basket Heart -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-basket-heart">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M17 10l-2 -6" />
+                          <path d="M7 10l2 -6" />
+                          <path
+                            d="M10.5 20h-3.256a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304h13.999a2 2 0 0 1 1.977 2.304l-.143 .817" />
+                          <path d="M12.602 12.092a2 2 0 0 0 -2.233 3.066" />
+                          <path
+                            d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <!-- Product Title-->
+                    <h2
+                      class="hover:text-primary-900 mb-3 cursor-pointer text-sm leading-6 font-semibold transition-colors md:text-base">
+                      کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی
+                      لیتر
+                    </h2>
+
+                    <!--  Price & Add to Cart -->
+                    <div class="bottom-0 flex items-center justify-between">
+                      <!-- Add to Cart Button -->
+                      <div>
+                        <button
+                          class="from-primary-900 via-primary-700 to-primary-600 relative inline-flex cursor-pointer items-center rounded-lg bg-gradient-to-tr p-3 tracking-[0.02em] text-white transition-all group-hover:-translate-y-0.5">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart-plus">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                            <path d="M12.5 17h-6.5v-14h-2" />
+                            <path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5" />
+                            <path d="M16 19h6" />
+                            <path d="M19 16v6" />
+                          </svg>
+                        </button>
+                      </div>
+                      <!-- Old Price + Discount -->
+                      <div class="flex flex-col items-end gap-y-2">
+                        <div class="flex items-center gap-x-2">
+                          <del class="text-sm font-semibold text-gray-500">
+                            <span class="fa-number"> 1500000 </span>
+                            تومان
+                          </del>
+                          <span
+                            class="bg-primary-600 rounded-person flex items-center justify-center px-3 py-1 text-xs font-semibold text-white">
+                            10%
+                          </span>
+                        </div>
+                        <div class="flex items-center gap-x-1 text-sm font-semibold text-gray-700">
+                          <span class="fa-number">546000</span>
+                          تومان
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="group relative w-full rounded-lg bg-white p-4 pt-8 shadow-md">
+                    <!-- Product Colors -->
+                    <div class="absolute top-5 left-4 flex flex-col space-y-2">
+                      <span class="h-4 w-4 rounded-full bg-blue-900"></span>
+                      <span class="h-4 w-4 rounded-full bg-yellow-500"></span>
+                      <span class="h-4 w-4 rounded-full bg-blue-400"></span>
+                    </div>
+
+                    <!-- Product Image-->
+                    <img src="/images/product/06.jpg" alt="Prime Matex Night Recovery Cream"
+                      class="mb-4 h-40 w-full rounded-md object-contain" />
+
+                    <!-- Action Icons -->
+                    <div class="absolute top-4 right-4 flex flex-col space-y-2 text-gray-600">
+                      <!-- Icon: Quick View -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Compare -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-diff">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M11 16h10" />
+                          <path d="M11 16l4 4" />
+                          <path d="M11 16l4 -4" />
+                          <path d="M13 8h-10" />
+                          <path d="M13 8l-4 4" />
+                          <path d="M13 8l-4 -4" />
+                        </svg>
+                      </button>
+                      <!-- Icon: Basket Heart -->
+                      <button class="cursor-pointer transition-colors hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-basket-heart">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M17 10l-2 -6" />
+                          <path d="M7 10l2 -6" />
+                          <path
+                            d="M10.5 20h-3.256a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304h13.999a2 2 0 0 1 1.977 2.304l-.143 .817" />
+                          <path d="M12.602 12.092a2 2 0 0 0 -2.233 3.066" />
+                          <path
+                            d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <!-- Product Title-->
+                    <h2
+                      class="hover:text-primary-900 mb-3 cursor-pointer text-sm leading-6 font-semibold transition-colors md:text-base">
+                      کرم شب بازسازی کننده پوست پرایم مدل Matex حجم 50 میلی
+                      لیتر
+                    </h2>
+
+                    <!--  Price & Add to Cart -->
+                    <div class="bottom-0 flex items-center justify-between">
+                      <!-- Add to Cart Button -->
+                      <div>
+                        <button
+                          class="from-primary-900 via-primary-700 to-primary-600 relative inline-flex cursor-pointer items-center rounded-lg bg-gradient-to-tr p-3 tracking-[0.02em] text-white transition-all group-hover:-translate-y-0.5">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart-plus">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                            <path d="M12.5 17h-6.5v-14h-2" />
+                            <path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5" />
+                            <path d="M16 19h6" />
+                            <path d="M19 16v6" />
+                          </svg>
+                        </button>
+                      </div>
+                      <!-- Old Price + Discount -->
+                      <div class="flex flex-col items-end gap-y-2">
+                        <div class="flex items-center gap-x-2">
+                          <del class="text-sm font-semibold text-gray-500">
+                            <span class="fa-number"> 1500000 </span>
+                            تومان
+                          </del>
+                          <span
+                            class="bg-primary-600 rounded-person flex items-center justify-center px-3 py-1 text-xs font-semibold text-white">
+                            10%
+                          </span>
+                        </div>
+                        <div class="flex items-center gap-x-1 text-sm font-semibold text-gray-700">
+                          <span class="fa-number">546000</span>
+                          تومان
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <section id="metaData" class="py-5">
+              <div class="container">
+                <!-- navbar -->
+                <nav class="px-5">
+                  <ul class="flex items-center justify-center space-x-1 py-4 text-nowrap lg:space-x-4">
+                    <li role="presentation">
+                      <button
+                        class="tab-button active cursor-pointer rounded-md border-b-4 border-gray-400 bg-transparent px-3 py-2 text-sm font-semibold text-gray-700 transition-colors"
+                        data-tab="Intro">
+                        معرفی
+                      </button>
+                    </li>
+                    <li role="presentation">
+                      <button
+                        class="tab-button cursor-pointer rounded-md border-b-4 border-gray-400 bg-transparent px-3 py-2 text-sm font-semibold text-gray-700 transition-colors"
+                        data-tab="Additional">
+                        معرفی محصول
+                      </button>
+                    </li>
+                    <li role="presentation">
+                      <button
+                        class="tab-button cursor-pointer rounded-md border-b-4 border-gray-400 bg-transparent px-3 py-2 text-sm font-semibold text-gray-700 transition-colors"
+                        data-tab="Comments">
+                        نظرات کاربران
+                      </button>
+                    </li>
+                    <li role="presentation">
+                      <button
+                        class="tab-button cursor-pointer rounded-md border-b-4 border-gray-400 bg-transparent px-3 py-2 text-sm font-semibold text-gray-700 transition-colors"
+                        data-tab="Questions">
+                        پرسش و پاسخ
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+
+                <!-- content -->
+                <div class="tab-contents mt-4">
+                  <!-- Intro -->
+                  <div data-content="1" id="Intro"
+                    class="tab-content rounded-xl border border-gray-100 bg-white p-5 drop-shadow">
+                    <div class="space-y-5">
+                      <h2
+                        class="before:bg-primary-800 relative pb-3 text-2xl font-semibold text-gray-800 before:absolute before:right-0 before:bottom-0 before:h-1 before:w-6 before:rounded-2xl">
+                        معرفی
+                      </h2>
+                      <p class="text-justify text-base leading-9 text-gray-700">
+                        کرم شب بازسازی‌کننده پوست پرایم مدل Matex حجم 50
+                        میلی‌لیتر، محصولی تخصصی برای ترمیم، تغذیه و بازسازی
+                        پوست در زمان استراحت شبانه است. این کرم با ترکیبات
+                        فعال و آنتی‌اکسیدان‌های قدرتمند، روند بازسازی سلولی را
+                        تقویت کرده و به کاهش آثار خستگی، چین‌وچروک و خشکی پوست
+                        کمک می‌کند. استفاده مداوم از این کرم موجب افزایش نرمی،
+                        لطافت و شفافیت پوست شده و ظاهری جوان‌تر و شاداب‌تر
+                        برای شما به همراه دارد. این محصول برای انواع پوست
+                        مناسب بوده و انتخابی ایده‌آل برای افرادی است که به
+                        دنبال مراقبتی عمیق و بازسازی‌کننده در طول شب هستند
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Additional -->
+                  <div data-content="2" id="Additional"
+                    class="tab-content hidden rounded-xl border border-gray-100 bg-white p-5 drop-shadow">
+                    <h2
+                      class="before:bg-primary-800 relative pb-3 text-2xl font-semibold text-gray-800 before:absolute before:right-0 before:bottom-0 before:h-1 before:w-6 before:rounded-2xl">
+                      معرفی محصول
+                    </h2>
+
+                    <div class="mx-auto p-6">
+                      <div class="pb-10 last:pb-0">
+                        <div class="grid grid-cols-2 gap-6 text-right">
+                          <span class="inline-flex items-center justify-start px-5 py-4 text-sm text-gray-700">
+                            بازسازی و ترمیم بافت پوست در طول شب
+                          </span>
+                          <span
+                            class="inline-flex items-center justify-start rounded-xl border-b border-gray-200 px-3 py-4 text-sm text-gray-900">
+                            کاهش چین‌وچروک و خطوط ریز پوست
+                          </span>
+                          <span class="inline-flex items-center justify-start px-5 py-4 text-sm text-gray-700">
+                            آبرسانی و حفظ رطوبت عمیق پوست
+                          </span>
+                          <span
+                            class="inline-flex items-center justify-start rounded-xl border-b border-gray-200 px-3 py-4 text-sm text-gray-900">
+                            ایجاد شفافیت، نرمی و لطافت بیشتر
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Comments -->
+                  <div data-content="3" id="Comments"
+                    class="tab-content hidden rounded-xl border border-gray-100 bg-white p-5 drop-shadow">
+                    <div class="space-y-4">
+                      <h2
+                        class="before:bg-primary-800 relative pb-3 text-2xl font-semibold text-gray-800 before:absolute before:right-0 before:bottom-0 before:h-1 before:w-6 before:rounded-2xl">
+                        نظرات کاربران
+                      </h2>
+                    </div>
+                    <div class="relative mt-8 grid grid-cols-4 gap-6">
+                      <!-- rating -->
+                      <div class="col-span-4 lg:col-span-1">
+                        <div class="sticky top-36">
+                          <div class="space-y-2 rounded border border-gray-200 p-2 text-right">
+                            <h5 class="text-base">4.0</h5>
+                            <div class="flex items-start justify-start rounded">
+                              <svg class="ms-1 h-4 w-4 text-orange-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path
+                                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
+                                </path>
+                              </svg>
+                              <svg class="ms-1 h-4 w-4 text-orange-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path
+                                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
+                                </path>
+                              </svg>
+                              <svg class="ms-1 h-4 w-4 text-orange-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path
+                                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
+                                </path>
+                              </svg>
+                              <svg class="ms-1 h-4 w-4 text-orange-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path
+                                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
+                                </path>
+                              </svg>
+                              <svg class="ms-1 h-4 w-4 text-gray-300" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path
+                                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
+                                </path>
+                              </svg>
+                            </div>
+                            <p class="text-sm text-gray-700">
+                              شما هم درباره این کالا دیدگاه ثبت کنید
+                            </p>
+                            <button
+                              class="bg-primary-800 mt-3 w-full cursor-pointer rounded-md px-6 py-3 text-sm font-semibold text-white">
+                              ثبت دیدگاه
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- form and comment -->
+                      <div class="col-span-4 lg:col-span-3">
+                        <!-- form -->
+                        <div class="w-full border-b border-b-gray-300 pb-4">
+                          <form action="#" method="get">
+                            <div class="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                              <div>
+                                <label for="name"
+                                  class="font-dana mb-3 inline-block text-sm font-semibold text-gray-700">نام و نام
+                                  خانوادگی:</label>
+                                <input id="name" type="text" placeholder="نام خود را وارد کنید"
+                                  class="md:text-basec focus:border-b-primary-800 block w-full appearance-none rounded-lg border-b-4 border-gray-300 bg-slate-50 p-3 text-sm/6 text-gray-800 outline-1 -outline-offset-1 transition-all outline-none placeholder:text-gray-400" />
+                              </div>
+                              <div>
+                                <label for="email"
+                                  class="font-dana mb-3 inline-block text-sm font-semibold text-gray-700">ایمیل:</label>
+                                <input id="email" type="email" placeholder="ایمیل خود را وارد کنید"
+                                  class="md:text-basec focus:border-b-primary-800 block w-full appearance-none rounded-lg border-b-4 border-gray-300 bg-slate-50 p-3 text-sm/6 text-gray-800 outline-1 -outline-offset-1 transition-all outline-none placeholder:text-gray-400" />
+                              </div>
+                            </div>
+                            <div class="mb-4">
+                              <label for="comment"
+                                class="font-dana mb-3 inline-block text-sm font-semibold text-gray-700">نظر:</label>
+                              <textarea id="comment" placeholder="متن نظر!"
+                                class="md:text-basec focus:border-b-primary-800 block w-full appearance-none rounded-lg border-b-4 border-gray-300 bg-slate-50 p-3 text-sm/6 text-gray-800 outline-1 -outline-offset-1 transition-all outline-none placeholder:text-gray-400"></textarea>
+                            </div>
+                            <div class="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                              <div class="mx-auto w-full">
+                                <label class="font-dana mb-2 block text-sm font-semibold text-gray-700">ویژگی‌های
+                                  مثبت</label>
+                                <div
+                                  class="tag-container flex min-h-[50px] flex-wrap items-center gap-2 rounded-lg bg-slate-50 p-2">
+                                  <input type="text" placeholder="برای ثبت آیتم جدید، کلید اینتر را فشار دهید"
+                                    class="tag-input md:text-basec w-full flex-grow rounded-lg bg-transparent px-3 py-2 text-sm/6 text-gray-800 transition-all outline-none placeholder:text-gray-400"
+                                    data-color="bg-green-300" />
+                                </div>
+                              </div>
+                              <div class="mx-auto w-full">
+                                <label class="font-dana mb-2 block text-sm font-semibold text-gray-700">ویژگی‌های
+                                  منفی</label>
+                                <div
+                                  class="tag-container flex min-h-[50px] flex-wrap items-center gap-2 rounded-lg bg-slate-50 p-2">
+                                  <input type="text" placeholder="برای ثبت آیتم جدید، کلید اینتر را فشار دهید"
+                                    class="tag-input md:text-basec w-full flex-grow rounded-lg bg-transparent px-3 py-2 text-sm/6 text-gray-800 transition-all outline-none placeholder:text-gray-400"
+                                    data-color="bg-red-200" />
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <label class="font-dana mb-4 inline-block text-sm font-semibold text-gray-700">امتیاز
+                                شما:</label>
+                              <div class="flex space-x-2">
+                                <input type="radio" id="star1" name="rating" class="hidden" value="1" />
+                                <label for="star1" class="cursor-pointer">
+                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2" stroke="currentColor" class="size-6 text-gray-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M12 17.27l6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73-1.64 7.03z">
+                                    </path>
+                                  </svg>
+                                </label>
+
+                                <input type="radio" id="star2" name="rating" class="hidden" value="2" />
+                                <label for="star2" class="cursor-pointer">
+                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2" stroke="currentColor" class="size-6 text-gray-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M12 17.27l6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73-1.64 7.03z">
+                                    </path>
+                                  </svg>
+                                </label>
+
+                                <input type="radio" id="star3" name="rating" class="hidden" value="3" />
+                                <label for="star3" class="cursor-pointer">
+                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2" stroke="currentColor" class="size-6 text-gray-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M12 17.27l6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73-1.64 7.03z">
+                                    </path>
+                                  </svg>
+                                </label>
+
+                                <input type="radio" id="star4" name="rating" class="hidden" value="4" />
+                                <label for="star4" class="cursor-pointer">
+                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2" stroke="currentColor" class="size-6 text-gray-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M12 17.27l6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73-1.64 7.03z">
+                                    </path>
+                                  </svg>
+                                </label>
+
+                                <input type="radio" id="star5" name="rating" class="hidden" value="5" />
+                                <label for="star5" class="cursor-pointer">
+                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2" stroke="currentColor" class="size-6 text-gray-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M12 17.27l6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73-1.64 7.03z">
+                                    </path>
+                                  </svg>
+                                </label>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <!-- comment -->
+                        <div class="space-y-5">
+                          <div class="grid grid-cols-4 gap-4 py-5">
+                            <div class="col-span-4 md:col-span-3">
+                              <div class="flex items-center space-x-3">
+                                <div class="flex items-center space-x-3">
+                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"></path>
+                                  </svg>
+                                  <span class="text-sm">مرتب سازی:</span>
+                                </div>
+                                <nav>
+                                  <ul class="flex items-center space-x-3 text-sm">
+                                    <li>
+                                      <a href="" class="text-primary">جدیدترین</a>
+                                    </li>
+                                    <li><a href="">بیشترین پاسخ</a></li>
+                                  </ul>
+                                </nav>
+                              </div>
+                            </div>
+                            <div class="col-span-4 md:col-span-1">
+                              <div class="md:text-left">
+                                <span class="text-sm text-neutral-600">852 نظر تایید شده</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="rounded-lg border border-gray-200 p-4">
+                            <div class="flex items-center justify-between">
+                              <div class="flex items-center space-x-2">
+                                <span class="font-dana text-gray-800">مهسا محمدی</span>
+                                <span class="text-sm text-gray-500">2 روز پیش</span>
+                              </div>
+                              <span
+                                class="rounded-person rounded bg-green-200 px-2 py-1 text-xs text-green-700">خریدار</span>
+                            </div>
+                            <div class="mt-2 flex flex-col items-start justify-start">
+                              <div class="ml-2 flex text-orange-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5"
+                                  viewBox="0 0 24 24">
+                                  <path
+                                    d="M12 .587l3.668 7.432 8.332 1.151-6.001 5.856 1.417 8.283-7.416-3.897-7.416 3.897 1.417-8.283-6.001-5.856 8.332-1.151z">
+                                  </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5"
+                                  viewBox="0 0 24 24">
+                                  <path
+                                    d="M12 .587l3.668 7.432 8.332 1.151-6.001 5.856 1.417 8.283-7.416-3.897-7.416 3.897 1.417-8.283-6.001-5.856 8.332-1.151z">
+                                  </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5"
+                                  viewBox="0 0 24 24">
+                                  <path
+                                    d="M12 .587l3.668 7.432 8.332 1.151-6.001 5.856 1.417 8.283-7.416-3.897-7.416 3.897 1.417-8.283-6.001-5.856 8.332-1.151z">
+                                  </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5"
+                                  viewBox="0 0 24 24">
+                                  <path
+                                    d="M12 .587l3.668 7.432 8.332 1.151-6.001 5.856 1.417 8.283-7.416-3.897-7.416 3.897 1.417-8.283-6.001-5.856 8.332-1.151z">
+                                  </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5"
+                                  viewBox="0 0 24 24">
+                                  <path
+                                    d="M12 .587l3.668 7.432 8.332 1.151-6.001 5.856 1.417 8.283-7.416-3.897-7.416 3.897 1.417-8.283-6.001-5.856 8.332-1.151z">
+                                  </path>
+                                </svg>
+                              </div>
+                            </div>
+                            <p class="my-4 text-sm leading-9 text-gray-700">
+                              پوست من بعد از استفاده خیلی نرم و مرطوب شده،
+                              واقعا راضی هستم
+                            </p>
+                            <ul class="mt-2 space-y-3 text-sm">
+                              <li class="flex items-center">
+                                <span class="ml-2 text-green-600">✅</span>بازسازی و ترمیم پوست: کمک به بازسازی سلول‌های
+                                پوست در طول شب
+                              </li>
+                              <li class="flex items-center">
+                                <span class="ml-2 text-green-600">✅</span>مرطوب‌کنندگی عمیق: تامین رطوبت لازم و جلوگیری
+                                از خشکی پوست
+                              </li>
+                              <li class="flex items-center">
+                                <span class="ml-2 text-green-600">✅</span>ضد
+                                چین و چروک: کاهش خطوط ظریف و حفظ جوانی پوست
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="rounded-lg border border-gray-200 p-4">
+                            <div class="flex items-center justify-between">
+                              <div class="flex items-center space-x-2">
+                                <span class="font-dana text-gray-800">هانیه علیزاده</span>
+                                <span class="text-sm text-gray-500">2 روز پیش</span>
+                              </div>
+                              <span
+                                class="rounded-person rounded bg-green-200 px-2 py-1 text-xs text-green-700">خریدار</span>
+                            </div>
+                            <div class="mt-2 flex flex-col items-start justify-start">
+                              <div class="ml-2 flex text-orange-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5"
+                                  viewBox="0 0 24 24">
+                                  <path
+                                    d="M12 .587l3.668 7.432 8.332 1.151-6.001 5.856 1.417 8.283-7.416-3.897-7.416 3.897 1.417-8.283-6.001-5.856 8.332-1.151z">
+                                  </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5"
+                                  viewBox="0 0 24 24">
+                                  <path
+                                    d="M12 .587l3.668 7.432 8.332 1.151-6.001 5.856 1.417 8.283-7.416-3.897-7.416 3.897 1.417-8.283-6.001-5.856 8.332-1.151z">
+                                  </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5"
+                                  viewBox="0 0 24 24">
+                                  <path
+                                    d="M12 .587l3.668 7.432 8.332 1.151-6.001 5.856 1.417 8.283-7.416-3.897-7.416 3.897 1.417-8.283-6.001-5.856 8.332-1.151z">
+                                  </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5"
+                                  viewBox="0 0 24 24">
+                                  <path
+                                    d="M12 .587l3.668 7.432 8.332 1.151-6.001 5.856 1.417 8.283-7.416-3.897-7.416 3.897 1.417-8.283-6.001-5.856 8.332-1.151z">
+                                  </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5"
+                                  viewBox="0 0 24 24">
+                                  <path
+                                    d="M12 .587l3.668 7.432 8.332 1.151-6.001 5.856 1.417 8.283-7.416-3.897-7.416 3.897 1.417-8.283-6.001-5.856 8.332-1.151z">
+                                  </path>
+                                </svg>
+                              </div>
+                            </div>
+                            <p class="my-4 text-sm leading-9 text-gray-700">
+                              ممکن است روی پوست‌های خیلی چرب کمی سنگین به نظر
+                              برسد
+                            </p>
+                            <ul class="mt-2 space-y-3 text-sm">
+                              <li class="flex items-center">
+                                <span class="ml-2 text-green-600">❌</span>عطر
+                                ملایم ولی مشخص: برای افراد حساس به عطر، ممکن
+                                است کمی تحریک‌کننده باشد
+                              </li>
+                              <li class="flex items-center">
+                                <span class="ml-2 text-green-600">❌</span>نیاز به استفاده مداوم: تاثیر کامل نیازمند
+                                استفاده منظم شبانه است
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Questions and Answers -->
+                  <div id="Questions"
+                    class="tab-content hidden rounded-xl border border-gray-100 bg-white p-5 drop-shadow"
+                    data-content="4">
+                    <div class="space-y-4">
+                      <h2
+                        class="before:bg-primary-800 relative pb-3 text-2xl font-semibold text-gray-800 before:absolute before:right-0 before:bottom-0 before:h-1 before:w-6 before:rounded-2xl">
+                        پرسش پاسخ
+                      </h2>
+                    </div>
+                    <!-- form -->
+                    <div class="my-5 w-full border-b border-b-gray-300 pb-4">
+                      <form action="">
+                        <div class="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                          <div>
+                            <label for="name"
+                              class="font-dana mb-3 inline-block text-sm font-semibold text-gray-700">نام و نام
+                              خانوادگی:</label>
+                            <input id="name" type="text" placeholder="نام خود را وارد کنید"
+                              class="md:text-basec focus:border-b-primary-800 block w-full appearance-none rounded-lg border-b-4 border-gray-300 bg-slate-50 p-3 text-sm/6 text-gray-800 outline-1 -outline-offset-1 transition-all outline-none placeholder:text-gray-400" />
+                          </div>
+                          <div>
+                            <label for="email"
+                              class="font-dana mb-3 inline-block text-sm font-semibold text-gray-700">ایمیل:</label>
+                            <input id="email" type="email" placeholder="ایمیل خود را وارد کنید"
+                              class="md:text-basec focus:border-b-primary-800 block w-full appearance-none rounded-lg border-b-4 border-gray-300 bg-slate-50 p-3 text-sm/6 text-gray-800 outline-1 -outline-offset-1 transition-all outline-none placeholder:text-gray-400" />
+                          </div>
+                        </div>
+                        <div class="mb-4">
+                          <label for="comment"
+                            class="font-dana mb-3 inline-block text-sm font-semibold text-gray-700">نظر:</label>
+                          <textarea id="comment" placeholder="متن نظر!"
+                            class="md:text-basec focus:border-b-primary-800 block w-full appearance-none rounded-lg border-b-4 border-gray-300 bg-slate-50 p-3 text-sm/6 text-gray-800 outline-1 -outline-offset-1 transition-all outline-none placeholder:text-gray-400"></textarea>
+                        </div>
+                        <button
+                          class="bg-primary-800 mt-3 w-36 cursor-pointer rounded-md px-6 py-3 text-sm font-semibold text-white">
+                          ثبت دیدگاه
+                        </button>
+                      </form>
+                    </div>
+                    <!-- Questions -->
+                    <div class="space-y-5">
+                      <div class="grid grid-cols-4 gap-4 py-5">
+                        <div class="col-span-4 md:col-span-3">
+                          <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-3">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"></path>
+                              </svg>
+                              <span class="text-sm">مرتب سازی:</span>
+                            </div>
+                            <nav>
+                              <ul class="flex items-center space-x-3 text-sm">
+                                <li>
+                                  <a href="" class="text-primary">جدیدترین</a>
+                                </li>
+                                <li><a href="">بیشترین پاسخ</a></li>
+                              </ul>
+                            </nav>
+                          </div>
+                        </div>
+                        <div class="col-span-4 md:col-span-1">
+                          <div class="md:text-left">
+                            <span class="text-sm text-neutral-600">852 نظر تایید شده</span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Questions Item -->
+                      <div class="item-center flex flex-col gap-y-4 rounded-lg border border-gray-200 p-4">
+                        <div class="">
+                          <div class="flex items-center justify-start space-x-2">
+                            <div class="flex items-center space-x-2">
+                              <span class="font-dana text-gray-800">مهسا محمدی</span>
+                              <span class="text-sm text-gray-500">2 روز پیش</span>
+                            </div>
+                            <span
+                              class="rounded-person rounded bg-green-200 px-2 py-1 text-xs text-green-700">خریدار</span>
+                          </div>
+                          <p class="my-4 text-sm leading-9 text-gray-700">
+                            پوست من بعد از استفاده خیلی نرم و مرطوب شده، واقعا
+                            راضی هستم
+                          </p>
+                        </div>
+                        <div class="mr-4 lg:mr-20">
+                          <div class="flex items-center justify-start space-x-2">
+                            <div class="flex items-center space-x-2">
+                              <span class="font-dana text-gray-800">علیرضا رضایی</span>
+                              <span class="text-sm text-gray-500">2 روز پیش</span>
+                            </div>
+                            <span
+                              class="rounded-person rounded bg-blue-200 px-2 py-1 text-xs text-blue-700">فروشنده</span>
+                          </div>
+                          <p class="my-4 text-sm leading-9 text-gray-700">
+                            سلام اوایل استفاده از این محصول جوش های زیر پوستی
+                            میریزه بیرون بعد به مرور زمان بهتر می شود
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+      </main>
+
+      <!-- footer -->
+      <footer class="relative w-full">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" style="display: block; position: absolute" width="0" height="0">
+            <defs>
+              <clipPath id="clip" clipPathUnits="objectBoundingBox">
+                <path d="M0.5,0H0.93A0.07,0.07,0,0,1,1,0.07V1A0,0,0,0,1,1,1H0A0,0,0,0,1,0,1V0.5A0.5,0.5,0,0,1,0.5,0Z" />
+              </clipPath>
+            </defs>
+          </svg>
+          <div class="inverted"></div>
+        </div>
+        <!-- محتوای فوتر -->
+        <div class="relative z-10 container mx-auto h-full py-20 lg:py-16">
+          <div class="grid h-full grid-cols-1 gap-12 text-gray-700 lg:grid-cols-3">
+            <div class="flex flex-col justify-between px-4 lg:px-0">
+              <div>
+                <img src="/images/logo.svg" alt="" />
+              </div>
+              <div class="w-[80%]">
+                <p class="text-justify text-sm leading-6">
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                  چاپ..لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                  چاپ..لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                  چاپ..لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                  چاپ...
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col items-center">
+              <h2 class="text-primary-900 mb-4 text-xl font-semibold">
+                دسته‌بندی
+              </h2>
+              <div class="grid grid-cols-3 gap-3">
+                <div>
+                  <ul class="flex flex-col justify-between space-y-4">
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          صفحه اصلی
+                        </span>
+                      </a>
+                    </li>
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          فروشگاه
+                        </span>
+                      </a>
+                    </li>
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          حساب کاربری
+                        </span>
+                      </a>
+                    </li>
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          سفارشات
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul class="flex flex-col justify-between space-y-4">
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          وبلاگ
+                        </span>
+                      </a>
+                    </li>
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          درباره ما
+                        </span>
+                      </a>
+                    </li>
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          خدمات ما
+                        </span>
+                      </a>
+                    </li>
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          پشتیبانی
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul class="flex flex-col justify-between space-y-4">
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          صفحه اصلی
+                        </span>
+                      </a>
+                    </li>
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          فروشگاه
+                        </span>
+                      </a>
+                    </li>
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          حساب کاربری
+                        </span>
+                      </a>
+                    </li>
+                    <li class="gap-x-1">
+                      <a href="#" class="menu-item_link relative inline-flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                        </svg>
+                        <span class="font-dana text-sm font-semibold text-gray-600">
+                          سفارشات
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-between gap-y-4">
+              <h2 class="text-primary-900 mb-4 text-xl font-semibold">
+                ارتباط با ما
+              </h2>
+              <div class="flex">
+                <ul class="flex items-center gap-x-4">
+                  <li>
+                    <a href="" class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram text-primary-900">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin text-primary-900">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M8 11v5" />
+                        <path d="M8 8v.01" />
+                        <path d="M12 16v-5" />
+                        <path d="M16 16v-3a2 2 0 1 0 -4 0" />
+                        <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-brand-twitter text-primary-900">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path
+                          d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c0 -.249 1.51 -2.772 1.818 -4.013z" />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram text-primary-900">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+                        <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                        <path d="M16.5 7.5v.01" />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <span class="font-dana font-medium text-gray-800">همراه ما باشید</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="flex items-center gap-8">
+                <img src="images/01.png" class="size-20" alt="" />
+                <img src="images/02.png" class="size-20" alt="" />
+                <img src="images/03.png" class="size-20" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div
+      class="fixed bottom-0 left-0 z-9999999 w-full border-0 border-t-[1px] border-solid border-gray-200 bg-gray-50 lg:hidden">
+      <div class="flex">
+        <a class="relative flex flex-1 flex-col items-center gap-y-1 py-1 lg:flex-row" href="#">
+          <div class="flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+              class="icon icon-tabler icons-tabler-filled icon-tabler-home text-icon-high-emphasis">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M12.707 2.293l9 9c.63 .63 .184 1.707 -.707 1.707h-1v6a3 3 0 0 1 -3 3h-1v-7a3 3 0 0 0 -2.824 -2.995l-.176 -.005h-2a3 3 0 0 0 -3 3v7h-1a3 3 0 0 1 -3 -3v-6h-1c-.89 0 -1.337 -1.077 -.707 -1.707l9 -9a1 1 0 0 1 1.414 0m.293 11.707a1 1 0 0 1 1 1v7h-4v-7a1 1 0 0 1 .883 -.993l.117 -.007z" />
+            </svg>
+          </div>
+          <p class="text-[10px] font-semibold text-gray-700">خانه</p>
+        </a>
+        <a href="#" @click.prevent="openCategory = true"
+          class="group relative flex flex-1 flex-col items-center gap-y-1 py-1 transition-colors lg:flex-row">
+          <div class="flex">
+            <svg :class="openCategory ? 'text-primary-800' : 'text-icon-low-emphasis'"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-category group-hover:text-primary-800 transition-colors">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M4 4h6v6h-6z" />
+              <path d="M14 4h6v6h-6z" />
+              <path d="M4 14h6v6h-6z" />
+              <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+            </svg>
+          </div>
+          <p class="text-[10px] font-semibold text-gray-700">دسته‌بندی</p>
+        </a>
+        <a class="group relative flex flex-1 flex-col items-center gap-y-1 py-1 lg:flex-row" href="#">
+          <div class="flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart text-icon-low-emphasis group-hover:text-primary-800 transition-colors">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M17 17h-11v-14h-2" />
+              <path d="M6 5l14 1l-1 7h-13" />
+            </svg>
+          </div>
+          <p class="text-[10px] font-semibold text-gray-700">سبد خرید</p>
+        </a>
+        <a class="group relative flex flex-1 flex-col items-center gap-y-1 py-1 lg:flex-row" href="#">
+          <div class="flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-eye-star text-icon-low-emphasis group-hover:text-primary-800 transition-colors">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+              <path d="M9.608 17.682c-2.558 -.71 -4.76 -2.603 -6.608 -5.682c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+              <path
+                d="M17.8 20.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" />
+            </svg>
+          </div>
+          <p class="text-[10px] font-semibold text-gray-700">علاقمندی</p>
+        </a>
+        <a class="group relative flex flex-1 flex-col items-center gap-y-1 py-1 lg:flex-row" href="#">
+          <div class="flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-logout-2 text-icon-low-emphasis group-hover:text-primary-800 transition-colors">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
+              <path d="M15 12h-12l3 -3" />
+              <path d="M6 15l-3 -3" />
+            </svg>
+          </div>
+          <p class="text-[10px] font-semibold text-gray-700">
+            ورود | ثبت نام
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- category mobile -->
+  <div x-data="{ openParent: null }" x-show="openCategory" x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 translate-y-full" x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0"
+    x-transition:leave-end="opacity-0 translate-y-full"
+    class="fixed inset-0 z-99999 h-full w-full bg-white px-4 py-10 shadow-lg lg:hidden">
+    <!-- close button -->
+    <button @click="openCategory = false" class="absolute top-2 right-2 cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-gray-700">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-1.5 7.5a1 1 0 0 0-1.414 1.414L10.586 12l-1.5 1.5a1 1 0 1 0 1.414 1.414L12 13.414l1.5 1.5a1 1 0 0 0 1.414-1.414L13.414 12l1.5-1.5a1 1 0 0 0-1.414-1.414L12 10.586l-1.5-1.5z" />
+      </svg>
+    </button>
+
+    <ul class="space-y-2">
+      <!-- Parent 1: Facial Makeup Category -->
+      <li>
+        <button @click="openParent === 1 ? openParent = null : openParent = 1"
+          :class="openParent === 1 ? 'bg-primary-50 text-primary-800 shadow-md' : 'bg-gray-50 text-gray-700'"
+          class="hover:bg-primary-100 flex w-full items-center justify-between rounded-lg px-4 py-2 font-semibold transition hover:shadow">
+          آرایش صورت
+          <svg :class="openParent === 1 ? '-rotate-90 text-primary-800' : 'text-gray-600'"
+            xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-left h-4 w-4 transition-transform">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M5 12l14 0" />
+            <path d="M5 12l6 6" />
+            <path d="M5 12l6 -6" />
+          </svg>
+        </button>
+
+        <!-- Subcategories -->
+        <ul x-show="openParent === 1" x-transition class="mt-2 mr-4 space-y-1">
+          <!-- Subcategory: Foundation -->
+          <li x-data="{ subOpen: null }">
+            <button @click="subOpen === 1 ? subOpen = null : subOpen = 1"
+              :class="subOpen === 1 ? 'bg-primary-100 text-primary-900' : 'bg-gray-50 text-gray-700'"
+              class="hover:bg-primary-50 flex w-full items-center justify-between rounded-lg px-3 py-1 text-sm font-medium transition">
+              کرم پودر
+              <svg :class="subOpen === 1 ? '-rotate-90 text-primary-800' : 'text-gray-600'"
+                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-left h-4 w-4 transition-transform">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l14 0" />
+                <path d="M5 12l6 6" />
+                <path d="M5 12l6 -6" />
+              </svg>
+            </button>
+
+            <!-- Sub-subcategories -->
+            <ul x-show="subOpen === 1" x-transition class="mt-1 mr-4 space-y-1">
+              <li>
+                <a href="#"
+                  class="block rounded px-3 py-1 text-sm font-medium text-gray-700 transition hover:bg-gray-100">پنکیک</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block rounded px-3 py-1 text-sm font-medium text-gray-700 transition hover:bg-gray-100">رژگونه</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block rounded px-3 py-1 text-sm font-medium text-gray-700 transition hover:bg-gray-100">هایلایتر</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block rounded px-3 py-1 text-sm font-medium text-gray-700 transition hover:bg-gray-100">کامنت
+                  ۷</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block rounded px-3 py-1 text-sm font-medium text-gray-700 transition hover:bg-gray-100">کامنت
+                  ۸</a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Additional subcategories -->
+          <li>
+            <a href="#"
+              class="block rounded px-3 py-1 text-sm font-medium text-gray-700 transition hover:bg-gray-100">پرایمر</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block rounded px-3 py-1 text-sm font-medium text-gray-700 transition hover:bg-gray-100">ماسک
+              صورت</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script src="src/js/main.js" type="module"></script>
+  <script src="src/js/script.js"></script>
+</body>
+
+</html>

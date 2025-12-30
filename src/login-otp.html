@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ورود</title>
+  <!-- link css -->
+  <link rel="stylesheet" href="src/css/style.css" />
+</head>
+
+<body>
+  <section class="relative flex min-h-screen w-full items-center justify-center">
+    <!-- background -->
+    <div
+      class="bg-login pointer-events-none absolute inset-0 flex w-screen items-center justify-center overflow-hidden">
+    </div>
+
+    <div class="relative mx-5 flex w-[27rem] flex-col justify-center rounded-xl bg-white px-4 py-12 shadow-md md:px-8">
+      <div class="flex items-center justify-center">
+        <a href="" class="flex flex-col items-center text-center">
+          <img src="images/logo.svg" alt="" class="" />
+        </a>
+      </div>
+      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <p class="font-dana mb-2 text-lg font-semibold text-gray-900">
+          کد تایید راوارد کنید
+        </p>
+        <form class="space-y-5" action="#" method="POST">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-600">
+              کد تایید برای شماره 09057824508 ارسال شد
+            </label>
+            <div class="mt-3">
+              <input type="text" required=""
+                class="md:text-basec focus:border-b-primary-800 block w-full appearance-none rounded-lg border-b-4 border-gray-300 bg-slate-200 p-3 text-sm/6 text-gray-800 outline-1 -outline-offset-1 transition-all outline-none placeholder:text-gray-400" />
+            </div>
+            <!-- ERRORE -->
+            <p class="text-error"></p>
+          </div>
+          <label for="email" class="text-primary-800 block text-center text-sm font-semibold">
+            دریافت مجدد کد
+          </label>
+          <label for="email" class="block text-center text-sm font-semibold text-gray-600">
+            <span class="mx-1 w-10 text-center">۳۵ : ۰۲</span>
+            مانده تا دریافت مجدد کد
+          </label>
+          <div>
+            <a href=""
+              class="bg-primary-600 hover:bg-primary-900 flex w-full justify-center rounded-md px-3 py-3 whitespace-nowrap text-white shadow-sm transition-colors duration-150 ease-in-out">تایید</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="/src/js/main.js"></script>
+  <script src="src/js/script.js"></script>
+</body>
+
+</html>

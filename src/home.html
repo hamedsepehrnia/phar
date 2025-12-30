@@ -1,0 +1,1708 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>گلناز</title>
+  <!-- link css -->
+  <link rel="stylesheet" href="src/css/style.css" />
+</head>
+
+<body x-data="{ loaded: true, openCategory: false, activeCategory: null }">
+  <!-- start perloader -->
+  <div x-show="loaded"
+    x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
+    class="fixed top-0 left-0 z-9999999 flex h-screen w-screen items-center justify-center bg-white">
+    <span class="loader"></span>
+  </div>
+  <!-- end perloader  -->
+
+  <div class="relative h-screen overflow-auto bg-white">
+    <header>
+      <div class="flex w-full items-center justify-between bg-white px-4 lg:px-8">
+        <a href="#">
+          <img src="images/logo.svg" alt="" class="" />
+        </a>
+
+        <div
+          class="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl p-[2px] shadow-lg">
+          <span
+            class="absolute inset-0 bg-gradient-to-l from-pink-500 via-purple-500 to-blue-500 transition-all duration-300 group-hover:scale-110 group-hover:rotate-1"></span>
+          <span
+            class="relative rounded-2xl bg-white px-8 py-2 text-sm font-semibold text-gray-800 transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
+            خرید از راست چین
+          </span>
+        </div>
+      </div>
+    </header>
+    <!-- Main container -->
+    <div class="flex h-screen flex-col">
+      <main class="flex-1">
+        <section class="py-16">
+          <div class="relative mx-auto flex flex-col items-center justify-between">
+            <span
+              class="rounded-t-sm rounded-b-xl bg-gradient-to-r from-pink-500 to-blue-500 p-2 text-base font-medium text-white">قالب
+              فروشگاهی برای لوازم آرایشی</span>
+
+            <p class="px-4 py-4 text-center text-2xl font-bold text-gray-900 lg:py-8 lg:text-5xl lg:leading-[70px]">
+              فروشگاهی مدرن برای
+              <span class="bg-gradient-to-r from-pink-500 to-blue-600 bg-clip-text text-transparent">زیبایی و
+                استایل</span>
+            </p>
+
+            <p class="z-30 mb-10 px-4 text-center text-sm leading-relaxed text-gray-600 lg:text-lg">
+              قالب گــلناز با طراحی متفاوت، سرعت بالا و امکانات حرفه‌ای برای
+              فروشگاه‌های آرایشی و مد
+              <br />
+              همه‌چیز برای جلب اعتماد و توجه مشتریان شما آماده است
+            </p>
+
+            <div class="flex flex-row flex-wrap justify-center gap-x-4 pb-6 lg:gap-x-10">
+              <a href="#"
+                class="border-primary-400 text-primary-800 hover:bg-primary-50 z-50 flex items-center rounded-tr-2xl rounded-bl-2xl border-2 bg-white p-2 text-sm font-bold shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg lg:px-8 lg:py-6 lg:text-base">
+                ویژگی‌های قالب
+              </a>
+              <a href="#"
+                class="flex items-center rounded-b-2xl bg-gradient-to-r from-pink-500 to-blue-500 p-2 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl lg:px-8 lg:py-6 lg:text-base">
+                صفحات قالب
+              </a>
+              <a href="#"
+                class="border-primary-400 text-primary-800 hover:bg-primary-50 flex items-center rounded-tl-2xl rounded-br-2xl border-2 bg-white p-2 text-sm font-bold shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg lg:px-8 lg:py-6 lg:text-base">
+                سوالات متداول
+              </a>
+            </div>
+
+            <div class="flex w-full items-center justify-between px-4 md:justify-center md:gap-8">
+              <div
+                class="rounded-2xl border-2 border-gray-200 bg-white p-3 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 32 32">
+                  <path fill="#f5de19" d="M27.5 5.5h-9.3l-2.1 4.2H4.4v16.8h25.2v-21Zm0 4.2h-8.2l1.1-2.1h7.1Z" />
+                  <path fill="#282826"
+                    d="M23.013 26.479a3.27 3.27 0 0 0 2.961 1.821c1.244 0 2.033-.622 2.033-1.481c0-1.025-.815-1.393-2.181-1.989l-.753-.324c-2.155-.92-3.61-2.068-3.61-4.512c0-2.252 1.752-3.96 4.38-3.96a4.43 4.43 0 0 1 4.267 2.4l-2.33 1.5a2.04 2.04 0 0 0-1.936-1.288a1.305 1.305 0 0 0-1.43 1.167q-.006.06-.007.121c0 .876.561 1.262 1.84 1.822l.753.324c2.549 1.1 3.986 2.208 3.986 4.713c0 2.7-2.12 4.179-4.967 4.179a5.76 5.76 0 0 1-5.433-3.072Zm-10.583.263c.473.876.876 1.542 1.927 1.542s1.6-.385 1.6-1.884V16.229h3v10.215c0 3.1-1.822 4.521-4.477 4.521a4.65 4.65 0 0 1-4.494-2.742Z" />
+                </svg>
+              </div>
+              <div
+                class="rounded-2xl border-2 border-gray-200 bg-white p-3 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 128 128">
+                  <path fill="#131313"
+                    d="M89.234 5.856H81.85l7.679 8.333v3.967H73.713v-4.645h7.678l-7.678-8.333V1.207h15.521zm-18.657 0h-7.384l7.679 8.333v3.967H55.055v-4.645h7.679l-7.679-8.333V1.207h15.522zm-18.474.19h-7.968v7.271h7.968v4.839H38.471V1.207h13.632z" />
+                  <path fill="#1572b6" d="m27.613 116.706l-8.097-90.813h88.967l-8.104 90.798l-36.434 10.102z" />
+                  <path fill="#33a9dc" d="m64.001 119.072l29.439-8.162l6.926-77.591H64.001z" />
+                  <path fill="#fff" d="M64 66.22h14.738l1.019-11.405H64V43.677h27.929l-.267 2.988l-2.737 30.692H64z" />
+                  <path fill="#ebebeb"
+                    d="m64.067 95.146l-.049.014l-12.404-3.35l-.794-8.883H39.641l1.561 17.488l22.814 6.333l.052-.015V95.146z" />
+                  <path fill="#fff"
+                    d="M77.792 76.886L76.45 91.802l-12.422 3.353v11.588l22.833-6.328l.168-1.882l1.938-21.647z" />
+                  <path fill="#ebebeb"
+                    d="M64.039 43.677v11.137H37.136l-.224-2.503l-.507-5.646l-.267-2.988zM64 66.221v11.138H51.753l-.223-2.503l-.508-5.647l-.267-2.988z" />
+                </svg>
+              </div>
+              <div
+                class="rounded-2xl border-2 border-gray-200 bg-white p-3 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 361">
+                  <path fill="#e44d26" d="m255.555 70.766l-23.241 260.36l-104.47 28.962l-104.182-28.922L.445 70.766z" />
+                  <path fill="#f16529" d="m128 337.95l84.417-23.403l19.86-222.49H128z" />
+                  <path fill="#ebebeb"
+                    d="M82.82 155.932H128v-31.937H47.917l.764 8.568l7.85 88.01H128v-31.937H85.739zm7.198 80.61h-32.06l4.474 50.146l65.421 18.16l.147-.04V271.58l-.14.037l-35.568-9.604z" />
+                  <path
+                    d="M24.18 0h16.23v16.035h14.847V0h16.231v48.558h-16.23v-16.26H40.411v16.26h-16.23V0M92.83 16.103H78.544V0h44.814v16.103h-14.295v32.455h-16.23V16.103zM130.47 0h16.923l10.41 17.062L168.203 0h16.93v48.558h-16.164V24.49l-11.166 17.265h-.28L146.35 24.49v24.068h-15.88zm62.74 0h16.235v32.508h22.824v16.05h-39.06z" />
+                  <path fill="#fff"
+                    d="M127.89 220.573h39.327l-3.708 41.42l-35.62 9.614v33.226l65.473-18.145l.48-5.396l7.506-84.08l.779-8.576H127.89zm0-64.719v.078h77.143l.64-7.178l1.456-16.191l.763-8.568H127.89z" />
+                </svg>
+              </div>
+              <div
+                class="rounded-2xl border-2 border-gray-200 bg-white p-3 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 154">
+                  <defs>
+                    <linearGradient id="SVG80JqDb2a" x1="-2.778%" x2="100%" y1="32%" y2="67.556%">
+                      <stop offset="0%" stop-color="#2298bd" />
+                      <stop offset="100%" stop-color="#0ed7b5" />
+                    </linearGradient>
+                  </defs>
+                  <path fill="url(#SVG80JqDb2a)"
+                    d="M128 0Q76.8 0 64 51.2Q83.2 25.6 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8q51.2 0 64-51.2q-19.2 25.6-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0M64 76.8q-51.2 0-64 51.2q19.2-25.6 44.8-19.2c9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6q51.2 0 64-51.2q-19.2 25.6-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="px-6 py-12">
+              <div
+                class="mx-auto grid max-w-6xl grid-cols-2 gap-10 text-center text-gray-700 sm:grid-cols-2 lg:grid-cols-4">
+                <!-- آیتم ۱ -->
+                <div
+                  class="group flex flex-col items-center space-y-3 rounded-2xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-indigo-600 transition-transform duration-300 group-hover:scale-110"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 110-16 8 8 0 010 16z" />
+                  </svg>
+                  <p class="text-sm">پشتیبانی فنی</p>
+                  <p class="text-sm font-semibold text-gray-900">
+                    پاسخ‌گویی سریع و حرفه‌ای
+                  </p>
+                </div>
+
+                <!-- آیتم ۲ (جدید: نصب رایگان قالب) -->
+                <div
+                  class="group flex flex-col items-center space-y-3 rounded-2xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-indigo-600 transition-transform duration-300 group-hover:scale-110"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2m-9-4l3 3m0 0l3-3m-3 3V4" />
+                  </svg>
+                  <p class="text-sm">نصب و راه‌اندازی رایگان</p>
+                  <p class="text-sm font-semibold text-gray-900">
+                    تحویل آماده برای استفاده
+                  </p>
+                </div>
+
+                <!-- آیتم ۳ (جدید: رفع باگ و مشکلات) -->
+                <div
+                  class="group flex flex-col items-center space-y-3 rounded-2xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-indigo-600 transition-transform duration-300 group-hover:scale-110"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p class="text-sm">رفع باگ و مشکلات</p>
+                  <p class="text-sm font-semibold text-gray-900">
+                    تضمین عملکرد بدون خطا
+                  </p>
+                </div>
+
+                <!-- آیتم ۴ -->
+                <div
+                  class="group flex flex-col items-center space-y-3 rounded-2xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-indigo-600 transition-transform duration-300 group-hover:scale-110"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M15 10l4.553 2.276A1 1 0 0120 13.118V16a2 2 0 01-2 2H6a2 2 0 01-2-2v-2.882a1 1 0 01.447-.842L9 10V7a3 3 0 016 0v3z" />
+                  </svg>
+                  <p class="text-sm">ضمانت کیفیت</p>
+                  <p class="text-sm font-semibold text-gray-900">
+                    رضایت کامل کاربران
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute top-[30px] right-[40px] hidden h-[300px] w-[200px] opacity-50 lg:block">
+              <img src="images/home/03.png" alt="" class="size-full rounded-2xl object-contain" />
+            </div>
+
+            <div class="absolute top-[400px] left-[100px] hidden h-[300px] w-[150px] opacity-50 lg:block">
+              <img src="images/home/02.png" alt="" class="size-full rounded-2xl object-contain" />
+            </div>
+
+            <div class="absolute top-[40px] left-[10px] hidden h-[300px] w-[150px] opacity-50 lg:block">
+              <img src="images/home/04.png" alt="" class="size-full rounded-2xl object-contain" />
+            </div>
+
+            <div class="absolute top-[40px] right-[450px] hidden h-[300px] w-[150px] opacity-40 lg:block">
+              <img src="images/home/05.png" alt="" class="size-full rounded-2xl object-contain" />
+            </div>
+          </div>
+        </section>
+
+        <div class="h-[1px] w-full bg-gradient-to-r from-white via-zinc-300 to-white"></div>
+
+        <section class="py-16" dir="rtl">
+          <div class="mx-auto max-w-6xl px-6 text-center">
+            <!-- عنوان -->
+            <h2 class="font-yekan-bakh mb-2 text-3xl font-bold text-gray-800 md:text-4xl">
+              ویژگی‌های
+              <span class="text-primary-800">گلناز</span>
+            </h2>
+            <p class="mb-10 text-gray-500">
+              هر آنچه برای ساخت یک فروشگاه لوازم آرایشی حرفه‌ای نیاز دارید
+            </p>
+
+            <!-- کارت‌ها -->
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              <!-- کارت 1 -->
+              <div
+                class="flex flex-col items-center rounded-2xl border border-pink-100 bg-white p-6 text-center shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="bg-primary-50 text-primary-800 mb-4 rounded-full p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-settings-question">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M14.69 18.498c-.508 .21 -.885 .65 -1.015 1.185c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572a1.67 1.67 0 0 1 1.179 .982" />
+                    <path d="M14.95 12.553a3 3 0 1 0 -1.211 1.892" />
+                    <path d="M19 22v.01" />
+                    <path d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" />
+                  </svg>
+                </div>
+                <h3 class="mb-2 font-semibold text-gray-800">
+                  پشتیبانی واقعی و همیشگی
+                </h3>
+                <p class="text-sm text-gray-500">
+                  در هر مرحله از کار، تیم پشتیبانی کنار شماست.
+                </p>
+              </div>
+
+              <!-- کارت 2 -->
+              <div
+                class="flex flex-col items-center rounded-2xl border border-pink-100 bg-white p-6 text-center shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="bg-primary-50 text-primary-800 mb-4 rounded-full p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-brand-tailwind">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M11.667 6c-2.49 0 -4.044 1.222 -4.667 3.667c.933 -1.223 2.023 -1.68 3.267 -1.375c.71 .174 1.217 .68 1.778 1.24c.916 .912 2 1.968 4.288 1.968c2.49 0 4.044 -1.222 4.667 -3.667c-.933 1.223 -2.023 1.68 -3.267 1.375c-.71 -.174 -1.217 -.68 -1.778 -1.24c-.916 -.912 -1.975 -1.968 -4.288 -1.968zm-4 6.5c-2.49 0 -4.044 1.222 -4.667 3.667c.933 -1.223 2.023 -1.68 3.267 -1.375c.71 .174 1.217 .68 1.778 1.24c.916 .912 1.975 1.968 4.288 1.968c2.49 0 4.044 -1.222 4.667 -3.667c-.933 1.223 -2.023 1.68 -3.267 1.375c-.71 -.174 -1.217 -.68 -1.778 -1.24c-.916 -.912 -1.975 -1.968 -4.288 -1.968z" />
+                  </svg>
+                </div>
+                <h3 class="mb-2 font-semibold text-gray-800">
+                  کدنویسی تمیز و مدرن با TailwindCSS
+                </h3>
+                <p class="text-sm text-gray-500">
+                  ساختار سبک، سریع و قابل ویرایش برای توسعه آسان.
+                </p>
+              </div>
+
+              <!-- کارت 3 -->
+              <div
+                class="flex flex-col items-center rounded-2xl border border-pink-100 bg-white p-6 text-center shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="bg-primary-50 text-primary-800 mb-4 rounded-full p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-seo">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M7 8h-3a1 1 0 0 0 -1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-3" />
+                    <path d="M14 16h-4v-8h4" />
+                    <path d="M11 12h2" />
+                    <path d="M17 8m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+                  </svg>
+                </div>
+                <h3 class="mb-2 font-semibold text-gray-800">
+                  رعایت اصول اولیه سئو
+                </h3>
+                <p class="text-sm text-gray-500">
+                  کدنویسی تمیز و بهینه برای نتایج بهتر در گوگل.
+                </p>
+              </div>
+
+              <!-- کارت 4 -->
+              <div
+                class="flex flex-col items-center rounded-2xl border border-pink-100 bg-white p-6 text-center shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="bg-primary-50 text-primary-800 mb-4 rounded-full p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-refresh">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+                    <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+                  </svg>
+                </div>
+                <h3 class="mb-2 font-semibold text-gray-800">
+                  آپدیت‌های مداوم
+                </h3>
+                <p class="text-sm text-gray-500">
+                  به‌روزرسانی مداوم صفحات و امکانات جدید.
+                </p>
+              </div>
+
+              <!-- کارت 5 -->
+              <div
+                class="flex flex-col items-center rounded-2xl border border-pink-100 bg-white p-6 text-center shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="bg-primary-50 text-primary-800 mb-4 rounded-full p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-library">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M7 3m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
+                    <path
+                      d="M4.012 7.26a2.005 2.005 0 0 0 -1.012 1.737v10c0 1.1 .9 2 2 2h10c.75 0 1.158 -.385 1.5 -1" />
+                    <path d="M11 7h5" />
+                    <path d="M11 10h6" />
+                    <path d="M11 13h3" />
+                  </svg>
+                </div>
+                <h3 class="mb-2 font-semibold text-gray-800">
+                  ریسپانسیو حرفه‌ای
+                </h3>
+                <p class="text-sm text-gray-500">
+                  نمایش بی‌نقص در موبایل، تبلت و دسکتاپ.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-20" dir="rtl">
+          <div class="mx-auto max-w-7xl px-6">
+            <!-- عنوان -->
+            <h2 class="mb-12 text-center text-3xl font-bold text-gray-800 md:text-4xl">
+              صفحات <span class="text-primary-800">قالب گلناز</span>
+            </h2>
+
+            <div class="grid grid-cols-2 gap-4 gap-y-8 lg:grid-cols-3 lg:gap-x-32">
+              <div x-data="{ interval: null }"
+                class="group relative h-fit w-full max-w-sm overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-[0_8px_25px_rgba(0,0,0,0.1)] backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(0,0,0,0.15)]"
+                @mouseenter="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop < box.scrollHeight - box.clientHeight) {box.scrollTop += 2;}}, 16);"
+                @mouseleave="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop > 0) {box.scrollTop -= 2;}}, 16);">
+                <!-- header card -->
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    صفحه اصلی
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- image (auto scroll)-->
+                <div x-ref="scrollBox" class="relative h-40 overflow-hidden">
+                  <img src="images/web/home.png"
+                    class="block size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a href="https://golnazpro.liara.run"
+                  class="flex items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 36 36">
+                    <path fill="#aab8c2"
+                      d="M18 0c-4.612 0-8.483 3.126-9.639 7.371l3.855 1.052A6 6 0 0 1 18 4a6 6 0 0 1 6 6v10h4V10c0-5.522-4.477-10-10-10" />
+                    <path fill="#ffac33" d="M31 32a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4z" />
+                  </svg>
+                </a>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ interval: null }"
+                class="group relative h-fit w-full max-w-sm overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-[0_8px_25px_rgba(0,0,0,0.1)] backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(0,0,0,0.15)]"
+                @mouseenter="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop < box.scrollHeight - box.clientHeight) {box.scrollTop += 2;}}, 16);"
+                @mouseleave="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop > 0) {box.scrollTop -= 2;}}, 16);">
+                <!-- header card -->
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    جزئیات محصول
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- image (auto scroll)-->
+                <div x-ref="scrollBox" class="relative h-40 overflow-hidden">
+                  <img src="images/web/product.png"
+                    class="block size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a href="https://golnazpro.liara.run/product.html"
+                  class="flex items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 36 36">
+                    <path fill="#aab8c2"
+                      d="M18 0c-4.612 0-8.483 3.126-9.639 7.371l3.855 1.052A6 6 0 0 1 18 4a6 6 0 0 1 6 6v10h4V10c0-5.522-4.477-10-10-10" />
+                    <path fill="#ffac33" d="M31 32a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4z" />
+                  </svg>
+                </a>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ interval: null }"
+                class="group relative h-fit w-full max-w-sm overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-[0_8px_25px_rgba(0,0,0,0.1)] backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(0,0,0,0.15)]"
+                @mouseenter="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop < box.scrollHeight - box.clientHeight) {box.scrollTop += 2;}}, 16);"
+                @mouseleave="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop > 0) {box.scrollTop -= 2;}}, 16);">
+                <!-- header card -->
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    وبلاگ
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- image (auto scroll)-->
+                <div x-ref="scrollBox" class="relative h-40 overflow-hidden">
+                  <img src="images/web/blog.png"
+                    class="block size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a href="https://golnazpro.liara.run/blog.html"
+                  class="flex items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 36 36">
+                    <path fill="#aab8c2"
+                      d="M18 0c-4.612 0-8.483 3.126-9.639 7.371l3.855 1.052A6 6 0 0 1 18 4a6 6 0 0 1 6 6v10h4V10c0-5.522-4.477-10-10-10" />
+                    <path fill="#ffac33" d="M31 32a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4z" />
+                  </svg>
+                </a>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ interval: null }"
+                class="group relative h-fit w-full max-w-sm overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-[0_8px_25px_rgba(0,0,0,0.1)] backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(0,0,0,0.15)]"
+                @mouseenter="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop < box.scrollHeight - box.clientHeight) {box.scrollTop += 2;}}, 16);"
+                @mouseleave="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop > 0) {box.scrollTop -= 2;}}, 16);">
+                <!-- header card -->
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    درباره ما
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- image (auto scroll)-->
+                <div x-ref="scrollBox" class="relative h-40 overflow-hidden">
+                  <img src="images/web/about-us.png"
+                    class="block size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a href="https://golnazpro.liara.run/about-us.html"
+                  class="flex items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 36 36">
+                    <path fill="#aab8c2"
+                      d="M18 0c-4.612 0-8.483 3.126-9.639 7.371l3.855 1.052A6 6 0 0 1 18 4a6 6 0 0 1 6 6v10h4V10c0-5.522-4.477-10-10-10" />
+                    <path fill="#ffac33" d="M31 32a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4z" />
+                  </svg>
+                </a>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ interval: null }"
+                class="group relative h-fit w-full max-w-sm overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-[0_8px_25px_rgba(0,0,0,0.1)] backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(0,0,0,0.15)]"
+                @mouseenter="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop < box.scrollHeight - box.clientHeight) {box.scrollTop += 2;}}, 16);"
+                @mouseleave="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop > 0) {box.scrollTop -= 2;}}, 16);">
+                <!-- header card -->
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    پنل کاریری
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- image (auto scroll)-->
+                <div x-ref="scrollBox" class="relative h-40 overflow-hidden">
+                  <img src="images/web/dashboard.png"
+                    class="block size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a href="https://golnazpro.liara.run/dashboard.html"
+                  class="flex items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 36 36">
+                    <path fill="#aab8c2"
+                      d="M18 0c-4.612 0-8.483 3.126-9.639 7.371l3.855 1.052A6 6 0 0 1 18 4a6 6 0 0 1 6 6v10h4V10c0-5.522-4.477-10-10-10" />
+                    <path fill="#ffac33" d="M31 32a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4z" />
+                  </svg>
+                </a>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ interval: null }"
+                class="group relative h-fit w-full max-w-sm overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-[0_8px_25px_rgba(0,0,0,0.1)] backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(0,0,0,0.15)]"
+                @mouseenter="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop < box.scrollHeight - box.clientHeight) {box.scrollTop += 2;}}, 16);"
+                @mouseleave="let box = $refs.scrollBox;clearInterval(interval);interval = setInterval(() => {if (box.scrollTop > 0) {box.scrollTop -= 2;}}, 16);">
+                <!-- header card -->
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    ورود
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- image (auto scroll)-->
+                <div x-ref="scrollBox" class="relative h-40 overflow-hidden">
+                  <img src="images/web/login.png"
+                    class="block size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a href="https://golnazpro.liara.run/login.html"
+                  class="flex items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 36 36">
+                    <path fill="#aab8c2"
+                      d="M18 0c-4.612 0-8.483 3.126-9.639 7.371l3.855 1.052A6 6 0 0 1 18 4a6 6 0 0 1 6 6v10h4V10c0-5.522-4.477-10-10-10" />
+                    <path fill="#ffac33" d="M31 32a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4z" />
+                  </svg>
+                </a>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-20" dir="rtl">
+          <div class="mx-auto max-w-7xl px-6">
+            <!-- tilte -->
+            <h2 class="mb-12 text-center text-2xl font-bold text-gray-800 md:text-3xl">
+              بقیه صفحات <span class="text-primary-800">قالب گلناز</span> به
+              صورت عکس قرار گرفته شده
+            </h2>
+
+            <div class="grid grid-cols-2 gap-4 gap-y-8 lg:grid-cols-3 lg:gap-x-32">
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    فروشگاه
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/shop.png" class="block size-full object-cover object-center" alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/shop.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    سبد خرید
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/shoping-cart.png" class="block size-full object-cover object-center"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/shoping-cart.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    404
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/404.png" class="block size-full object-cover object-center" alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/404.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    اطلاعات حساب
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/account-info.png" class="block size-full object-cover object-center"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/account-info.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    آدرس ها
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/addresses.png" class="block size-full object-cover object-center" alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/addresses.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    جزئیات وبلاگ
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/blog-single.png" class="block size-full object-cover object-center"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/blog-single.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    پرداخت نهایی
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/checkout-payment.png" class="block size-full object-cover object-center"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/checkout-payment.png" class="w-full rounded-2xl shadow-lg"
+                      alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    برسی نهایی
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/checkout-shipping.png" class="block size-full object-cover object-center"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/checkout-shipping.png" class="w-full rounded-2xl shadow-lg"
+                      alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    تماس با ما
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/contact-us.png" class="block size-full object-cover object-center"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/contact-us.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    سبد خالی
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/empty-shopping-cart.png" class="block size-full object-cover object-center"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/empty-shopping-cart.png" class="w-full rounded-2xl shadow-lg"
+                      alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    رمز عبور
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/login-otp.png" class="size-full object-center" alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/login-otp.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    درحال تعمیر
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/maintenance.png" class="block size-full object-cover object-center"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/maintenance.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    پیام ها
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/messages.png" class="block size-full object-cover object-center" alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/messages.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    سفارشات
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/orders.png" class="block size-full object-cover object-center" alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/orders.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    پرداخت موفق
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/success_payment.png" class="block size-full object-cover object-center"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/success_payment.png" class="w-full rounded-2xl shadow-lg"
+                      alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    پرداخت ناموفق
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/payment_failed.png" class="block size-full object-cover object-center"
+                    alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/payment_failed.png" class="w-full rounded-2xl shadow-lg"
+                      alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    دیدگاه
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/reviews.png" class="block size-full object-cover object-center" alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/reviews.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+
+              <div x-data="{ showGallery: false }"
+                class="w-full max-w-sm overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300">
+                <div
+                  class="flex items-center justify-between border-b border-white/20 bg-gradient-to-r from-white/30 to-white/10 px-4 py-3 backdrop-blur-xl">
+                  <span
+                    class="rounded-xl border-4 border-gray-100 bg-white/60 px-3 py-1 text-sm font-semibold text-gray-800 shadow-2xl">
+                    علاقه مندی ها
+                  </span>
+                  <div class="hidden text-gray-700 transition-colors duration-300 group-hover:text-indigo-500 lg:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="m20 12l.707-.707l.707.707l-.707.707zM5 13a1 1 0 1 1 0-2zm9.707-7.707l6 6l-1.414 1.414l-6-6zm6 7.414l-6 6l-1.414-1.414l6-6zM20 13H5v-2h15z" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- بخش تصویر -->
+                <div class="h-40 overflow-hidden">
+                  <img src="/images/web/wishlist.png" class="block size-full object-cover object-center" alt="Image" />
+                </div>
+
+                <!-- footer card -->
+                <a @click="showGallery = true"
+                  class="flex cursor-pointer items-center justify-center gap-x-2 border-t border-white/20 bg-gradient-to-r from-gray-900/10 to-transparent py-3 text-center text-sm font-semibold text-gray-800">
+                  مشاهده صفحه
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                    <path fill="#b1b4b5"
+                      d="M376.749 349.097c-13.531 0-24.5-10.969-24.5-24.5V181.932c0-48.083-39.119-87.203-87.203-87.203c-48.083 0-87.203 39.119-87.203 87.203v82.977c0 13.531-10.969 24.5-24.5 24.5s-24.5-10.969-24.5-24.5v-82.977c0-75.103 61.1-136.203 136.203-136.203s136.203 61.1 136.203 136.203v142.665c0 13.531-10.969 24.5-24.5 24.5" />
+                    <path fill="#ffb636"
+                      d="M414.115 497.459H115.977c-27.835 0-50.4-22.565-50.4-50.4V274.691c0-27.835 22.565-50.4 50.4-50.4h298.138c27.835 0 50.4 22.565 50.4 50.4v172.367c0 27.836-22.565 50.401-50.4 50.401" />
+                    <path fill="#ffd469"
+                      d="M109.311 456.841h-2.525c-7.953 0-14.4-6.447-14.4-14.4V279.309c0-7.953 6.447-14.4 14.4-14.4h2.525c7.953 0 14.4 6.447 14.4 14.4v163.132c0 7.953-6.447 14.4-14.4 14.4" />
+                  </svg>
+                </a>
+
+                <!-- Full-page gallery -->
+                <div x-show="showGallery" x-transition
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                  @click.self="showGallery = false">
+                  <div class="relative w-full max-w-3xl p-4">
+                    <button @click="showGallery = false"
+                      class="absolute top-4 right-4 text-3xl font-bold text-white transition-transform hover:scale-110">
+                      &times;
+                    </button>
+                    <img src="/images/web/wishlist.png" class="w-full rounded-2xl shadow-lg" alt="Gallery Image" />
+                  </div>
+                </div>
+
+                <!-- effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400/20 via-purple-400/20 to-transparent opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-gradient-to-b from-pink-50 to-white py-16" dir="rtl">
+          <div class="mx-auto max-w-4xl px-6">
+            <!-- عنوان سکشن -->
+            <h2 class="mb-10 text-center text-3xl font-bold text-gray-800 md:text-4xl">
+              سؤالات متداول <span class="text-primary-600">قالب گلناز</span>
+            </h2>
+
+            <!-- آکاردئون -->
+            <div class="space-y-4">
+              <div x-data="{ open: false }"
+                class="overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
+                <button @click="open = !open"
+                  class="flex w-full cursor-pointer items-center justify-between px-6 py-4 text-right font-semibold text-gray-800">
+                  آیا قالب گلناز واکنش‌گرا است؟
+                  <span class="text-primary-600 relative h-6 w-6 text-2xl">
+                    <span x-show="!open" x-cloak x-transition.opacity.duration.150ms
+                      class="absolute inset-0 flex items-center justify-center">＋</span>
+                    <span x-show="open" x-cloak x-transition.opacity.duration.150ms
+                      class="absolute inset-0 flex items-center justify-center">−</span>
+                  </span>
+                </button>
+
+                <div x-show="open" x-cloak x-transition class="px-6 pb-5 text-sm leading-relaxed text-gray-600">
+                  بله قالب گلناز کاملاً واکنش‌گراست و در موبایل، تبلت و دسکتاپ
+                  به‌صورت زیبا و دقیق نمایش داده می‌شود.
+                </div>
+              </div>
+
+              <!-- آیتم ۱ -->
+              <div x-data="{ open: false }"
+                class="overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
+                <button @click="open = !open"
+                  class="flex w-full cursor-pointer items-center justify-between px-6 py-4 text-right font-semibold text-gray-800">
+                  آیا رنگ‌ها و فونت‌ها قابل تغییر هستند؟
+                  <span class="text-primary-600 relative h-6 w-6 text-2xl">
+                    <span x-show="!open" x-cloak x-transition.opacity.duration.150ms
+                      class="absolute inset-0 flex items-center justify-center">＋</span>
+                    <span x-show="open" x-cloak x-transition.opacity.duration.150ms
+                      class="absolute inset-0 flex items-center justify-center">−</span>
+                  </span>
+                </button>
+
+                <div x-show="open" x-cloak x-transition class="px-6 pb-5 text-sm leading-relaxed text-gray-600">
+                  بله شما می‌توانید به‌راحتی رنگ‌ها، فونت‌ها و استایل قالب را
+                  از طریق کلاس‌های TailwindCSS شخصی‌سازی کنید.
+                </div>
+              </div>
+
+              <!-- آیتم ۲ -->
+              <div x-data="{ open: false }"
+                class="overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
+                <button @click="open = !open"
+                  class="flex w-full cursor-pointer items-center justify-between px-6 py-4 font-semibold text-gray-800">
+                  آیا بروزرسانی‌های آینده رایگان هستند؟
+                  <span class="text-primary-600 relative h-6 w-6 text-2xl">
+                    <span x-show="!open" x-cloak x-transition.opacity.duration.150ms
+                      class="absolute inset-0 flex items-center justify-center">＋</span>
+                    <span x-show="open" x-cloak x-transition.opacity.duration.150ms
+                      class="absolute inset-0 flex items-center justify-center">−</span>
+                  </span>
+                </button>
+
+                <div x-show="open" x-cloak x-transition class="px-6 pb-5 text-sm leading-relaxed text-gray-600">
+                  بله تمام خریداران قالب گلناز می‌توانند از به‌روزرسانی‌های
+                  رایگان و دائمی بهره‌مند شوند.
+                </div>
+              </div>
+
+              <!-- آیتم ۳ -->
+              <div x-data="{ open: false }"
+                class="overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
+                <button @click="open = !open"
+                  class="flex w-full cursor-pointer items-center justify-between px-6 py-4 font-semibold text-gray-800">
+                  آیا قالب گلناز از نظر سئو بهینه است؟
+                  <span class="text-primary-600 relative h-6 w-6 text-2xl">
+                    <span x-show="!open" x-cloak x-transition.opacity.duration.150ms
+                      class="absolute inset-0 flex items-center justify-center">＋</span>
+                    <span x-show="open" x-cloak x-transition.opacity.duration.150ms
+                      class="absolute inset-0 flex items-center justify-center">−</span>
+                  </span>
+                </button>
+
+                <div x-show="open" x-cloak x-transition class="px-6 pb-5 text-sm leading-relaxed text-gray-600">
+                  بله ساختار کد و تگ‌های قالب گلناز بر اساس اصول سئو طراحی شده
+                  تا فروشگاه شما در نتایج جستجو بهتر دیده شود.
+                </div>
+              </div>
+
+              <!-- آیتم ۴ -->
+              <div x-data="{ open: false }"
+                class="overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
+                <button @click="open = !open"
+                  class="flex w-full cursor-pointer items-center justify-between px-6 py-4 font-semibold text-gray-800">
+                  آیا نصب قالب نیاز به دانش فنی دارد؟
+                  <span class="text-primary-600 relative h-6 w-6 text-2xl">
+                    <span x-show="!open" x-cloak x-transition.opacity.duration.150ms
+                      class="absolute inset-0 flex items-center justify-center">＋</span>
+                    <span x-show="open" x-cloak x-transition.opacity.duration.150ms
+                      class="absolute inset-0 flex items-center justify-center">−</span>
+                  </span>
+                </button>
+
+                <div x-show="open" x-cloak x-transition class="px-6 pb-5 text-sm leading-relaxed text-gray-600">
+                  خیر نصب قالب گلناز بسیار ساده است و با چند مرحله کوتاه
+                  می‌توانید آن را اجرا و سفارشی‌سازی کنید.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="src/js/main.js" type="module"></script>
+</body>
+
+</html>

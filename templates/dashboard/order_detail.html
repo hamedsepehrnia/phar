@@ -1,0 +1,256 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% load jalali_tags %}
+
+{% block title %}جزئیات سفارش {{ order.order_number }} - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<main class="flex-1 bg-gray-50 py-8">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col gap-8 lg:flex-row">
+      <!-- Sidebar -->
+      {% include 'partials/dashboard_sidebar.html' with active_menu='orders' %}
+
+      <!-- Main Content -->
+      <div class="px-3 md:px-0 lg:w-3/4">
+        <div class="space-y-6">
+          <!-- Order Header -->
+          <div class="rounded-lg bg-white p-6 shadow">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h1 class="text-xl font-bold text-gray-800">جزئیات سفارش</h1>
+                <p class="mt-1 text-sm text-gray-500">شماره سفارش: <span class="font-semibold text-gray-700">{{ order.order_number }}</span></p>
+              </div>
+              <div class="flex items-center gap-3">
+                {% if order.status == 'pending' %}
+                  <span class="inline-flex items-center rounded-full bg-yellow-100 px-3 py-1 text-sm font-semibold text-yellow-800">
+                    <span class="ml-1 h-2 w-2 rounded-full bg-yellow-500"></span>
+                    در انتظار پرداخت
+                  </span>
+                {% elif order.status == 'paid' %}
+                  <span class="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-semibold text-blue-800">
+                    <span class="ml-1 h-2 w-2 rounded-full bg-blue-500"></span>
+                    پرداخت شده
+                  </span>
+                {% elif order.status == 'processing' %}
+                  <span class="inline-flex items-center rounded-full bg-indigo-100 px-3 py-1 text-sm font-semibold text-indigo-800">
+                    <span class="ml-1 h-2 w-2 rounded-full bg-indigo-500"></span>
+                    در حال پردازش
+                  </span>
+                {% elif order.status == 'shipped' %}
+                  <span class="inline-flex items-center rounded-full bg-purple-100 px-3 py-1 text-sm font-semibold text-purple-800">
+                    <span class="ml-1 h-2 w-2 rounded-full bg-purple-500"></span>
+                    ارسال شده
+                  </span>
+                {% elif order.status == 'delivered' %}
+                  <span class="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-800">
+                    <span class="ml-1 h-2 w-2 rounded-full bg-green-500"></span>
+                    تحویل داده شده
+                  </span>
+                {% elif order.status == 'canceled' %}
+                  <span class="inline-flex items-center rounded-full bg-red-100 px-3 py-1 text-sm font-semibold text-red-800">
+                    <span class="ml-1 h-2 w-2 rounded-full bg-red-500"></span>
+                    لغو شده
+                  </span>
+                {% elif order.status == 'returned' %}
+                  <span class="inline-flex items-center rounded-full bg-orange-100 px-3 py-1 text-sm font-semibold text-orange-800">
+                    <span class="ml-1 h-2 w-2 rounded-full bg-orange-500"></span>
+                    مرجوع شده
+                  </span>
+                {% endif %}
+              </div>
+            </div>
+            
+            <div class="mt-4 grid grid-cols-2 gap-4 border-t border-gray-200 pt-4 sm:grid-cols-4">
+              <div>
+                <p class="text-xs text-gray-500">تاریخ سفارش</p>
+                <p class="font-semibold text-gray-700">{{ order.created_at|jalali_datetime }}</p>
+              </div>
+              <div>
+                <p class="text-xs text-gray-500">روش ارسال</p>
+                <p class="font-semibold text-gray-700">{{ order.shipping_method|default:"پست پیشتاز" }}</p>
+              </div>
+              {% if order.tracking_code %}
+              <div>
+                <p class="text-xs text-gray-500">کد رهگیری</p>
+                <p class="font-semibold text-gray-700">{{ order.tracking_code }}</p>
+              </div>
+              {% endif %}
+              <div>
+                <p class="text-xs text-gray-500">مبلغ کل</p>
+                <p class="font-semibold text-primary-600">{{ order.total|intcomma }} تومان</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Items -->
+          <div class="rounded-lg bg-white p-6 shadow">
+            <h2 class="mb-4 text-lg font-bold text-gray-800">محصولات سفارش</h2>
+            <div class="overflow-x-auto">
+              <table class="w-full text-right text-sm text-gray-700">
+                <thead class="bg-gray-50 text-xs text-gray-700">
+                  <tr>
+                    <th scope="col" class="px-4 py-3">محصول</th>
+                    <th scope="col" class="px-4 py-3">قیمت واحد</th>
+                    <th scope="col" class="px-4 py-3">تعداد</th>
+                    <th scope="col" class="px-4 py-3">قیمت کل</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                  {% for item in order.items.all %}
+                  <tr>
+                    <td class="px-4 py-4">
+                      <div class="flex items-center gap-3">
+                        {% if item.product.primary_image %}
+                        <img src="{{ item.product.primary_image.url }}" alt="{{ item.product.name }}" class="h-14 w-14 rounded-lg object-cover">
+                        {% else %}
+                        <div class="flex h-14 w-14 items-center justify-center rounded-lg bg-gray-100">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        {% endif %}
+                        <div>
+                          <p class="font-semibold text-gray-800">{{ item.product.name }}</p>
+                          {% if item.variant %}
+                          <p class="text-xs text-gray-500">{{ item.variant }}</p>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-4 py-4">{{ item.price|intcomma }} تومان</td>
+                    <td class="px-4 py-4">{{ item.quantity }}</td>
+                    <td class="px-4 py-4 font-semibold">{{ item.total_price|intcomma }} تومان</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Two Column Layout -->
+          <div class="grid gap-6 lg:grid-cols-2">
+            <!-- Shipping Address -->
+            <div class="rounded-lg bg-white p-6 shadow">
+              <h2 class="mb-4 text-lg font-bold text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 inline h-5 w-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                آدرس تحویل
+              </h2>
+              <div class="space-y-3 text-sm">
+                <div class="flex items-center gap-2">
+                  <span class="text-gray-500">گیرنده:</span>
+                  <span class="font-semibold text-gray-700">{{ order.receiver_name }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-gray-500">تلفن:</span>
+                  <span class="font-semibold text-gray-700">{{ order.receiver_phone }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-gray-500">استان/شهر:</span>
+                  <span class="font-semibold text-gray-700">{{ order.address_province }} - {{ order.address_city }}</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-gray-500">آدرس:</span>
+                  <span class="font-semibold text-gray-700">{{ order.address_full }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-gray-500">کد پستی:</span>
+                  <span class="font-semibold text-gray-700">{{ order.address_postal_code }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="rounded-lg bg-white p-6 shadow">
+              <h2 class="mb-4 text-lg font-bold text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 inline h-5 w-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                خلاصه سفارش
+              </h2>
+              <div class="space-y-3 text-sm">
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-500">جمع محصولات:</span>
+                  <span class="font-semibold text-gray-700">{{ order.subtotal|intcomma }} تومان</span>
+                </div>
+                {% if order.discount_amount > 0 %}
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-500">تخفیف{% if order.coupon_code %} ({{ order.coupon_code }}){% endif %}:</span>
+                  <span class="font-semibold text-green-600">- {{ order.discount_amount|intcomma }} تومان</span>
+                </div>
+                {% endif %}
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-500">هزینه ارسال:</span>
+                  <span class="font-semibold text-gray-700">
+                    {% if order.shipping_cost > 0 %}
+                      {{ order.shipping_cost|intcomma }} تومان
+                    {% else %}
+                      <span class="text-green-600">رایگان</span>
+                    {% endif %}
+                  </span>
+                </div>
+                <div class="border-t border-gray-200 pt-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-base font-bold text-gray-800">مبلغ نهایی:</span>
+                    <span class="text-lg font-bold text-primary-600">{{ order.total|intcomma }} تومان</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex flex-wrap gap-3">
+            <a href="{% url 'dashboard:orders' %}" class="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              بازگشت به لیست سفارش‌ها
+            </a>
+            
+            {% if order.status == 'pending' %}
+            <a href="{% url 'orders:payment' order.pk %}" class="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+              پرداخت سفارش
+            </a>
+            
+            <form action="{% url 'orders:cancel' order.pk %}" method="POST" class="inline">
+              {% csrf_token %}
+              <button type="submit" onclick="return confirm('آیا از لغو سفارش اطمینان دارید؟')" class="inline-flex items-center gap-2 rounded-lg border border-red-300 bg-white px-4 py-2 text-sm font-semibold text-red-600 hover:bg-red-50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                لغو سفارش
+              </button>
+            </form>
+            {% endif %}
+            
+            {% if order.status == 'delivered' %}
+            <a href="{% url 'dashboard:reviews' %}" class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+              ثبت نظر
+            </a>
+            {% endif %}
+          </div>
+
+          {% if order.note %}
+          <!-- Customer Note -->
+          <div class="rounded-lg bg-yellow-50 p-4 border border-yellow-200">
+            <h3 class="text-sm font-semibold text-yellow-800 mb-2">یادداشت شما:</h3>
+            <p class="text-sm text-yellow-700">{{ order.note }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

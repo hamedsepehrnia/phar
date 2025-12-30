@@ -1,0 +1,40 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.png' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}گل ناز - فروشگاه آنلاین{% endblock %}</title>
+  <!-- CSS files -->
+  <link rel="stylesheet" crossorigin href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" crossorigin href="{% static 'css/main2.css' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body x-data="{ loaded: true, openCategory: false, activeCategory: null }">
+  <!-- start preloader -->
+  <div x-show="loaded"
+    x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
+    class="fixed top-0 left-0 z-9999999 flex h-screen w-screen items-center justify-center bg-white">
+    <span class="loader"></span>
+  </div>
+  <!-- end preloader  -->
+
+  <div class="h-screen overflow-auto">
+    <!-- header -->
+    {% include 'includes/header.html' %}
+
+    <!-- main content -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- footer -->
+    {% include 'includes/footer.html' %}
+  </div>
+
+  <!-- JavaScript -->
+  <script type="module" crossorigin src="{% static 'js/bundle26.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

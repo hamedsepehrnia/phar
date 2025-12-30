@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}سبد خرید خالی - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<div class="flex h-screen flex-col">
+  <main class="flex-1">
+    <div class="container mx-auto flex flex-col items-center justify-center px-4 py-16">
+      <img src="{% static 'images/empty-cart.png' %}" alt="سبد خرید خالی" class="mb-8 h-60 w-60 opacity-90" />
+
+      <h2 class="mb-4 text-2xl font-semibold text-gray-800">
+        سبد خرید شما خالی است!
+      </h2>
+      <p class="mb-8 text-center leading-relaxed text-gray-600">
+        هنوز محصولی به سبد خرید اضافه نکرده‌اید. برای شروع خرید، به
+        فروشگاه ما سر بزنید
+      </p>
+
+      <a href="{% url 'catalog:shop' %}"
+        class="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl p-[2px] shadow-lg">
+        <span
+          class="absolute inset-0 bg-gradient-to-l from-pink-500 via-purple-500 to-blue-500 transition-all duration-300 group-hover:scale-110 group-hover:rotate-1"></span>
+        <span
+          class="relative rounded-2xl bg-white px-8 py-3 text-sm font-semibold text-gray-800 transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
+          رفتن به فروشگاه
+        </span>
+      </a>
+    </div>
+  </main>
+</div>
+{% endblock %}

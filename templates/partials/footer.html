@@ -1,0 +1,171 @@
+{% load static %}
+<footer class="relative w-full">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: block; position: absolute" width="0" height="0">
+      <defs>
+        <clipPath id="clip" clipPathUnits="objectBoundingBox">
+          <path d="M0.5,0H0.93A0.07,0.07,0,0,1,1,0.07V1A0,0,0,0,1,1,1H0A0,0,0,0,1,0,1V0.5A0.5,0.5,0,0,1,0.5,0Z" />
+        </clipPath>
+      </defs>
+    </svg>
+    <div class="inverted"></div>
+  </div>
+  <!-- محتوای فوتر -->
+  <div class="relative z-10 container mx-auto h-full py-20 lg:py-16">
+    <div class="grid h-full grid-cols-1 gap-12 text-gray-700 lg:grid-cols-3">
+      <div class="flex flex-col justify-between px-4 lg:px-0">
+        <div>
+          <img src="{% static 'images/logo.svg' %}" alt="{{ site_settings.site_name|default:'داروخانه دکتر واعظ' }}" />
+        </div>
+        <div class="w-[80%]">
+          <p class="text-justify text-sm leading-6">
+            {{ site_settings.description|default:"این یک متن آزمایشی است" }}
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col items-center">
+        <h2 class="text-primary-900 mb-4 text-xl font-semibold">دسترسی سریع</h2>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <ul class="flex flex-col justify-between space-y-4">
+              <li class="gap-x-1">
+                <a href="{% url 'core:home' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                  </svg>
+                  <span class="font-dana text-sm font-semibold text-gray-600">صفحه اصلی</span>
+                </a>
+              </li>
+              <li class="gap-x-1">
+                <a href="{% url 'catalog:shop' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                  </svg>
+                  <span class="font-dana text-sm font-semibold text-gray-600">فروشگاه</span>
+                </a>
+              </li>
+              <li class="gap-x-1">
+                <a href="{% url 'dashboard:home' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                  </svg>
+                  <span class="font-dana text-sm font-semibold text-gray-600">حساب کاربری</span>
+                </a>
+              </li>
+              <li class="gap-x-1">
+                <a href="{% url 'dashboard:orders' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                  </svg>
+                  <span class="font-dana text-sm font-semibold text-gray-600">سفارشات</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul class="flex flex-col justify-between space-y-4">
+              <li class="gap-x-1">
+                <a href="{% url 'core:about' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                  </svg>
+                  <span class="font-dana text-sm font-semibold text-gray-600">درباره ما</span>
+                </a>
+              </li>
+              <li class="gap-x-1">
+                <a href="{% url 'core:contact' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                  </svg>
+                  <span class="font-dana text-sm font-semibold text-gray-600">تماس با ما</span>
+                </a>
+              </li>
+              <li class="gap-x-1">
+                <a href="{% url 'cart:detail' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                  </svg>
+                  <span class="font-dana text-sm font-semibold text-gray-600">سبد خرید</span>
+                </a>
+              </li>
+              <li class="gap-x-1">
+                <a href="{% url 'catalog:wishlist' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                  </svg>
+                  <span class="font-dana text-sm font-semibold text-gray-600">علاقه‌مندی‌ها</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-between gap-y-4">
+        <h2 class="text-primary-900 mb-4 text-xl font-semibold">ارتباط با ما</h2>
+        <div class="flex">
+          <ul class="flex items-center gap-x-4">
+            {% if site_settings.telegram %}
+            <li>
+              <a href="{{ site_settings.telegram }}" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram text-primary-900">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
+                </svg>
+              </a>
+            </li>
+            {% endif %}
+            {% if site_settings.instagram %}
+            <li>
+              <a href="{{ site_settings.instagram }}" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram text-primary-900">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+                  <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                  <path d="M16.5 7.5v.01" />
+                </svg>
+              </a>
+            </li>
+            {% endif %}
+            <li>
+              <span class="font-dana font-medium text-gray-800">همراه ما باشید</span>
+            </li>
+          </ul>
+        </div>
+        <div class="flex items-center gap-8">
+          <img src="{% static 'images/01.png' %}" class="size-20" alt="نماد اعتماد" />
+          <img src="{% static 'images/02.png' %}" class="size-20" alt="نماد ساماندهی" />
+          <img src="{% static 'images/03.png' %}" class="size-20" alt="نماد پرداخت" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- کپی‌رایت -->
+  <div class="border-t border-gray-200 py-4">
+    <div class="container mx-auto text-center">
+      <p class="text-sm text-gray-500">
+        تمامی حقوق این سایت متعلق به {{ site_settings.site_name|default:"داروخانه دکتر واعظ" }} می‌باشد.
+      </p>
+    </div>
+  </div>
+</footer>

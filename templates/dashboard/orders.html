@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% load jalali_tags %}
+
+{% block title %}سفارش‌های من - {{ site_settings.site_name|default:"گلناز" }}{% endblock %}
+
+{% block content %}
+<main class="flex-1 pb-20 lg:pb-0">
+  <div class="relative container mx-auto w-full">
+    <div class="my-10 mt-10 flex flex-col gap-x-8 px-4 lg:px-0 lg:flex-row">
+      <!-- Sidebar -->
+      {% include 'partials/dashboard_sidebar.html' with active_menu='orders' %}
+      
+      <!-- Main Content -->
+      <div class="lg:w-3/4">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="p-4 border-b border-gray-100">
+            <h1 class="text-xl font-bold text-gray-800">سفارش‌های من</h1>
+          </div>
+          
+          {% if orders %}
+          <div class="divide-y divide-gray-100">
+            {% for order in orders %}
+            <div class="p-4 hover:bg-gray-50 transition-colors">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="font-semibold text-gray-800">{{ order.items.first.product_name|default:"سفارش" }}{% if order.items.count > 1 %} و {{ order.items.count|add:"-1" }} کالای دیگر{% endif %}</span>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                      {% if order.status == 'pending' %}bg-yellow-100 text-yellow-800
+                      {% elif order.status == 'paid' %}bg-blue-100 text-blue-800
+                      {% elif order.status == 'processing' %}bg-indigo-100 text-indigo-800
+                      {% elif order.status == 'shipped' %}bg-purple-100 text-purple-800
+                      {% elif order.status == 'delivered' %}bg-green-100 text-green-800
+                      {% elif order.status == 'canceled' %}bg-red-100 text-red-800
+                      {% else %}bg-gray-100 text-gray-800{% endif %}">
+                      {{ order.get_status_display }}
+                    </span>
+                  </div>
+                  <p class="text-sm text-gray-500">تاریخ: {{ order.created_at|jalali_datetime }}</p>
+                  <p class="text-sm text-gray-600 mt-1">تعداد کالا: {{ order.items.count }}</p>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                  <div class="text-left">
+                    <p class="text-sm text-gray-500">مبلغ کل</p>
+                    <p class="font-bold text-primary-800">{{ order.total|intcomma }} تومان</p>
+                  </div>
+                  
+                  {% if order.can_pay %}
+                  <!-- دکمه پرداخت برای سفارش‌های در انتظار -->
+                  <a href="{% url 'orders:payment' order.pk %}" 
+                     class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" /><path d="M3 10l18 0" /><path d="M7 15l.01 0" /><path d="M11 15l2 0" />
+                    </svg>
+                    پرداخت
+                  </a>
+                  {% endif %}
+                  
+                  <a href="{% url 'dashboard:order_detail' order.id %}" 
+                     class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+                    مشاهده جزئیات
+                  </a>
+                </div>
+              </div>
+              
+              {% if order.can_pay %}
+              <!-- زمان باقیمانده برای پرداخت -->
+              <div class="mt-3 flex items-center gap-2 text-sm text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-orange-500">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 7v5l3 3" />
+                </svg>
+                <span>زمان باقیمانده برای پرداخت: </span>
+                <span class="font-semibold text-orange-600 countdown-timer" data-seconds="{{ order.payment_time_remaining }}">
+                  --:--
+                </span>
+              </div>
+              {% endif %}
+              
+              <!-- نمایش چند محصول اول -->
+              {% if order.items.all %}
+              <div class="mt-4 flex items-center gap-2 overflow-x-auto">
+                {% for item in order.items.all|slice:":4" %}
+                <div class="shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-gray-100">
+                  {% if item.product.images.first %}
+                  <img src="{{ item.product.images.first.image.url }}" alt="{{ item.product.name }}" class="w-full h-full object-cover">
+                  {% else %}
+                  <img src="{% static 'images/product/placeholder.jpg' %}" alt="{{ item.product.name }}" class="w-full h-full object-cover">
+                  {% endif %}
+                </div>
+                {% endfor %}
+                {% if order.items.count > 4 %}
+                <div class="shrink-0 w-16 h-16 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 text-sm">
+                  +{{ order.items.count|add:"-4" }}
+                </div>
+                {% endif %}
+              </div>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+          
+          <!-- Pagination -->
+          {% if page_obj.has_other_pages %}
+          <div class="p-4 border-t border-gray-100">
+            <div class="flex justify-center gap-2">
+              {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}" class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition-colors">
+                قبلی
+              </a>
+              {% endif %}
+              
+              {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                <span class="px-4 py-2 rounded-lg bg-primary-600 text-white">{{ num }}</span>
+                {% else %}
+                <a href="?page={{ num }}" class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition-colors">{{ num }}</a>
+                {% endif %}
+              {% endfor %}
+              
+              {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}" class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition-colors">
+                بعدی
+              </a>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+          
+          {% else %}
+          <div class="p-12 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="mx-auto text-gray-300 mb-4">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 14a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M5.001 8h13.999a2 2 0 0 1 1.977 2.304l-1.255 7.152a3 3 0 0 1 -2.966 2.544h-9.512a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304z" /><path d="M17 10l-2 -6" /><path d="M7 10l2 -6" />
+            </svg>
+            <h2 class="text-xl font-bold text-gray-800 mb-2">هنوز سفارشی ثبت نشده</h2>
+            <p class="text-gray-500 mb-4">شما هنوز هیچ سفارشی در گلناز ثبت نکرده‌اید</p>
+            <a href="{% url 'catalog:shop' %}" class="inline-flex items-center justify-center bg-primary-600 text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-primary-700 transition-colors">
+              شروع خرید
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // تایمرهای شمارش معکوس
+    const timers = document.querySelectorAll('.countdown-timer');
+    
+    timers.forEach(function(timer) {
+        let seconds = parseInt(timer.dataset.seconds);
+        
+        function updateTimer() {
+            if (seconds <= 0) {
+                timer.textContent = 'منقضی شده';
+                timer.classList.remove('text-orange-600');
+                timer.classList.add('text-red-600');
+                // ریلود صفحه بعد از انقضا
+                setTimeout(() => location.reload(), 2000);
+                return;
+            }
+            
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            
+            if (hours > 0) {
+                timer.textContent = `${hours}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            } else {
+                timer.textContent = `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            }
+            
+            // تغییر رنگ وقتی کمتر از ۵ دقیقه مونده
+            if (seconds < 300) {
+                timer.classList.remove('text-orange-600');
+                timer.classList.add('text-red-600');
+            }
+            
+            seconds--;
+        }
+        
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    });
+});
+</script>
+{% endblock %}

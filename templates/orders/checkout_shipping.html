@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}شیوه ارسال - {{ site_settings.site_name|default:"داروخانه دکتر واعظ" }}{% endblock %}
+
+{% block content %}
+<main class="flex-1 pb-20 lg:pb-0">
+  <div class="container mx-auto w-full">
+    <!-- Breadcrumb -->
+    <nav class="my-4 flex px-4 lg:px-0">
+      <ol class="inline-flex items-center space-x-1 md:space-x-2">
+        <li class="group flex items-center">
+          <a href="{% url 'core:home' %}" class="group-hover:text-primary-600 inline-flex items-center text-sm font-medium text-gray-800 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12.707 2.293l9 9c.63 .63 .184 1.707 -.707 1.707h-1v6a3 3 0 0 1 -3 3h-1v-7a3 3 0 0 0 -2.824 -2.995l-.176 -.005h-2a3 3 0 0 0 -3 3v7h-1a3 3 0 0 1 -3 -3v-6h-1c-.89 0 -1.337 -1.077 -.707 -1.707l9 -9a1 1 0 0 1 1.414 0m.293 11.707a1 1 0 0 1 1 1v7h-4v-7a1 1 0 0 1 .883 -.993l.117 -.007z" />
+            </svg>
+            <span class="ms-1 text-sm font-medium text-gray-700 md:ms-2">خانه</span>
+          </a>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <svg class="mx-1 h-3 w-3 text-gray-400 rtl:rotate-180" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"></path>
+            </svg>
+            <a href="{% url 'cart:detail' %}" class="ms-1 text-sm font-medium text-gray-700 hover:text-primary-600">سبد خرید</a>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <svg class="mx-1 h-3 w-3 text-gray-400 rtl:rotate-180" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"></path>
+            </svg>
+            <span class="ms-1 text-sm font-medium text-gray-700">شیوه ارسال</span>
+          </div>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Stepper -->
+    <div class="my-6 w-full px-4 lg:px-0">
+      <ol class="relative flex items-center justify-between max-w-xl mx-auto">
+        <!-- Step 1 - سبد خرید -->
+        <li class="relative flex w-full flex-col items-center text-center">
+          <div class="border-green-500 bg-green-50 text-green-600 z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 font-semibold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12l5 5l10 -10" />
+            </svg>
+          </div>
+          <p class="text-green-600 font-yekan-bakh mt-2 text-sm">سبد خرید</p>
+        </li>
+
+        <!-- Step 2 - شیوه ارسال -->
+        <li class="relative flex w-full flex-col items-center text-center">
+          <div class="border-primary-200 bg-primary-50 text-primary-800 z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 font-semibold">
+            2
+          </div>
+          <p class="text-primary-800 font-yekan-bakh mt-2 text-sm">شیوه ارسال</p>
+        </li>
+
+        <!-- Step 3 - پرداخت -->
+        <li class="relative flex w-full flex-col items-center text-center">
+          <div class="z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 font-semibold text-gray-400">
+            3
+          </div>
+          <p class="font-yekan-bakh mt-2 text-sm text-gray-400">پرداخت</p>
+        </li>
+      </ol>
+    </div>
+
+    <form action="{% url 'orders:checkout_shipping' %}" method="POST">
+      {% csrf_token %}
+      <section class="my-10 flex flex-col justify-between gap-6 px-4 lg:flex-row lg:px-0">
+        <!-- Main Content -->
+        <div class="flex w-full flex-col gap-y-6 lg:w-3/4">
+          <!-- آدرس‌ها -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-4 border-b border-gray-100 flex items-center justify-between">
+              <h2 class="font-bold text-gray-800">انتخاب آدرس</h2>
+              <a href="{% url 'dashboard:addresses' %}" class="text-sm text-primary-600 hover:text-primary-700">
+                افزودن آدرس جدید
+              </a>
+            </div>
+            
+            {% if addresses %}
+            <div class="p-4 space-y-4">
+              {% for address in addresses %}
+              <label class="flex items-start gap-4 p-4 border rounded-lg cursor-pointer hover:border-primary-500 transition-colors {% if address.is_default %}border-primary-500 bg-primary-50{% else %}border-gray-200{% endif %}">
+                <input type="radio" name="address_id" value="{{ address.id }}" 
+                       {% if address.is_default %}checked{% endif %}
+                       class="mt-1 text-primary-600 focus:ring-primary-500">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="font-semibold text-gray-800">{{ address.title|default:"آدرس" }}</span>
+                    {% if address.is_default %}
+                    <span class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full">پیش‌فرض</span>
+                    {% endif %}
+                  </div>
+                  <p class="text-sm text-gray-600">{{ address.province }} - {{ address.city }}</p>
+                  <p class="text-sm text-gray-600">{{ address.full_address }}</p>
+                  <p class="text-sm text-gray-500 mt-1">{{ address.receiver_name }} - {{ address.receiver_phone }}</p>
+                </div>
+              </label>
+              {% endfor %}
+            </div>
+            {% else %}
+            <div class="p-8 text-center">
+              <p class="text-gray-500 mb-4">هنوز آدرسی ثبت نشده است</p>
+              <a href="{% url 'dashboard:addresses' %}" class="inline-block bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors">
+                افزودن آدرس
+              </a>
+            </div>
+            {% endif %}
+          </div>
+          
+          <!-- شیوه ارسال -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-4 border-b border-gray-100">
+              <h2 class="font-bold text-gray-800">انتخاب شیوه ارسال</h2>
+            </div>
+            
+            <div class="p-4 space-y-4">
+              <!-- پست پیشتاز -->
+              <label class="flex items-center gap-4 p-4 border rounded-lg cursor-pointer hover:border-primary-500 transition-colors border-primary-500 bg-primary-50">
+                <input type="radio" name="shipping_method" value="express" checked
+                       class="text-primary-600 focus:ring-primary-500">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-semibold text-gray-800">پست پیشتاز</span>
+                    <span class="font-semibold text-primary-800">{{ shipping_cost_express|default:"25000"|intcomma }} تومان</span>
+                  </div>
+                  <p class="text-sm text-gray-500 mt-1">تحویل ۲ تا ۴ روز کاری</p>
+                </div>
+              </label>
+              
+              <!-- پست معمولی -->
+              <label class="flex items-center gap-4 p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-primary-500 transition-colors">
+                <input type="radio" name="shipping_method" value="normal"
+                       class="text-primary-600 focus:ring-primary-500">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-semibold text-gray-800">پست معمولی</span>
+                    <span class="font-semibold text-primary-800">{{ shipping_cost_normal|default:"15000"|intcomma }} تومان</span>
+                  </div>
+                  <p class="text-sm text-gray-500 mt-1">تحویل ۵ تا ۷ روز کاری</p>
+                </div>
+              </label>
+              
+              <!-- ارسال رایگان -->
+              {% if cart.final_price >= free_shipping_threshold %}
+              <label class="flex items-center gap-4 p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-primary-500 transition-colors">
+                <input type="radio" name="shipping_method" value="free"
+                       class="text-primary-600 focus:ring-primary-500">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-semibold text-gray-800">ارسال رایگان</span>
+                    <span class="font-semibold text-green-600">رایگان</span>
+                  </div>
+                  <p class="text-sm text-gray-500 mt-1">تحویل ۵ تا ۷ روز کاری</p>
+                </div>
+              </label>
+              {% endif %}
+            </div>
+          </div>
+          
+          <!-- توضیحات -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-4 border-b border-gray-100">
+              <h2 class="font-bold text-gray-800">توضیحات سفارش (اختیاری)</h2>
+            </div>
+            <div class="p-4">
+              <textarea name="notes" rows="3" placeholder="در صورت نیاز توضیحات خود را بنویسید..."
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-600 focus:ring-2 focus:ring-primary-200 resize-none"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price Box -->
+        <div class="w-full lg:w-1/4">
+          <div class="sticky top-4 bg-white rounded-xl shadow-md p-4">
+            <div class="mb-4 pb-4 border-b border-gray-100">
+              <h3 class="font-bold text-gray-800 mb-4">خلاصه سفارش</h3>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-gray-600">تعداد کالا</span>
+                <span class="font-semibold text-gray-800">{{ cart.items.count }} عدد</span>
+              </div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-gray-600">قیمت کالاها</span>
+                <span class="font-semibold text-gray-800">{{ cart.total_price|intcomma }} تومان</span>
+              </div>
+              {% if cart.total_discount %}
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-gray-600">تخفیف</span>
+                <span class="font-semibold text-green-600">{{ cart.total_discount|intcomma }} تومان</span>
+              </div>
+              {% endif %}
+              <div class="flex items-center justify-between">
+                <span class="text-gray-600">هزینه ارسال</span>
+                <span class="font-semibold text-gray-800" id="shipping-cost">{{ shipping_cost_express|default:"25000"|intcomma }} تومان</span>
+              </div>
+            </div>
+            
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-bold text-gray-800">مبلغ قابل پرداخت</span>
+              <span class="font-bold text-primary-800 text-lg" id="total-price">{{ cart.final_price|add:shipping_cost_express|intcomma }} تومان</span>
+            </div>
+            
+            <button type="submit" {% if not addresses %}disabled{% endif %}
+                    class="w-full bg-gradient-to-r from-primary-800 to-pink-300 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
+              ادامه و پرداخت
+            </button>
+            
+            <a href="{% url 'cart:detail' %}" class="block text-center mt-4 text-sm text-gray-500 hover:text-primary-600">
+              بازگشت به سبد خرید
+            </a>
+          </div>
+        </div>
+      </section>
+    </form>
+  </div>
+</main>
+{% endblock %}

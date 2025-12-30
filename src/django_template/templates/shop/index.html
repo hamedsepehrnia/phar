@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}صفحه اصلی - گل ناز{% endblock %}
+
+{% block content %}
+      <section class="swiper swiper-hero h-[400px] w-full lg:h-[550px]">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide overflow-hidden">
+            <img src="{% static 'images/slider/slider1.jpg' %}" class="size-full object-cover" alt="slider 1" />
+          </div>
+          <div class="swiper-slide overflow-hidden">
+            <img src="{% static 'images/slider/slider2.jpg' %}" class="size-full object-cover" alt="slider 2" />
+          </div>
+          <div class="swiper-slide overflow-hidden">
+            <img src="{% static 'images/slider/slider3.jpg' %}" class="size-full object-cover" alt="slider 3" />
+          </div>
+        </div>
+        <div class="absolute right-4 top-1/2 z-30 -translate-y-1/2">
+          <div class="swiper-button-next-hero text-white"></div>
+        </div>
+        <div class="absolute left-4 top-1/2 z-30 -translate-y-1/2">
+          <div class="swiper-button-prev-hero text-white"></div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0">
+          <div class="swiper-pagination bottom-0 z-30"></div>
+          <div
+            class="slider-pagination-bg absolute bottom-0 left-1/2 z-1 -mb-3 hidden h-10 w-40 -translate-x-1/2 pt-1 lg:block">
+          </div>
+        </div>
+      </section>
+
+      <main class="flex-1">
+        <section class="container mx-auto flex w-full">
+          <div class="hidden h-full w-[300px] lg:block"></div>
+          <div class="swiper category-shortcut flex items-center justify-center">
+            <div class="swiper-wrapper py-5">
+              <!-- دسته‌بندی‌ها -->
+              <div class="swiper-slide">
+                <div class="flex flex-col items-center justify-between text-center">
+                  <a href="{% url 'shop' %}" class="group">
+                    <div
+                      class="from-primary-200 via-primary-300 size-20 rounded-full bg-gradient-to-tr to-indigo-400 p-[4px] transition-all group-hover:translate-y-[-8px]">
+                      <div class="size-full rounded-full bg-white">
+                        <img src="{% static 'images/navigation/01.jpg' %}" class="size-full rounded-full p-0.5" alt="navigation" />
+                      </div>
+                    </div>
+                    <span class="font-yekan-bakh text-sm font-semibold text-gray-800">
+                      مرطوب کننده
+                    </span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="flex flex-col items-center justify-between text-center">
+                  <a href="{% url 'shop' %}" class="group">
+                    <div
+                      class="from-primary-200 via-primary-300 size-20 rounded-full bg-gradient-to-tr to-indigo-400 p-[4px] transition-all group-hover:translate-y-[-8px]">
+                      <div class="size-full rounded-full bg-white">
+                        <img src="{% static 'images/navigation/02.jpg' %}" class="size-full rounded-full p-0.5" alt="navigation" />
+                      </div>
+                    </div>
+                    <span class="font-yekan-bakh text-sm font-semibold text-gray-800">
+                      ضد آفتاب
+                    </span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="flex flex-col items-center justify-between text-center">
+                  <a href="{% url 'shop' %}" class="group">
+                    <div
+                      class="from-primary-200 via-primary-300 size-20 rounded-full bg-gradient-to-tr to-indigo-400 p-[4px] transition-all group-hover:translate-y-[-8px]">
+                      <div class="size-full rounded-full bg-white">
+                        <img src="{% static 'images/navigation/03.jpg' %}" class="size-full rounded-full p-0.5" alt="navigation" />
+                      </div>
+                    </div>
+                    <span class="font-yekan-bakh text-sm font-semibold text-gray-800">
+                      کرم دور چشم
+                    </span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="flex flex-col items-center justify-between text-center">
+                  <a href="{% url 'shop' %}" class="group">
+                    <div
+                      class="from-primary-200 via-primary-300 size-20 rounded-full bg-gradient-to-tr to-indigo-400 p-[4px] transition-all group-hover:translate-y-[-8px]">
+                      <div class="size-full rounded-full bg-white">
+                        <img src="{% static 'images/navigation/04.jpg' %}" class="size-full rounded-full p-0.5" alt="navigation" />
+                      </div>
+                    </div>
+                    <span class="font-yekan-bakh text-sm font-semibold text-gray-800">
+                      سرم
+                    </span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="flex flex-col items-center justify-between text-center">
+                  <a href="{% url 'shop' %}" class="group">
+                    <div
+                      class="from-primary-200 via-primary-300 size-20 rounded-full bg-gradient-to-tr to-indigo-400 p-[4px] transition-all group-hover:translate-y-[-8px]">
+                      <div class="size-full rounded-full bg-white">
+                        <img src="{% static 'images/navigation/05.jpg' %}" class="size-full rounded-full p-0.5" alt="navigation" />
+                      </div>
+                    </div>
+                    <span class="font-yekan-bakh text-sm font-semibold text-gray-800">
+                      ماسک صورت
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-next text-gray-900"></div>
+            <div class="swiper-button-prev text-gray-900"></div>
+          </div>
+          <div class="hidden h-full w-[300px] lg:block"></div>
+        </section>
+
+        <!-- محصولات ویژه -->
+        <section class="py-16">
+          <div class="container mx-auto px-4">
+            <div class="mb-8 text-center">
+              <h2 class="text-2xl font-bold text-gray-900 mb-4">محصولات ویژه</h2>
+              <p class="text-gray-600">بهترین محصولات زیبایی و مراقبت از پوست</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <!-- نمونه محصول -->
+              {% for i in "1234"|make_list %}
+              <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <a href="{% url 'product_detail' i %}">
+                  <div class="aspect-square overflow-hidden">
+                    <img src="{% static 'images/product/gallery/0' %}{{ i }}.jpg" 
+                         alt="محصول {{ i }}" 
+                         class="w-full h-full object-cover hover:scale-105 transition-transform">
+                  </div>
+                  <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">محصول شماره {{ i }}</h3>
+                    <p class="text-gray-600 text-sm mb-2">توضیح کوتاه محصول</p>
+                    <div class="flex items-center justify-between">
+                      <span class="text-primary-600 font-bold">۲۵۰,۰۰۰ تومان</span>
+                      <button class="bg-primary-600 text-white px-3 py-1 rounded-md text-sm hover:bg-primary-700 transition-colors">
+                        افزودن به سبد
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+
+        <!-- بنرهای تبلیغاتی -->
+        <section class="py-12">
+          <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="overflow-hidden rounded-lg">
+                <img src="{% static 'images/banners/banner/banner1.jpg' %}" alt="بنر تبلیغاتی" class="w-full h-48 object-cover">
+              </div>
+              <div class="overflow-hidden rounded-lg">
+                <img src="{% static 'images/banners/banner/banner2.jpg' %}" alt="بنر تبلیغاتی" class="w-full h-48 object-cover">
+              </div>
+              <div class="overflow-hidden rounded-lg">
+                <img src="{% static 'images/banners/banner/banner3.jpg' %}" alt="بنر تبلیغاتی" class="w-full h-48 object-cover">
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  // Initialize Swiper for hero slider
+  const heroSwiper = new Swiper('.swiper-hero', {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next-hero',
+      prevEl: '.swiper-button-prev-hero',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+
+  // Initialize Swiper for category shortcuts
+  const categorySwiper = new Swiper('.category-shortcut', {
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 4,
+      },
+      1024: {
+        slidesPerView: 5,
+      },
+    },
+  });
+</script>
+{% endblock %}
