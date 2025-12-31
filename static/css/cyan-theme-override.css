@@ -1,3 +1,41 @@
+/* Load Vazirmatn (وزیرمتن) font and apply globally */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@latest/dist/font-face.css');
+
+html, body, input, textarea, select, button {
+    font-family: 'Vazirmatn', 'Vazir', 'IRANYekanX', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure heading elements and common title classes use Vazirmatn even if other CSS sets different fonts */
+h1, h2, h3, h4, h5, h6,
+.pharmacy-footer-section-title,
+.section-title,
+.menu-item_link,
+.menu-item_link a,
+.product-title,
+.card-title {
+    font-family: 'Vazirmatn', 'Vazir', 'IRANYekanX', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Reduce hero welcome title font size slightly and increase spacing */
+h1.text-3xl.md\:text-4xl.lg\:text-5xl {
+    font-size: 1.75rem !important; /* smaller than default text-3xl */
+    letter-spacing: 0.02em !important; /* increase space between letters */
+    word-spacing: 0.15em !important; /* increase space between words */
+    line-height: 1.5 !important; /* increase line height for better readability */
+}
+@media (min-width: 768px) {
+    h1.text-3xl.md\:text-4xl.lg\:text-5xl {
+        font-size: 2rem !important; /* smaller than default text-4xl */
+    }
+}
+@media (min-width: 1024px) {
+    h1.text-3xl.md\:text-4xl.lg\:text-5xl {
+        font-size: 2.5rem !important; /* smaller than default text-5xl */
+    }
+}
+
 /* Custom Cyan Theme Override - تبدیل تمام رنگ‌های بنفش به آبی آسمانی */
 /* Created for modern, fresh cyan feeling */
 
