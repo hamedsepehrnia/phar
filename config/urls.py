@@ -31,6 +31,6 @@ if settings.DEBUG:
     ]
 
 # Custom admin site configuration
-admin.site.site_header = 'پنل مدیریت داروخانه'
-admin.site.site_title = 'داروخانه آنلاین'
+admin.site.site_header = 'پنل مدیریت داروخانه دکتر واعظ'
+admin.site.site_title = 'داروخانه دکتر واعظ'
 admin.site.index_title = 'مدیریت سایت'

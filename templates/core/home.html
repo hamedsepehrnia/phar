@@ -2,188 +2,223 @@
 {% load static %}
 {% load humanize %}
 
-{% block title %}{{ site_settings.site_name|default:"داروخانه دکتر واعظ" }} - فروشگاه آنلاین دارو و لوازم بهداشتی{% endblock %}
+{% block title %}{{ site_settings.site_name|default:"داروخانه دکتر واعظی" }} - فروشگاه آنلاین دارو و لوازم بهداشتی{% endblock %}
 
 {% block content %}
 <main class="flex-1 bg-gradient-to-b from-white via-white to-slate-50 pb-20">
   <!-- Hero / Slider -->
   <section class="pt-6 lg:pt-10">
-    <div class="container mx-auto px-4 max-w-5xl">
+    <div class="container mx-auto px-4 max-w-6xl">
       {% if sliders %}
-      <div class="relative rounded-3xl overflow-hidden shadow-xl ring-1 ring-black/5">
-        <div class="custom-slider" id="heroSlider">
-          <div class="slider-container">
-            {% for slider in sliders %}
-            <div class="slide {% if forloop.first %}active{% endif %}">
-              <a href="{{ slider.link|default:'#' }}" class="block">
-                {% if slider.image %}
-                <img src="{{ slider.image.url }}" alt="{{ slider.title }}" class="w-full h-52 md:h-80 lg:h-96 object-cover" />
-                {% else %}
-                <div class="w-full h-52 md:h-80 lg:h-96 bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 flex flex-col items-center justify-center text-slate-500">
-                  <span class="text-sm font-semibold">تصویر در دسترس نیست</span>
-                  <span class="text-xs">{{ slider.title|default:'اسلاید' }}</span>
-                </div>
-                {% endif %}
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50 via-white to-rose-50 shadow-2xl ring-1 ring-primary-100/70">
+        <div class="absolute inset-0 opacity-60" style="background-image: radial-gradient(circle at 12% 20%, rgba(186,126,253,0.25), transparent 35%), radial-gradient(circle at 82% 12%, rgba(244,114,182,0.22), transparent 28%), radial-gradient(circle at 50% 75%, rgba(125,211,252,0.18), transparent 30%);"></div>
+        <div class="relative grid items-center gap-8 p-6 md:p-10 lg:p-12 lg:grid-cols-5">
+          <div class="space-y-4 lg:col-span-2">
+            <div class="inline-flex items-center gap-2 rounded-full bg-primary-100/80 px-3 py-1 text-[11px] font-semibold text-primary-800 shadow-sm ring-1 ring-primary-200">تجربه خرید مطمئن و سریع</div>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
+              با {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}
+              <span class="text-primary-800">هر روز سلامت‌تر</span>
+            </h1>
+            <p class="text-sm md:text-base text-gray-700 max-w-xl">سفارش آنلاین دارو و محصولات بهداشتی با ارسال سریع، پشتیبانی کامل و تضمین اصالت کالا.</p>
+            <div class="flex flex-col sm:flex-row w-full items-stretch sm:items-center gap-3 pt-2">
+              <a href="{% url 'catalog:shop' %}" class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-200 transition hover:-translate-y-0.5 hover:bg-primary-800 w-full sm:w-auto">
+                شروع خرید
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 18l6-6"/><path d="M13 6l6 6"/></svg>
+              </a>
+              <a href="#new-products" class="inline-flex items-center gap-2 rounded-xl bg-white/70 px-4 py-2 text-sm font-semibold text-primary-800 shadow-sm ring-1 ring-primary-100 backdrop-blur transition hover:bg-white w-full sm:w-auto justify-center">
+                جدیدترین‌ها
+                <span class="h-6 w-6 rounded-full bg-primary-100 text-center text-[11px] font-bold leading-6 text-primary-800">جدید</span>
               </a>
             </div>
-            {% endfor %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-gray-700 sm:text-sm">
+              <div class="flex items-center gap-2 rounded-xl bg-white/70 px-3 py-2 shadow-sm ring-1 ring-primary-100 backdrop-blur">
+                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary-100 text-primary-800">✓</span>
+                ارسال اکسپرس و بسته‌بندی ایمن
+              </div>
+              <div class="flex items-center gap-2 rounded-xl bg-white/70 px-3 py-2 shadow-sm ring-1 ring-primary-100 backdrop-blur">
+                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">★</span>
+                مشاوره رایگان دارویی و بهداشتی
+              </div>
+            </div>
           </div>
-          
-          <!-- Navigation buttons -->
-          <button class="slider-btn prev-btn" onclick="changeSlide(-1)">
-            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-          <button class="slider-btn next-btn" onclick="changeSlide(1)">
-            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          
-          <!-- Pagination dots -->
-          <div class="slider-dots">
-            {% for slider in sliders %}
-            <button class="dot {% if forloop.first %}active{% endif %}" onclick="currentSlide({{ forloop.counter }})"></button>
-            {% endfor %}
+
+          <div class="lg:col-span-3">
+            <div class="relative rounded-2xl bg-white/70 p-3 sm:p-4 shadow-xl ring-1 ring-primary-100 backdrop-blur">
+              <div class="absolute -left-10 -top-10 h-28 w-28 rounded-full bg-primary-200/30 blur-3xl"></div>
+              <div class="absolute -right-14 bottom-6 h-32 w-32 rounded-full bg-rose-200/30 blur-3xl"></div>
+              <div class="custom-slider" id="heroSlider">
+                <div class="slider-container">
+                  {% for slider in sliders %}
+                  <div class="slide {% if forloop.first %}active{% endif %}">
+                    <a href="{{ slider.link|default:'#' }}" class="block">
+                      {% if slider.image %}
+                      <img src="{{ slider.image.url }}" alt="{{ slider.title }}" class="w-full h-64 md:h-80 lg:h-[21rem] object-cover rounded-xl" />
+                      {% else %}
+                      <div class="flex h-64 w-full items-center justify-center rounded-xl bg-gradient-to-r from-primary-100 via-white to-rose-100 text-primary-800 ring-1 ring-primary-200">
+                        <div class="text-center">
+                          <span class="text-base font-semibold">تصویر در دسترس نیست</span>
+                          <div class="text-xs opacity-80">{{ slider.title|default:'اسلاید' }}</div>
+                        </div>
+                      </div>
+                      {% endif %}
+                    </a>
+                  </div>
+                  {% endfor %}
+                </div>
+
+                <button class="slider-btn prev-btn" onclick="changeSlide(-1)">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+                <button class="slider-btn next-btn" onclick="changeSlide(1)">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+
+                <div class="slider-dots">
+                  {% for slider in sliders %}
+                  <button class="dot {% if forloop.first %}active{% endif %}" onclick="currentSlide({{ forloop.counter }})"></button>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      
+
       <style>
         .custom-slider {
           position: relative;
           width: 100%;
-          height: 125px; /* 40% کمتر از h-52 */
+          height: 260px;
         }
-        
+
         @media (min-width: 768px) {
           .custom-slider {
-            height: 192px; /* 40% کمتر از md:h-80 */
+            height: 320px;
           }
         }
-        
+
         @media (min-width: 1024px) {
           .custom-slider {
-            height: 214px; /* 7% کمتر از 230px */
+            height: 360px;
           }
         }
-        
+
         .slider-container {
           position: relative;
           width: 100%;
           height: 100%;
           overflow: hidden;
-          border-radius: inherit;
+          border-radius: 16px;
         }
-        
+
         .slide {
           position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          inset: 0;
           opacity: 0;
           transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
           transform: translateX(100%);
         }
-        
+
         .slide.active {
           opacity: 1;
           transform: translateX(0);
         }
-        
+
         .slide.prev {
           transform: translateX(-100%);
         }
-        
+
         .slider-btn {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          background: rgba(255, 255, 255, 0.9);
-          border: none;
-          border-radius: 50%;
-          width: 36px;
-          height: 36px;
+          background: rgba(169, 84, 252, 0.14);
+          border: 1px solid rgba(169, 84, 252, 0.35);
+          border-radius: 999px;
+          width: 40px;
+          height: 40px;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
           z-index: 10;
-          transition: all 0.3s ease;
-          color: #374151;
+          color: #6b21a8;
+          transition: all 0.25s ease;
+          backdrop-filter: blur(6px);
         }
-        
+
         .slider-btn:hover {
-          background: rgba(255, 255, 255, 1);
-          transform: translateY(-50%) scale(1.1);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          background: rgba(169, 84, 252, 0.22);
+          transform: translateY(-50%) scale(1.05);
+          box-shadow: 0 10px 30px rgba(169, 84, 252, 0.18);
         }
-        
+
         .slider-btn svg {
           width: 18px;
           height: 18px;
         }
-        
+
         .prev-btn {
-          right: 8px;
+          right: 14px;
         }
-        
+
         .next-btn {
-          left: 8px;
+          left: 14px;
         }
-        
+
         .slider-dots {
           position: absolute;
-          bottom: 20px;
+          bottom: 18px;
           left: 50%;
           transform: translateX(-50%);
           display: flex;
           gap: 8px;
           z-index: 10;
+          padding: 6px 10px;
+          background: rgba(255, 255, 255, 0.82);
+          border-radius: 999px;
+          border: 1px solid rgba(169, 84, 252, 0.15);
+          backdrop-filter: blur(6px);
         }
-        
+
         .dot {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
+          width: 10px;
+          height: 10px;
+          border-radius: 999px;
           border: none;
-          background: rgba(255, 255, 255, 0.5);
+          background: #e9d5ff;
           cursor: pointer;
           transition: all 0.3s ease;
         }
-        
+
         .dot.active,
         .dot:hover {
           background: #a954fc;
-          transform: scale(1.2);
+          width: 24px;
         }
-        
+
         @media (max-width: 768px) {
           .slider-btn {
             display: none;
           }
-          
+
           .slider-dots {
             bottom: 12px;
           }
-          
-          .dot {
-            width: 10px;
-            height: 10px;
-          }
         }
       </style>
-      
+
       <script>
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('#heroSlider .slide');
         const dots = document.querySelectorAll('#heroSlider .dot');
         let slideInterval;
-        
+
         function showSlide(index) {
-          // Hide all slides
           slides.forEach((slide, i) => {
             slide.classList.remove('active', 'prev');
             if (i === index) {
@@ -192,81 +227,65 @@
               slide.classList.add('prev');
             }
           });
-          
-          // Update dots
+
           dots.forEach((dot, i) => {
             dot.classList.toggle('active', i === index);
           });
-          
+
           currentSlideIndex = index;
         }
-        
+
         function changeSlide(direction) {
-          let newIndex;
-          if (direction === 1) {
-            newIndex = (currentSlideIndex + 1) % slides.length;
-          } else {
-            newIndex = currentSlideIndex === 0 ? slides.length - 1 : currentSlideIndex - 1;
-          }
+          const newIndex = direction === 1 ? (currentSlideIndex + 1) % slides.length : currentSlideIndex === 0 ? slides.length - 1 : currentSlideIndex - 1;
           showSlide(newIndex);
           resetAutoplay();
         }
-        
+
         function currentSlide(index) {
           showSlide(index - 1);
           resetAutoplay();
         }
-        
+
         function autoSlide() {
           changeSlide(1);
         }
-        
+
         function startAutoplay() {
           slideInterval = setInterval(autoSlide, 6000);
         }
-        
+
         function resetAutoplay() {
           clearInterval(slideInterval);
           startAutoplay();
         }
-        
-        // Initialize slider
+
         if (slides.length > 0) {
           showSlide(0);
           startAutoplay();
-          
-          // Pause autoplay on hover
+
           const slider = document.getElementById('heroSlider');
           slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
           slider.addEventListener('mouseleave', startAutoplay);
-          
-          console.log('Custom hero slider initialized with', slides.length, 'slides');
         }
       </script>
-      
+
       {% else %}
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-l from-purple-300 via-purple-200 to-purple-100 text-gray-800 shadow-2xl ring-1 ring-black/5">
-        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.3), transparent 30%), radial-gradient(circle at 80% 10%, rgba(255,255,255,0.25), transparent 25%), radial-gradient(circle at 60% 70%, rgba(255,255,255,0.2), transparent 22%);"></div>
-        <div class="relative grid gap-6 lg:grid-cols-2 items-center px-6 py-10 md:px-12 lg:px-16">
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50 via-white to-rose-50 text-gray-900 shadow-2xl ring-1 ring-primary-100/80">
+        <div class="absolute inset-0 opacity-70" style="background-image: radial-gradient(circle at 18% 22%, rgba(186,126,253,0.25), transparent 30%), radial-gradient(circle at 82% 10%, rgba(236,72,153,0.2), transparent 26%), radial-gradient(circle at 60% 70%, rgba(16,185,129,0.12), transparent 24%);"></div>
+        <div class="relative grid items-center gap-8 px-6 py-12 md:px-12 lg:px-16 lg:grid-cols-2">
           <div class="space-y-4">
-            <p class="inline-flex items-center gap-2 rounded-full bg-purple-600/20 px-3 py-1 text-xs font-semibold backdrop-blur text-purple-800">به روزترین محصولات دارویی و بهداشتی</p>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-purple-800">به {{ site_settings.site_name|default:"داروخانه دکتر واعظ" }} خوش آمدید</h1>
-            <p class="text-sm md:text-base text-gray-700 max-w-xl">منتخب برندهای معتبر دارویی و بهداشتی با تضمین اصالت و ارسال سریع.</p>
-            <div class="flex flex-wrap items-center gap-3 pt-1">
-              <a href="{% url 'catalog:shop' %}" class="inline-flex items-center justify-center bg-purple-600 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-md hover:shadow-lg hover:bg-purple-700 transition-all hover:-translate-y-0.5">مشاهده محصولات</a>
-              <a href="#new-products" class="inline-flex items-center gap-2 text-purple-700 text-sm font-semibold hover:text-purple-800">جدیدترین‌ها
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14" />
-                  <path d="M13 18l6 -6" />
-                  <path d="M13 6l6 6" />
-                </svg>
-              </a>
+            <div class="inline-flex items-center gap-2 rounded-full bg-primary-100/90 px-3 py-1 text-[10px] font-semibold text-primary-900 shadow-sm ring-1 ring-primary-200">به‌روزترین محصولات دارویی و بهداشتی</div>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">به {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }} خوش آمدید</h1>
+            <p class="text-sm md:text-base text-gray-700 max-w-xl">منتخب برندهای معتبر دارویی و بهداشتی با تضمین اصالت، ارسال سریع و مشاوره تخصصی آنلاین.</p>
+            <div class="flex flex-col sm:flex-row w-full items-stretch sm:items-center gap-3 pt-1">
+              <a href="{% url 'catalog:shop' %}" class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary-800 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-200 transition hover:-translate-y-0.5 hover:bg-primary-900 w-full sm:w-auto">مشاهده محصولات</a>
+              <a href="#new-products" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white/80 px-4 py-2 text-sm font-semibold text-primary-800 shadow-sm ring-1 ring-primary-100 backdrop-blur transition hover:bg-white w-full sm:w-auto">جدیدترین‌ها</a>
             </div>
           </div>
           <div class="hidden lg:flex justify-end">
             <div class="relative w-full max-w-md">
-              <div class="absolute -inset-6 rounded-full bg-purple-300/30 blur-3xl"></div>
-              <img src="{% static 'images/placeholder.jpg' %}" alt="Hero" class="relative w-full h-80 object-cover rounded-2xl shadow-2xl ring-1 ring-purple-200/50" />
+              <div class="absolute -inset-6 rounded-full bg-primary-200/40 blur-3xl"></div>
+              <img src="{% static 'images/placeholder.jpg' %}" alt="" class="relative w-full h-80 object-cover rounded-2xl shadow-2xl ring-1 ring-primary-200/60" />
             </div>
           </div>
         </div>
@@ -276,43 +295,45 @@
   </section>
 
   <!-- Quick stats & trust badges -->
-  <section class="pb-4" style="margin-top: 3rem;">
+  <section class="pb-6" style="margin-top: 3rem;">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-gray-100">
-          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-50 text-primary-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg>
+      <div class="rounded-3xl bg-gradient-to-r from-primary-50 via-white to-emerald-50 p-1 ring-1 ring-primary-100/60 shadow-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 rounded-[22px] bg-white/70 p-3 backdrop-blur md:grid-cols-4">
+          <div class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-primary-50">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 text-primary-800">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500">تضمین اصالت</p>
+              <p class="text-sm font-semibold text-gray-900">محصولات اورجینال</p>
+            </div>
           </div>
-          <div>
-            <p class="text-xs text-gray-500">تضمین اصالت</p>
-            <p class="text-sm font-semibold text-gray-800">محصولات اورجینال</p>
+          <div class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-emerald-50">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"/><path d="M7 15v-6"/><path d="M11 9h3a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-2a1 1 0 0 0 -1 1v1a1 1 0 0 0 1 1h3"/><path d="M17 9v6"/></svg>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500">پرداخت امن</p>
+              <p class="text-sm font-semibold text-gray-900">درگاه بانکی مطمئن</p>
+            </div>
           </div>
-        </div>
-        <div class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-gray-100">
-          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"/><path d="M7 15v-6"/><path d="M11 9h3a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-2a1 1 0 0 0 -1 1v1a1 1 0 0 0 1 1h3"/><path d="M17 9v6"/></svg>
+          <div class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-amber-50">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 text-amber-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"/></svg>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500">ارسال سریع</p>
+              <p class="text-sm font-semibold text-gray-900">به سراسر کشور</p>
+            </div>
           </div>
-          <div>
-            <p class="text-xs text-gray-500">پرداخت امن</p>
-            <p class="text-sm font-semibold text-gray-800">درگاه بانکی مطمئن</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-gray-100">
-          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-amber-50 text-amber-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"/></svg>
-          </div>
-          <div>
-            <p class="text-xs text-gray-500">ارسال سریع</p>
-            <p class="text-sm font-semibold text-gray-800">به سراسر کشور</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-gray-100">
-          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-sky-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1"/><path d="M12 12v.01"/><path d="M8 12v.01"/><path d="M16 12v.01"/></svg>
-          </div>
-          <div>
-            <p class="text-xs text-gray-500">پشتیبانی</p>
-            <p class="text-sm font-semibold text-gray-800">۷ روز هفته</p>
+          <div class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-sky-50">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 text-sky-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1"/><path d="M12 12v.01"/><path d="M8 12v.01"/><path d="M16 12v.01"/></svg>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500">پشتیبانی</p>
+              <p class="text-sm font-semibold text-gray-900">۷ روز هفته</p>
+            </div>
           </div>
         </div>
       </div>

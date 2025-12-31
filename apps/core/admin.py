@@ -20,6 +20,9 @@ class SiteSettingsAdmin(admin.ModelAdmin):
         ('شبکه‌های اجتماعی', {
             'fields': ('instagram', 'telegram', 'whatsapp')
         }),
+        ('نقشه و موقعیت', {
+            'fields': ('map_latitude', 'map_longitude', 'map_zoom')
+        }),
         ('فوتر', {
             'fields': ('footer_text', 'copyright_text')
         }),

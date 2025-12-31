@@ -72,6 +72,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'apps.cart.context_processors.cart_context',
                 'apps.catalog.context_processors.categories_context',
+                'apps.core.context_processors.site_settings',
             ],
         },
     },
@@ -129,9 +130,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-# Media files
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = '/home/skycore1/public_html/media'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

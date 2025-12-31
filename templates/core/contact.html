@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}تماس با ما - {{ site_settings.site_name|default:"داروخانه دکتر واعظ" }}{% endblock %}
+{% block title %}تماس با ما - {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}{% endblock %}
+
+{% block extra_css %}
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+>
+{% endblock %}
 
 {% block content %}
 <main class="flex-1 pb-20 lg:pb-0">
@@ -139,6 +148,23 @@
             </div>
           </div>
         </div>
+
+        <!-- نقشه -->
+        <div class="bg-white rounded-2xl shadow-md p-6">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-bold text-gray-800">موقعیت روی نقشه</h3>
+            <span class="text-xs font-semibold text-primary-700">OpenStreetMap</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-3">آدرس ثبت‌شده در تنظیمات روی نقشه مشخص شده است.</p>
+          <div
+            id="contactMap"
+            class="w-full rounded-xl ring-1 ring-gray-200 overflow-hidden"
+            style="height: 280px;"
+            data-lat="{{ site_settings.map_latitude|default:'32.661443' }}"
+            data-lng="{{ site_settings.map_longitude|default:'51.666552' }}"
+            data-zoom="{{ site_settings.map_zoom|default:'14' }}"
+          ></div>
+        </div>
         
         <!-- شبکه‌های اجتماعی -->
         <div class="bg-white rounded-2xl shadow-md p-6">
@@ -165,4 +191,34 @@
     </div>
   </div>
 </main>
+{% endblock %}
+
+{% block extra_js %}
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mapEl = document.getElementById('contactMap');
+    if (!mapEl) return;
+
+    const lat = parseFloat(mapEl.dataset.lat || '32.661443');
+    const lng = parseFloat(mapEl.dataset.lng || '51.666552');
+    const zoom = parseInt(mapEl.dataset.zoom || '14', 10);
+
+    const map = L.map(mapEl, { scrollWheelZoom: false }).setView([lat, lng], zoom);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    const markerTitle = "{{ site_settings.site_name|default:'داروخانه'|escapejs }}";
+    const markerAddress = "{{ site_settings.address|default:'مکان ثبت‌شده'|escapejs }}";
+
+    L.marker([lat, lng]).addTo(map).bindPopup(`<strong>${markerTitle}</strong><br>${markerAddress}`);
+  });
+</script>
 {% endblock %}

@@ -33,6 +33,20 @@ class SiteSettings(models.Model):
     instagram = models.URLField(blank=True, verbose_name='اینستاگرام')
     telegram = models.URLField(blank=True, verbose_name='تلگرام')
     whatsapp = models.CharField(max_length=20, blank=True, verbose_name='واتساپ')
+
+    # نقشه تماس
+    map_latitude = models.FloatField(
+        default=32.661443,
+        verbose_name='عرض جغرافیایی نقشه'
+    )
+    map_longitude = models.FloatField(
+        default=51.666552,
+        verbose_name='طول جغرافیایی نقشه'
+    )
+    map_zoom = models.PositiveSmallIntegerField(
+        default=14,
+        verbose_name='زوم نقشه'
+    )
     
     # متن فوتر
     footer_text = models.TextField(blank=True, verbose_name='متن فوتر')
@@ -76,7 +90,7 @@ class SiteSettings(models.Model):
         """دریافت تنظیمات"""
         obj, created = cls.objects.get_or_create(
             pk=1,
-            defaults={'site_name': 'داروخانه آنلاین'}
+            defaults={'site_name': 'داروخانه دکتر واعظی'}
         )
         return obj
 

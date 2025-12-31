@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="{% static 'favicon.png' %}" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% block title %}داروخانه دکتر واعظ{% endblock %}</title>
+  <title>{% block title %}داروخانه دکتر واعظی{% endblock %}</title>
   
   {% block extra_css %}{% endblock %}
   
@@ -14,10 +14,25 @@
   <link rel="stylesheet" crossorigin href="{% static 'css/main.css' %}">
 </head>
 
-<body x-data="{ loaded: true, openCategory: false, activeCategory: null }">
+<body x-data="{ 
+  loaded: !localStorage.getItem('site_loaded'), 
+  openCategory: false, 
+  activeCategory: null 
+}">
   <!-- start preloader -->
   <div x-show="loaded"
-    x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
+    x-init="
+      if (!localStorage.getItem('site_loaded')) {
+        window.addEventListener('DOMContentLoaded', () => {
+          setTimeout(() => {
+            loaded = false;
+            localStorage.setItem('site_loaded', 'true');
+          }, 500);
+        });
+      } else {
+        loaded = false;
+      }
+    "
     class="fixed top-0 left-0 z-9999999 flex h-screen w-screen items-center justify-center bg-white">
     <span class="loader"></span>
   </div>

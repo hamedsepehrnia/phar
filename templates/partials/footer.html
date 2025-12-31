@@ -1,171 +1,424 @@
 {% load static %}
-<footer class="relative w-full">
-  <div>
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: block; position: absolute" width="0" height="0">
-      <defs>
-        <clipPath id="clip" clipPathUnits="objectBoundingBox">
-          <path d="M0.5,0H0.93A0.07,0.07,0,0,1,1,0.07V1A0,0,0,0,1,1,1H0A0,0,0,0,1,0,1V0.5A0.5,0.5,0,0,1,0.5,0Z" />
-        </clipPath>
-      </defs>
-    </svg>
-    <div class="inverted"></div>
+<style>
+  .pharmacy-footer {
+    position: relative;
+    margin-top: 2.5rem;
+    background: linear-gradient(135deg, #6b21a8 0%, #7c3aed 50%, #8b5cf6 100%);
+    color: #e9d5ff;
+  }
+  .pharmacy-footer-glow {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .pharmacy-footer-glow-1 {
+    position: absolute;
+    left: -2.5rem;
+    top: 2rem;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 9999px;
+    background: rgba(139, 92, 246, 0.4);
+    filter: blur(80px);
+  }
+  .pharmacy-footer-glow-2 {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 0;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 9999px;
+    background: rgba(109, 40, 217, 0.35);
+    filter: blur(80px);
+  }
+  .pharmacy-footer-glow-3 {
+    position: absolute;
+    left: 50%;
+    top: 33.333%;
+    width: 11rem;
+    height: 11rem;
+    transform: translateX(-50%);
+    border-radius: 9999px;
+    background: rgba(217, 70, 239, 0.3);
+    filter: blur(80px);
+  }
+  .pharmacy-footer-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(107, 33, 168, 0), rgba(107, 33, 168, 0.15), rgba(107, 33, 168, 0.3));
+  }
+  .pharmacy-footer-content {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3.5rem 1rem;
+  }
+  .pharmacy-footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .pharmacy-footer-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .pharmacy-footer-content {
+      padding: 4rem 1rem;
+    }
+  }
+  .pharmacy-footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .pharmacy-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .pharmacy-footer-logo img {
+    height: 3.5rem;
+    width: auto;
+    max-width: 190px;
+    object-fit: contain;
+  }
+  .pharmacy-footer-desc {
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+    color: #e9d5ff;
+    max-width: 28rem;
+  }
+  .pharmacy-footer-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .pharmacy-footer-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    color: #6b21a8;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    box-shadow: 0 10px 15px -3px rgba(107, 33, 168, 0.2);
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .pharmacy-footer-btn-primary:hover {
+    transform: translateY(-2px);
+    background: #f8fafc;
+  }
+  .pharmacy-footer-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e9d5ff;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .pharmacy-footer-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  .pharmacy-footer-section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #f3e8ff;
+    margin-bottom: 1rem;
+  }
+  .pharmacy-footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+  .pharmacy-footer-links-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .pharmacy-footer-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    color: #e9d5ff;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .pharmacy-footer-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .pharmacy-footer-link-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: rgba(233, 213, 255, 0.6);
+  }
+  .pharmacy-footer-link:hover .pharmacy-footer-link-dot {
+    background: #e9d5ff;
+  }
+  .pharmacy-footer-support {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .pharmacy-footer-contact-card {
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .pharmacy-footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #e9d5ff;
+    margin-top: 0.75rem;
+  }
+  .pharmacy-footer-contact-item:first-child {
+    margin-top: 0;
+  }
+  .pharmacy-footer-contact-icon {
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+  }
+  .pharmacy-footer-contact-label {
+    font-size: 0.75rem;
+    color: rgba(233, 213, 255, 0.7);
+  }
+  .pharmacy-footer-contact-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .pharmacy-footer-social {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(233, 213, 255, 0.8);
+  }
+  .pharmacy-footer-social-link {
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.2s;
+  }
+  .pharmacy-footer-social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .pharmacy-footer-social-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(233, 213, 255, 0.7);
+  }
+  .pharmacy-footer-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .pharmacy-footer-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .pharmacy-footer-badge-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+  }
+  .pharmacy-footer-badge-item img {
+    height: 4rem;
+    width: auto;
+    object-fit: contain;
+  }
+  .pharmacy-footer-badge-text {
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+    color: rgba(233, 213, 255, 0.7);
+  }
+  .pharmacy-footer-bottom {
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .pharmacy-footer-copyright {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    font-size: 0.75rem;
+    color: rgba(233, 213, 255, 0.7);
+  }
+  @media (min-width: 768px) {
+    .pharmacy-footer-copyright {
+      font-size: 0.875rem;
+    }
+  }
+</style>
+
+<footer class="pharmacy-footer">
+  <div class="pharmacy-footer-glow">
+    <div class="pharmacy-footer-glow-1"></div>
+    <div class="pharmacy-footer-glow-2"></div>
+    <div class="pharmacy-footer-glow-3"></div>
+    <div class="pharmacy-footer-overlay"></div>
   </div>
-  <!-- محتوای فوتر -->
-  <div class="relative z-10 container mx-auto h-full py-20 lg:py-16">
-    <div class="grid h-full grid-cols-1 gap-12 text-gray-700 lg:grid-cols-3">
-      <div class="flex flex-col justify-between px-4 lg:px-0">
-        <div>
-          <img src="{% static 'images/logo.svg' %}" alt="{{ site_settings.site_name|default:'داروخانه دکتر واعظ' }}" />
+
+  <div class="pharmacy-footer-content">
+    <div class="pharmacy-footer-grid">
+      <!-- برند و توضیحات -->
+      <div class="pharmacy-footer-brand">
+        <div class="pharmacy-footer-logo">
+          <img src="{% static 'images/logo.svg' %}" alt="{{ site_settings.site_name|default:'داروخانه دکتر واعظی' }}" />
         </div>
-        <div class="w-[80%]">
-          <p class="text-justify text-sm leading-6">
-            {{ site_settings.description|default:"این یک متن آزمایشی است" }}
-          </p>
+        <p class="pharmacy-footer-desc">{{ site_settings.description|default:"انتخابی مطمئن برای دارو و محصولات بهداشتی با ارسال سریع، بسته‌بندی ایمن و پشتیبانی همراه." }}</p>
+        <div class="pharmacy-footer-cta">
+          <a href="{% url 'catalog:shop' %}" class="pharmacy-footer-btn-primary">
+            مشاهده محصولات
+            <svg xmlns="http://www.w3.org/2000/svg" style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 18l6-6"/><path d="M13 6l6 6"/></svg>
+          </a>
+          <a href="#new-products" class="pharmacy-footer-btn-secondary">جدیدترین‌ها</a>
         </div>
       </div>
-      <div class="flex flex-col items-center">
-        <h2 class="text-primary-900 mb-4 text-xl font-semibold">دسترسی سریع</h2>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <ul class="flex flex-col justify-between space-y-4">
-              <li class="gap-x-1">
-                <a href="{% url 'core:home' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
-                  </svg>
-                  <span class="font-dana text-sm font-semibold text-gray-600">صفحه اصلی</span>
-                </a>
-              </li>
-              <li class="gap-x-1">
-                <a href="{% url 'catalog:shop' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
-                  </svg>
-                  <span class="font-dana text-sm font-semibold text-gray-600">فروشگاه</span>
-                </a>
-              </li>
-              <li class="gap-x-1">
-                <a href="{% url 'dashboard:home' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
-                  </svg>
-                  <span class="font-dana text-sm font-semibold text-gray-600">حساب کاربری</span>
-                </a>
-              </li>
-              <li class="gap-x-1">
-                <a href="{% url 'dashboard:orders' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
-                  </svg>
-                  <span class="font-dana text-sm font-semibold text-gray-600">سفارشات</span>
-                </a>
-              </li>
-            </ul>
+
+      <!-- دسترسی سریع -->
+      <div>
+        <h3 class="pharmacy-footer-section-title">دسترسی سریع</h3>
+        <div class="pharmacy-footer-links">
+          <div class="pharmacy-footer-links-col">
+            <a href="{% url 'core:home' %}" class="pharmacy-footer-link">
+              <span class="pharmacy-footer-link-dot"></span>
+              <span style="font-weight: 600;">صفحه اصلی</span>
+            </a>
+            <a href="{% url 'catalog:shop' %}" class="pharmacy-footer-link">
+              <span class="pharmacy-footer-link-dot"></span>
+              <span style="font-weight: 600;">فروشگاه</span>
+            </a>
+            <a href="{% url 'dashboard:home' %}" class="pharmacy-footer-link">
+              <span class="pharmacy-footer-link-dot"></span>
+              <span style="font-weight: 600;">حساب کاربری</span>
+            </a>
+            <a href="{% url 'dashboard:orders' %}" class="pharmacy-footer-link">
+              <span class="pharmacy-footer-link-dot"></span>
+              <span style="font-weight: 600;">سفارشات</span>
+            </a>
           </div>
-          <div>
-            <ul class="flex flex-col justify-between space-y-4">
-              <li class="gap-x-1">
-                <a href="{% url 'core:about' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
-                  </svg>
-                  <span class="font-dana text-sm font-semibold text-gray-600">درباره ما</span>
-                </a>
-              </li>
-              <li class="gap-x-1">
-                <a href="{% url 'core:contact' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
-                  </svg>
-                  <span class="font-dana text-sm font-semibold text-gray-600">تماس با ما</span>
-                </a>
-              </li>
-              <li class="gap-x-1">
-                <a href="{% url 'cart:detail' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
-                  </svg>
-                  <span class="font-dana text-sm font-semibold text-gray-600">سبد خرید</span>
-                </a>
-              </li>
-              <li class="gap-x-1">
-                <a href="{% url 'catalog:wishlist' %}" class="menu-item_link relative inline-flex items-center gap-x-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-point text-gray-600">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
-                  </svg>
-                  <span class="font-dana text-sm font-semibold text-gray-600">علاقه‌مندی‌ها</span>
-                </a>
-              </li>
-            </ul>
+          <div class="pharmacy-footer-links-col">
+            <a href="{% url 'core:about' %}" class="pharmacy-footer-link">
+              <span class="pharmacy-footer-link-dot"></span>
+              <span style="font-weight: 600;">درباره ما</span>
+            </a>
+            <a href="{% url 'core:contact' %}" class="pharmacy-footer-link">
+              <span class="pharmacy-footer-link-dot"></span>
+              <span style="font-weight: 600;">تماس با ما</span>
+            </a>
+            <a href="{% url 'cart:detail' %}" class="pharmacy-footer-link">
+              <span class="pharmacy-footer-link-dot"></span>
+              <span style="font-weight: 600;">سبد خرید</span>
+            </a>
+            <a href="{% url 'catalog:wishlist' %}" class="pharmacy-footer-link">
+              <span class="pharmacy-footer-link-dot"></span>
+              <span style="font-weight: 600;">علاقه‌مندی‌ها</span>
+            </a>
           </div>
         </div>
       </div>
-      <div class="flex flex-col items-center justify-between gap-y-4">
-        <h2 class="text-primary-900 mb-4 text-xl font-semibold">ارتباط با ما</h2>
-        <div class="flex">
-          <ul class="flex items-center gap-x-4">
-            {% if site_settings.telegram %}
-            <li>
-              <a href="{{ site_settings.telegram }}" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram text-primary-900">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
-                </svg>
-              </a>
-            </li>
-            {% endif %}
-            {% if site_settings.instagram %}
-            <li>
-              <a href="{{ site_settings.instagram }}" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram text-primary-900">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
-                  <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                  <path d="M16.5 7.5v.01" />
-                </svg>
-              </a>
-            </li>
-            {% endif %}
-            <li>
-              <span class="font-dana font-medium text-gray-800">همراه ما باشید</span>
-            </li>
-          </ul>
+
+      <!-- پشتیبانی و تماس -->
+      <div class="pharmacy-footer-support">
+        <h3 class="pharmacy-footer-section-title">پشتیبانی</h3>
+        <div class="pharmacy-footer-contact-card">
+          <div class="pharmacy-footer-contact-item">
+            <span class="pharmacy-footer-contact-icon">☎</span>
+            <div>
+              <p class="pharmacy-footer-contact-label">تلفن</p>
+              <p class="pharmacy-footer-contact-value">{{ site_settings.phone|default:"021-00000000" }}</p>
+            </div>
+          </div>
+          <div class="pharmacy-footer-contact-item">
+            <span class="pharmacy-footer-contact-icon">✉</span>
+            <div>
+              <p class="pharmacy-footer-contact-label">ایمیل</p>
+              <p class="pharmacy-footer-contact-value">{{ site_settings.email|default:"info@example.com" }}</p>
+            </div>
+          </div>
+          <div class="pharmacy-footer-contact-item">
+            <span class="pharmacy-footer-contact-icon">📍</span>
+            <div>
+              <p class="pharmacy-footer-contact-label">آدرس</p>
+              <p class="pharmacy-footer-contact-value" style="line-height: 1.5rem;">{{ site_settings.address|default:"تهران، خیابان مثال، پلاک ۱۰" }}</p>
+            </div>
+          </div>
         </div>
-        <div class="flex items-center gap-8">
-          <img src="{% static 'images/01.png' %}" class="size-20" alt="نماد اعتماد" />
-          <img src="{% static 'images/02.png' %}" class="size-20" alt="نماد ساماندهی" />
-          <img src="{% static 'images/03.png' %}" class="size-20" alt="نماد پرداخت" />
+
+        <div class="pharmacy-footer-social">
+          {% if site_settings.telegram %}
+          <a href="{{ site_settings.telegram }}" target="_blank" class="pharmacy-footer-social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #e9d5ff;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/></svg>
+          </a>
+          {% endif %}
+          {% if site_settings.instagram %}
+          <a href="{{ site_settings.instagram }}" target="_blank" class="pharmacy-footer-social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #e9d5ff;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M16.5 7.5v.01"/></svg>
+          </a>
+          {% endif %}
+          <span class="pharmacy-footer-social-text">همراه ما باشید</span>
         </div>
+      </div>
+
+      <!-- نمادها -->
+      <div class="pharmacy-footer-badges">
+        <h3 class="pharmacy-footer-section-title">اعتماد و مجوزها</h3>
+        <div class="pharmacy-footer-badges-grid">
+          <div class="pharmacy-footer-badge-item">
+            <img src="{% static 'images/01.png' %}" alt="نماد اعتماد" />
+          </div>
+          <div class="pharmacy-footer-badge-item">
+            <img src="{% static 'images/02.png' %}" alt="نماد ساماندهی" />
+          </div>
+          <div class="pharmacy-footer-badge-item">
+            <img src="{% static 'images/03.png' %}" alt="نماد پرداخت" />
+          </div>
+        </div>
+        <p class="pharmacy-footer-badge-text">با اطمینان خرید کنید؛ اصالت کالا، پرداخت امن و پاسخ‌گویی سریع در تمام سفارش‌ها تضمین می‌شود.</p>
       </div>
     </div>
   </div>
-  
-  <!-- کپی‌رایت -->
-  <div class="border-t border-gray-200 py-4">
-    <div class="container mx-auto text-center">
-      <p class="text-sm text-gray-500">
-        تمامی حقوق این سایت متعلق به {{ site_settings.site_name|default:"داروخانه دکتر واعظ" }} می‌باشد.
-      </p>
+
+  <div class="pharmacy-footer-bottom">
+    <div class="pharmacy-footer-copyright">
+      <p>تمامی حقوق این سایت متعلق به {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }} است.</p>
     </div>
   </div>
 </footer>
