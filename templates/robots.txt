@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /cart/
+Disallow: /orders/
+Disallow: /accounts/login/
+Disallow: /accounts/verify-otp/
+Disallow: /media/private/
+
+# Sitemap
+Sitemap: {{ request.scheme }}://{{ request.get_host }}/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

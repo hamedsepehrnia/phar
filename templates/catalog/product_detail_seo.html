@@ -1,0 +1,36 @@
+{% load static %}
+<!-- Product Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "{{ product.name }}",
+  "image": "{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}",
+  "description": "{{ product.description|striptags|truncatewords:50 }}",
+  "sku": "{{ product.sku|default:product.id }}",
+  "brand": {
+    "@type": "Brand",
+    "name": "{{ product.brand.name }}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ request.build_absolute_uri }}",
+    "priceCurrency": "IRR",
+    "price": "{{ product.get_display_price }}",
+    "priceValidUntil": "{% now 'Y-m-d' %}",
+    "availability": "{% if product.stock > 0 %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
+    "seller": {
+      "@type": "Organization",
+      "name": "{{ site_settings.site_name|default:'داروخانه دکتر واعظی' }}"
+    }
+  }
+  {% if product.average_rating %}
+  ,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ product.average_rating }}",
+    "reviewCount": "{{ product.reviews_count }}"
+  }
+  {% endif %}
+}
+</script>

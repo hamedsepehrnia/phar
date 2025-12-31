@@ -4,6 +4,15 @@
 
 {% block title %}{{ product.name }} - {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}{% endblock %}
 
+{% block meta_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
+{% block meta_keywords %}{{ product.name }}, {{ product.brand.name }}, {{ product.category.name }}, خرید دارو{% endblock %}
+{% block og_title %}{{ product.name }}{% endblock %}
+{% block og_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% endblock %}
+{% block og_type %}product{% endblock %}
+
+{% block extra_structured_data %}{% include 'catalog/product_detail_seo.html' %}{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" crossorigin href="{% static 'css/main2.css' %}">
 {% endblock %}

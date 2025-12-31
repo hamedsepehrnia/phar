@@ -3,9 +3,7 @@
 <html lang="fa" dir="rtl">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="{% static 'favicon.png' %}" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% include 'partials/seo_meta.html' %}
   <title>{% block title %}داروخانه دکتر واعظی{% endblock %}</title>
   
   {% block extra_css %}{% endblock %}

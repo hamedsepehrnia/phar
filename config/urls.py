@@ -5,13 +5,29 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
 from .admin import custom_admin_site
+from apps.core.sitemaps import (
+    StaticViewSitemap, ProductSitemap, CategorySitemap, 
+    BrandSitemap
+)
+from apps.core.views_seo import robots_txt
+
+# Sitemaps
+sitemaps = {
+    'static': StaticViewSitemap,
+    'products': ProductSitemap,
+    'categories': CategorySitemap,
+    'brands': BrandSitemap,
+}
 
 # Custom error handlers
 handler404 = 'apps.core.views.handler404'
 
 urlpatterns = [
     path('admin/', custom_admin_site.urls),
+    path('robots.txt', robots_txt, name='robots_txt'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('', include('apps.core.urls', namespace='core')),
     path('accounts/', include('apps.accounts.urls', namespace='accounts')),
     path('catalog/', include('apps.catalog.urls', namespace='catalog')),

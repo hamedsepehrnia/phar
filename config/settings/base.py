@@ -21,6 +21,8 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sitemaps',  # SEO: Enable sitemap generation
+    'django.contrib.sites',  # Required for sitemaps
 ]
 
 THIRD_PARTY_APPS = [
@@ -111,6 +113,9 @@ LANGUAGE_CODE = 'fa-ir'
 TIME_ZONE = 'Asia/Tehran'
 USE_I18N = True
 USE_TZ = True
+
+# Site ID (required for django.contrib.sites)
+SITE_ID = 1
 
 # # Static files (CSS, JavaScript, Images)
 # STATIC_URL = '/static/'
