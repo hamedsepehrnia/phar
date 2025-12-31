@@ -12,7 +12,21 @@
       {% if sliders %}
       <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50 via-white to-rose-50 shadow-2xl ring-1 ring-primary-100/70">
         <div class="absolute inset-0 opacity-60" style="background-image: radial-gradient(circle at 12% 20%, rgba(186,126,253,0.25), transparent 35%), radial-gradient(circle at 82% 12%, rgba(244,114,182,0.22), transparent 28%), radial-gradient(circle at 50% 75%, rgba(125,211,252,0.18), transparent 30%);"></div>
+        <!-- Full-hero shape overlay (distributed shapes) -->
+        <div class="hero-shape-overlay pointer-events-none" aria-hidden="true">
+          <div class="shape pill s1"></div>
+          <div class="shape pill s2"></div>
+          <div class="shape pill s3"></div>
+          <div class="shape capsule c1"></div>
+          <div class="shape capsule c2"></div>
+        
+          <div class="shape bandage bd1"></div>
+          <div class="shape blister bl1"></div>
+        
+        
+        </div>
         <div class="relative grid items-center gap-8 p-6 md:p-10 lg:p-12 lg:grid-cols-5">
+          {% comment %} HERO TEXT & BUTTONS (temporarily commented out)
           <div class="space-y-4 lg:col-span-2">
             <div class="inline-flex items-center gap-2 rounded-full bg-primary-100/80 px-3 py-1 text-[11px] font-semibold text-primary-800 shadow-sm ring-1 ring-primary-200">تجربه خرید مطمئن و سریع</div>
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
@@ -42,11 +56,36 @@
               </div>
             </div>
           </div>
+          {% endcomment %}
 
           <div class="lg:col-span-3">
             <div class="relative rounded-2xl bg-white/70 p-3 sm:p-4 shadow-xl ring-1 ring-primary-100 backdrop-blur">
               <div class="absolute -left-10 -top-10 h-28 w-28 rounded-full bg-primary-200/30 blur-3xl"></div>
               <div class="absolute -right-14 bottom-6 h-32 w-32 rounded-full bg-rose-200/30 blur-3xl"></div>
+              <!-- 3D shapes scene overlay for slider hero -->
+              <div class="absolute inset-0 pointer-events-none">
+                <div class="w-full h-full flex items-center justify-center">
+                  <div class="medical-3d-scene" aria-hidden="true">
+                    <div class="pill-container">
+                      <div class="pill pill-1"></div>
+                      <div class="pill pill-2"></div>
+                      <div class="pill pill-3"></div>
+                      <div class="pill pill-4"></div>
+                    </div>
+
+                    <div class="capsule capsule-1"></div>
+                    <div class="capsule capsule-2"></div>
+
+                    <div class="band-aid"></div>
+                    <div class="thermometer"></div>
+                    <div class="blister"></div>
+                    <div class="medical-cross">
+                      <div class="cross-h"></div>
+                      <div class="cross-v"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="custom-slider" id="heroSlider">
                 <div class="slider-container">
                   {% for slider in sliders %}
@@ -273,7 +312,32 @@
       {% else %}
       <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50 via-white to-rose-50 text-gray-900 shadow-2xl ring-1 ring-primary-100/80">
         <div class="absolute inset-0 opacity-70" style="background-image: radial-gradient(circle at 18% 22%, rgba(186,126,253,0.25), transparent 30%), radial-gradient(circle at 82% 10%, rgba(236,72,153,0.2), transparent 26%), radial-gradient(circle at 60% 70%, rgba(16,185,129,0.12), transparent 24%);"></div>
+        <!-- Full-hero shape overlay (distributed shapes) -->
+        <div class="hero-shape-overlay pointer-events-none" aria-hidden="true">
+          <div class="shape pill s1"></div>
+          <div class="shape pill s2"></div>
+          <div class="shape pill s3"></div>
+          <div class="shape pill s4"></div>
+          <!-- mobile-only pill in top-right -->
+          <div class="shape pill mobile-top-right" aria-hidden="true"></div>
+          <div class="shape capsule c1"></div>
+
+          <div class="shape bandage bd1"></div>
+          <div class="shape blister bl1"></div>
+          <div class="shape box bx1"></div>
+        </div>
+        <!-- Centered hero text overlay (does not move shapes) -->
+        <div class="hero-text-overlay" role="region" aria-label="Hero">
+          <div class="hero-text">
+            <h1 class="hero-title">داروخانه دکتر واعظی</h1>
+            <p class="hero-sub">با مدیریت امین پرنگ</p>
+            <div class="hero-cta-wrapper">
+              <a href="#new-products" class="hero-cta" role="button" aria-label="آخرین محصولات ما">آخرین محصولات ما</a>
+            </div>
+          </div>
+        </div>
         <div class="relative grid items-center gap-8 px-6 py-12 md:px-12 lg:px-16 lg:grid-cols-2">
+          {% comment %} HERO TEXT & BUTTONS (temporarily commented out)
           <div class="space-y-4">
             <div class="inline-flex items-center gap-2 rounded-full bg-primary-100/90 px-3 py-1 text-[10px] font-semibold text-primary-900 shadow-sm ring-1 ring-primary-200">به‌روزترین محصولات دارویی و بهداشتی</div>
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">به {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }} خوش آمدید</h1>
@@ -284,6 +348,7 @@
               <a href="#new-products" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white/80 px-4 py-2 text-sm font-semibold text-primary-800 shadow-sm ring-1 ring-primary-100 backdrop-blur transition hover:bg-white w-full sm:w-auto">جدیدترین‌ها</a>
             </div>
           </div>
+          {% endcomment %}
           <div class="hidden lg:flex justify-end">
             <div class="relative w-full max-w-md">
               <div class="absolute -inset-6 rounded-full bg-primary-200/40 blur-3xl"></div>
