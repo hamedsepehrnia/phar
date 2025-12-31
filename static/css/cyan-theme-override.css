@@ -1,13 +1,15 @@
-/* Load Vazirmatn (وزیرمتن) font and apply globally */
+/* بارگذاری فونت وزیرمتن */
 @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@latest/dist/font-face.css');
 
+/* ═══════════════════════════════════════════════════════════
+   تنظیمات فونت سراسری
+   ═══════════════════════════════════════════════════════════ */
 html, body, input, textarea, select, button {
     font-family: 'Vazirmatn', 'Vazir', 'IRANYekanX', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ensure heading elements and common title classes use Vazirmatn even if other CSS sets different fonts */
 h1, h2, h3, h4, h5, h6,
 .pharmacy-footer-section-title,
 .section-title,
@@ -18,50 +20,92 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Vazirmatn', 'Vazir', 'IRANYekanX', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
 }
 
-
-
-
-
-/* Reduce hero welcome title font size slightly and increase spacing */
-h1.text-3xl.md\:text-4xl.lg\:text-5xl {
-    font-size: 1.75rem !important; /* smaller than default text-3xl */
-    letter-spacing: 0.02em !important; /* increase space between letters */
-    word-spacing: 0.15em !important; /* increase space between words */
-    line-height: 1.5 !important; /* increase line height for better readability */
+/* ═══════════════════════════════════════════════════════════
+   تم رنگی Cyan (آبی آسمانی)
+   ═══════════════════════════════════════════════════════════ */
+:root, :host {
+    --color-primary-50: #f0f9ff;
+    --color-primary-100: #e0f2fe;
+    --color-primary-200: #bae6fd;
+    --color-primary-300: #7dd3fc;
+    --color-primary-400: #38bdf8;
+    --color-primary-500: #0ea5e9;
+    --color-primary-600: #0ea5e9;
+    --color-primary-700: #0ea5e9;
+    --color-primary-800: #0ea5e9;
+    --color-primary-900: #0c4a6e;
+    
+    --color-purple-400: #38bdf8;
+    --color-purple-500: #0ea5e9;
+    
+    --color-indigo-400: #38bdf8;
+    --color-indigo-500: #0ea5e9;
+    --color-indigo-600: #0284c7;
 }
-@media (min-width: 768px) {
-    h1.text-3xl.md\:text-4xl.lg\:text-5xl {
-        font-size: 2rem !important; /* smaller than default text-4xl */
+
+@supports (color: lab(0% 0 0)) {
+    :root, :host {
+        --color-primary-50: lab(97.5% -3 -5);
+        --color-primary-100: lab(95% -7 -12);
+        --color-primary-200: lab(90% -14 -22);
+        --color-primary-300: lab(82% -18 -30);
+        --color-primary-400: lab(72% -22 -35);
+        --color-primary-500: lab(66% -22 -35);
+        --color-primary-600: lab(66% -22 -35);
+        --color-primary-700: lab(66% -22 -35);
+        --color-primary-800: lab(66% -22 -35);
+        --color-primary-900: lab(35% -12 -18);
+        
+        --color-purple-400: lab(72% -22 -35);
+        --color-purple-500: lab(66% -22 -35);
+        
+        --color-indigo-400: lab(72% -22 -35);
+        --color-indigo-500: lab(66% -22 -35);
+        --color-indigo-600: lab(58% -20 -32);
     }
 }
-@media (min-width: 1024px) {
-    h1.text-3xl.md\:text-4xl.lg\:text-5xl {
-        font-size: 2.5rem !important; /* smaller than default text-5xl */
-    }
-}
 
-/* Increase hero box width */
+/* ═══════════════════════════════════════════════════════════
+   تنظیمات Hero Section
+   ═══════════════════════════════════════════════════════════ */
+
+/* عرض بخش Hero */
 section.pt-6.lg\:pt-10 .container.max-w-6xl {
-    max-width: 95rem !important; /* Increase from 72rem (max-w-6xl) to 90rem for wider hero */
+    max-width: 95rem !important;
 }
 
-/* Center hero text block horizontally and vertically */
+/* ارتفاع ثابت Hero */
+section.pt-6 > .container > div.relative {
+    min-height: 260px !important;
+}
+
+@media (min-width: 768px) {
+    section.pt-6 > .container > div.relative {
+        min-height: 320px !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    section.pt-6 > .container > div.relative {
+        min-height: 420px !important;
+    }
+}
+
+/* متن Hero - مرکزچین */
 section.pt-6 .relative.grid .space-y-4 {
-    justify-self: center !important; /* center within the grid */
-    align-self: center !important;   /* vertical centering */
-    text-align: center !important;   /* center text */
+    justify-self: center !important;
+    align-self: center !important;
+    text-align: center !important;
     max-width: 48rem !important;
 }
+
 section.pt-6 .relative.grid .space-y-4 .flex {
-    justify-content: center !important; /* center the button row */
+    justify-content: center !important;
 }
 
 @media (min-width: 1024px) {
     section.pt-6 .relative.grid .space-y-4 {
         max-width: 40rem !important;
-    }
-    /* Make hero text span full width and appear centered in the middle of the hero */
-    section.pt-6 .relative.grid .space-y-4 {
         grid-column: 1 / -1 !important;
         justify-self: center !important;
         align-self: center !important;
@@ -69,173 +113,215 @@ section.pt-6 .relative.grid .space-y-4 .flex {
         text-align: center !important;
         margin: 0 auto !important;
     }
-    /* ensure button row stays centered */
-    section.pt-6 .relative.grid .space-y-4 .flex { justify-content: center !important; }
-
-    /* Keep hero container height stable even when inner text is removed */
-    section.pt-6 > .container > div.relative {
-        min-height: 420px !important; /* desktop baseline */
-    }
 }
 
-/* Keep hero height stable on smaller screens too */
-section.pt-6 > .container > div.relative {
-    min-height: 260px !important; /* mobile baseline */
+/* عنوان اصلی Hero */
+h1.text-3xl.md\:text-4xl.lg\:text-5xl {
+    font-size: 1.75rem !important;
+    letter-spacing: 0.02em !important;
+    word-spacing: 0.15em !important;
+    line-height: 1.5 !important;
 }
+
 @media (min-width: 768px) {
-    section.pt-6 > .container > div.relative {
-        min-height: 320px !important;
+    h1.text-3xl.md\:text-4xl.lg\:text-5xl {
+        font-size: 2rem !important;
     }
 }
 
-/* 3D Medical Illustration Styles */
-.medical-3d-scene {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1000px;
-    animation: sceneFloat 6s ease-in-out infinite;
+@media (min-width: 1024px) {
+    h1.text-3xl.md\:text-4xl.lg\:text-5xl {
+        font-size: 2.5rem !important;
+    }
 }
 
-@keyframes sceneFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
+/* ═══════════════════════════════════════════════════════════
+   انیمیشن‌های پایه (Keyframes)
+   ═══════════════════════════════════════════════════════════ */
+@keyframes floatA {
+    0%, 100% { transform: translateY(0) rotate(-20deg); }
+    50% { transform: translateY(-12px) rotate(-15deg); }
 }
 
-/* Medicine Bottle */
-.medicine-bottle {
+@keyframes floatB {
+    0%, 100% { transform: translateY(0) rotate(35deg); }
+    50% { transform: translateY(-16px) rotate(40deg); }
+}
+
+@keyframes floatC {
+    0%, 100% { transform: translateY(0) rotate(8deg); }
+    50% { transform: translateY(-10px) rotate(12deg); }
+}
+
+@keyframes floatD {
+    0%, 100% { transform: translateY(0) rotate(-18deg); }
+    50% { transform: translateY(-14px) rotate(-12deg); }
+}
+
+@keyframes floatE {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50% { transform: translateY(-18px) rotate(-2deg); }
+}
+
+@keyframes floatSyringe {
+    0%, 100% { transform: rotate(-20deg) translateY(0); }
+    50% { transform: rotate(-15deg) translateY(-12px); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Hero Shape Overlay - کانتینر اصلی اشکال
+   ═══════════════════════════════════════════════════════════ */
+.hero-shape-overlay {
     position: absolute;
-    width: 80px;
-    height: 140px;
-    z-index: 3;
-    animation: bottleRotate 8s ease-in-out infinite;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.95;
 }
 
-@keyframes bottleRotate {
-    0%, 100% { transform: rotate(-5deg) translateY(0px); }
-    50% { transform: rotate(5deg) translateY(-10px); }
+.hero-shape-overlay .shape {
+    position: absolute;
+    opacity: 0.95;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+    transform-origin: center;
 }
 
-.bottle-body {
-    width: 80px;
-    height: 110px;
+/* ═══════════════════════════════════════════════════════════
+   قرص‌ها (Pills)
+   ═══════════════════════════════════════════════════════════ */
+.hero-shape-overlay .pill {
+    width: 52px;
+    height: 20px;
+    background: linear-gradient(135deg, #fff 0%, #f0f9ff 100%);
+    border-radius: 20px;
+    will-change: transform, left, top;
+}
+
+.hero-shape-overlay .pill::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
     background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
-    border-radius: 12px 12px 20px 20px;
-    box-shadow: 
-        inset -8px -8px 20px rgba(0,0,0,0.15),
-        inset 8px 8px 20px rgba(255,255,255,0.3),
-        0 20px 40px rgba(14,165,233,0.3);
-    position: relative;
 }
 
-.bottle-cap {
-    width: 60px;
-    height: 25px;
-    background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
-    border-radius: 8px 8px 0 0;
-    position: absolute;
-    top: -20px;
-    left: 10px;
-    box-shadow: 0 5px 15px rgba(14,165,233,0.3);
-    z-index: 1;
+.hero-shape-overlay .pill.s1 {
+    left: 6%;
+    top: 18%;
+    transform: rotate(-18deg);
+    animation: floatA 7.0s ease-in-out infinite;
+    animation-delay: 0s;
 }
 
-.bottle-label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 36px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+.hero-shape-overlay .pill.s2 {
+    left: 18%;
+    top: 34%;
+    transform: rotate(6deg);
+    animation: floatB 7.2s ease-in-out infinite;
+    animation-delay: 0.6s;
 }
 
-/* Pills Container */
-.pill-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.hero-shape-overlay .pill.s3 {
+    display: none !important;
 }
 
-
-
-
-@keyframes pillFloat1 {
-    0%, 100% { transform: rotate(-25deg) translateY(0px); }
-    50% { transform: rotate(-20deg) translateY(-15px); }
+.hero-shape-overlay .pill.s4 {
+    left: 88%;
+    top: 68%;
+    transform: rotate(-12deg);
+    animation: floatD 7.4s ease-in-out infinite;
+    animation-delay: 1.6s;
 }
 
-
-@keyframes pillFloat2 {
-    0%, 100% { transform: rotate(35deg) translateY(0px); }
-    50% { transform: rotate(40deg) translateY(-20px); }
-}
-
-
-
-@keyframes pillFloat3 {
-    0%, 100% { transform: rotate(-15deg) translateY(0px); }
-    50% { transform: rotate(-10deg) translateY(-18px); }
-}
-
-/* Capsules */
-.capsule {
-    position: absolute;
-    width: 35px;
+/* ═══════════════════════════════════════════════════════════
+   کپسول‌ها (Capsules) - اصلی‌ترین بخش
+   ═══════════════════════════════════════════════════════════ */
+.hero-shape-overlay .capsule {
+    width: 36px;
     height: 70px;
     background: linear-gradient(180deg, #ef4444 0%, #ef4444 50%, #fbbf24 50%, #fbbf24 100%);
-    border-radius: 35px;
+    border-radius: 36px;
+    will-change: transform, left, top;
     box-shadow: 
-        inset -4px -4px 12px rgba(0,0,0,0.15),
-        inset 4px 4px 12px rgba(255,255,255,0.3),
-        0 15px 30px rgba(239,68,68,0.25);
+        inset -4px -4px 12px rgba(0, 0, 0, 0.15),
+        inset 4px 4px 12px rgba(255, 255, 255, 0.3),
+        0 15px 30px rgba(239, 68, 68, 0.25);
 }
 
-.capsule-1 {
-    top: 12%;
-    right: 15%;
-    transform: rotate(25deg);
-    animation: capsuleFloat1 6s ease-in-out infinite;
+/* کپسول اول - پایین چپ */
+.hero-shape-overlay .capsule.c1 {
+    left: 70%;
+    top: 72%;
+    transform: rotate(18deg);
+    animation: floatB 6.6s ease-in-out infinite;
+    animation-delay: 0.3s;
 }
 
-/* Hide the top-right red-yellow capsule as requested */
-.capsule-1 { display: none !important; }
-
-@keyframes capsuleFloat1 {
-    0%, 100% { transform: rotate(25deg) translateY(0px) translateX(0px); }
-    50% { transform: rotate(30deg) translateY(-12px) translateX(5px); }
+/* کپسول دوم - بالا راست */
+.hero-shape-overlay .capsule.c2 {
+    left: 70%;
+    top: 20%;
+    transform: rotate(-10deg);
+    animation: floatD 7.9s ease-in-out infinite;
+    animation-delay: 0.9s;
+    display: block !important;
+    z-index: 3;
 }
 
-.capsule-2 {
-    top: 42%;
+/* ═══════════════════════════════════════════════════════════
+   سرنگ (Syringe)
+   ═══════════════════════════════════════════════════════════ */
+.hero-shape-overlay .syringe {
+    width: 6px;
+    height: 80px;
+    background: linear-gradient(180deg, #e6f8ff 0%, #c6f0ff 100%);
+    border-radius: 3px;
+    box-shadow: 0 8px 18px rgba(2, 132, 199, 0.12), inset 0 -4px 6px rgba(0, 0, 0, 0.06);
+    will-change: transform, left, top;
+}
+
+.hero-shape-overlay .syringe.sy1 {
     left: 8%;
-    transform: rotate(-35deg);
-    animation: capsuleFloat2 7s ease-in-out infinite;
+    top: 36%;
+    transform: rotate(-20deg);
+    animation: floatSyringe 6s ease-in-out infinite;
+    animation-delay: 0.45s;
 }
 
-@keyframes capsuleFloat2 {
-    0%, 100% { transform: rotate(-35deg) translateY(0px) translateX(0px); }
-    50% { transform: rotate(-30deg) translateY(-15px) translateX(-5px); }
+/* ═══════════════════════════════════════════════════════════
+   بلیستر (Blister Pack)
+   ═══════════════════════════════════════════════════════════ */
+.hero-shape-overlay .blister {
+    width: 64px;
+    height: 36px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e6f6ff 100%);
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(14, 165, 233, 0.08);
 }
 
-/* Medical Cross */
+.hero-shape-overlay .blister.bl1 {
+    right: 6%;
+    bottom: 16%;
+    transform: rotate(-6deg);
+    animation: floatE 8.6s ease-in-out infinite;
+    animation-delay: 0.75s;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   صلیب پزشکی (Medical Cross)
+   ═══════════════════════════════════════════════════════════ */
 .medical-cross {
     position: absolute;
-    top: 8%; /* lowered to sit further down in the hero */
+    top: 8%;
     right: 8%;
     width: 50px;
     height: 50px;
     z-index: 2;
     animation: crossRotate 10s linear infinite;
-}
-
-/* Mobile tweak: keep cross lower on small screens to avoid overlap */
-@media (max-width: 640px) {
-    .medical-cross { top: 44%; right: 6%; }
 }
 
 @keyframes crossRotate {
@@ -247,7 +333,7 @@ section.pt-6 > .container > div.relative {
     position: absolute;
     background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
     border-radius: 4px;
-    box-shadow: 0 10px 25px rgba(16,185,129,0.3);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
 }
 
 .cross-h {
@@ -266,181 +352,190 @@ section.pt-6 > .container > div.relative {
     transform: translateX(-50%);
 }
 
-/* Additional medical shapes: syringe, band-aid, thermometer, blister */
-.syringe {
-    position: absolute;
-    left: 8%;
-    top: 36%;
-    width: 6px;
-    height: 80px;
-    background: linear-gradient(180deg, #e6f8ff 0%, #c6f0ff 100%);
-    border-radius: 3px;
-    transform: rotate(-20deg);
-    box-shadow: 0 8px 18px rgba(2,132,199,0.12), inset 0 -4px 6px rgba(0,0,0,0.06);
-    animation: floatSyringe 6s ease-in-out infinite;
+@media (max-width: 640px) {
+    .medical-cross {
+        top: 44%;
+        right: 6%;
+    }
 }
-@keyframes floatSyringe { 0%,100%{ transform: rotate(-20deg) translateY(0);} 50%{ transform: rotate(-15deg) translateY(-12px);} }
 
-.band-aid {
-    position: absolute;
-    left: 68%;
-    top: 12%;
-    width: 70px;
-    height: 18px;
-    background: linear-gradient(135deg,#fff8e6 0%, #ffe8c4 100%);
-    border-radius: 8px;
-    transform: rotate(12deg);
-    box-shadow: 0 8px 20px rgba(244,180,0,0.12);
-    animation: floatBand 7s ease-in-out infinite;
-}
-@keyframes floatBand { 0%,100%{ transform: rotate(12deg) translateY(0);} 50%{ transform: rotate(10deg) translateY(-10px);} }
 
-.thermometer {
-    position: absolute;
-    right: 10%;
-    top: 28%;
-    width: 10px;
-    height: 70px;
-    background: linear-gradient(180deg,#fff 0%, #fee2e2 100%);
-    border-radius: 8px;
-    box-shadow: 0 8px 18px rgba(239,68,68,0.08);
-    transform: rotate(6deg);
-    animation: floatThermo 6.5s ease-in-out infinite;
-}
-@keyframes floatThermo { 0%,100%{ transform: rotate(6deg) translateY(0);} 50%{ transform: rotate(8deg) translateY(-10px);} }
-
-.blister {
-    position: absolute;
-    right: 10%;
-    bottom: 18%;
+/* ═══════════════════════════════════════════════════════════
+   جعبه دارو (Medicine Box)
+   ═══════════════════════════════════════════════════════════ */
+.hero-shape-overlay .box {
     width: 60px;
-    height: 36px;
-    background: linear-gradient(135deg,#f8fafc 0%, #e6f6ff 100%);
-    border-radius: 8px;
-    box-shadow: 0 10px 24px rgba(14,165,233,0.08);
-    transform: rotate(-8deg);
-    animation: floatBlister 8s ease-in-out infinite;
-}
-@keyframes floatBlister { 0%,100%{ transform: rotate(-8deg) translateY(0);} 50%{ transform: rotate(-6deg) translateY(-12px);} }
-
-/* Slight opacity and spread so shapes appear across hero */
-.medical-3d-scene > * { opacity: 0.95; }
-
-/* Reduce pointer interference */
-.medical-3d-scene { pointer-events: none; }
-
-/* Full-hero distributed shapes overlay */
-.hero-shape-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 10;
-    pointer-events: none;
-    opacity: 0.95;
+    height: 50px;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 6px;
+    box-shadow: 0 10px 24px rgba(245, 158, 11, 0.15);
+    will-change: transform, left, top;
 }
 
-.hero-shape-overlay .shape { position: absolute; opacity: 0.95; border-radius: 999px; box-shadow: 0 10px 30px rgba(2,6,23,0.08); transform-origin: center; }
+.hero-shape-overlay .box.bx1 {
+    left: 70%;
+    top: 20%;
+    transform: rotate(8deg);
+    animation: floatC 7.5s ease-in-out infinite;
+    animation-delay: 1.2s;
+}
 
-/* Pills (moved to periphery for cleaner center) */
-.hero-shape-overlay .pill { width: 52px; height: 20px; background: linear-gradient(135deg,#fff 0%,#f0f9ff 100%); border-radius: 20px; will-change: transform, left, top; }
-.hero-shape-overlay .pill::before { content: ''; position: absolute; left:0; top:0; width:50%; height:100%; border-radius:20px 0 0 20px; background: linear-gradient(135deg,#0ea5e9 0%,#38bdf8 100%); }
-.hero-shape-overlay .pill.s1 { left: 6%;  top: 18%; transform: rotate(-18deg); animation: floatA 7.0s ease-in-out infinite; }
-.hero-shape-overlay .pill.s2 { left: 18%; top: 34%; transform: rotate(6deg); animation: floatB 7.2s ease-in-out infinite; }
-.hero-shape-overlay .pill.s3 { left: 76%; top: 18%; transform: rotate(8deg); animation: floatC 6.9s ease-in-out infinite; }
-.hero-shape-overlay .pill.s3 { display: none !important; }
-.hero-shape-overlay .pill.s4 { left: 88%; top: 68%; transform: rotate(-12deg); animation: floatD 7.4s ease-in-out infinite; }
+/* ═══════════════════════════════════════════════════════════
+   عناصر حذف شده (فقط بطری)
+   ═══════════════════════════════════════════════════════════ */
+.hero-shape-overlay .bottle,
+.medicine-bottle {
+    display: none !important;
+}
 
-/* Bottles (removed) */
-.hero-shape-overlay .bottle { display: none !important; }
-/* if any legacy medicine-bottle exists, hide it too */
-.medicine-bottle { display: none !important; }
+/* ═══════════════════════════════════════════════════════════
+   تنظیمات Desktop (بالای 1024px)
+   ═══════════════════════════════════════════════════════════ */
+@media (min-width: 1024px) {
+    .hero-shape-overlay {
+        pointer-events: none;
+    }
 
-/* Capsules (moved toward edges) */
-.hero-shape-overlay .capsule { width: 36px; height: 70px; background: linear-gradient(180deg,#ef4444 0%,#fbbf24 100%); border-radius: 36px; will-change: transform, left, top; }
-.hero-shape-overlay .capsule.c1 { left: 8%; top: 72%; transform: rotate(18deg); animation: floatB 6.6s ease-in-out infinite; }
-.hero-shape-overlay .capsule.c2 { left: 86%; top: 72%; transform: rotate(-24deg); animation: floatC 7.0s ease-in-out infinite; }
+    /* قرص‌ها - چیدمان دایره‌ای */
+    .hero-shape-overlay .pill.s1 {
+        left: 22% !important;
+        top: 26% !important;
+    }
 
-/* Syringe (removed) */
-.hero-shape-overlay .syringe { display: none !important; }
-.hero-shape-overlay .syringe.sy1 { display: none !important; }
+    .hero-shape-overlay .pill.s2 {
+        left: 38% !important;
+        top: 78% !important;
+    }
 
-/* Bandage */
-.hero-shape-overlay .bandage { width: 78px; height: 20px; background: linear-gradient(135deg,#fff8e6 0%,#ffe8c4 100%); border-radius: 10px; }
-.hero-shape-overlay .bandage.bd1 { left: 8%; top: 76%; transform: rotate(8deg); animation: floatH 7.0s ease-in-out infinite; }
+    .hero-shape-overlay .pill.s4 {
+        left: 78% !important;
+        top: 78% !important;
+    }
 
-/* Blister */
-.hero-shape-overlay .blister { width: 64px; height: 36px; background: linear-gradient(135deg,#f8fafc 0%,#e6f6ff 100%); border-radius: 8px; }
-.hero-shape-overlay .blister.bl1 { right: 6%; bottom: 16%; transform: rotate(-6deg); animation: floatE 8.6s ease-in-out infinite; }
+    /* کپسول‌ها - موقعیت Desktop */
+    .hero-shape-overlay .capsule.c1 {
+        left: 8% !important;
+        top: 62% !important;
+    }
 
-/* Box */
-.hero-shape-overlay .box { width: 54px; height: 46px; background: linear-gradient(135deg,#fef3c7 0%,#fde68a 100%); border-radius: 8px; }
-.hero-shape-overlay .box.bx1 { left: 76%; top: 18%; transform: rotate(-10deg); animation: floatD 7.9s ease-in-out infinite; }
+    .hero-shape-overlay .capsule.c2 {
+        left: 70% !important;
+        top: 20% !important;
+    }
 
-/* Cross (removed) */
-.hero-shape-overlay .cross { display: none !important; }
-.hero-shape-overlay .cross.cr1 { display: none !important; }
+    /* سرنگ */
+    .hero-shape-overlay .syringe.sy1 {
+        left: 6% !important;
+        top: 36% !important;
+        transform: rotate(-22deg) !important;
+    }
 
-/* Floating keyframes variations */
-@keyframes floatA { 0%,100%{ transform: translateY(0) rotate(-20deg);} 50%{ transform: translateY(-12px) rotate(-15deg);} }
-@keyframes floatB { 0%,100%{ transform: translateY(0) rotate(35deg);} 50%{ transform: translateY(-16px) rotate(40deg);} }
-@keyframes floatC { 0%,100%{ transform: translateY(0) rotate(8deg);} 50%{ transform: translateY(-10px) rotate(12deg);} }
-@keyframes floatD { 0%,100%{ transform: translateY(0) rotate(-18deg);} 50%{ transform: translateY(-14px) rotate(-12deg);} }
-@keyframes floatE { 0%,100%{ transform: translateY(0) rotate(-6deg);} 50%{ transform: translateY(-18px) rotate(-2deg);} }
-@keyframes floatF { 0%,100%{ transform: translateY(0) rotate(8deg);} 50%{ transform: translateY(-14px) rotate(12deg);} }
-@keyframes floatG { 0%,100%{ transform: translateY(0) rotate(-25deg);} 50%{ transform: translateY(-10px) rotate(-20deg);} }
-@keyframes floatH { 0%,100%{ transform: translateY(0) rotate(12deg);} 50%{ transform: translateY(-8px) rotate(8deg);} }
+    /* بلیستر */
+    .hero-shape-overlay .blister.bl1 {
+        right: 6% !important;
+        bottom: 16% !important;
+    }
+    
+    /* صلیب پزشکی */
+    .medical-cross {
+        right: 8% !important;
+        top: 8% !important;
+    }
 
-/* Stagger animation delays for visual variety (evenly spaced) */
-.hero-shape-overlay .pill.s1 { animation-delay: 0s; }
-.hero-shape-overlay .pill.s2 { animation-delay: 0.6s; }
-.hero-shape-overlay .pill.s3 { animation-delay: 1.1s; }
-.hero-shape-overlay .pill.s4 { animation-delay: 1.6s; }
-.hero-shape-overlay .capsule.c1 { animation-delay: 0.3s; }
-.hero-shape-overlay .capsule.c2 { animation-delay: 0.9s; }
-.hero-shape-overlay .syringe.sy1 { animation-delay: 0.45s; }
-.hero-shape-overlay .bandage.bd1 { animation-delay: 1.0s; }
-.hero-shape-overlay .blister.bl1 { animation-delay: 0.75s; }
-.hero-shape-overlay .box.bx1 { animation-delay: 1.2s; }
-.hero-shape-overlay .cross.cr1 { animation-delay: 0.35s; }
+    /* کاهش شفافیت در Desktop */
+    .hero-shape-overlay .shape {
+        opacity: 0.95 !important;
+    }
+}
 
-/* Ensure hero text sits above shapes */
-.hero-text-overlay { z-index: 60 !important; }
+/* ═══════════════════════════════════════════════════════════
+   تنظیمات Mobile (زیر 768px)
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+    /* Mobile: hide all decorative hero shapes and 3D scene to reduce clutter */
+    .hero-shape-overlay { display: none !important; }
+    .medical-3d-scene { display: none !important; }
 
-/* Centered hero text overlay (top-level, above shapes) */
+    /* Safety: hide specific shape types if any are still targeted individually */
+    .hero-shape-overlay .shape,
+    .hero-shape-overlay .pill,
+    .hero-shape-overlay .capsule,
+    .hero-shape-overlay .syringe,
+    .hero-shape-overlay .box,
+    .hero-shape-overlay .bandage,
+    .hero-shape-overlay .blister { display: none !important; }
+
+    /* Keep hero text and CTAs visible and interactive */
+    .hero-text-overlay { z-index: 60 !important; display: flex !important; pointer-events: auto !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Hero Text Overlay - متن روی Hero
+   ═══════════════════════════════════════════════════════════ */
 .hero-text-overlay {
     position: absolute;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 60; /* above shapes */
-    pointer-events: none; /* don't block interactions beneath */
+    z-index: 60;
+    pointer-events: none;
     text-align: center;
 }
-.hero-text-overlay .hero-text { pointer-events: auto; max-width: 56rem; padding: 1rem; }
+
+.hero-text-overlay .hero-text {
+    pointer-events: auto;
+    max-width: 56rem;
+    padding: 1rem;
+}
+
 .hero-text-overlay .hero-title {
     font-size: 2rem;
     line-height: 1.1;
     font-weight: 800;
-    color: #0f172a; /* dark slate */
+    color: #0f172a;
     margin: 0;
 }
+
 .hero-text-overlay .hero-sub {
     margin-top: 0.5rem;
-    color: rgba(17,24,39,0.7);
+    color: rgba(17, 24, 39, 0.7);
     font-size: 0.7rem;
 }
+
 @media (min-width: 768px) {
-    .hero-text-overlay .hero-title { font-size: 2.5rem; }
-    .hero-text-overlay .hero-sub { font-size: 0.85rem; }
-}
-@media (min-width: 1024px) {
-    .hero-text-overlay .hero-title { font-size: 3rem; }
-    .hero-text-overlay .hero-sub { font-size: 0.9rem; }
-    .hero-text-overlay .hero-cta-wrapper { margin-top: 1.25rem; }
+    .hero-text-overlay .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-text-overlay .hero-sub {
+        font-size: 0.85rem;
+    }
 }
 
-/* Hero CTA button styling (custom, no utility classes) */
-.hero-text-overlay .hero-cta-wrapper { margin-top: 0.9rem; display:flex; justify-content:center; }
+@media (min-width: 1024px) {
+    .hero-text-overlay .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-text-overlay .hero-sub {
+        font-size: 0.9rem;
+    }
+
+    .hero-text-overlay .hero-cta-wrapper {
+        margin-top: 1.25rem;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   دکمه CTA در Hero
+   ═══════════════════════════════════════════════════════════ */
+.hero-text-overlay .hero-cta-wrapper {
+    margin-top: 0.9rem;
+    display: flex;
+    justify-content: center;
+}
+
 .hero-text-overlay .hero-cta {
     display: inline-flex;
     align-items: center;
@@ -448,135 +543,32 @@ section.pt-6 > .container > div.relative {
     gap: 0.5rem;
     padding: 0.6rem 1.1rem;
     border-radius: 0.75rem;
-    background: rgba(255,255,255,0.92);
+    background: rgba(255, 255, 255, 0.92);
     color: var(--color-primary-800);
     font-weight: 700;
     font-size: 0.95rem;
     text-decoration: none;
-    box-shadow: 0 8px 18px rgba(2,6,23,0.06);
+    box-shadow: 0 8px 18px rgba(2, 6, 23, 0.06);
     transition: transform 180ms ease, box-shadow 180ms ease, background-color 120ms ease, color 120ms ease;
     pointer-events: auto;
 }
+
 .hero-text-overlay .hero-cta:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 30px rgba(2,6,23,0.08);
-    background: rgba(255,255,255,1);
+    box-shadow: 0 14px 30px rgba(2, 6, 23, 0.08);
+    background: rgba(255, 255, 255, 1);
 }
+
 .hero-text-overlay .hero-cta:focus {
     outline: none !important;
-    box-shadow: 0 10px 24px rgba(14,165,233,0.12), 0 0 0 6px rgba(14,165,233,0.08) !important;
+    box-shadow: 0 10px 24px rgba(14, 165, 233, 0.12), 0 0 0 6px rgba(14, 165, 233, 0.08) !important;
 }
+
 @media (max-width: 767px) {
-    .hero-text-overlay .hero-cta { padding-left: 0.8rem !important; padding-right: 0.8rem !important; font-size: 0.85rem !important; }
-}
-
-/* Desktop: arrange hero shapes uniformly around the center to keep the middle clear */
-@media (min-width: 1024px) {
-    .hero-shape-overlay { pointer-events: none; }
-
-    /* push primary shapes to an even ring around the center */
-    .hero-shape-overlay .pill.s1 { left: 22% !important; top: 26% !important; }
-    .hero-shape-overlay .pill.s2 { left: 38% !important; top: 78% !important; }
-    .hero-shape-overlay .pill.s3 { left: 62% !important; top: 26% !important; }
-    .hero-shape-overlay .pill.s4 { left: 78% !important; top: 78% !important; }
-
-    .hero-shape-overlay .capsule.c1 { left: 8% !important; top: 62% !important; }
-    .hero-shape-overlay .capsule.c2 { left: 92% !important; top: 62% !important; }
-
-    .hero-shape-overlay .syringe.sy1 { left: 6% !important; top: 36% !important; transform: rotate(-22deg) !important; }
-    .hero-shape-overlay .bandage.bd1 { left: 68% !important; top: 12% !important; }
-    .hero-shape-overlay .box.bx1 { left: 70% !important; top: 20% !important; }
-    .hero-shape-overlay .blister.bl1 { right: 6% !important; bottom: 16% !important; }
-
-    /* medical cross slightly up-right */
-    .medical-cross { right: 8% !important; top: 8% !important; }
-
-    /* slightly reduce opacity on desktop to keep text contrast strong */
-    .hero-shape-overlay .shape { opacity: 0.95 !important; }
-}
-
-
-/* Make a small subset of shapes visible on mobile (reduce clutter) */
-@media (max-width: 767px) {
-    .hero-shape-overlay { display: block !important; }
-    .hero-shape-overlay .shape { opacity: 0.55 !important; filter: blur(0.6px) !important; }
-
-    /* Hide heavier / many shapes on mobile */
-    .hero-shape-overlay .pill.s2,
-    .hero-shape-overlay .pill.s3,
-    .hero-shape-overlay .pill.s4,
-    .hero-shape-overlay .bottle.b2,
-    .hero-shape-overlay .capsule.c2,
-    .hero-shape-overlay .box.bx1,
-    .hero-shape-overlay .cross.cr1 { display: none !important; }
-
-    /* Ensure only the small selected shapes appear */
-    .hero-shape-overlay .pill.s1,
-    .hero-shape-overlay .capsule.c1,
-    .hero-shape-overlay .syringe.sy1,
-    .hero-shape-overlay .bandage.bd1,
-    .hero-shape-overlay .pill.mobile-top-right { display: block !important; }
-
-    /* Reduce sizes for mobile and adjust positions to avoid overlap with content */
-    .hero-shape-overlay .pill.s1 { left: 6% !important; top: 18% !important; width: 44px !important; height: 18px !important; }
-    .hero-shape-overlay .capsule.c1 { left: 14% !important; top: 74% !important; width: 30px !important; height: 60px !important; }
-    .hero-shape-overlay .syringe.sy1 { left: 84% !important; top: 28% !important; width: 5px !important; height: 64px !important; transform: rotate(-22deg) !important; }
-    .hero-shape-overlay .bandage.bd1 { left: 70% !important; top: 72% !important; width: 68px !important; height: 18px !important; }
-
-    /* Mobile-only top-right pill */
-    .hero-shape-overlay .pill.mobile-top-right { position: absolute !important; right: 6% !important; top: 6% !important; width: 48px !important; height: 20px !important; border-radius: 20px !important; animation: floatA 6.8s ease-in-out infinite !important; opacity: 0.85 !important; transform: rotate(-12deg) !important; }
-
-    /* Slow down animations slightly on mobile */
-    .hero-shape-overlay .shape { animation-duration: calc(1.2 * var(--animation-duration, 7s)) !important; }
-}
-
-
-/* Custom Cyan Theme Override - تبدیل تمام رنگ‌های بنفش به آبی آسمانی */
-/* Created for modern, fresh cyan feeling */
-
-:root, :host {
-    /* رنگ‌های اصلی Primary - تبدیل از بنفش به Cyan */
-    --color-primary-50: #f0f9ff;
-    --color-primary-100: #e0f2fe;
-    --color-primary-200: #bae6fd;
-    --color-primary-300: #7dd3fc;
-    --color-primary-400: #38bdf8;
-    --color-primary-500: #0ea5e9;
-    --color-primary-600: #0ea5e9;
-    --color-primary-700: #0ea5e9;
-    --color-primary-800: #0ea5e9;
-    --color-primary-900: #0c4a6e;
-    
-    /* رنگ‌های Purple - تبدیل به Cyan */
-    --color-purple-400: #38bdf8;
-    --color-purple-500: #0ea5e9;
-    
-    /* رنگ‌های Indigo - تبدیل به Sky Blue */
-    --color-indigo-400: #38bdf8;
-    --color-indigo-500: #0ea5e9;
-    --color-indigo-600: #0284c7;
-}
-
-@supports (color: lab(0% 0 0)) {
-    :root, :host {
-        /* LAB color space برای رنگ‌های Cyan */
-        --color-primary-50: lab(97.5% -3 -5);
-        --color-primary-100: lab(95% -7 -12);
-        --color-primary-200: lab(90% -14 -22);
-        --color-primary-300: lab(82% -18 -30);
-        --color-primary-400: lab(72% -22 -35);
-        --color-primary-500: lab(66% -22 -35);
-        --color-primary-600: lab(66% -22 -35);
-        --color-primary-700: lab(66% -22 -35);
-        --color-primary-800: lab(66% -22 -35);
-        --color-primary-900: lab(35% -12 -18);
-        
-        --color-purple-400: lab(72% -22 -35);
-        --color-purple-500: lab(66% -22 -35);
-        
-        --color-indigo-400: lab(72% -22 -35);
-        --color-indigo-500: lab(66% -22 -35);
-        --color-indigo-600: lab(58% -20 -32);
+    .hero-text-overlay .hero-cta {
+        padding-left: 0.8rem !important;
+        padding-right: 0.8rem !important;
+        font-size: 0.85rem !important;
     }
 }
 
