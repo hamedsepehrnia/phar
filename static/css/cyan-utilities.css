@@ -1,0 +1,570 @@
+/* Cyan/Sky Blue Utility Classes - حس و حال تازه و مدرن */
+/* این کلاس‌ها برای جایگزینی کلاس‌های بنفش Tailwind ایجاد شده‌اند */
+
+/* Background Colors - Sky/Cyan */
+.bg-sky-50 {
+    background-color: #f0f9ff !important;
+}
+
+.bg-sky-100 {
+    background-color: #e0f2fe !important;
+}
+
+.bg-sky-200 {
+    background-color: #bae6fd !important;
+}
+
+.bg-sky-300 {
+    background-color: #7dd3fc !important;
+}
+
+.bg-sky-400 {
+    background-color: #38bdf8 !important;
+}
+
+.bg-sky-500 {
+    background-color: #0ea5e9 !important;
+}
+
+.bg-sky-600 {
+    background-color: #0284c7 !important;
+}
+
+.bg-sky-700 {
+    background-color: #0369a1 !important;
+}
+
+.bg-sky-800 {
+    background-color: #075985 !important;
+}
+
+.bg-sky-900 {
+    background-color: #0c4a6e !important;
+}
+
+/* Text Colors - Sky/Cyan */
+.text-sky-50 {
+    color: #f0f9ff !important;
+}
+
+.text-sky-100 {
+    color: #e0f2fe !important;
+}
+
+.text-sky-200 {
+    color: #bae6fd !important;
+}
+
+.text-sky-300 {
+    color: #7dd3fc !important;
+}
+
+.text-sky-400 {
+    color: #38bdf8 !important;
+}
+
+.text-sky-500 {
+    color: #0ea5e9 !important;
+}
+
+.text-sky-600 {
+    color: #0284c7 !important;
+}
+
+.text-sky-700 {
+    color: #0369a1 !important;
+}
+
+.text-sky-800 {
+    color: #075985 !important;
+}
+
+.text-sky-900 {
+    color: #0c4a6e !important;
+}
+
+/* Border Colors - Sky/Cyan */
+.border-sky-50 {
+    border-color: #f0f9ff !important;
+}
+
+.border-sky-100 {
+    border-color: #e0f2fe !important;
+}
+
+.border-sky-200 {
+    border-color: #bae6fd !important;
+}
+
+.border-sky-300 {
+    border-color: #7dd3fc !important;
+}
+
+.border-sky-400 {
+    border-color: #38bdf8 !important;
+}
+
+.border-sky-500 {
+    border-color: #0ea5e9 !important;
+}
+
+.border-sky-600 {
+    border-color: #0284c7 !important;
+}
+
+.border-sky-700 {
+    border-color: #0369a1 !important;
+}
+
+.border-sky-800 {
+    border-color: #075985 !important;
+}
+
+.border-sky-900 {
+    border-color: #0c4a6e !important;
+}
+
+/* Hover States - Sky/Cyan */
+.hover\:bg-sky-50:hover {
+    background-color: #f0f9ff !important;
+}
+
+.hover\:bg-sky-100:hover {
+    background-color: #e0f2fe !important;
+}
+
+.hover\:bg-sky-500:hover {
+    background-color: #0ea5e9 !important;
+}
+
+.hover\:bg-sky-600:hover {
+    background-color: #0284c7 !important;
+}
+
+.hover\:bg-sky-700:hover {
+    background-color: #0369a1 !important;
+}
+
+.hover\:text-sky-500:hover {
+    color: #0ea5e9 !important;
+}
+
+.hover\:text-sky-600:hover {
+    color: #0284c7 !important;
+}
+
+.hover\:text-sky-700:hover {
+    color: #0369a1 !important;
+}
+
+.hover\:border-sky-500:hover {
+    border-color: #0ea5e9 !important;
+}
+
+.hover\:border-sky-600:hover {
+    border-color: #0284c7 !important;
+}
+
+/* Focus States - Sky/Cyan */
+.focus\:ring-sky-500:focus {
+    --tw-ring-color: #0ea5e9 !important;
+}
+
+.focus\:ring-sky-600:focus {
+    --tw-ring-color: #0284c7 !important;
+}
+
+.focus\:border-sky-500:focus {
+    border-color: #0ea5e9 !important;
+}
+
+.focus\:border-sky-600:focus {
+    border-color: #0284c7 !important;
+}
+
+/* Ring Colors */
+.ring-sky-500 {
+    --tw-ring-color: #0ea5e9 !important;
+}
+
+.ring-sky-600 {
+    --tw-ring-color: #0284c7 !important;
+}
+
+/* From Gradient Colors */
+.from-sky-50 {
+    --tw-gradient-from: #f0f9ff !important;
+}
+
+.from-sky-100 {
+    --tw-gradient-from: #e0f2fe !important;
+}
+
+.from-sky-500 {
+    --tw-gradient-from: #0ea5e9 !important;
+}
+
+.from-sky-600 {
+    --tw-gradient-from: #0284c7 !important;
+}
+
+/* Via Gradient Colors */
+.via-sky-300 {
+    --tw-gradient-via: #7dd3fc !important;
+}
+
+.via-sky-400 {
+    --tw-gradient-via: #38bdf8 !important;
+}
+
+.via-sky-500 {
+    --tw-gradient-via: #0ea5e9 !important;
+}
+
+/* To Gradient Colors */
+.to-sky-400 {
+    --tw-gradient-to: #38bdf8 !important;
+}
+
+.to-sky-500 {
+    --tw-gradient-to: #0ea5e9 !important;
+}
+
+.to-sky-600 {
+    --tw-gradient-to: #0284c7 !important;
+}
+
+/* Divide Colors */
+.divide-sky-200 > :not(:last-child) {
+    border-color: #bae6fd !important;
+}
+
+/* Fill Colors */
+.fill-sky-500 {
+    fill: #0ea5e9 !important;
+}
+
+.fill-sky-600 {
+    fill: #0284c7 !important;
+}
+
+/* Group Hover */
+.group:hover .group-hover\:text-sky-500 {
+    color: #0ea5e9 !important;
+}
+
+.group:hover .group-hover\:text-sky-600 {
+    color: #0284c7 !important;
+}
+
+.group:hover .group-hover\:bg-sky-50 {
+    background-color: #f0f9ff !important;
+}
+
+/* Opacity Variants */
+.bg-sky-500\/10 {
+    background-color: rgba(14, 165, 233, 0.1) !important;
+}
+
+.bg-sky-500\/20 {
+    background-color: rgba(14, 165, 233, 0.2) !important;
+}
+
+.bg-sky-500\/50 {
+    background-color: rgba(14, 165, 233, 0.5) !important;
+}
+
+.text-sky-500\/80 {
+    color: rgba(14, 165, 233, 0.8) !important;
+}
+
+.border-sky-500\/50 {
+    border-color: rgba(14, 165, 233, 0.5) !important;
+}
+
+/* Modern Cyan Shadows - حس مدرن و تازه */
+.shadow-sky-sm {
+    box-shadow: 0 1px 2px 0 rgba(14, 165, 233, 0.05) !important;
+}
+
+.shadow-sky {
+    box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.1), 0 2px 4px -2px rgba(14, 165, 233, 0.1) !important;
+}
+
+.shadow-sky-md {
+    box-shadow: 0 8px 12px -2px rgba(14, 165, 233, 0.15) !important;
+}
+
+.shadow-sky-lg {
+    box-shadow: 0 10px 20px -5px rgba(14, 165, 233, 0.2) !important;
+}
+
+.shadow-sky-xl {
+    box-shadow: 0 20px 30px -10px rgba(14, 165, 233, 0.25) !important;
+}
+
+.shadow-sky-2xl {
+    box-shadow: 0 25px 50px -12px rgba(14, 165, 233, 0.3) !important;
+}
+
+/* Hover Shadow Effects */
+.hover\:shadow-sky:hover {
+    box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.1), 0 2px 4px -2px rgba(14, 165, 233, 0.1) !important;
+}
+
+.hover\:shadow-sky-md:hover {
+    box-shadow: 0 8px 12px -2px rgba(14, 165, 233, 0.15) !important;
+}
+
+.hover\:shadow-sky-lg:hover {
+    box-shadow: 0 10px 20px -5px rgba(14, 165, 233, 0.2) !important;
+}
+
+.hover\:shadow-sky-xl:hover {
+    box-shadow: 0 20px 30px -10px rgba(14, 165, 233, 0.25) !important;
+}
+
+/* Outline Colors */
+.outline-sky-500 {
+    outline-color: #0ea5e9 !important;
+}
+
+.outline-sky-600 {
+    outline-color: #0284c7 !important;
+}
+
+/* Caret Color */
+.caret-sky-500 {
+    caret-color: #0ea5e9 !important;
+}
+
+/* Accent Color */
+.accent-sky-500 {
+    accent-color: #0ea5e9 !important;
+}
+
+/* Selection Color */
+::selection {
+    background-color: #bae6fd;
+    color: #075985;
+}
+
+/* Scrollbar Styling - Cyan theme */
+::-webkit-scrollbar-thumb {
+    background-color: #0ea5e9 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #0284c7 !important;
+}
+
+/* Additional Modern Touches */
+.text-sky-gradient {
+    background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Animated Gradient Background - حس زنده و پویا */
+@keyframes sky-gradient-shift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.bg-sky-gradient-animated {
+    background: linear-gradient(270deg, #0ea5e9, #38bdf8, #7dd3fc, #0284c7);
+    background-size: 400% 400%;
+    animation: sky-gradient-shift 8s ease infinite;
+}
+
+/* Glow Effect - درخشش نرم */
+.glow-sky {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+}
+
+.hover\:glow-sky:hover {
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.5);
+}
+
+/* Glassmorphism Effect - شیشه‌ای مدرن */
+.glass-sky {
+    background: rgba(240, 249, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+/* Modern Button Styles */
+.btn-sky {
+    background-color: #0ea5e9;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-sky:hover {
+    background-color: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+}
+
+.btn-sky:active {
+    transform: translateY(0);
+}
+
+.btn-sky-outline {
+    background-color: transparent;
+    color: #0ea5e9;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid #0ea5e9;
+    cursor: pointer;
+}
+
+.btn-sky-outline:hover {
+    background-color: #0ea5e9;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Badge Styles */
+.badge-sky {
+    background-color: #e0f2fe;
+    color: #075985;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Card with Sky Theme */
+.card-sky {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid #e0f2fe;
+    transition: all 0.3s ease;
+}
+
+.card-sky:hover {
+    border-color: #0ea5e9;
+    box-shadow: 0 10px 25px rgba(14, 165, 233, 0.15);
+    transform: translateY(-4px);
+}
+
+/* Input Focus Style */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #0ea5e9 !important;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1) !important;
+}
+
+/* Link Styles */
+a.link-sky {
+    color: #0ea5e9;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a.link-sky:hover {
+    color: #0284c7;
+    text-decoration: underline;
+}
+
+/* Progress Bar */
+.progress-sky {
+    background-color: #e0f2fe;
+    height: 0.5rem;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-sky-bar {
+    background-color: #0ea5e9;
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+/* Alert Box */
+.alert-sky {
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-right: 4px solid #0ea5e9;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: #075985;
+}
+
+/* Tooltip */
+.tooltip-sky {
+    position: relative;
+}
+
+.tooltip-sky:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #075985;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading Spinner - Cyan */
+.spinner-sky {
+    border: 3px solid #e0f2fe;
+    border-top: 3px solid #0ea5e9;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    animation: spin-sky 1s linear infinite;
+}
+
+@keyframes spin-sky {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .btn-sky,
+    .btn-sky-outline {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Print styles - maintain cyan theme */
+@media print {
+    .bg-sky-500,
+    .bg-primary-800 {
+        background-color: #0ea5e9 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .text-sky-500,
+    .text-primary-800 {
+        color: #0ea5e9 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

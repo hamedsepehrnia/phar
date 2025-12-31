@@ -1,0 +1,433 @@
+/* Custom Cyan Theme Override - تبدیل تمام رنگ‌های بنفش به آبی آسمانی */
+/* Created for modern, fresh cyan feeling */
+
+:root, :host {
+    /* رنگ‌های اصلی Primary - تبدیل از بنفش به Cyan */
+    --color-primary-50: #f0f9ff;
+    --color-primary-100: #e0f2fe;
+    --color-primary-200: #bae6fd;
+    --color-primary-300: #7dd3fc;
+    --color-primary-400: #38bdf8;
+    --color-primary-500: #0ea5e9;
+    --color-primary-600: #0284c7;
+    --color-primary-700: #0369a1;
+    --color-primary-800: #0ea5e9;
+    --color-primary-900: #0c4a6e;
+    
+    /* رنگ‌های Purple - تبدیل به Cyan */
+    --color-purple-400: #38bdf8;
+    --color-purple-500: #0ea5e9;
+    
+    /* رنگ‌های Indigo - تبدیل به Sky Blue */
+    --color-indigo-400: #38bdf8;
+    --color-indigo-500: #0ea5e9;
+    --color-indigo-600: #0284c7;
+}
+
+@supports (color: lab(0% 0 0)) {
+    :root, :host {
+        /* LAB color space برای رنگ‌های Cyan */
+        --color-primary-50: lab(97.5% -3 -5);
+        --color-primary-100: lab(95% -7 -12);
+        --color-primary-200: lab(90% -14 -22);
+        --color-primary-300: lab(82% -18 -30);
+        --color-primary-400: lab(72% -22 -35);
+        --color-primary-500: lab(66% -22 -35);
+        --color-primary-600: lab(58% -20 -32);
+        --color-primary-700: lab(50% -18 -28);
+        --color-primary-800: lab(66% -22 -35);
+        --color-primary-900: lab(35% -12 -18);
+        
+        --color-purple-400: lab(72% -22 -35);
+        --color-purple-500: lab(66% -22 -35);
+        
+        --color-indigo-400: lab(72% -22 -35);
+        --color-indigo-500: lab(66% -22 -35);
+        --color-indigo-600: lab(58% -20 -32);
+    }
+}
+
+/* تبدیل gradient های بنفش به Cyan */
+.via-purple-400\/20 {
+    --tw-gradient-via: #38bdf833 !important;
+}
+
+@supports (color: color-mix(in lab, red, red)) {
+    .via-purple-400\/20 {
+        --tw-gradient-via: color-mix(in oklab, #38bdf8 20%, transparent) !important;
+    }
+}
+
+.via-purple-500 {
+    --tw-gradient-via: #0ea5e9 !important;
+}
+
+/* Background colors - Cyan theme */
+.bg-purple-50,
+.bg-primary-50 {
+    background-color: #f0f9ff !important;
+}
+
+.bg-purple-100,
+.bg-primary-100 {
+    background-color: #e0f2fe !important;
+}
+
+.bg-purple-200,
+.bg-primary-200 {
+    background-color: #bae6fd !important;
+}
+
+.bg-purple-500,
+.bg-primary-500 {
+    background-color: #0ea5e9 !important;
+}
+
+.bg-purple-600,
+.bg-primary-600 {
+    background-color: #0284c7 !important;
+}
+
+.bg-purple-800,
+.bg-primary-800 {
+    background-color: #0ea5e9 !important;
+}
+
+/* Text colors - Cyan theme */
+.text-purple-100,
+.text-primary-100 {
+    color: #e0f2fe !important;
+}
+
+.text-purple-200,
+.text-primary-200 {
+    color: #bae6fd !important;
+}
+
+.text-purple-500,
+.text-primary-500 {
+    color: #0ea5e9 !important;
+}
+
+.text-purple-600,
+.text-primary-600 {
+    color: #0284c7 !important;
+}
+
+.text-purple-700,
+.text-primary-700 {
+    color: #0369a1 !important;
+}
+
+.text-purple-800,
+.text-primary-800 {
+    color: #0ea5e9 !important;
+}
+
+.text-purple-900,
+.text-primary-900 {
+    color: #0c4a6e !important;
+}
+
+.text-indigo-500,
+.text-indigo-600 {
+    color: #0ea5e9 !important;
+}
+
+/* Border colors - Cyan theme */
+.border-purple-100,
+.border-primary-100 {
+    border-color: #e0f2fe !important;
+}
+
+.border-purple-200,
+.border-primary-200 {
+    border-color: #bae6fd !important;
+}
+
+.border-purple-400,
+.border-primary-400 {
+    border-color: #38bdf8 !important;
+}
+
+.border-purple-800,
+.border-primary-800 {
+    border-color: #0ea5e9 !important;
+}
+
+.border-purple-900,
+.border-primary-900 {
+    border-color: #0c4a6e !important;
+}
+
+/* Gradients - Beautiful Cyan gradients */
+.from-primary-50,
+.from-purple-50 {
+    --tw-gradient-from: #f0f9ff !important;
+}
+
+.from-primary-200,
+.from-purple-200 {
+    --tw-gradient-from: #bae6fd !important;
+}
+
+.from-primary-800,
+.from-purple-800 {
+    --tw-gradient-from: #0ea5e9 !important;
+}
+
+.from-primary-900,
+.from-purple-900 {
+    --tw-gradient-from: #0c4a6e !important;
+}
+
+.via-primary-300,
+.via-purple-300 {
+    --tw-gradient-via: #7dd3fc !important;
+}
+
+.via-primary-700,
+.via-purple-700 {
+    --tw-gradient-via: #0369a1 !important;
+}
+
+.to-primary-600,
+.to-purple-600 {
+    --tw-gradient-to: #0284c7 !important;
+}
+
+.to-indigo-400 {
+    --tw-gradient-to: #38bdf8 !important;
+}
+
+/* Hover states - Cyan theme */
+.hover\:bg-primary-50:hover,
+.hover\:bg-purple-50:hover {
+    background-color: #f0f9ff !important;
+}
+
+.hover\:bg-primary-100:hover,
+.hover\:bg-purple-100:hover {
+    background-color: #e0f2fe !important;
+}
+
+.hover\:bg-primary-700:hover,
+.hover\:bg-purple-700:hover {
+    background-color: #0369a1 !important;
+}
+
+.hover\:bg-primary-800:hover,
+.hover\:bg-purple-800:hover {
+    background-color: #0ea5e9 !important;
+}
+
+.hover\:bg-primary-900:hover,
+.hover\:bg-purple-900:hover {
+    background-color: #0c4a6e !important;
+}
+
+.hover\:text-primary-600:hover,
+.hover\:text-purple-600:hover {
+    color: #0284c7 !important;
+}
+
+.hover\:text-primary-700:hover,
+.hover\:text-purple-700:hover {
+    color: #0369a1 !important;
+}
+
+.hover\:text-primary-800:hover,
+.hover\:text-purple-800:hover {
+    color: #0ea5e9 !important;
+}
+
+.hover\:text-primary-900:hover,
+.hover\:text-purple-900:hover {
+    color: #0c4a6e !important;
+}
+
+.hover\:text-indigo-500:hover {
+    color: #0ea5e9 !important;
+}
+
+.hover\:border-primary-800:hover,
+.hover\:border-purple-800:hover {
+    border-color: #0ea5e9 !important;
+}
+
+/* Focus states - Cyan theme */
+.focus\:border-primary-800:focus,
+.focus\:border-purple-800:focus {
+    border-color: #0ea5e9 !important;
+}
+
+.focus\:ring-primary-500:focus,
+.focus\:ring-purple-500:focus {
+    --tw-ring-color: #0ea5e9 !important;
+}
+
+.focus\:ring-primary-800:focus,
+.focus\:ring-purple-800:focus {
+    --tw-ring-color: #0ea5e9 !important;
+}
+
+/* Checked states - Cyan theme */
+.peer-checked\:border-primary-800:is(:where(.peer):checked ~ *) {
+    border-color: #0ea5e9 !important;
+}
+
+.peer-checked\:bg-primary-500:is(:where(.peer):checked ~ *) {
+    background-color: #0ea5e9 !important;
+}
+
+.checked\:border-primary-500:checked {
+    border-color: #0ea5e9 !important;
+}
+
+.checked\:bg-primary-500:checked {
+    background-color: #0ea5e9 !important;
+}
+
+/* Group hover - Cyan theme */
+.group-hover\:text-primary-600:is(:where(.group):hover *) {
+    color: #0284c7 !important;
+}
+
+.group-hover\:text-primary-800:is(:where(.group):hover *) {
+    color: #0ea5e9 !important;
+}
+
+.group-hover\:fill-primary-800:is(:where(.group):hover *) {
+    fill: #0ea5e9 !important;
+}
+
+.group-hover\:text-indigo-500:is(:where(.group):hover *) {
+    color: #0ea5e9 !important;
+}
+
+/* Special elements with purple/primary colors */
+.before\:bg-primary-800:before,
+.before\:bg-purple-800:before {
+    content: var(--tw-content);
+    background-color: #0ea5e9 !important;
+}
+
+.before\:bg-primary-900:before,
+.before\:bg-purple-900:before {
+    content: var(--tw-content);
+    background-color: #0c4a6e !important;
+}
+
+/* Background special - inverted section */
+.inverted {
+    background-color: #e0f2fe !important;
+}
+
+.inverted_2 {
+    background-color: #0ea5e9 !important;
+}
+
+/* Menu active state */
+.menu-item_link:after {
+    background-color: #0ea5e9 !important;
+}
+
+.menu-item_link.active:after,
+.menu-item_link:hover:after {
+    background-color: #0ea5e9 !important;
+}
+
+/* Swiper active thumb */
+.swiper-slide-thumb-active {
+    border-bottom-color: #0ea5e9 !important;
+}
+
+/* Range slider colors */
+.wrapper .progress {
+    background-color: #0ea5e9 !important;
+}
+
+.wrapper .range-input input {
+    accent-color: #0ea5e9 !important;
+}
+
+.wrapper .range-input input::-webkit-slider-thumb {
+    background-color: #0ea5e9 !important;
+}
+
+/* Loader color */
+.loader {
+    color: #0ea5e9 !important;
+}
+
+/* Mega menu active */
+.mega-menu-link-active {
+    background-color: #f0f9ff !important;
+    color: #0ea5e9 !important;
+}
+
+/* Additional cyan feel - soft shadows and glows */
+.shadow-cyan-glow {
+    box-shadow: 0 10px 40px -10px rgba(14, 165, 233, 0.25) !important;
+}
+
+.hover\:shadow-cyan-glow:hover {
+    box-shadow: 0 15px 50px -12px rgba(14, 165, 233, 0.35) !important;
+}
+
+/* Specific fixes for background login page */
+.bg-login {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1080%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(240%2c 249%2c 255%2c 1)'%3e%3c/rect%3e%3cpath d='M26 316L25 572' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M98 24L97 253' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M372 451L371 735' stroke-width='10' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M784 528L783 355' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M55 518L54 141' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M711 113L710 -303' stroke-width='10' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M889 508L888 90' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M713 219L712 407' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M383 84L382 244' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M389 320L388 -71' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M933 344L932 519' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1285 304L1284 545' stroke-width='10' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M307 459L306 713' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M1054 454L1053 676' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1030 164L1029 456' stroke-width='10' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M1276 542L1275 220' stroke-width='10' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M502 228L501 507' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1120 14L1119 254' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M905 267L904 625' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M835 171L834 434' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M399 55L398 250' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M845 381L844 119' stroke-width='10' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M594 90L593 472' stroke-width='10' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M335 558L334 256' stroke-width='10' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M249 416L248 564' stroke-width='10' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M175 377L174 11' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M526 390L525 224' stroke-width='10' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1278 481L1277 86' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M975 68L974 -228' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1024 373L1023 723' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M718 305L717 714' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M1266 413L1265 794' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M767 499L766 668' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M138 560L137 922' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M564 221L563 5' stroke-width='6' stroke='url(%26quot%3b%23SvgjsLinearGradient1081%26quot%3b)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M248 160L247 453' stroke-width='8' stroke='url(%26quot%3b%23SvgjsLinearGradient1082%26quot%3b)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1080'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='0%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient1081'%3e%3cstop stop-color='rgba(224%2c 242%2c 254%2c 0)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(224%2c 242%2c 254%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='0%25' y1='0%25' x2='0%25' y2='100%25' id='SvgjsLinearGradient1082'%3e%3cstop stop-color='rgba(224%2c 242%2c 254%2c 0)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(224%2c 242%2c 254%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e") !important;
+}
+
+/* Ring colors - focus state improvements */
+.ring-gray-400\/20 {
+    --tw-ring-color: rgba(14, 165, 233, 0.2) !important;
+}
+
+/* Opacity variants for cyan */
+.bg-primary-800\/10 {
+    background-color: rgba(14, 165, 233, 0.1) !important;
+}
+
+.text-primary-800\/80 {
+    color: rgba(14, 165, 233, 0.8) !important;
+}
+
+.hover\:text-primary-800\/80:hover {
+    color: rgba(14, 165, 233, 0.8) !important;
+}
+
+.border-primary-800\/50 {
+    border-color: rgba(14, 165, 233, 0.5) !important;
+}
+
+.hover\:border-primary-800\/50:hover {
+    border-color: rgba(14, 165, 233, 0.5) !important;
+}
+
+/* Modern cyan accent elements */
+.bg-blue-50\/40 {
+    background-color: rgba(240, 249, 255, 0.4) !important;
+}
+
+/* Fresh cyan feel - subtle touches */
+.text-gray-800\/95 {
+    color: rgba(37, 40, 55, 0.95);
+}
+
+/* Additional professional touches */
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #0ea5e9 !important;
+    outline-offset: 2px;
+}
+
+/* Smooth transitions for color changes */
+* {
+    transition-property: color, background-color, border-color, fill, stroke;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modern cyan aesthetic - clean and fresh */
