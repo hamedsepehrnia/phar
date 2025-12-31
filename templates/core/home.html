@@ -26,15 +26,14 @@
         
         </div>
         <div class="relative grid items-center gap-8 p-6 md:p-10 lg:p-12 lg:grid-cols-5">
-          {% comment %} HERO TEXT & BUTTONS (temporarily commented out)
           <div class="space-y-4 lg:col-span-2">
             <div class="inline-flex items-center gap-2 rounded-full bg-primary-100/80 px-3 py-1 text-[11px] font-semibold text-primary-800 shadow-sm ring-1 ring-primary-200">تجربه خرید مطمئن و سریع</div>
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
               با {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}
               <span class="text-primary-800">هر روز سلامت‌تر</span>
             </h1>
-            <p class="text-xs text-gray-500">مدیریت: امیر پرنگ</p>
-            <p class="text-sm md:text-base text-gray-700 max-w-xl">سفارش آنلاین دارو و محصولات بهداشتی با ارسال سریع، پشتیبانی کامل و تضمین اصالت کالا.</p>
+            <p class="text-xs text-gray-500">انتخابی مطمئن برای دارو و محصولات بهداشتی با ارسال سریع، بسته‌بندی ایمن و پشتیبانی همراه.</p>
+            <p class="text-sm md:text-base text-gray-700 max-w-xl">انتخابی مطمئن برای دارو و محصولات بهداشتی با ارسال سریع، بسته‌بندی ایمن و پشتیبانی همراه.</p>
             <div class="flex flex-col sm:flex-row w-full items-stretch sm:items-center gap-3 pt-2">
               <a href="{% url 'catalog:shop' %}" class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-200 transition hover:-translate-y-0.5 hover:bg-primary-800 w-full sm:w-auto">
                 شروع خرید
@@ -56,7 +55,6 @@
               </div>
             </div>
           </div>
-          {% endcomment %}
 
           <div class="lg:col-span-3">
             <div class="relative rounded-2xl bg-white/70 p-3 sm:p-4 shadow-xl ring-1 ring-primary-100 backdrop-blur">
@@ -330,7 +328,10 @@
         <div class="hero-text-overlay" role="region" aria-label="Hero">
           <div class="hero-text">
             <h1 class="hero-title">داروخانه دکتر واعظی</h1>
+            
+              <p class="hero-sub">سلامتی شما، اولویت ماست</p>
             <p class="hero-sub">با مدیریت امین پرنگ</p>
+
             <div class="hero-cta-wrapper">
               <a href="#new-products" class="hero-cta" role="button" aria-label="آخرین محصولات ما">آخرین محصولات ما</a>
             </div>
