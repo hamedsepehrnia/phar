@@ -9,8 +9,8 @@
     --color-primary-300: #7dd3fc;
     --color-primary-400: #38bdf8;
     --color-primary-500: #0ea5e9;
-    --color-primary-600: #0284c7;
-    --color-primary-700: #0369a1;
+    --color-primary-600: #0ea5e9;
+    --color-primary-700: #0ea5e9;
     --color-primary-800: #0ea5e9;
     --color-primary-900: #0c4a6e;
     
@@ -33,8 +33,8 @@
         --color-primary-300: lab(82% -18 -30);
         --color-primary-400: lab(72% -22 -35);
         --color-primary-500: lab(66% -22 -35);
-        --color-primary-600: lab(58% -20 -32);
-        --color-primary-700: lab(50% -18 -28);
+        --color-primary-600: lab(66% -22 -35);
+        --color-primary-700: lab(66% -22 -35);
         --color-primary-800: lab(66% -22 -35);
         --color-primary-900: lab(35% -12 -18);
         
@@ -85,7 +85,7 @@
 
 .bg-purple-600,
 .bg-primary-600 {
-    background-color: #0284c7 !important;
+    background-color: #0ea5e9 !important;
 }
 
 .bg-purple-800,
@@ -111,12 +111,12 @@
 
 .text-purple-600,
 .text-primary-600 {
-    color: #0284c7 !important;
+    color: #0ea5e9 !important;
 }
 
 .text-purple-700,
 .text-primary-700 {
-    color: #0369a1 !important;
+    color: #0ea5e9 !important;
 }
 
 .text-purple-800,
@@ -213,7 +213,7 @@
 
 .hover\:bg-primary-700:hover,
 .hover\:bg-purple-700:hover {
-    background-color: #0369a1 !important;
+    background-color: #0ea5e9 !important;
 }
 
 .hover\:bg-primary-800:hover,
@@ -228,12 +228,12 @@
 
 .hover\:text-primary-600:hover,
 .hover\:text-purple-600:hover {
-    color: #0284c7 !important;
+    color: #0ea5e9 !important;
 }
 
 .hover\:text-primary-700:hover,
 .hover\:text-purple-700:hover {
-    color: #0369a1 !important;
+    color: #0ea5e9 !important;
 }
 
 .hover\:text-primary-800:hover,
@@ -290,7 +290,7 @@
 
 /* Group hover - Cyan theme */
 .group-hover\:text-primary-600:is(:where(.group):hover *) {
-    color: #0284c7 !important;
+    color: #0ea5e9 !important;
 }
 
 .group-hover\:text-primary-800:is(:where(.group):hover *) {
@@ -316,6 +316,98 @@
 .before\:bg-purple-900:before {
     content: var(--tw-content);
     background-color: #0c4a6e !important;
+}
+
+/* Modern primary button appearance (override utility classes without changing templates) */
+a.bg-primary-600, button.bg-primary-600,
+a.bg-primary-700, button.bg-primary-700,
+a.bg-primary-800, button.bg-primary-800,
+a[class*="bg-primary-"].inline-flex, button[class*="bg-primary-"] {
+    border-radius: 0.75rem !important; /* rounded-xl */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    padding-top: 0.625rem !important;
+    padding-bottom: 0.625rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 24px rgba(14,165,233,0.12), 0 3px 8px rgba(2,6,23,0.06) !important;
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 120ms ease !important;
+    text-decoration: none !important;
+    will-change: transform, box-shadow;
+}
+
+a.bg-primary-600:hover, button.bg-primary-600:hover,
+a.bg-primary-700:hover, button.bg-primary-700:hover,
+a.bg-primary-800:hover, button.bg-primary-800:hover,
+a[class*="bg-primary-"].inline-flex:hover, button[class*="bg-primary-"]:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 18px 36px rgba(14,165,233,0.18), 0 6px 18px rgba(2,6,23,0.08) !important;
+}
+
+/* Focus ring for accessibility */
+a.bg-primary-600:focus, button.bg-primary-600:focus,
+a.bg-primary-700:focus, button.bg-primary-700:focus,
+a.bg-primary-800:focus, button.bg-primary-800:focus {
+    outline: none !important;
+    box-shadow: 0 10px 24px rgba(14,165,233,0.12), 0 0 0 4px rgba(14,165,233,0.12) !important;
+}
+
+/* Tweak existing shadow utility that templates may rely on */
+.shadow-primary-200 {
+    box-shadow: 0 10px 24px rgba(14,165,233,0.12) !important;
+}
+
+/* Disabled state look */
+a.bg-primary-600[disabled], button.bg-primary-600[disabled],
+a.bg-primary-700[disabled], button.bg-primary-700[disabled],
+a.bg-primary-800[disabled], button.bg-primary-800[disabled] {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Shop page specific buttons (keep classes in templates) */
+.product-btn,
+.sidebar-btn,
+.empty-state a {
+    border-radius: 0.75rem !important;
+    padding: 0.5rem 0.875rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    background: #0ea5e9 !important;
+    box-shadow: 0 10px 24px rgba(14,165,233,0.12), 0 3px 8px rgba(2,6,23,0.06) !important;
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 120ms ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+}
+
+.product-btn:hover,
+.sidebar-btn:hover,
+.empty-state a:hover {
+    background: #0ea5e9 !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 18px 36px rgba(14,165,233,0.18), 0 6px 18px rgba(2,6,23,0.08) !important;
+}
+
+.product-btn:focus,
+.sidebar-btn:focus,
+.empty-state a:focus {
+    outline: none !important;
+    box-shadow: 0 10px 24px rgba(14,165,233,0.12), 0 0 0 4px rgba(14,165,233,0.12) !important;
+}
+
+@media (max-width: 768px) {
+    .product-btn, .sidebar-btn, .empty-state a {
+        padding: 0.5rem 0.75rem !important;
+        box-shadow: 0 8px 20px rgba(14,165,233,0.10) !important;
+    }
 }
 
 /* Background special - inverted section */

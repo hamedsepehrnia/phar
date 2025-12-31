@@ -403,15 +403,15 @@
       </div>
       {% else %}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 p-6 text-white shadow-lg">
-          <h3 class="text-xl font-bold mb-2">محصولات آرایشی منتخب</h3>
-          <p class="text-sm text-white/90">تنوع برندهای روز با تضمین اصالت</p>
-          <a href="{% url 'catalog:shop' %}" class="inline-flex items-center justify-center bg-white text-rose-600 px-4 py-2 mt-4 rounded-md text-sm font-semibold hover:bg-rose-50">مشاهده</a>
+        <div style="border-radius: 16px; background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%); padding: 24px; color: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
+          <h3 style="font-size: 20px; font-weight: bold; margin-bottom: 8px;">محصولات آرایشی منتخب</h3>
+          <p style="font-size: 14px; opacity: 0.9; margin-bottom: 16px;">تنوع برندهای روز با تضمین اصالت</p>
+          <a href="{% url 'catalog:shop' %}" style="display: inline-flex; align-items: center; justify-content: center; background: white; color: #0ea5e9; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='#f0f9ff'" onmouseout="this.style.background='white'">مشاهده</a>
         </div>
-        <div class="rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 p-6 text-white shadow-lg">
-          <h3 class="text-xl font-bold mb-2">مراقبت و بهداشت</h3>
-          <p class="text-sm text-white/90">محصولات تخصصی پوست و مو</p>
-          <a href="{% url 'catalog:shop' %}" class="inline-flex items-center justify-center bg-white text-emerald-700 px-4 py-2 mt-4 rounded-md text-sm font-semibold hover:bg-emerald-50">خرید</a>
+        <div style="border-radius: 16px; background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%); padding: 24px; color: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
+          <h3 style="font-size: 20px; font-weight: bold; margin-bottom: 8px;">مراقبت و بهداشت</h3>
+          <p style="font-size: 14px; opacity: 0.9; margin-bottom: 16px;">محصولات تخصصی پوست و مو</p>
+          <a href="{% url 'catalog:shop' %}" style="display: inline-flex; align-items: center; justify-content: center; background: white; color: #06b6d4; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='#ecfeff'" onmouseout="this.style.background='white'">خرید</a>
         </div>
       </div>
       {% endif %}
@@ -441,6 +441,7 @@
   </section>
 
   <!-- Sale products -->
+  {% comment %}
   <section class="py-8 bg-slate-50">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between mb-4">
@@ -464,6 +465,7 @@
       {% endif %}
     </div>
   </section>
+  {% endcomment %}
 
   <!-- Brands -->
   <section class="py-8">
