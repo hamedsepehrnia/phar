@@ -624,3 +624,31 @@ a:focus-visible {
 }
 
 /* Modern cyan aesthetic - clean and fresh */
+
+/* Increase hero vertical size on desktop so it visually matches other sections */
+@media (min-width: 1024px) {
+    /* Target the top hero wrapper (first section) only to avoid affecting other carousels */
+    section:first-of-type .container > .relative.overflow-hidden.rounded-3xl {
+        min-height: 520px !important;
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+
+    /* Make the custom slider taller on large screens */
+    section:first-of-type .custom-slider {
+        height: 520px !important;
+    }
+
+    /* Ensure slider images and hero images fill the taller area */
+    section:first-of-type .custom-slider .slide img,
+    section:first-of-type .relative.overflow-hidden.rounded-3xl img.object-cover {
+        height: 520px !important;
+        max-height: 520px !important;
+        object-fit: cover !important;
+    }
+    /* make hero container match other sections' max-width (1280px) so borders align */
+    section:first-of-type .container.max-w-6xl,
+    section:first-of-type .container.mx-auto.px-4.max-w-6xl {
+        max-width: 1280px !important;
+    }
+}
