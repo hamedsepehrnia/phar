@@ -410,6 +410,51 @@ a.bg-primary-800[disabled], button.bg-primary-800[disabled] {
     }
 }
 
+/* Header/account small button: make background blue like hero without changing templates */
+.border-primary-800.bg-primary-50,
+.border-primary-800.bg-primary-50.rounded-lg,
+.border-primary-800.bg-primary-50.rounded-xl {
+    background-color: var(--color-primary-800) !important;
+    border-color: var(--color-primary-800) !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 18px rgba(14,165,233,0.12) !important;
+}
+
+.border-primary-800.bg-primary-50 svg,
+.border-primary-800.bg-primary-50 .icon {
+    color: #ffffff !important;
+}
+
+.border-primary-800.bg-primary-50:hover {
+    background-color: var(--color-primary-900) !important;
+}
+
+.border-primary-800.bg-primary-50:hover svg,
+.border-primary-800.bg-primary-50:hover .icon {
+    color: #ffffff !important;
+}
+
+/* Make header/account small button a bit smaller */
+.border-primary-800.bg-primary-50 {
+    padding: 6px !important; /* reduce outer padding */
+    border-radius: 0.65rem !important; /* slightly tighter rounding */
+    min-width: 36px !important;
+    min-height: 36px !important;
+}
+
+.border-primary-800.bg-primary-50 svg,
+.border-primary-800.bg-primary-50 .icon {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* Reduce inner gap when used inside inline-flex container */
+.border-primary-800.bg-primary-50.inline-flex,
+.border-primary-800.bg-primary-50.relative.inline-flex {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
 /* Background special - inverted section */
 .inverted {
     background-color: #e0f2fe !important;
