@@ -455,6 +455,62 @@ a.bg-primary-800[disabled], button.bg-primary-800[disabled] {
     padding-right: 6px !important;
 }
 
+/* Normalize service highlight icons (ارسال سریع، ضمانت اصالت، پرداخت امن، پشتیبانی سریع) */
+section.pb-10 .grid > div {
+    /* keep card look */
+}
+
+section.pb-10 .grid > div .h-10.w-10 {
+    background-color: var(--color-primary-50) !important;
+    color: var(--color-primary-800) !important;
+    box-shadow: none !important;
+}
+
+section.pb-10 .grid > div .h-10.w-10 svg,
+section.pb-10 .grid > div .h-10.w-10 .icon {
+    color: inherit !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* Ensure any utility bg-* in this area uses primary-50 */
+section.pb-10 .grid > div .h-10.w-10.bg-emerald-50,
+section.pb-10 .grid > div .h-10.w-10.bg-sky-50,
+section.pb-10 .grid > div .h-10.w-10.bg-amber-50,
+section.pb-10 .grid > div .h-10.w-10.bg-primary-50 {
+    background-color: var(--color-primary-50) !important;
+    color: var(--color-primary-800) !important;
+}
+
+@media (prefers-contrast: more) {
+    section.pb-10 .grid > div .h-10.w-10 {
+        box-shadow: 0 6px 18px rgba(14,165,233,0.08) !important;
+    }
+}
+
+/* Also normalize quick-stats icons in the earlier section (section.pb-6) */
+section.pb-6 .container .grid > div .h-10.w-10,
+section.pb-6 .container .grid > div .h-10.w-10 svg {
+    background-color: var(--color-primary-50) !important;
+    color: var(--color-primary-800) !important;
+}
+
+section.pb-6 .container .grid > div .h-10.w-10 svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* Ensure titles next to these icons keep strong emphasis */
+section.pb-6 .container .grid > div p.text-sm.font-semibold,
+section.pb-10 .grid > div p.text-sm.font-semibold {
+    color: #111827 !important;
+}
+
+section.pb-6 .container .grid > div p.text-xs.text-gray-500,
+section.pb-10 .grid > div p.text-xs.text-gray-500 {
+    color: #6b7280 !important;
+}
+
 /* Background special - inverted section */
 .inverted {
     background-color: #e0f2fe !important;
