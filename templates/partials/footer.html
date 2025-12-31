@@ -5,8 +5,6 @@
     margin-top: 2.5rem;
     background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #22d3ee 100%);
     color: #e0f2fe;
-    /* ensure footer content is not hidden behind fixed mobile nav */
-    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 72px);
   }
   .pharmacy-footer-glow {
     position: absolute;
@@ -69,9 +67,9 @@
     }
   }
 
-  /* reduce extra bottom padding on larger screens where mobile nav isn't present */
-  @media (min-width: 768px) {
-    .pharmacy-footer { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px); }
+  /* only add extra bottom padding on small screens where fixed mobile nav covers viewport */
+  @media (max-width: 767px) {
+    .pharmacy-footer { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 72px); }
   }
   .pharmacy-footer-brand {
     display: flex;
