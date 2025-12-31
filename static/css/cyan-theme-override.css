@@ -36,6 +36,218 @@ h1.text-3xl.md\:text-4xl.lg\:text-5xl {
     }
 }
 
+/* Increase hero box width */
+section.pt-6.lg\:pt-10 .container.max-w-6xl {
+    max-width: 95rem !important; /* Increase from 72rem (max-w-6xl) to 90rem for wider hero */
+}
+
+/* 3D Medical Illustration Styles */
+.medical-3d-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    animation: sceneFloat 6s ease-in-out infinite;
+}
+
+@keyframes sceneFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Medicine Bottle */
+.medicine-bottle {
+    position: absolute;
+    width: 80px;
+    height: 140px;
+    z-index: 3;
+    animation: bottleRotate 8s ease-in-out infinite;
+}
+
+@keyframes bottleRotate {
+    0%, 100% { transform: rotate(-5deg) translateY(0px); }
+    50% { transform: rotate(5deg) translateY(-10px); }
+}
+
+.bottle-body {
+    width: 80px;
+    height: 110px;
+    background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
+    border-radius: 12px 12px 20px 20px;
+    box-shadow: 
+        inset -8px -8px 20px rgba(0,0,0,0.15),
+        inset 8px 8px 20px rgba(255,255,255,0.3),
+        0 20px 40px rgba(14,165,233,0.3);
+    position: relative;
+}
+
+.bottle-cap {
+    width: 60px;
+    height: 25px;
+    background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+    border-radius: 8px 8px 0 0;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    box-shadow: 0 5px 15px rgba(14,165,233,0.3);
+    z-index: 1;
+}
+
+.bottle-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Pills Container */
+.pill-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.pill {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    border-radius: 25px;
+    box-shadow: 
+        inset -3px -3px 8px rgba(0,0,0,0.1),
+        inset 3px 3px 8px rgba(255,255,255,0.5),
+        0 10px 25px rgba(14,165,233,0.2);
+}
+
+.pill::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
+    border-radius: 25px 0 0 25px;
+    left: 0;
+}
+
+.pill-1 {
+    top: 15%;
+    left: 10%;
+    transform: rotate(-25deg);
+    animation: pillFloat1 5s ease-in-out infinite;
+}
+
+@keyframes pillFloat1 {
+    0%, 100% { transform: rotate(-25deg) translateY(0px); }
+    50% { transform: rotate(-20deg) translateY(-15px); }
+}
+
+.pill-2 {
+    top: 65%;
+    left: 15%;
+    transform: rotate(35deg);
+    animation: pillFloat2 6s ease-in-out infinite;
+}
+
+@keyframes pillFloat2 {
+    0%, 100% { transform: rotate(35deg) translateY(0px); }
+    50% { transform: rotate(40deg) translateY(-20px); }
+}
+
+.pill-3 {
+    bottom: 18%;
+    right: 12%;
+    transform: rotate(-15deg);
+    animation: pillFloat3 7s ease-in-out infinite;
+}
+
+@keyframes pillFloat3 {
+    0%, 100% { transform: rotate(-15deg) translateY(0px); }
+    50% { transform: rotate(-10deg) translateY(-18px); }
+}
+
+/* Capsules */
+.capsule {
+    position: absolute;
+    width: 35px;
+    height: 70px;
+    background: linear-gradient(180deg, #ef4444 0%, #ef4444 50%, #fbbf24 50%, #fbbf24 100%);
+    border-radius: 35px;
+    box-shadow: 
+        inset -4px -4px 12px rgba(0,0,0,0.15),
+        inset 4px 4px 12px rgba(255,255,255,0.3),
+        0 15px 30px rgba(239,68,68,0.25);
+}
+
+.capsule-1 {
+    top: 12%;
+    right: 15%;
+    transform: rotate(25deg);
+    animation: capsuleFloat1 6s ease-in-out infinite;
+}
+
+@keyframes capsuleFloat1 {
+    0%, 100% { transform: rotate(25deg) translateY(0px) translateX(0px); }
+    50% { transform: rotate(30deg) translateY(-12px) translateX(5px); }
+}
+
+.capsule-2 {
+    top: 42%;
+    left: 8%;
+    transform: rotate(-35deg);
+    animation: capsuleFloat2 7s ease-in-out infinite;
+}
+
+@keyframes capsuleFloat2 {
+    0%, 100% { transform: rotate(-35deg) translateY(0px) translateX(0px); }
+    50% { transform: rotate(-30deg) translateY(-15px) translateX(-5px); }
+}
+
+/* Medical Cross */
+.medical-cross {
+    position: absolute;
+    top: 8%;
+    right: 8%;
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+    animation: crossRotate 10s linear infinite;
+}
+
+@keyframes crossRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.cross-h, .cross-v {
+    position: absolute;
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(16,185,129,0.3);
+}
+
+.cross-h {
+    width: 50px;
+    height: 15px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.cross-v {
+    width: 15px;
+    height: 50px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
 /* Custom Cyan Theme Override - تبدیل تمام رنگ‌های بنفش به آبی آسمانی */
 /* Created for modern, fresh cyan feeling */
 
