@@ -5,12 +5,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from .admin import custom_admin_site
 
 # Custom error handlers
 handler404 = 'apps.core.views.handler404'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', custom_admin_site.urls),
     path('', include('apps.core.urls', namespace='core')),
     path('accounts/', include('apps.accounts.urls', namespace='accounts')),
     path('catalog/', include('apps.catalog.urls', namespace='catalog')),
@@ -29,8 +30,3 @@ if settings.DEBUG:
     urlpatterns += [
         path('__debug__/', include(debug_toolbar.urls)),
     ]
-
-# Custom admin site configuration
-admin.site.site_header = 'پنل مدیریت داروخانه دکتر واعظ'
-admin.site.site_title = 'داروخانه دکتر واعظ'
-admin.site.index_title = 'مدیریت سایت'

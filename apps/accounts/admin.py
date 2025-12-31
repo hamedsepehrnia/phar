@@ -4,10 +4,11 @@ Admin برای اپ accounts
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from apps.core.admin_utils import jalali_date
+from config.admin import custom_admin_site
 from .models import User, OTPCode, Address
 
 
-@admin.register(User)
+@admin.register(User, site=custom_admin_site)
 class UserAdmin(BaseUserAdmin):
     """پنل مدیریت کاربران"""
     
@@ -38,7 +39,7 @@ class UserAdmin(BaseUserAdmin):
     date_joined_jalali.admin_order_field = 'date_joined'
 
 
-@admin.register(OTPCode)
+@admin.register(OTPCode, site=custom_admin_site)
 class OTPCodeAdmin(admin.ModelAdmin):
     """پنل مدیریت کدهای یکبار مصرف"""
     
@@ -53,7 +54,7 @@ class OTPCodeAdmin(admin.ModelAdmin):
     created_at_jalali.admin_order_field = 'created_at'
 
 
-@admin.register(Address)
+@admin.register(Address, site=custom_admin_site)
 class AddressAdmin(admin.ModelAdmin):
     """پنل مدیریت آدرس‌ها"""
     

@@ -3,10 +3,11 @@ Admin برای اپ core
 """
 from django.contrib import admin
 from django.utils.html import format_html
+from config.admin import custom_admin_site
 from .models import SiteSettings, Slider, Banner, Page, ContactMessage, FAQ
 
 
-@admin.register(SiteSettings)
+@admin.register(SiteSettings, site=custom_admin_site)
 class SiteSettingsAdmin(admin.ModelAdmin):
     """تنظیمات سایت"""
     
@@ -40,7 +41,7 @@ class SiteSettingsAdmin(admin.ModelAdmin):
         return False
 
 
-@admin.register(Slider)
+@admin.register(Slider, site=custom_admin_site)
 class SliderAdmin(admin.ModelAdmin):
     """اسلایدر"""
     
@@ -71,7 +72,7 @@ class SliderAdmin(admin.ModelAdmin):
     image_preview.short_description = 'تصویر'
 
 
-@admin.register(Banner)
+@admin.register(Banner, site=custom_admin_site)
 class BannerAdmin(admin.ModelAdmin):
     """بنر"""
     
@@ -89,7 +90,7 @@ class BannerAdmin(admin.ModelAdmin):
     image_preview.short_description = 'تصویر'
 
 
-@admin.register(Page)
+@admin.register(Page, site=custom_admin_site)
 class PageAdmin(admin.ModelAdmin):
     """صفحات ایستا"""
     
@@ -100,7 +101,7 @@ class PageAdmin(admin.ModelAdmin):
     list_editable = ['is_active', 'show_in_footer']
 
 
-@admin.register(ContactMessage)
+@admin.register(ContactMessage, site=custom_admin_site)
 class ContactMessageAdmin(admin.ModelAdmin):
     """پیام‌های تماس"""
     
@@ -120,7 +121,7 @@ class ContactMessageAdmin(admin.ModelAdmin):
         return False
 
 
-@admin.register(FAQ)
+@admin.register(FAQ, site=custom_admin_site)
 class FAQAdmin(admin.ModelAdmin):
     """سوالات متداول"""
     

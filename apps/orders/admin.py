@@ -4,6 +4,7 @@ Admin برای اپ orders
 from django.contrib import admin
 from django.utils.html import format_html
 from apps.core.admin_utils import jalali_date
+from config.admin import custom_admin_site
 from .models import Order, OrderItem, PaymentTransaction, ShippingMethod
 
 
@@ -34,7 +35,7 @@ class PaymentInline(admin.TabularInline):
     created_at_jalali.short_description = 'تاریخ ایجاد'
 
 
-@admin.register(Order)
+@admin.register(Order, site=custom_admin_site)
 class OrderAdmin(admin.ModelAdmin):
     """مدیریت سفارشات"""
     
@@ -132,7 +133,7 @@ class OrderAdmin(admin.ModelAdmin):
     total_formatted.short_description = 'مبلغ'
 
 
-@admin.register(PaymentTransaction)
+@admin.register(PaymentTransaction, site=custom_admin_site)
 class PaymentTransactionAdmin(admin.ModelAdmin):
     """مدیریت تراکنش‌ها"""
     
@@ -156,7 +157,7 @@ class PaymentTransactionAdmin(admin.ModelAdmin):
     created_at_jalali_display.short_description = 'تاریخ ایجاد'
 
 
-@admin.register(ShippingMethod)
+@admin.register(ShippingMethod, site=custom_admin_site)
 class ShippingMethodAdmin(admin.ModelAdmin):
     """مدیریت روش‌های ارسال"""
     

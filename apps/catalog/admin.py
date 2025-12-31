@@ -10,6 +10,7 @@ from django.utils.html import format_html
 from django import forms
 from mptt.admin import DraggableMPTTAdmin
 from apps.core.admin_utils import jalali_date
+from config.admin import custom_admin_site
 from .models import (
     Category, Brand, Product, ProductImage,
     ProductAttribute, ProductAttributeValue, Wishlist
@@ -58,7 +59,7 @@ class BulkPriceChangeForm(forms.Form):
     )
 
 
-@admin.register(Category)
+@admin.register(Category, site=custom_admin_site)
 class CategoryAdmin(DraggableMPTTAdmin):
     """مدیریت دسته‌بندی‌ها با drag & drop"""
     
@@ -99,7 +100,7 @@ class CategoryAdmin(DraggableMPTTAdmin):
     created_at_jalali.admin_order_field = 'created_at'
 
 
-@admin.register(Brand)
+@admin.register(Brand, site=custom_admin_site)
 class BrandAdmin(admin.ModelAdmin):
     """مدیریت برندها"""
     
@@ -139,7 +140,7 @@ class ProductAttributeValueInline(admin.TabularInline):
     autocomplete_fields = ['attribute']
 
 
-@admin.register(Product)
+@admin.register(Product, site=custom_admin_site)
 class ProductAdmin(admin.ModelAdmin):
     """مدیریت محصولات"""
     
@@ -264,7 +265,7 @@ class ProductAdmin(admin.ModelAdmin):
     image_preview.short_description = 'تصویر'
 
 
-@admin.register(ProductAttribute)
+@admin.register(ProductAttribute, site=custom_admin_site)
 class ProductAttributeAdmin(admin.ModelAdmin):
     """مدیریت ویژگی‌ها"""
     
@@ -276,7 +277,7 @@ class ProductAttributeAdmin(admin.ModelAdmin):
     value_count.short_description = 'تعداد استفاده'
 
 
-@admin.register(Wishlist)
+@admin.register(Wishlist, site=custom_admin_site)
 class WishlistAdmin(admin.ModelAdmin):
     """مدیریت علاقه‌مندی‌ها"""
     

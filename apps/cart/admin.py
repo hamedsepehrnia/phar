@@ -2,10 +2,11 @@
 Admin برای اپ cart
 """
 from django.contrib import admin
+from config.admin import custom_admin_site
 from .models import Coupon, CouponUsage, Cart, CartItem
 
 
-@admin.register(Coupon)
+@admin.register(Coupon, site=custom_admin_site)
 class CouponAdmin(admin.ModelAdmin):
     """مدیریت کدهای تخفیف"""
     
@@ -37,7 +38,7 @@ class CouponAdmin(admin.ModelAdmin):
     readonly_fields = ['used_count']
 
 
-@admin.register(CouponUsage)
+@admin.register(CouponUsage, site=custom_admin_site)
 class CouponUsageAdmin(admin.ModelAdmin):
     """سوابق استفاده از کد تخفیف"""
     
@@ -57,7 +58,7 @@ class CartItemInline(admin.TabularInline):
     readonly_fields = ['price_snapshot']
 
 
-@admin.register(Cart)
+@admin.register(Cart, site=custom_admin_site)
 class CartAdmin(admin.ModelAdmin):
     """مدیریت سبدهای خرید"""
     

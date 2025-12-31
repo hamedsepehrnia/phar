@@ -3,10 +3,11 @@ Admin برای اپ reviews
 """
 from django.contrib import admin
 from apps.core.admin_utils import jalali_date
+from config.admin import custom_admin_site
 from .models import Review
 
 
-@admin.register(Review)
+@admin.register(Review, site=custom_admin_site)
 class ReviewAdmin(admin.ModelAdmin):
     """مدیریت نظرات"""
     
