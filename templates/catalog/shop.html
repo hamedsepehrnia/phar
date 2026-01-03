@@ -203,34 +203,59 @@
   .product-btn:hover {
     background: #0284c7;
   }
-  .pagination {
+  .paginator-container {
+    margin-top: 32px;
     display: flex;
     justify-content: center;
-    gap: 4px;
-    margin-top: 32px;
   }
-  .pagination a, .pagination span {
+  .paginator {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 6px;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid #dfe3e8;
+    border-radius: 12px;
+    background: #ffffff;
+  }
+  .paginator button,
+  .paginator a,
+  .paginator span {
+    min-width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    border: 1px solid #dfe3e8;
+    background: #f7f9fb;
+    color: #334155;
     font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    cursor: pointer;
   }
-  .pagination a {
-    background: #fff;
-    border: 1px solid #d1d5db;
-    color: #374151;
+  .paginator a:hover,
+  .paginator button:hover {
+    background: #e6f3ff;
+    border-color: #b6d8ff;
   }
-  .pagination a:hover {
-    background: #f0f9ff;
-    border-color: #0ea5e9;
-  }
-  .pagination .current {
+  .paginator .is-current {
     background: #0ea5e9;
+    border-color: #0ea5e9;
     color: #fff;
+  }
+  .paginator .is-disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    background: #f0f2f5;
+  }
+  .paginator .dots {
+    border: none;
+    background: transparent;
+    min-width: auto;
+    padding: 0 6px;
+    color: #9ca3af;
+    cursor: default;
   }
   .empty-state {
     background: #fff;
@@ -427,27 +452,35 @@
           {% endfor %}
         </div>
 
-        {% if products.has_other_pages %}
-        <nav class="pagination">
-          {% if products.has_previous %}
-          <a href="?page={{ products.previous_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}{% if current_brand %}&brand={{ current_brand }}{% endif %}{% if current_sort %}&sort={{ current_sort }}{% endif %}">‹</a>
-          {% endif %}
-          
-          {% for num in products.paginator.page_range %}
-            {% if num >= products.number|add:'-2' and num <= products.number|add:'2' %}
-              {% if num == products.number %}
-              <span class="current">{{ num }}</span>
-              {% else %}
-              <a href="?page={{ num }}{% if current_category %}&category={{ current_category }}{% endif %}{% if current_brand %}&brand={{ current_brand }}{% endif %}{% if current_sort %}&sort={{ current_sort }}{% endif %}">{{ num }}</a>
-              {% endif %}
+        <div class="paginator-container">
+          <nav class="paginator" aria-label="صفحه‌بندی محصولات">
+            {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}{{ querystring }}" aria-label="صفحه قبلی">‹</a>
+            {% else %}
+              <span class="is-disabled">‹</span>
             {% endif %}
-          {% endfor %}
-          
-          {% if products.has_next %}
-          <a href="?page={{ products.next_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}{% if current_brand %}&brand={{ current_brand }}{% endif %}{% if current_sort %}&sort={{ current_sort }}{% endif %}">›</a>
-          {% endif %}
-        </nav>
-        {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+              {% if num == 1 or num == page_obj.paginator.num_pages or num >= page_obj.number|add:"-2" and num <= page_obj.number|add:"2" %}
+                {% if num == page_obj.number %}
+                  <span class="is-current">{{ num }}</span>
+                {% else %}
+                  <a href="?page={{ num }}{{ querystring }}">{{ num }}</a>
+                {% endif %}
+              {% elif num == 2 and page_obj.number > 4 %}
+                <span class="dots">…</span>
+              {% elif num == page_obj.paginator.num_pages|add:"-1" and page_obj.number < page_obj.paginator.num_pages|add:"-3" %}
+                <span class="dots">…</span>
+              {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}{{ querystring }}" aria-label="صفحه بعد">›</a>
+            {% else %}
+              <span class="is-disabled">›</span>
+            {% endif %}
+          </nav>
+        </div>
 
         {% else %}
         <div class="empty-state">

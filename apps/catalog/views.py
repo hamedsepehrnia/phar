@@ -92,6 +92,7 @@ class ShopView(ListView):
         context['min_price'] = self.request.GET.get('min_price', '')
         context['max_price'] = self.request.GET.get('max_price', '')
         context['in_stock'] = self.request.GET.get('in_stock', '')
+        context['querystring'] = self.build_querystring()
         
         return context
     
@@ -109,6 +110,13 @@ class ShopView(ListView):
             cache.set(cache_key, categories, 60 * 10)  # 10 دقیقه
         
         return categories
+
+    def build_querystring(self):
+        """ساخت querystring بدون پارامتر صفحه برای استفاده در پیجینیشن"""
+        params = self.request.GET.copy()
+        params.pop('page', None)
+        qs = params.urlencode()
+        return f'&{qs}' if qs else ''
 
 
 class CategoryDetailView(View):
