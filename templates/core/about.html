@@ -3,145 +3,421 @@
 
 {% block title %}درباره ما - {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    /* About Page Styles */
+    .about-hero {
+        background: linear-gradient(135deg, #0891b2 0%, #06b6d4 50%, #22d3ee 100%);
+        border-radius: 20px;
+        padding: 60px 40px;
+        color: white;
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .about-hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        animation: pulse-bg 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse-bg {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+
+    .about-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .about-hero p {
+        font-size: 1.1rem;
+        opacity: 0.95;
+        max-width: 700px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        line-height: 1.9;
+    }
+
+    /* About Content */
+    .about-content {
+        background: white;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        margin-bottom: 40px;
+    }
+
+    .about-content h2 {
+        font-size: 1.6rem;
+        color: #0891b2;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 3px solid #e0f2fe;
+        display: inline-block;
+    }
+
+    .about-content p {
+        color: #555;
+        font-size: 1rem;
+        line-height: 2;
+        margin-bottom: 20px;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin: 40px 0;
+    }
+
+    .stat-card {
+        background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+        border-radius: 16px;
+        padding: 30px 20px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #99f6e4;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(8, 145, 178, 0.15);
+    }
+
+    .stat-number {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #0891b2;
+        margin-bottom: 8px;
+    }
+
+    .stat-label {
+        color: #666;
+        font-size: 0.95rem;
+    }
+
+    /* Features Section */
+    .features-section {
+        background: white;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        margin-bottom: 40px;
+    }
+
+    .features-section h2 {
+        font-size: 1.6rem;
+        color: #0891b2;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .feature-card {
+        text-align: center;
+        padding: 25px 15px;
+        border-radius: 12px;
+        background: #f8fafc;
+        transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+        background: #f0fdfa;
+        transform: translateY(-5px);
+    }
+
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 18px;
+        font-size: 1.8rem;
+    }
+
+    .feature-icon.cyan {
+        background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+        color: white;
+    }
+
+    .feature-icon.green {
+        background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        color: white;
+    }
+
+    .feature-icon.blue {
+        background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+        color: white;
+    }
+
+    .feature-icon.orange {
+        background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+        color: white;
+    }
+
+    .feature-card h3 {
+        font-size: 1.1rem;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .feature-card p {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    /* Contact CTA */
+    .contact-cta {
+        background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+        border-radius: 16px;
+        padding: 50px 40px;
+        color: white;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .contact-cta h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    .contact-cta p {
+        margin-bottom: 25px;
+        opacity: 0.9;
+    }
+
+    .contact-cta .btn {
+        display: inline-block;
+        padding: 14px 40px;
+        background: white;
+        color: #0891b2;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .contact-cta .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1rem;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 25px;
+        font-size: 0.9rem;
+        color: #888;
+    }
+
+    .breadcrumb a {
+        color: #0891b2;
+        text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .stats-grid,
+        .features-grid,
+        .team-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 640px) {
+        .about-hero {
+            padding: 40px 20px;
+        }
+
+        .about-hero h1 {
+            font-size: 1.8rem;
+        }
+
+        .about-content,
+        .features-section,
+        .team-section,
+        .contact-cta {
+            padding: 25px 20px;
+        }
+
+        .stats-grid,
+        .features-grid,
+        .team-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .stat-card {
+            padding: 20px 15px;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+        }
+
+        .contact-info {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .about-hero,
+    .about-content,
+    .features-section,
+    .team-section,
+    .contact-cta {
+        animation: fadeInUp 0.5s ease-out;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <main class="flex-1 pb-20 lg:pb-0">
-  <div class="container mx-auto px-4 py-8">
-    <!-- Breadcrumb -->
-    <nav class="mb-6">
-      <ol class="flex items-center gap-2 text-sm text-gray-500">
-        <li><a href="{% url 'core:home' %}" class="hover:text-primary-800">خانه</a></li>
-        <li>/</li>
-        <li class="text-gray-800 font-semibold">درباره ما</li>
-      </ol>
-    </nav>
+    <div class="container mx-auto px-4 py-8">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="{% url 'core:home' %}">خانه</a>
+            <span>/</span>
+            <span>درباره ما</span>
+        </nav>
 
-    <!-- Hero Section -->
-    <div class="bg-gradient-to-r from-primary-600 to-pink-400 rounded-2xl p-8 lg:p-12 text-white mb-12">
-      <div class="max-w-3xl">
-        <h1 class="text-3xl lg:text-4xl font-bold mb-4">درباره {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}</h1>
-        <p class="text-lg opacity-90">
-          {{ site_settings.about_short|default:"ما در داروخانه دکتر واعظی با بیش از یک دهه تجربه در زمینه فروش محصولات دارویی و بهداشتی، تلاش می‌کنیم بهترین محصولات را با بهترین قیمت به شما ارائه دهیم." }}
-        </p>
-      </div>
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <h1>درباره {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}</h1>
+            <p>{{ site_settings.about_short|default:"با افتخار در خدمت سلامت شما هستیم. بیش از یک دهه تجربه در ارائه بهترین محصولات دارویی و بهداشتی با تضمین اصالت و کیفیت." }}</p>
+        </section>
+
+        <!-- About Content -->
+        <section class="about-content">
+            <h2>داستان ما</h2>
+            <p>
+                {{ site_settings.about_content|default:"داروخانه دکتر واعظی با هدف ارائه محصولات با کیفیت و اصیل دارویی و بهداشتی به مشتریان عزیز تأسیس شده است. ما معتقدیم که سلامتی حق همه است و تلاش می‌کنیم با ارائه محصولات معتبر و قیمت مناسب، دسترسی به سلامت را برای همگان آسان‌تر کنیم."|safe }}
+            </p>
+            <p>
+                تیم ما متشکل از متخصصان با تجربه در حوزه دارو و سلامت است که همواره در تلاش هستند تا بهترین محصولات را از معتبرترین برندهای ایرانی و خارجی گردآوری کنند. ما به اصالت کالا، قیمت منصفانه و خدمات پس از فروش عالی افتخار می‌کنیم.
+            </p>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">+۱۰,۰۰۰</div>
+                    <div class="stat-label">مشتری راضی</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+۵,۰۰۰</div>
+                    <div class="stat-label">محصول متنوع</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+۲۰۰</div>
+                    <div class="stat-label">برند معتبر</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+۱۰</div>
+                    <div class="stat-label">سال تجربه</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-section">
+            <h2>چرا ما را انتخاب کنید؟</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon cyan">✓</div>
+                    <h3>ضمانت اصالت کالا</h3>
+                    <p>تمامی محصولات ما اصل و دارای ضمانت اصالت هستند.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon green">🚚</div>
+                    <h3>ارسال سریع</h3>
+                    <p>ارسال فوری به تمام نقاط کشور در کمترین زمان ممکن.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon blue">💳</div>
+                    <h3>پرداخت امن</h3>
+                    <p>درگاه پرداخت مطمئن با بالاترین استانداردهای امنیتی.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon orange">📞</div>
+                    <h3>پشتیبانی ۲۴ ساعته</h3>
+                    <p>تیم پشتیبانی ما همیشه آماده پاسخگویی است.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="contact-cta">
+            <h2>با ما در ارتباط باشید</h2>
+            <p>سوالی دارید؟ تیم ما آماده پاسخگویی است.</p>
+            <a href="{% url 'core:contact' %}" class="btn">تماس با ما</a>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>{{ site_settings.phone|default:"021-12345678" }}</span>
+                </div>
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <span>{{ site_settings.email|default:"info@pharmacy.com" }}</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>{{ site_settings.address|default:"تهران، خیابان ولیعصر" }}</span>
+                </div>
+            </div>
+        </section>
     </div>
-
-    <!-- Content -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-      <!-- Main Content -->
-      <div class="lg:col-span-2">
-        <div class="bg-white rounded-2xl shadow-md p-6 lg:p-8">
-          <h2 class="text-2xl font-bold text-gray-800 mb-6">داستان ما</h2>
-          <div class="prose prose-lg max-w-none text-gray-600">
-            {{ site_settings.about_content|safe|default:"<p>داروخانه دکتر واعظی یک داروخانه آنلاین محصولات دارویی و بهداشتی است که با هدف ارائه محصولات اصل و با کیفیت به مشتریان عزیز فعالیت می‌کند.</p><p>تیم ما متشکل از متخصصان با تجربه در زمینه دارو و درمان است که همواره در تلاش هستند تا بهترین محصولات را از معتبرترین برندهای ایرانی و خارجی گردآوری کنند.</p><p>ما به اصالت محصولات، قیمت مناسب و خدمات پس از فروش عالی افتخار می‌کنیم.</p>" }}
-          </div>
-        </div>
-      </div>
-
-      <!-- Sidebar -->
-      <div class="space-y-6">
-        <!-- آمار -->
-        <div class="bg-white rounded-2xl shadow-md p-6">
-          <h3 class="font-bold text-gray-800 mb-6">داروخانه دکتر واعظی در یک نگاه</h3>
-          <div class="space-y-4">
-            <div class="flex items-center gap-4">
-              <div class="bg-primary-100 rounded-full p-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary-600">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-                </svg>
-              </div>
-              <div>
-                <p class="text-2xl font-bold text-gray-800">+۱۰,۰۰۰</p>
-                <p class="text-sm text-gray-500">مشتری راضی</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="bg-green-100 rounded-full p-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-600">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 -6l5 6" /><path d="M21 10l-2 8a2 2 135 0 1 -2 2h-10a2 2 045 0 1 -2 -2l-2 -8z" /><path d="M12 15m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                </svg>
-              </div>
-              <div>
-                <p class="text-2xl font-bold text-gray-800">+۵,۰۰۰</p>
-                <p class="text-sm text-gray-500">محصول متنوع</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="bg-blue-100 rounded-full p-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21v-4a4 4 0 1 1 4 4h-4" /><path d="M21 3a16 16 0 0 0 -12.8 10.2" /><path d="M21 3a16 16 0 0 1 -10.2 12.8" /><path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-                </svg>
-              </div>
-              <div>
-                <p class="text-2xl font-bold text-gray-800">+۲۰۰</p>
-                <p class="text-sm text-gray-500">برند معتبر</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- تماس -->
-        <div class="bg-white rounded-2xl shadow-md p-6">
-          <h3 class="font-bold text-gray-800 mb-4">تماس با ما</h3>
-          <div class="space-y-3">
-            <div class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
-              </svg>
-              <span class="text-gray-600">{{ site_settings.phone|default:"021-12345678" }}</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" />
-              </svg>
-              <span class="text-gray-600">{{ site_settings.email|default:"info@golnaz.com" }}</span>
-            </div>
-          </div>
-          <a href="{% url 'core:contact' %}" class="block mt-4 text-center bg-primary-600 hover:bg-primary-700 text-white py-2 rounded-lg font-semibold transition-colors">
-            ارسال پیام
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Features -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="bg-white rounded-xl shadow-md p-6 text-center">
-        <div class="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary-600">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" />
-          </svg>
-        </div>
-        <h3 class="font-bold text-gray-800 mb-2">ضمانت اصالت</h3>
-        <p class="text-sm text-gray-500">تمامی محصولات اصل و دارای گارانتی</p>
-      </div>
-      <div class="bg-white rounded-xl shadow-md p-6 text-center">
-        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-600">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
-          </svg>
-        </div>
-        <h3 class="font-bold text-gray-800 mb-2">ارسال سریع</h3>
-        <p class="text-sm text-gray-500">ارسال به سراسر کشور</p>
-      </div>
-      <div class="bg-white rounded-xl shadow-md p-6 text-center">
-        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" /><path d="M3 10l18 0" /><path d="M7 15l.01 0" /><path d="M11 15l2 0" />
-          </svg>
-        </div>
-        <h3 class="font-bold text-gray-800 mb-2">پرداخت امن</h3>
-        <p class="text-sm text-gray-500">درگاه پرداخت مطمئن</p>
-      </div>
-      <div class="bg-white rounded-xl shadow-md p-6 text-center">
-        <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-orange-600">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z" /><path d="M9.5 9h.01" /><path d="M14.5 9h.01" /><path d="M9.5 13a3.5 3.5 0 0 0 5 0" />
-          </svg>
-        </div>
-        <h3 class="font-bold text-gray-800 mb-2">پشتیبانی ۲۴/۷</h3>
-        <p class="text-sm text-gray-500">پاسخگوی شما هستیم</p>
-      </div>
-    </div>
-  </div>
 </main>
 {% endblock %}

@@ -32,6 +32,16 @@ class ShopView(ListView):
             'category', 'brand'
         ).prefetch_related('images')
         
+        # جستجو
+        query = self.request.GET.get('q', '').strip()
+        if query:
+            queryset = queryset.filter(
+                Q(name__icontains=query) |
+                Q(description__icontains=query) |
+                Q(sku__icontains=query) |
+                Q(brand__name__icontains=query)
+            )
+        
         # فیلتر بر اساس دسته‌بندی
         category_slug = self.request.GET.get('category')
         if category_slug:
@@ -92,6 +102,7 @@ class ShopView(ListView):
         context['min_price'] = self.request.GET.get('min_price', '')
         context['max_price'] = self.request.GET.get('max_price', '')
         context['in_stock'] = self.request.GET.get('in_stock', '')
+        context['query'] = self.request.GET.get('q', '')
         context['querystring'] = self.build_querystring()
         
         return context
