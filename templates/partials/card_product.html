@@ -14,9 +14,13 @@
   <a href="{{ product.get_absolute_url }}">
     {% if product.images.exists %}
     <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}"
+      loading="{% if forloop.counter <= 6 %}eager{% else %}lazy{% endif %}"
+      decoding="async"
       class="mb-4 h-40 w-full rounded-md object-contain" />
     {% else %}
     <img src="{% static 'images/product/placeholder.jpg' %}" alt="{{ product.name }}"
+      loading="lazy"
+      decoding="async"
       class="mb-4 h-40 w-full rounded-md object-contain" />
     {% endif %}
   </a>

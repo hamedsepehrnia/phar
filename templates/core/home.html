@@ -90,7 +90,11 @@
                   <div class="slide {% if forloop.first %}active{% endif %}">
                     <a href="{{ slider.link|default:'#' }}" class="block">
                       {% if slider.image %}
-                      <img src="{{ slider.image.url }}" alt="{{ slider.title }}" class="w-full h-64 md:h-80 lg:h-[21rem] object-cover rounded-xl" />
+                      <img src="{{ slider.image.url }}" alt="{{ slider.title }}" 
+                           loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" 
+                           fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}"
+                           decoding="async"
+                           class="w-full h-64 md:h-80 lg:h-[21rem] object-cover rounded-xl" />
                       {% else %}
                       <div class="flex h-64 w-full items-center justify-center rounded-xl bg-gradient-to-r from-primary-100 via-white to-rose-100 text-primary-800 ring-1 ring-primary-200">
                         <div class="text-center">
@@ -445,7 +449,7 @@
         <a href="{% url 'catalog:shop' %}?category={{ category.slug }}" class="group flex flex-col items-center justify-center gap-2 rounded-2xl bg-white p-3 shadow-sm ring-1 ring-gray-100 transition hover:-translate-y-1 hover:shadow-md" style="height: 120px; width: 100%;">
           {% if category.image %}
           <div class="flex items-center justify-center overflow-hidden" style="width: 48px; height: 48px;">
-            <img src="{{ category.image.url }}" alt="{{ category.name }}" class="max-w-full max-h-full object-contain" />
+            <img src="{{ category.image.url }}" alt="{{ category.name }}" loading="lazy" decoding="async" class="max-w-full max-h-full object-contain" />
           </div>
           {% else %}
           <div class="flex items-center justify-center rounded-full bg-primary-50 text-primary-600" style="width: 48px; height: 48px;">
@@ -489,7 +493,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {% for banner in banners_middle %}
         <a href="{{ banner.link|default:'#' }}" class="block overflow-hidden rounded-2xl shadow-sm ring-1 ring-gray-100 hover:shadow-md transition">
-          <img src="{{ banner.image.url }}" alt="{{ banner.title }}" class="h-44 w-full object-cover" />
+          <img src="{{ banner.image.url }}" alt="{{ banner.title }}" loading="lazy" decoding="async" class="h-44 w-full object-cover" />
         </a>
         {% endfor %}
       </div>
@@ -570,7 +574,7 @@
         {% for brand in brands %}
         <a href="{% url 'catalog:shop' %}?brand={{ brand.slug }}" class="flex items-center justify-center rounded-2xl bg-white p-4 shadow-sm ring-1 ring-gray-100 hover:shadow-md transition h-24">
           {% if brand.logo %}
-          <img src="{{ brand.logo.url }}" alt="{{ brand.name }}" class="max-h-14 object-contain" />
+          <img src="{{ brand.logo.url }}" alt="{{ brand.name }}" loading="lazy" decoding="async" class="max-h-14 object-contain" />
           {% else %}
           <span class="text-sm font-semibold text-gray-700">{{ brand.name }}</span>
           {% endif %}
