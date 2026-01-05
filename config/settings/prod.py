@@ -21,7 +21,7 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': config('REDIS_URL', default='redis://localhost:6379/0'),
+        'LOCATION': config('REDIS_URL', default='unix:/home/skycore1/redis/redis.sock?db=0'),
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
             'IGNORE_EXCEPTIONS': True,  # در صورت عدم دسترسی به Redis، خطا نمی‌دهد
