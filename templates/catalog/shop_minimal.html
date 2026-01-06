@@ -1,0 +1,75 @@
+{% extends 'base_minimal.html' %}
+
+{% block title %}فروشگاه - داروخانه دکتر واعظی{% endblock %}
+
+{% block content %}
+<h1 class="section-title">فروشگاه</h1>
+
+<!-- Filters -->
+<div class="card" style="margin-bottom: 20px;">
+  <form method="get" style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+    <input type="text" name="q" value="{{ request.GET.q }}" placeholder="جستجو..." 
+           style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; flex: 1; min-width: 200px;">
+    <select name="sort" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+      <option value="">مرتب‌سازی</option>
+      <option value="newest" {% if request.GET.sort == 'newest' %}selected{% endif %}>جدیدترین</option>
+      <option value="cheapest" {% if request.GET.sort == 'cheapest' %}selected{% endif %}>ارزان‌ترین</option>
+      <option value="expensive" {% if request.GET.sort == 'expensive' %}selected{% endif %}>گران‌ترین</option>
+      <option value="bestselling" {% if request.GET.sort == 'bestselling' %}selected{% endif %}>پرفروش‌ترین</option>
+    </select>
+    <button type="submit" class="btn">فیلتر</button>
+  </form>
+</div>
+
+<!-- Results count -->
+{% if products %}
+<p style="margin-bottom: 20px; color: #666;">{{ products.count }} محصول یافت شد</p>
+{% endif %}
+
+<!-- Products Grid -->
+<div class="grid">
+  {% for product in products %}
+  <div class="product-card">
+    {% if product.primary_image %}
+    <img src="{{ product.primary_image.url }}" alt="{{ product.name }}" loading="lazy">
+    {% else %}
+    <div style="height:150px; background:#eee; display:flex; align-items:center; justify-content:center; color:#999;">بدون تصویر</div>
+    {% endif %}
+    <h3>{{ product.name|truncatewords:6 }}</h3>
+    {% if product.compare_at_price %}
+    <p style="text-decoration: line-through; color: #999; font-size: 12px;">{{ product.compare_at_price|floatformat:0 }} تومان</p>
+    {% endif %}
+    <p class="price">{{ product.price|floatformat:0 }} تومان</p>
+    {% if product.stock > 0 %}
+    <span style="color: green; font-size: 12px;">موجود</span>
+    {% else %}
+    <span style="color: red; font-size: 12px;">ناموجود</span>
+    {% endif %}
+    <br>
+    <a href="/product/{{ product.slug }}/" class="btn" style="margin-top:10px; font-size:12px; padding:8px 15px;">مشاهده</a>
+  </div>
+  {% empty %}
+  <div class="card" style="grid-column: 1 / -1; text-align: center; padding: 50px;">
+    <h3>محصولی یافت نشد</h3>
+    <p>لطفاً فیلترهای دیگری را امتحان کنید</p>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% if products.has_other_pages %}
+<div style="margin-top: 30px; text-align: center;">
+  {% if products.has_previous %}
+  <a href="?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}" class="btn" style="margin: 5px;">قبلی</a>
+  {% endif %}
+  
+  <span style="padding: 10px 15px; background: #0ea5e9; color: white; border-radius: 5px;">
+    صفحه {{ products.number }} از {{ products.paginator.num_pages }}
+  </span>
+  
+  {% if products.has_next %}
+  <a href="?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}" class="btn" style="margin: 5px;">بعدی</a>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}

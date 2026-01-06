@@ -1,0 +1,86 @@
+{% extends 'base_minimal.html' %}
+
+{% block title %}داروخانه دکتر واعظی - صفحه اصلی (تست سرعت){% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero">
+  <h1>به داروخانه دکتر واعظی خوش آمدید</h1>
+  <p>خرید آنلاین دارو و لوازم بهداشتی با ارسال سریع</p>
+  <a href="/shop/" class="btn">مشاهده محصولات</a>
+</div>
+
+<!-- Categories -->
+<h2 class="section-title">دسته‌بندی‌ها</h2>
+<div class="categories">
+  {% for category in categories %}
+  <a href="/category/{{ category.slug }}/" class="category-item">{{ category.name }}</a>
+  {% empty %}
+  <a href="/shop/" class="category-item">دارو</a>
+  <a href="/shop/" class="category-item">مکمل</a>
+  <a href="/shop/" class="category-item">لوازم بهداشتی</a>
+  <a href="/shop/" class="category-item">آرایشی</a>
+  <a href="/shop/" class="category-item">تجهیزات پزشکی</a>
+  {% endfor %}
+</div>
+
+<!-- Products Grid -->
+<h2 class="section-title">محصولات پرفروش</h2>
+<div class="grid">
+  {% for product in products %}
+  <div class="product-card">
+    {% if product.primary_image %}
+    <img src="{{ product.primary_image.url }}" alt="{{ product.name }}">
+    {% else %}
+    <div style="height:150px; background:#eee; display:flex; align-items:center; justify-content:center; color:#999;">بدون تصویر</div>
+    {% endif %}
+    <h3>{{ product.name }}</h3>
+    <p class="price">{{ product.price|floatformat:0 }} تومان</p>
+    <a href="/product/{{ product.slug }}/" class="btn" style="margin-top:10px; font-size:12px; padding:8px 15px;">مشاهده</a>
+  </div>
+  {% empty %}
+  <!-- Sample Products if none exist -->
+  <div class="product-card">
+    <div style="height:150px; background:#e0f2fe; display:flex; align-items:center; justify-content:center;">📦</div>
+    <h3>محصول نمونه 1</h3>
+    <p class="price">150,000 تومان</p>
+  </div>
+  <div class="product-card">
+    <div style="height:150px; background:#fce7f3; display:flex; align-items:center; justify-content:center;">💊</div>
+    <h3>محصول نمونه 2</h3>
+    <p class="price">85,000 تومان</p>
+  </div>
+  <div class="product-card">
+    <div style="height:150px; background:#dcfce7; display:flex; align-items:center; justify-content:center;">🧴</div>
+    <h3>محصول نمونه 3</h3>
+    <p class="price">220,000 تومان</p>
+  </div>
+  <div class="product-card">
+    <div style="height:150px; background:#fef3c7; display:flex; align-items:center; justify-content:center;">💉</div>
+    <h3>محصول نمونه 4</h3>
+    <p class="price">45,000 تومان</p>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- Features -->
+<h2 class="section-title">چرا داروخانه دکتر واعظی؟</h2>
+<div class="grid">
+  <div class="card">
+    <h3>🚚 ارسال سریع</h3>
+    <p>ارسال در کمتر از 24 ساعت به سراسر کشور</p>
+  </div>
+  <div class="card">
+    <h3>✅ اصالت کالا</h3>
+    <p>تضمین اصل بودن تمامی محصولات</p>
+  </div>
+  <div class="card">
+    <h3>💬 مشاوره رایگان</h3>
+    <p>مشاوره داروسازی رایگان با متخصصان</p>
+  </div>
+  <div class="card">
+    <h3>🔒 پرداخت امن</h3>
+    <p>پرداخت امن با درگاه‌های معتبر بانکی</p>
+  </div>
+</div>
+{% endblock %}

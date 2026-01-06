@@ -1,0 +1,105 @@
+{% extends 'base_minimal.html' %}
+
+{% block title %}سبد خرید - داروخانه دکتر واعظی{% endblock %}
+
+{% block content %}
+<h1 class="section-title">سبد خرید</h1>
+
+{% if cart.items.count > 0 %}
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+  <!-- Cart Items -->
+  <div>
+    {% for item in cart.items.all %}
+    <div class="card" style="display: flex; gap: 20px; margin-bottom: 15px;">
+      {% if item.product.primary_image %}
+      <img src="{{ item.product.primary_image.url }}" alt="{{ item.product.name }}" style="width: 100px; height: 100px; object-fit: contain;">
+      {% else %}
+      <div style="width: 100px; height: 100px; background: #eee; display: flex; align-items: center; justify-content: center;">📦</div>
+      {% endif %}
+      
+      <div style="flex: 1;">
+        <h3 style="margin-bottom: 10px;">{{ item.product.name }}</h3>
+        <p style="color: #666; margin-bottom: 5px;">قیمت واحد: {{ item.product.price|floatformat:0 }} تومان</p>
+        
+        <form method="post" action="/cart/update/{{ item.id }}/" style="display: inline-flex; gap: 10px; align-items: center;">
+          {% csrf_token %}
+          <label>تعداد:</label>
+          <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}" 
+                 style="width: 60px; padding: 5px; border: 1px solid #ddd; border-radius: 3px; text-align: center;">
+          <button type="submit" class="btn" style="padding: 5px 15px; font-size: 12px;">به‌روزرسانی</button>
+        </form>
+        
+        <form method="post" action="/cart/remove/{{ item.id }}/" style="display: inline;">
+          {% csrf_token %}
+          <button type="submit" style="background: #fee2e2; color: #991b1b; border: none; padding: 5px 15px; border-radius: 5px; cursor: pointer;">حذف</button>
+        </form>
+      </div>
+      
+      <div style="text-align: left; min-width: 120px;">
+        <p style="font-weight: bold; color: #0ea5e9; font-size: 1.1em;">{{ item.total_price|floatformat:0 }} تومان</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  
+  <!-- Cart Summary -->
+  <div>
+    <div class="card" style="position: sticky; top: 20px;">
+      <h3 style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee;">خلاصه سفارش</h3>
+      
+      <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+        <span>تعداد کالاها:</span>
+        <span>{{ cart.total_items }} عدد</span>
+      </div>
+      
+      <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+        <span>جمع کل:</span>
+        <span>{{ cart.total_price|floatformat:0 }} تومان</span>
+      </div>
+      
+      {% if cart.discount_amount %}
+      <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #22c55e;">
+        <span>تخفیف:</span>
+        <span>{{ cart.discount_amount|floatformat:0 }}- تومان</span>
+      </div>
+      {% endif %}
+      
+      <hr style="margin: 15px 0; border: none; border-top: 1px solid #eee;">
+      
+      <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 1.2em; font-weight: bold;">
+        <span>مبلغ قابل پرداخت:</span>
+        <span style="color: #0ea5e9;">{{ cart.final_price|floatformat:0 }} تومان</span>
+      </div>
+      
+      <!-- Coupon -->
+      <form method="post" action="/cart/coupon/" style="margin-bottom: 20px;">
+        {% csrf_token %}
+        <div style="display: flex; gap: 10px;">
+          <input type="text" name="code" placeholder="کد تخفیف" 
+                 style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+          <button type="submit" class="btn" style="padding: 10px 15px;">اعمال</button>
+        </div>
+      </form>
+      
+      <a href="/checkout/" class="btn" style="display: block; text-align: center; padding: 15px;">ادامه خرید</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (max-width: 768px) {
+    div[style*="grid-template-columns: 2fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+
+{% else %}
+<div class="card" style="text-align: center; padding: 50px;">
+  <div style="font-size: 80px; margin-bottom: 20px;">🛒</div>
+  <h2>سبد خرید شما خالی است</h2>
+  <p style="color: #666; margin: 20px 0;">هنوز محصولی به سبد خرید اضافه نکرده‌اید</p>
+  <a href="/shop/" class="btn">مشاهده محصولات</a>
+</div>
+{% endif %}
+{% endblock %}
