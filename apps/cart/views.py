@@ -47,9 +47,7 @@ class CartMixin:
 class CartView(CartMixin, View):
     """نمایش سبد خرید"""
     
-    # TEMP: تست سرعت - برای برگشت به حالت اصلی این خط رو کامنت بزنید و خط بعدی رو آنکامنت کنید
-    template_name = 'cart/cart_minimal.html'
-    # template_name = 'cart/cart_detail.html'
+    template_name = 'cart/cart_detail.html'
     
     def get(self, request):
         cart = self.get_cart(request)

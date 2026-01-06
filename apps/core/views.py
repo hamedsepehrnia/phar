@@ -21,9 +21,7 @@ logger = logging.getLogger(__name__)
 class HomeView(View):
     """صفحه اصلی"""
     
-    # TEMP: تست سرعت - برای برگشت به حالت اصلی این خط رو کامنت بزنید و خط بعدی رو آنکامنت کنید
-    template_name = 'core/home_minimal.html'
-    # template_name = 'core/home.html'
+    template_name = 'core/home.html'
     
     def get(self, request):
         # اسلایدر

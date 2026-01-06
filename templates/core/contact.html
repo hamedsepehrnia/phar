@@ -4,12 +4,8 @@
 {% block title %}تماس با ما - {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}{% endblock %}
 
 {% block extra_css %}
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-  crossorigin=""
->
+<!-- Leaflet CSS - Local (faster for Iran) -->
+<link rel="stylesheet" href="{% static 'css/leaflet/leaflet.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -194,11 +190,8 @@
 {% endblock %}
 
 {% block extra_js %}
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-  crossorigin=""
-></script>
+<!-- Leaflet JS - Local (faster for Iran) -->
+<script src="{% static 'js/leaflet/leaflet.js' %}"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const mapEl = document.getElementById('contactMap');

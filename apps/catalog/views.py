@@ -21,9 +21,7 @@ class ShopView(ListView):
     """صفحه فروشگاه با لیست محصولات"""
     
     model = Product
-    # TEMP: تست سرعت - برای برگشت به حالت اصلی این خط رو کامنت بزنید و خط بعدی رو آنکامنت کنید
-    template_name = 'catalog/shop_minimal.html'
-    # template_name = 'catalog/shop.html'
+    template_name = 'catalog/shop.html'
     context_object_name = 'products'
     paginate_by = 12
     
@@ -187,9 +185,7 @@ class CategoryDetailView(View):
 class ProductDetailView(View):
     """صفحه جزئیات محصول"""
     
-    # TEMP: تست سرعت - برای برگشت به حالت اصلی این خط رو کامنت بزنید و خط بعدی رو آنکامنت کنید
-    template_name = 'catalog/product_minimal.html'
-    # template_name = 'catalog/product_detail.html'
+    template_name = 'catalog/product_detail.html'
     
     def get(self, request, slug):
         # URL decode کردن اسلاگ برای پشتیبانی از کاراکترهای فارسی
