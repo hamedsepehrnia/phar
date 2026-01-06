@@ -17,21 +17,14 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DB_NAME', default='skycore1_db'),
         'USER': config('DB_USER', default='skycore1_user'),
         'PASSWORD': config('DB_PASSWORD', default='Hamed1385'),
         'HOST': config('DB_HOST', default='localhost'),
-        'PORT': config('DB_PORT', default='3306'),
+        'PORT': config('DB_PORT', default='5432'),
         'OPTIONS': {
-            'charset': 'utf8mb4',
-            'use_unicode': True,
-            'init_command': (
-                "SET sql_mode='STRICT_TRANS_TABLES';"
-                "SET NAMES utf8mb4;"
-                "SET CHARACTER SET utf8mb4;"
-                "SET character_set_connection=utf8mb4;"
-            ),
+            'client_encoding': 'UTF8',
         },
     }
 }
