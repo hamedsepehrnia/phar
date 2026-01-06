@@ -12,7 +12,11 @@
       "meta_title": "",
       "meta_description": "",
       "created_at": "2026-01-02T17:51:35",
-      "updated_at": "2026-01-02T17:51:35"
+      "updated_at": "2026-01-02T17:51:35",
+      "lft": 1,
+      "rght": 2,
+      "tree_id": 1,
+      "level": 0
     }
   },
   {
