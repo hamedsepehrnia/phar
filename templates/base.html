@@ -8,38 +8,16 @@
   
   {% block extra_css %}{% endblock %}
   
-  <!-- Alpine.js - Local (faster for Iran) -->
-  <script defer src="{% static 'js/alpine.min.js' %}"></script>
-  
-  <script src="{% static 'js/app.js' %}" defer></script>
-  <link rel="stylesheet" crossorigin href="{% static 'css/main.css' %}?v=2">
-  <link rel="stylesheet" crossorigin href="{% static 'css/cyan-theme-override.css' %}?v=2">
-  <link rel="stylesheet" crossorigin href="{% static 'css/cyan-utilities.css' %}?v=2">
+  <link rel="stylesheet" crossorigin href="{% static 'css/main.css' %}?v=3">
+  <link rel="stylesheet" crossorigin href="{% static 'css/cyan-theme-override.css' %}?v=3">
+  <link rel="stylesheet" crossorigin href="{% static 'css/cyan-utilities.css' %}?v=3">
 </head>
 
-<body x-data="{ 
-  loaded: !localStorage.getItem('site_loaded'), 
-  openCategory: false, 
-  activeCategory: null 
-}">
-  <!-- start preloader -->
-  <div x-show="loaded"
-    x-init="
-      if (!localStorage.getItem('site_loaded')) {
-        window.addEventListener('DOMContentLoaded', () => {
-          setTimeout(() => {
-            loaded = false;
-            localStorage.setItem('site_loaded', 'true');
-          }, 500);
-        });
-      } else {
-        loaded = false;
-      }
-    "
-    class="fixed top-0 left-0 z-9999999 flex h-screen w-screen items-center justify-center bg-white">
+<body>
+  <!-- Preloader -->
+  <div id="preloader" class="fixed top-0 left-0 z-9999999 flex h-screen w-screen items-center justify-center bg-white">
     <span class="loader"></span>
   </div>
-  <!-- end preloader -->
 
   <div class="h-screen overflow-auto">
     {% include 'partials/header.html' %}
@@ -51,6 +29,8 @@
     {% include 'partials/mobile_navigation.html' %}
   </div>
 
+  <script src="{% static 'js/site.js' %}" defer></script>
+  <script src="{% static 'js/app.js' %}" defer></script>
   {% block extra_js %}{% endblock %}
 </body>
 

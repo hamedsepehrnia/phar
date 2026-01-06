@@ -154,8 +154,8 @@
       <p class="font-yekan-bakh line-clamp-1 font-semibold text-gray-700">{{ user.get_full_name|default:user.phone }}</p>
       <p class="text-text/95">{{ user.phone }}</p>
     </div>
-    <div x-data="{ openMobileMenu: false }">
-      <button @click="openMobileMenu = true"
+    <div>
+      <button id="mobile-sidebar-btn"
         class="bg-primary-800 flex cursor-pointer items-center gap-1 rounded-md px-4 py-2 text-white">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -168,27 +168,12 @@
         منوی پنل کاربری
       </button>
       
-      <!-- Mobile Menu Panel -->
-      <div x-show="openMobileMenu" 
-           x-transition:enter="transition ease-out duration-300"
-           x-transition:enter-start="opacity-0"
-           x-transition:enter-end="opacity-100"
-           x-transition:leave="transition ease-in duration-200"
-           x-transition:leave-start="opacity-100"
-           x-transition:leave-end="opacity-0"
-           class="fixed inset-0 z-50 bg-black/50" 
-           @click="openMobileMenu = false">
-      </div>
+      <!-- Mobile Menu Overlay -->
+      <div id="mobile-sidebar-overlay" class="fixed inset-0 z-50 bg-black/50 hidden"></div>
       
-      <div x-show="openMobileMenu"
-           x-transition:enter="transition ease-out duration-300"
-           x-transition:enter-start="translate-y-full"
-           x-transition:enter-end="translate-y-0"
-           x-transition:leave="transition ease-in duration-200"
-           x-transition:leave-start="translate-y-0"
-           x-transition:leave-end="translate-y-full"
-           class="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-2xl p-4 max-h-[70vh] overflow-y-auto">
-        <button @click="openMobileMenu = false" class="absolute top-4 left-4">
+      <!-- Mobile Menu Panel -->
+      <div id="mobile-sidebar" class="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-2xl p-4 max-h-[70vh] overflow-y-auto hidden transform translate-y-full transition-transform duration-300">
+        <button id="mobile-sidebar-close" class="absolute top-4 left-4 cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-gray-700">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-1.5 7.5a1 1 0 0 0-1.414 1.414L10.586 12l-1.5 1.5a1 1 0 1 0 1.414 1.414L12 13.414l1.5 1.5a1 1 0 0 0 1.414-1.414L13.414 12l1.5-1.5a1 1 0 0 0-1.414-1.414L12 10.586l-1.5-1.5z" />
@@ -251,3 +236,9 @@
     </div>
   </div>
 </div>
+
+<style>
+#mobile-sidebar.show {
+  transform: translateY(0);
+}
+</style>

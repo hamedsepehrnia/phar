@@ -38,13 +38,13 @@
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- گالری تصاویر -->
       <div class="w-full lg:w-2/5">
-        <div class="bg-white rounded-2xl p-4 shadow-sm sticky top-4" x-data="{ activeImage: 0 }">
+        <div class="bg-white rounded-2xl p-4 shadow-sm sticky top-4">
           <!-- تصویر اصلی -->
           <div class="relative mb-4 rounded-xl overflow-hidden bg-gray-50" style="max-height: 350px;">
             {% for image in product.images.all %}
             <img src="{{ image.image.url }}" alt="{{ product.name }}"
-                 x-show="activeImage === {{ forloop.counter0 }}"
-                 class="w-full h-full object-contain" style="max-height: 350px;" />
+                 data-index="{{ forloop.counter0 }}"
+                 class="product-main-image w-full h-full object-contain {% if not forloop.first %}hidden{% endif %}" style="max-height: 350px;" />
             {% empty %}
             <img src="{% static 'images/product/placeholder.jpg' %}" alt="{{ product.name }}"
                  class="w-full h-full object-contain" style="max-height: 350px;" />
@@ -55,9 +55,8 @@
           {% if product.images.count > 1 %}
           <div class="flex gap-2 overflow-x-auto justify-center py-2">
             {% for image in product.images.all %}
-            <button @click="activeImage = {{ forloop.counter0 }}"
-                    :class="activeImage === {{ forloop.counter0 }} ? 'ring-2 ring-primary-600' : 'ring-1 ring-gray-200'"
-                    class="shrink-0 w-16 h-16 rounded-lg overflow-hidden transition-all hover:ring-2 hover:ring-primary-400">
+            <button data-index="{{ forloop.counter0 }}"
+                    class="product-thumb shrink-0 w-16 h-16 rounded-lg overflow-hidden transition-all hover:ring-2 hover:ring-primary-400 {% if forloop.first %}ring-2 ring-primary-600{% else %}ring-1 ring-gray-200{% endif %}">
               <img src="{{ image.image.url }}" alt="{{ product.name }}" class="w-full h-full object-cover" />
             </button>
             {% endfor %}
@@ -136,22 +135,20 @@
 
           <!-- دکمه افزودن به سبد خرید -->
           {% if product.is_in_stock %}
-          <form action="{% url 'cart:add' product.id %}" method="POST" class="mb-6" x-data="{ quantity: 1 }">
+          <form action="{% url 'cart:add' product.id %}" method="POST" class="mb-6">
             {% csrf_token %}
             <div class="flex items-center gap-4">
               <!-- انتخاب تعداد -->
               <div class="flex items-center border border-gray-300 rounded-lg">
-                <button type="button" @click="quantity = Math.max(1, quantity - 1)" 
-                        class="w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-100">
+                <button type="button" class="quantity-minus w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-100">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14" />
                   </svg>
                 </button>
-                <input type="number" name="quantity" x-model="quantity" min="1" max="{{ product.stock_quantity }}"
+                <input type="number" name="quantity" value="1" min="1" max="{{ product.stock_quantity }}"
                        class="w-14 h-10 text-center border-x border-gray-300 focus:outline-none" />
-                <button type="button" @click="quantity = Math.min({{ product.stock_quantity }}, quantity + 1)"
-                        class="w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-100">
+                <button type="button" class="quantity-plus w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-100">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2">
                     <path d="M12 5v14" />
@@ -243,16 +240,15 @@
         {% csrf_token %}
         <div class="mb-4">
           <label class="block text-sm font-semibold text-gray-700 mb-2">امتیاز شما</label>
-          <div class="flex items-center gap-1" x-data="{ rating: 5 }">
+          <div class="flex items-center gap-1">
             {% for i in "12345" %}
-            <button type="button" @click="rating = {{ forloop.counter }}"
-                    :class="rating >= {{ forloop.counter }} ? 'text-yellow-400' : 'text-gray-300'">
+            <button type="button" class="rating-star {% if forloop.counter <= 5 %}text-yellow-400{% else %}text-gray-300{% endif %}">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
               </svg>
             </button>
             {% endfor %}
-            <input type="hidden" name="rating" x-model="rating">
+            <input type="hidden" name="rating" id="rating-input" value="5">
           </div>
         </div>
         <div class="mb-4">
