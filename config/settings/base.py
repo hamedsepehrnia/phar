@@ -129,8 +129,7 @@ SITE_ID = 1
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
+STATIC_ROOT = '/home/skycore1/public_html/static'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
