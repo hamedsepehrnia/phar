@@ -218,6 +218,41 @@ document.addEventListener('DOMContentLoaded', function() {
     updateTimer();
   }
 
+  // ========== Shipping Options ==========
+  const shippingOptions = document.querySelectorAll('.shipping-option');
+  shippingOptions.forEach(option => {
+    const radio = option.querySelector('.shipping-radio');
+    if (radio) {
+      radio.addEventListener('change', () => {
+        shippingOptions.forEach(opt => {
+          opt.classList.remove('border-primary-500', 'bg-primary-50');
+          opt.classList.add('border-gray-200');
+        });
+        option.classList.remove('border-gray-200');
+        option.classList.add('border-primary-500', 'bg-primary-50');
+      });
+    }
+  });
+
+  // ========== Address Modal ==========
+  const addAddressBtns = document.querySelectorAll('#add-address-btn, .add-address-btn');
+  const addressModal = document.getElementById('address-modal');
+  const closeAddressModal = document.getElementById('close-address-modal');
+
+  addAddressBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (addressModal) {
+        addressModal.showModal();
+      }
+    });
+  });
+
+  if (closeAddressModal && addressModal) {
+    closeAddressModal.addEventListener('click', () => {
+      addressModal.close();
+    });
+  }
+
 });
 
 // ========== CSS for animations ==========

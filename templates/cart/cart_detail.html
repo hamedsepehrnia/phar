@@ -135,8 +135,7 @@
             <!-- Quantity & Actions -->
             <div class="mt-4 flex items-center gap-x-6">
               <!-- Quantity selector -->
-              <form action="{% url 'cart:update' item.id %}" method="POST" class="inline-flex" 
-                    x-data="{ qty: {{ item.quantity }} }">
+              <form action="{% url 'cart:update' item.id %}" method="POST" class="inline-flex">
                 {% csrf_token %}
                 <div class="flex items-center overflow-hidden rounded-full border-b-8 border-gray-400 shadow-md">
                   <button type="submit" name="action" value="increase"

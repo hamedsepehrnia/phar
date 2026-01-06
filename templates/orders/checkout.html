@@ -175,15 +175,13 @@
               <h2 class="font-bold text-gray-800">انتخاب شیوه ارسال</h2>
             </div>
             
-            <div class="p-4 space-y-4" x-data="{ selectedShipping: '{% if shipping_methods.first %}{{ shipping_methods.first.id }}{% endif %}' }">
+            <div class="p-4 space-y-4">
               {% if shipping_methods %}
                 {% for method in shipping_methods %}
-                <label class="flex items-center gap-4 p-4 border rounded-lg cursor-pointer hover:border-primary-500 transition-colors"
-                       :class="selectedShipping == '{{ method.id }}' ? 'border-primary-500 bg-primary-50' : 'border-gray-200'">
+                <label class="shipping-option flex items-center gap-4 p-4 border rounded-lg cursor-pointer hover:border-primary-500 transition-colors {% if forloop.first %}border-primary-500 bg-primary-50{% else %}border-gray-200{% endif %}">
                   <input type="radio" name="shipping_id" value="{{ method.id }}" 
                          {% if forloop.first %}checked{% endif %}
-                         x-model="selectedShipping"
-                         class="text-primary-600 focus:ring-primary-500">
+                         class="shipping-radio text-primary-600 focus:ring-primary-500">
                   <div class="flex-1">
                     <div class="flex items-center justify-between">
                       <span class="font-semibold text-gray-800">{{ method.name }}</span>
