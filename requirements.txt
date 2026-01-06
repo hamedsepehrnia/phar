@@ -3,6 +3,9 @@ Django>=4.2,<5.0
 django-environ>=0.11.2
 python-decouple>=3.8
 
+# Database
+mysqlclient>=2.2.0
+
 # Authentication & Security
 django-axes>=6.1.1
 
