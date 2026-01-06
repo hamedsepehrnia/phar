@@ -20,7 +20,13 @@ DATABASES = {
         'PORT': config('DB_PORT', default='3306'),
         'OPTIONS': {
             'charset': 'utf8mb4',
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'use_unicode': True,
+            'init_command': (
+                "SET sql_mode='STRICT_TRANS_TABLES';"
+                "SET NAMES utf8mb4;"
+                "SET CHARACTER SET utf8mb4;"
+                "SET character_set_connection=utf8mb4;"
+            ),
         },
     }
 }
