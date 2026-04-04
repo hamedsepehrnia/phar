@@ -157,7 +157,9 @@ class Product(models.Model):
         Category,
         on_delete=models.PROTECT,
         related_name='products',
-        verbose_name='دسته‌بندی'
+        verbose_name='دسته‌بندی',
+        null=True,
+        blank=True
     )
     brand = models.ForeignKey(
         Brand,
