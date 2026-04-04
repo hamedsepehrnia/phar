@@ -5,10 +5,14 @@
 {% block title %}{{ product.name }} - {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}{% endblock %}
 
 {% block meta_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
+{% if product.category and product.brand %}
 {% block meta_keywords %}{{ product.name }}, {{ product.brand.name }}, {{ product.category.name }}, خرید دارو{% endblock %}
+{% else %}
+{% block meta_keywords %}{{ product.name }}, خرید دارو{% endblock %}
+{% endif %}
 {% block og_title %}{{ product.name }}{% endblock %}
 {% block og_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
-{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% endblock %}
+{% block og_image %}{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/product/placeholder.jpg' %}{% endif %}{% endblock %}
 {% block og_type %}product{% endblock %}
 
 {% block extra_structured_data %}{% include 'catalog/product_detail_seo.html' %}{% endblock %}
@@ -42,7 +46,7 @@
           <!-- تصویر اصلی -->
           <div class="relative mb-4 rounded-xl overflow-hidden bg-gray-50" style="max-height: 350px;">
             {% for image in product.images.all %}
-            <img src="{{ image.image.url }}" alt="{{ product.name }}"
+            <img src="{{ image.image.url|default:'/static/images/product/placeholder.jpg' }}" alt="{{ product.name }}"
                  data-index="{{ forloop.counter0 }}"
                  class="product-main-image w-full h-full object-contain {% if not forloop.first %}hidden{% endif %}" style="max-height: 350px;" />
             {% empty %}
@@ -57,7 +61,7 @@
             {% for image in product.images.all %}
             <button data-index="{{ forloop.counter0 }}"
                     class="product-thumb shrink-0 w-16 h-16 rounded-lg overflow-hidden transition-all hover:ring-2 hover:ring-primary-400 {% if forloop.first %}ring-2 ring-primary-600{% else %}ring-1 ring-gray-200{% endif %}">
-              <img src="{{ image.image.url }}" alt="{{ product.name }}" class="w-full h-full object-cover" />
+              <img src="{{ image.image.url|default:'/static/images/product/placeholder.jpg' }}" alt="{{ product.name }}" class="w-full h-full object-cover" />
             </button>
             {% endfor %}
           </div>
