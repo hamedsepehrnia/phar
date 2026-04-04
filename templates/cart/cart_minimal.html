@@ -7,40 +7,42 @@
 
 {% if cart.items.count > 0 %}
 <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
-  <!-- Cart Items -->
-  <div>
-    {% for item in cart.items.all %}
-    <div class="card" style="display: flex; gap: 20px; margin-bottom: 15px;">
-      {% if item.product.primary_image %}
-      <img src="{{ item.product.primary_image.url }}" alt="{{ item.product.name }}" style="width: 100px; height: 100px; object-fit: contain;">
-      {% else %}
-      <div style="width: 100px; height: 100px; background: #eee; display: flex; align-items: center; justify-content: center;">📦</div>
-      {% endif %}
+<!-- Cart Items ✅ کامل -->
+<div>
+  {% for item in cart.items.all %}
+  <div class="card" style="display: flex; gap: 20px; margin-bottom: 15px;">
+    {% if item.product.primary_image %}
+    <img src="{{ item.product.primary_image.url }}" alt="{{ item.product.name }}" style="width: 100px; height: 100px; object-fit: contain;">
+    {% else %}
+    <div style="width: 100px; height: 100px; background: #eee; display: flex; align-items: center; justify-content: center;">📦</div>
+    {% endif %}
+    
+    <div style="flex: 1;">
+      <h3 style="margin-bottom: 10px;">{{ item.product.name }}</h3>
+      <p style="color: #666; margin-bottom: 5px;">قیمت واحد: {{ item.product.price|floatformat:0 }} تومان</p>
       
-      <div style="flex: 1;">
-        <h3 style="margin-bottom: 10px;">{{ item.product.name }}</h3>
-        <p style="color: #666; margin-bottom: 5px;">قیمت واحد: {{ item.product.price|floatformat:0 }} تومان</p>
-        
-        <form method="post" action="/cart/update/{{ item.id }}/" style="display: inline-flex; gap: 10px; align-items: center;">
-          {% csrf_token %}
-          <label>تعداد:</label>
-          <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}" 
-                 style="width: 60px; padding: 5px; border: 1px solid #ddd; border-radius: 3px; text-align: center;">
-          <button type="submit" class="btn" style="padding: 5px 15px; font-size: 12px;">به‌روزرسانی</button>
-        </form>
-        
-        <form method="post" action="/cart/remove/{{ item.id }}/" style="display: inline;">
-          {% csrf_token %}
-          <button type="submit" style="background: #fee2e2; color: #991b1b; border: none; padding: 5px 15px; border-radius: 5px; cursor: pointer;">حذف</button>
-        </form>
-      </div>
+      <!-- ✅ فیکس شده: item.product.id -->
+      <form method="post" action="{% url 'cart:update' item.product.id %}" style="display: inline-flex; gap: 10px; align-items: center;">
+        {% csrf_token %}
+        <label>تعداد:</label>
+        <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}" 
+               style="width: 60px; padding: 5px; border: 1px solid #ddd; border-radius: 3px; text-align: center;">
+        <button type="submit" class="btn" style="padding: 5px 15px; font-size: 12px;">به‌روزرسانی</button>
+      </form>
       
-      <div style="text-align: left; min-width: 120px;">
-        <p style="font-weight: bold; color: #0ea5e9; font-size: 1.1em;">{{ item.total_price|floatformat:0 }} تومان</p>
-      </div>
+      <!-- ✅ فیکس شده: item.product.id -->
+      <form method="post" action="{% url 'cart:remove' item.product.id %}" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" style="background: #fee2e2; color: #991b1b; border: none; padding: 5px 15px; border-radius: 5px; cursor: pointer;">حذف</button>
+      </form>
     </div>
-    {% endfor %}
+    
+    <div style="text-align: left; min-width: 120px;">
+      <p style="font-weight: bold; color: #0ea5e9; font-size: 1.1em;">{{ item.total_price|floatformat:0 }} تومان</p>
+    </div>
   </div>
+  {% endfor %}
+</div>
   
   <!-- Cart Summary -->
   <div>

@@ -139,7 +139,6 @@ class CheckoutView(LoginRequiredMixin, View):
                     quantity=item.quantity,
                     price=item.product.price,
                     product_name=item.product.name,
-                    product_sku=item.product.sku,
                 )
             
             # ثبت استفاده از کوپن
