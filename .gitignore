@@ -73,3 +73,8 @@ dump.rdb
 # OS
 .DS_Store
 Thumbs.db
+
+# producttion
+passenger_wsgi.py
+tmp/
+
