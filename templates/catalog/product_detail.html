@@ -4,16 +4,32 @@
 
 {% block title %}{{ product.name }} - {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}{% endblock %}
 
-{% block meta_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
-{% if product.category and product.brand %}
-{% block meta_keywords %}{{ product.name }}, {{ product.brand.name }}, {{ product.category.name }}, خرید دارو{% endblock %}
+{% block meta_description %}
+{% if product.description %}
+    {{ product.description|striptags|truncatewords:25 }}
 {% else %}
-{% block meta_keywords %}{{ product.name }}, خرید دارو{% endblock %}
+    {{ product.name }} - خرید {{ product.name }} اصل با بهترین قیمت
 {% endif %}
+{% endblock %}
+
 {% block og_title %}{{ product.name }}{% endblock %}
-{% block og_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
-{% block og_image %}{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/product/placeholder.jpg' %}{% endif %}{% endblock %}
+{% block og_description %}
+{% if product.description %}
+    {{ product.description|striptags|truncatewords:25 }}
+{% else %}
+    {{ product.name }} - خرید آنلاین
+{% endif %}
+{% endblock %}
+{% block og_image %}
+{% if product.image %}
+    {{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}
+{% else %}
+    {{ request.scheme }}://{{ request.get_host }}{% static 'images/product/placeholder.jpg' %}
+{% endif %}
+{% endblock %}
 {% block og_type %}product{% endblock %}
+
+<!-- ❌ meta_keywords کاملاً حذف شد! -->
 
 {% block extra_structured_data %}{% include 'catalog/product_detail_seo.html' %}{% endblock %}
 
