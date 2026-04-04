@@ -200,7 +200,7 @@ class OrderItem(models.Model):
     
     # کپی اطلاعات محصول
     product_name = models.CharField(max_length=255, verbose_name='نام محصول')
-    product_sku = models.CharField(max_length=50, verbose_name='کد محصول')
+    product_sku = models.CharField(max_length=50, verbose_name='کد محصول', blank=True, null=True)
     
     class Meta:
         verbose_name = 'آیتم سفارش'
