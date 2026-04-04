@@ -186,7 +186,9 @@ class Product(models.Model):
     sku = models.CharField(
         max_length=50,
         unique=True,
-        verbose_name='کد کالا (SKU)'
+        verbose_name='کد کالا (SKU)',
+        blank=True,
+        null=True
     )
     stock_quantity = models.PositiveIntegerField(
         default=0,
