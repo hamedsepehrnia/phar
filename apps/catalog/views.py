@@ -208,7 +208,7 @@ class ProductDetailView(View):
         )
         
         # Breadcrumb
-        ancestors = product.category.get_ancestors(include_self=True)
+        ancestors = product.category.get_ancestors(include_self=True) if product.category else []
         
         # محصولات مرتبط
         related_products = product.get_related_products()
