@@ -135,7 +135,7 @@
             <!-- Quantity & Actions -->
             <div class="mt-4 flex items-center gap-x-6">
               <!-- Quantity selector -->
-              <form action="{% url 'cart:update' item.id %}" method="POST" class="inline-flex">
+              <form action="{% url 'cart:update' item.product.id %}" method="POST" class="inline-flex">
                 {% csrf_token %}
                 <div class="flex items-center overflow-hidden rounded-full border-b-8 border-gray-400 shadow-md">
                   <button type="submit" name="action" value="increase"
@@ -157,7 +157,7 @@
               </form>
 
               <!-- Delete button -->
-              <form action="{% url 'cart:remove' item.id %}" method="POST" class="inline-flex">
+              <form action="{% url 'cart:remove' item.product.id %}" method="POST" class="inline-flex">
                 {% csrf_token %}
                 <button type="submit" class="flex size-10 items-center justify-center rounded-full bg-red-100 shadow-md hover:bg-red-200">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"

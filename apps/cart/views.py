@@ -130,18 +130,31 @@ class UpdateCartItemView(CartMixin, View):
     
     def post(self, request, product_id):
         product = get_object_or_404(Product, pk=product_id)
-        quantity = int(request.POST.get('quantity', 1))
-        
         cart = self.get_cart(request)
+        item = get_object_or_404(CartItem, cart=cart, product=product)  # این خط جدید اضافه بشه
+        
+        action = request.POST.get('action')  # این خط جدید اضافه بشه
+        if action == 'increase':  # این بلوک جدید اضافه بشه
+            quantity = item.quantity + 1
+        elif action == 'decrease':  # این بلوک جدید اضافه بشه
+            quantity = item.quantity - 1
+        else:  # این بلوک جدید اضافه بشه
+            quantity = int(request.POST.get('quantity', item.quantity))
+        
+        # بررسی حداکثر تعداد (اختیاری، می‌تونید حذف کنید اگر مدلتون پشتیبانی نمی‌کنه)
+        max_qty = min(product.stock_quantity, product.max_purchase_per_user or 10)
+        if quantity > max_qty:
+            quantity = max_qty
+        if quantity < 1:
+            quantity = 1
+        
         cart.update_item_quantity(product, quantity)
         
         if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
             # محاسبه مجدد قیمت آیتم
-            item_total = product.price * quantity if quantity > 0 else 0
-            
             return JsonResponse({
                 'success': True,
-                'item_total': str(item_total),
+                'item_total': str(item.total_price),  # تغییر: از item.total_price استفاده کن
                 'cart_count': cart.items_count,
                 'cart_subtotal': str(cart.subtotal),
                 'cart_discount': str(cart.discount_amount),
@@ -149,8 +162,6 @@ class UpdateCartItemView(CartMixin, View):
             })
         
         return redirect('cart:detail')
-
-
 class ClearCartView(CartMixin, View):
     """خالی کردن سبد خرید"""
     
