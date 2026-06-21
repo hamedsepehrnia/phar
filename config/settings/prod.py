@@ -9,20 +9,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
-# Database - PostgreSQL for production
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME', default='skycore1_db'),
-        'USER': config('DB_USER', default='skycore1_user'),
-        'PASSWORD': config('DB_PASSWORD', default='Hamed1385'),
-        'HOST': config('DB_HOST', default='localhost'),
-        'PORT': config('DB_PORT', default='5432'),
-        'OPTIONS': {
-            'client_encoding': 'UTF8',
-        },
-    }
-}
+# Database — inherits MySQL config from base.py (via .env)
 
 # Cache - Redis for production with fallback
 CACHES = {
