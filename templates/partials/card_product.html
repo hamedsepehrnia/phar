@@ -1,5 +1,6 @@
 {% load static %}
 {% load humanize %}
+{% load catalog_tags %}
 
 <div class="group relative flex h-full w-full flex-col rounded-lg bg-white p-4 pt-8 shadow-md">
 
@@ -188,17 +189,17 @@
         {% if product.compare_at_price and product.compare_at_price > product.price %}
 
         <span class="text-xs text-gray-400 line-through">
-          {{ product.compare_at_price|intcomma }} تومان
+          {{ product.compare_at_price|format_price }} تومان
         </span>
 
         <span class="text-sm font-bold text-primary-800">
-          {{ product.price|intcomma }} تومان
+          {{ product.price|format_price }} تومان
         </span>
 
         {% else %}
 
         <span class="text-sm font-bold text-gray-800">
-          {{ product.price|intcomma }} تومان
+          {{ product.price|format_price }} تومان
         </span>
 
         {% endif %}

@@ -144,8 +144,15 @@ class ProductAttributeValueInline(admin.TabularInline):
 class ProductAdmin(admin.ModelAdmin):
     """مدیریت محصولات"""
     
+    def format_price_display(self, obj):
+        try:
+            return f'{int(obj.price):,} تومان'
+        except (TypeError, ValueError):
+            return obj.price
+    format_price_display.short_description = 'قیمت'
+
     list_display = [
-        'name', 'sku', 'category', 'brand', 'price',
+        'name', 'sku', 'category', 'brand', 'format_price_display',
         'stock_quantity', 'is_in_stock', 'is_active',
         'prescription_required', 'image_preview'
     ]

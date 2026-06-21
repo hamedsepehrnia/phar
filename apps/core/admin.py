@@ -18,6 +18,10 @@ class SiteSettingsAdmin(admin.ModelAdmin):
         ('اطلاعات تماس', {
             'fields': ('phone', 'phone_2', 'email', 'address')
         }),
+        ('درباره ما', {
+            'fields': ('about_short', 'about_content'),
+            'description': 'اگر خالی باشد، متن پیش‌فرض سایت نمایش داده می‌شود.',
+        }),
         ('شبکه‌های اجتماعی', {
             'fields': ('instagram', 'telegram', 'whatsapp')
         }),

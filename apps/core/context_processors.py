@@ -2,6 +2,7 @@
 Context processor to provide site settings to all templates
 """
 from .models import SiteSettings
+from .site_defaults import SiteSettingsProxy
 
 
 def site_settings(request):
@@ -10,4 +11,4 @@ def site_settings(request):
         settings = SiteSettings.get_settings()
     except Exception:
         settings = None
-    return {'site_settings': settings}
+    return {'site_settings': SiteSettingsProxy(settings)}

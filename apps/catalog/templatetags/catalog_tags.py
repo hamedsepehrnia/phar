@@ -65,10 +65,9 @@ def category_product_count(category):
 
 @register.filter
 def format_price(value):
-    """فرمت قیمت به صورت فارسی"""
+    """فرمت قیمت با جداکننده هزارگان (مثلاً 3,000,000)"""
     try:
-        value = int(value)
-        return '{:,}'.format(value).replace(',', '٫')
+        return f'{int(value):,}'
     except (ValueError, TypeError):
         return value
 

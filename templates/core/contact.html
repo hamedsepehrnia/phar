@@ -101,7 +101,7 @@
               </div>
               <div>
                 <p class="font-semibold text-gray-800">تلفن تماس</p>
-                <p class="text-gray-600">{{ site_settings.phone|default:"021-12345678" }}</p>
+                <p class="text-gray-600">{{ site_settings.phone }}</p>
                 <p class="text-sm text-gray-500">شنبه تا پنج‌شنبه ۹ الی ۱۸</p>
               </div>
             </div>
@@ -139,7 +139,7 @@
               </div>
               <div>
                 <p class="font-semibold text-gray-800">آدرس</p>
-                <p class="text-gray-600">{{ site_settings.address|default:"تهران، خیابان ولیعصر" }}</p>
+                <p class="text-gray-600">{{ site_settings.address }}</p>
               </div>
             </div>
           </div>
@@ -156,9 +156,9 @@
             id="contactMap"
             class="w-full rounded-xl ring-1 ring-gray-200 overflow-hidden"
             style="height: 280px;"
-            data-lat="{{ site_settings.map_latitude|default:'32.661443' }}"
-            data-lng="{{ site_settings.map_longitude|default:'51.666552' }}"
-            data-zoom="{{ site_settings.map_zoom|default:'14' }}"
+            data-lat="{{ site_settings.map_latitude }}"
+            data-lng="{{ site_settings.map_longitude }}"
+            data-zoom="{{ site_settings.map_zoom }}"
           ></div>
         </div>
         

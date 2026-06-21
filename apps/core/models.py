@@ -36,11 +36,11 @@ class SiteSettings(models.Model):
 
     # نقشه تماس
     map_latitude = models.FloatField(
-        default=32.661443,
+        default=32.660282,
         verbose_name='عرض جغرافیایی نقشه'
     )
     map_longitude = models.FloatField(
-        default=51.666552,
+        default=51.666233,
         verbose_name='طول جغرافیایی نقشه'
     )
     map_zoom = models.PositiveSmallIntegerField(
@@ -72,6 +72,9 @@ class SiteSettings(models.Model):
         blank=True,
         verbose_name='کلمات کلیدی'
     )
+
+    about_short = models.TextField(blank=True, verbose_name='متن کوتاه درباره ما')
+    about_content = models.TextField(blank=True, verbose_name='متن کامل درباره ما')
     
     class Meta:
         verbose_name = 'تنظیمات سایت'

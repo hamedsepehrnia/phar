@@ -5,11 +5,26 @@
 
 {% block extra_css %}
 <style>
+    .about-image-hero {
+        margin-bottom: 32px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .about-image-hero img {
+        width: 100%;
+        height: auto;
+        max-height: 420px;
+        object-fit: cover;
+        display: block;
+    }
+
     /* About Page Styles */
     .about-hero {
         background: linear-gradient(135deg, #0891b2 0%, #06b6d4 50%, #22d3ee 100%);
         border-radius: 20px;
-        padding: 60px 40px;
+        padding: 40px;
         color: white;
         text-align: center;
         margin-bottom: 40px;
@@ -73,40 +88,6 @@
         font-size: 1rem;
         line-height: 2;
         margin-bottom: 20px;
-    }
-
-    /* Stats Grid */
-    .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        margin: 40px 0;
-    }
-
-    .stat-card {
-        background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
-        border-radius: 16px;
-        padding: 30px 20px;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid #99f6e4;
-    }
-
-    .stat-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 30px rgba(8, 145, 178, 0.15);
-    }
-
-    .stat-number {
-        font-size: 2.2rem;
-        font-weight: bold;
-        color: #0891b2;
-        margin-bottom: 8px;
-    }
-
-    .stat-label {
-        color: #666;
-        font-size: 0.95rem;
     }
 
     /* Features Section */
@@ -257,18 +238,15 @@
         text-decoration: underline;
     }
 
-    /* Responsive */
     @media (max-width: 1024px) {
-        .stats-grid,
-        .features-grid,
-        .team-grid {
+        .features-grid {
             grid-template-columns: repeat(2, 1fr);
         }
     }
 
     @media (max-width: 640px) {
         .about-hero {
-            padding: 40px 20px;
+            padding: 30px 20px;
         }
 
         .about-hero h1 {
@@ -277,23 +255,12 @@
 
         .about-content,
         .features-section,
-        .team-section,
         .contact-cta {
             padding: 25px 20px;
         }
 
-        .stats-grid,
-        .features-grid,
-        .team-grid {
+        .features-grid {
             grid-template-columns: 1fr;
-        }
-
-        .stat-card {
-            padding: 20px 15px;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
         }
 
         .contact-info {
@@ -302,7 +269,6 @@
         }
     }
 
-    /* Animation */
     @keyframes fadeInUp {
         from {
             opacity: 0;
@@ -314,10 +280,10 @@
         }
     }
 
+    .about-image-hero,
     .about-hero,
     .about-content,
     .features-section,
-    .team-section,
     .contact-cta {
         animation: fadeInUp 0.5s ease-out;
     }
@@ -327,51 +293,32 @@
 {% block content %}
 <main class="flex-1 pb-20 lg:pb-0">
     <div class="container mx-auto px-4 py-8">
-        <!-- Breadcrumb -->
         <nav class="breadcrumb">
             <a href="{% url 'core:home' %}">خانه</a>
             <span>/</span>
             <span>درباره ما</span>
         </nav>
 
-        <!-- Hero Section -->
+        <section class="about-image-hero">
+            <img src="{% static 'images/about/about-hero.jpeg' %}" alt="داروخانه دکتر واعظی">
+        </section>
+
         <section class="about-hero">
             <h1>درباره {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}</h1>
-            <p>{{ site_settings.about_short|default:"با افتخار در خدمت سلامت شما هستیم. بیش از یک دهه تجربه در ارائه بهترین محصولات دارویی و بهداشتی با تضمین اصالت و کیفیت." }}</p>
+            <p>{{ site_settings.about_short }}</p>
         </section>
 
-        <!-- About Content -->
         <section class="about-content">
             <h2>داستان ما</h2>
-            <p>
-                {{ site_settings.about_content|default:"داروخانه دکتر واعظی با هدف ارائه محصولات با کیفیت و اصیل دارویی و بهداشتی به مشتریان عزیز تأسیس شده است. ما معتقدیم که سلامتی حق همه است و تلاش می‌کنیم با ارائه محصولات معتبر و قیمت مناسب، دسترسی به سلامت را برای همگان آسان‌تر کنیم."|safe }}
-            </p>
-            <p>
-                تیم ما متشکل از متخصصان با تجربه در حوزه دارو و سلامت است که همواره در تلاش هستند تا بهترین محصولات را از معتبرترین برندهای ایرانی و خارجی گردآوری کنند. ما به اصالت کالا، قیمت منصفانه و خدمات پس از فروش عالی افتخار می‌کنیم.
-            </p>
-
-            <!-- Stats -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">+۱۰,۰۰۰</div>
-                    <div class="stat-label">مشتری راضی</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">+۵,۰۰۰</div>
-                    <div class="stat-label">محصول متنوع</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">+۲۰۰</div>
-                    <div class="stat-label">برند معتبر</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">+۱۰</div>
-                    <div class="stat-label">سال تجربه</div>
-                </div>
-            </div>
+            {% if site_settings.has_custom_about %}
+                {{ site_settings.about_content|linebreaks }}
+            {% else %}
+                {% for paragraph in site_settings.about_paragraphs %}
+                <p>{{ paragraph }}</p>
+                {% endfor %}
+            {% endif %}
         </section>
 
-        <!-- Features -->
         <section class="features-section">
             <h2>چرا ما را انتخاب کنید؟</h2>
             <div class="features-grid">
@@ -392,13 +339,12 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon orange">📞</div>
-                    <h3>پشتیبانی ۲۴ ساعته</h3>
-                    <p>تیم پشتیبانی ما همیشه آماده پاسخگویی است.</p>
+                    <h3>مشاوره تخصصی</h3>
+                    <p>بررسی و مشاوره توسط داروساز قبل از ارسال سفارش.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Contact CTA -->
         <section class="contact-cta">
             <h2>با ما در ارتباط باشید</h2>
             <p>سوالی دارید؟ تیم ما آماده پاسخگویی است.</p>
@@ -406,15 +352,11 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <span>📞</span>
-                    <span>{{ site_settings.phone|default:"021-12345678" }}</span>
-                </div>
-                <div class="contact-item">
-                    <span>✉️</span>
-                    <span>{{ site_settings.email|default:"info@pharmacy.com" }}</span>
+                    <span>{{ site_settings.phone }}</span>
                 </div>
                 <div class="contact-item">
                     <span>📍</span>
-                    <span>{{ site_settings.address|default:"تهران، خیابان ولیعصر" }}</span>
+                    <span>{{ site_settings.address }}</span>
                 </div>
             </div>
         </section>
