@@ -83,8 +83,35 @@ class ProductImageFetcher:
             self._browser.__exit__(exc_type, exc_val, exc_tb)
             self._browser = None
 
+    def resolve_image_path(self, entry: dict) -> Path | None:
+        """Resolve image path — manifest may contain old absolute paths from dev."""
+        image_file = entry.get('image_file')
+        if image_file:
+            path = Path(image_file)
+            if path.exists():
+                return path
+
+        key = entry.get('key')
+        if key:
+            candidate = self.cache_dir / f'{key}.jpg'
+            if candidate.exists():
+                return candidate
+
+        if image_file:
+            candidate = self.cache_dir / Path(image_file).name
+            if candidate.exists():
+                return candidate
+
+        return None
+
     def get_cached_entry(self, name_fa: str) -> dict | None:
-        return self.manifest.get('products', {}).get(product_name_key(name_fa))
+        entry = self.manifest.get('products', {}).get(product_name_key(name_fa))
+        if not entry:
+            return None
+        resolved = self.resolve_image_path(entry)
+        if resolved:
+            return {**entry, 'image_file': str(resolved)}
+        return entry
 
     def fetch_product_image(
         self,
@@ -96,7 +123,7 @@ class ProductImageFetcher:
         key = product_name_key(name_fa)
         existing = self.manifest.get('products', {}).get(key)
         if existing and existing.get('status') == 'ok' and not force:
-            if existing.get('image_file') and Path(existing['image_file']).exists():
+            if self.resolve_image_path(existing):
                 return existing
 
         if not name_en:
