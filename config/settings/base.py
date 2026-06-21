@@ -82,17 +82,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# Database — PostgreSQL (UTF-8 for Persian text)
+# Database — MySQL (utf8mb4 for Persian text)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': env('DB_NAME', default='pharmacy_db'),
-        'USER': env('DB_USER', default='postgres'),
+        'USER': env('DB_USER', default='root'),
         'PASSWORD': env('DB_PASSWORD', default=''),
         'HOST': env('DB_HOST', default='127.0.0.1'),
-        'PORT': env('DB_PORT', default='5432'),
+        'PORT': env('DB_PORT', default='3306'),
         'OPTIONS': {
-            'client_encoding': 'UTF8',
+            'charset': 'utf8mb4',
+            'init_command': (
+                "SET sql_mode='STRICT_TRANS_TABLES', "
+                "NAMES utf8mb4 COLLATE utf8mb4_unicode_ci"
+            ),
         },
     }
 }
