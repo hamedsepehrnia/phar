@@ -30,6 +30,20 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         fetcher = ProductImageFetcher()
+        cache_jpg_count = len(list(fetcher.cache_dir.glob('*.jpg')))
+        manifest_ok = sum(
+            1 for entry in fetcher.manifest.get('products', {}).values()
+            if entry.get('status') == 'ok'
+        )
+        self.stdout.write(
+            f'کش: {fetcher.cache_dir} ({cache_jpg_count} فایل jpg) | '
+            f'manifest ok: {manifest_ok}'
+        )
+        if cache_jpg_count == 0 and manifest_ok > 0:
+            self.stdout.write(self.style.ERROR(
+                'فایل jpg روی سرور نیست — پوشه data/seed/product_images/ را از لوکال آپلود کن.'
+            ))
+
         products = Product.objects.all().order_by('id')
 
         attached = skipped = missing = no_image = 0
