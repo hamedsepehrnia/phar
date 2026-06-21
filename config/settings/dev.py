@@ -9,25 +9,25 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Database - SQLite for development
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME', default='skycore1_db'),
-        'USER': config('DB_USER', default='skycore1_user'),
-        'PASSWORD': config('DB_PASSWORD', default='Hamed1385'),
-        'HOST': config('DB_HOST', default='localhost'),
-        'PORT': config('DB_PORT', default='5432'),
-        'OPTIONS': {
-            'client_encoding': 'UTF8',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('DB_NAME', default='skycore1_db'),
+#         'USER': config('DB_USER', default='skycore1_user'),
+#         'PASSWORD': config('DB_PASSWORD', default='Hamed1385'),
+#         'HOST': config('DB_HOST', default='localhost'),
+#         'PORT': config('DB_PORT', default='5432'),
+#         'OPTIONS': {
+#             'client_encoding': 'UTF8',
+#         },
+#     }
+# }
 
 # Cache - Local memory for development
 CACHES = {
@@ -39,6 +39,8 @@ CACHES = {
 
 # Email - Console backend for development
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Debug Toolbar
 INSTALLED_APPS += ['debug_toolbar']

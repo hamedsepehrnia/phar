@@ -4,13 +4,13 @@ Base settings for Pharmacy E-commerce Project
 """
 import os
 from pathlib import Path
-from decouple import config
+from decouple import config as env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='django-insecure-dev-key-change-in-production')
+SECRET_KEY = env('SECRET_KEY', default='django-insecure-dev-key-change-in-production')
 
 # Application definition
 DJANGO_APPS = [
@@ -21,8 +21,8 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'django.contrib.sitemaps',  # SEO: Enable sitemap generation
-    'django.contrib.sites',  # Required for sitemaps
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
 ]
 
 THIRD_PARTY_APPS = [
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'apps.core.middleware.UnicodeURLMiddleware',  # پشتیبانی از URLs فارسی
+    'apps.core.middleware.UnicodeURLMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -117,18 +117,8 @@ USE_TZ = True
 # Site ID (required for django.contrib.sites)
 SITE_ID = 1
 
-# # Static files (CSS, JavaScript, Images)
-# STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / 'staticfiles'
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static',
-# ]
-
-
 # Static files (Production)
-
 STATIC_URL = '/static/'
-
 STATIC_ROOT = '/home/skycore1/public_html/static'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
@@ -161,7 +151,7 @@ AXES_LOCKOUT_TEMPLATE = 'accounts/lockout.html'
 AXES_RESET_ON_SUCCESS = True
 
 # Celery Configuration
-CELERY_BROKER_URL = config('CELERY_BROKER_URL', default='redis://localhost:6379/1')
+CELERY_BROKER_URL = env('CELERY_BROKER_URL', default='redis://localhost:6379/1')
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
@@ -174,14 +164,13 @@ try:
     CELERY_BEAT_SCHEDULE = {
         'cancel-expired-orders': {
             'task': 'apps.orders.tasks.cancel_expired_orders',
-            'schedule': crontab(minute='*/15'),  # هر ۱۵ دقیقه
+            'schedule': crontab(minute='*/15'),
         },
     }
 except ImportError:
-    # اگر Celery نصب نباشد
     CELERY_BEAT_SCHEDULE = {}
 
-# Cache settings - will be overridden in dev/prod
+# Cache settings
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
@@ -189,16 +178,37 @@ CACHES = {
 }
 
 # ZarinPal Payment Gateway
-ZARINPAL_MERCHANT_ID = config('ZARINPAL_MERCHANT_ID', default='')
-ZARINPAL_SANDBOX = config('ZARINPAL_SANDBOX', default=True, cast=bool)
+ZARINPAL_MERCHANT_ID = env('ZARINPAL_MERCHANT_ID', default='')
+ZARINPAL_SANDBOX = env('ZARINPAL_SANDBOX', default=True, cast=bool)
 
-# SMS Settings (for OTP)
-SMS_API_KEY = config('SMS_API_KEY', default='')
-SMS_SENDER = config('SMS_SENDER', default='')
+# ============================================
+# MsgWay SMS Configuration
+# ============================================
+MSGWAY_API_KEY = env('MSGWAY_API_KEY', default='')
+MSGWAY_ACCEPT_LANGUAGE = env('MSGWAY_ACCEPT_LANGUAGE', default='fa')
+SMS_LOG_ONLY = env('SMS_LOG_ONLY', default=False, cast=bool)
 
+# ============================================
+# MsgWay Template IDs
+# ============================================
+MSGWAY_OTP_TEMPLATE_ID = env('MSGWAY_OTP_TEMPLATE_ID', default=0, cast=int)
+MSGWAY_WELCOME_TEMPLATE_ID = env('MSGWAY_WELCOME_TEMPLATE_ID', default=0, cast=int)
+MSGWAY_ORDER_STATUS_TEMPLATE_ID = env('MSGWAY_ORDER_STATUS_TEMPLATE_ID', default=0, cast=int)
+MSGWAY_PAYMENT_SUCCESS_TEMPLATE_ID = env('MSGWAY_PAYMENT_SUCCESS_TEMPLATE_ID', default=0, cast=int)
+
+# ============================================
 # OTP Settings
+# ============================================
 OTP_LENGTH = 6
-OTP_EXPIRY_MINUTES = 3
+OTP_EXPIRE_SECONDS = env('OTP_EXPIRE_SECONDS', default=180, cast=int)  # 3 دقیقه
+
+# ============================================
+# AI Translation (OpenAI-compatible)
+# ============================================
+OPENAI_API_KEY = env('OPENAI_API_KEY', default='')
+OPENAI_BASE_URL = env('OPENAI_BASE_URL', default='https://api.openai.com/v1')
+OPENAI_MODEL = env('OPENAI_MODEL', default='gpt-4o-mini')
+LLM_API_KEY = env('LLM_API_KEY', default='')  # alias
 
 # Pagination
 PRODUCTS_PER_PAGE = 12

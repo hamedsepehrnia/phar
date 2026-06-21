@@ -1,0 +1,1216 @@
+{
+  "version": 1,
+  "products": {
+    "9379c8d4b0572618": {
+      "name": "2080 زبان شور",
+      "key": "9379c8d4b0572618",
+      "queries": [
+        "mouth freshener spray",
+        "freshener spray"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/sanjin-breath-freshener-spray-watermelon-frost-0-1-oz-3-g/136441",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/9379c8d4b0572618.jpg",
+      "search_query": "mouth freshener spray"
+    },
+    "d48f0ee75a3fa817": {
+      "name": "ا + د3 + کا2 کپسول يوروويتال",
+      "key": "d48f0ee75a3fa817",
+      "queries": [
+        "vitamin a d3 vitamin k2 capsule",
+        "a d3 vitamin k2 capsule",
+        "vitamin d3 capsule"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/carlson-vitamins-a-d3-k2-120-soft-gels/116235",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/d48f0ee75a3fa817.jpg",
+      "search_query": "vitamin a d3 vitamin k2 capsule"
+    },
+    "3582683e82f37887": {
+      "name": "ا ال ا کپسول يوروويتال",
+      "key": "3582683e82f37887",
+      "queries": [
+        "vitamin a vitamin a capsule",
+        "a vitamin a capsule",
+        "vitamin capsule"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/3582683e82f37887.jpg",
+      "search_query": ""
+    },
+    "551acfaf5069d6ee": {
+      "name": "ا+د قطره يوروويتال",
+      "key": "551acfaf5069d6ee",
+      "queries": [
+        "vitamin a vitamin d drops",
+        "a vitamin d drops",
+        "vitamin drops"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/551acfaf5069d6ee.jpg",
+      "search_query": ""
+    },
+    "ec04f3c33121b219": {
+      "name": "اپاکل کپسول",
+      "key": "ec04f3c33121b219",
+      "queries": [
+        "capsule"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/ec04f3c33121b219.jpg",
+      "search_query": ""
+    },
+    "850942fca32248b2": {
+      "name": "اپتايزر شربت کيندر",
+      "key": "850942fca32248b2",
+      "queries": [
+        "syrup kids"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/nature-s-answer-natural-mullein-x-cough-syrup-kids-4-fl-oz-120-ml/132417",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/850942fca32248b2.jpg",
+      "search_query": "syrup kids"
+    },
+    "302ec927271fcfa9": {
+      "name": "اپتي فري محلول لنز",
+      "key": "302ec927271fcfa9",
+      "queries": [
+        "solution"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/neat-solutions-baby-bibs-6m-veggies-2-count/138392",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/302ec927271fcfa9.jpg",
+      "search_query": "solution"
+    },
+    "471e106a3439328e": {
+      "name": "اپتي وومن قرص گلدن لايف",
+      "key": "471e106a3439328e",
+      "queries": [
+        "tablet golden"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/471e106a3439328e.jpg",
+      "search_query": ""
+    },
+    "979fa3245529fc2e": {
+      "name": "اترنوسل کرم دورچشم ضدچروک",
+      "key": "979fa3245529fc2e",
+      "queries": [
+        "cream eye cream anti wrinkle",
+        "eye cream anti wrinkle",
+        "cream anti"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/979fa3245529fc2e.jpg",
+      "search_query": ""
+    },
+    "fbb2cd95ae3fd044": {
+      "name": "اترومد بي قرص باريج",
+      "key": "fbb2cd95ae3fd044",
+      "queries": [
+        "etromed tablet"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/fbb2cd95ae3fd044.jpg",
+      "search_query": ""
+    },
+    "c8af21cc0f0d5707": {
+      "name": "اچ ال شامپو ضدريزش",
+      "key": "c8af21cc0f0d5707",
+      "queries": [
+        "shampoo anti hair loss",
+        "anti hair loss",
+        "shampoo anti hair"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/c8af21cc0f0d5707.jpg",
+      "search_query": ""
+    },
+    "784e36b553ef5cf2": {
+      "name": "ادرا ژل آلوئه ورا",
+      "key": "784e36b553ef5cf2",
+      "queries": [
+        "adara gel"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/784e36b553ef5cf2.jpg",
+      "search_query": ""
+    },
+    "a3aad6a36222d613": {
+      "name": "ادرا کرم ابرسان پمپي",
+      "key": "a3aad6a36222d613",
+      "queries": [
+        "adara cream hydrating",
+        "cream hydrating"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/a3aad6a36222d613.jpg",
+      "search_query": ""
+    },
+    "49f19e9117d3664a": {
+      "name": "ادرا کرم مرطوب ارگان پمپي",
+      "key": "49f19e9117d3664a",
+      "queries": [
+        "adara cream moisturizer",
+        "cream moisturizer"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/49f19e9117d3664a.jpg",
+      "search_query": ""
+    },
+    "451d3a2e4523e762": {
+      "name": "ادرا لوسيون بدن آرگان",
+      "key": "451d3a2e4523e762",
+      "queries": [
+        "adara lotion body",
+        "lotion body"
+      ],
+      "status": "ok",
+      "image_url": "https://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/blog/uploads/probiotics-for-travel-small.jpg",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/451d3a2e4523e762.jpg",
+      "search_query": "adara lotion body"
+    },
+    "20dd733adfdfecdf": {
+      "name": "ار اف سرم جوان ساز",
+      "key": "20dd733adfdfecdf",
+      "queries": [
+        "eff serum"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/advanced-clinicals-vitamin-c-serum-1-75-fl-oz-52-ml/82189",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/20dd733adfdfecdf.jpg",
+      "search_query": "eff serum"
+    },
+    "90339e1cd136fdae": {
+      "name": "ار اف سرم طلا",
+      "key": "90339e1cd136fdae",
+      "queries": [
+        "eff serum"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/90339e1cd136fdae.jpg",
+      "search_query": ""
+    },
+    "70e0907ee6a17c61": {
+      "name": "ار اف ضدآفتاب پوست چرب رنگي",
+      "key": "70e0907ee6a17c61",
+      "queries": [
+        "eff sunscreen skin oily tinted",
+        "sunscreen skin oily tinted",
+        "sunscreen skin"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/70e0907ee6a17c61.jpg",
+      "search_query": ""
+    },
+    "37dfec0941d007c6": {
+      "name": "ار اف ضدآفتاب پوست خشک رنگي",
+      "key": "37dfec0941d007c6",
+      "queries": [
+        "eff sunscreen skin dry tinted",
+        "sunscreen skin dry tinted",
+        "sunscreen skin"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/think-think-baby-clear-zinc-oxide-sunscreen-sensitive-skin-spf-50-fragrance-free-3-fl-oz-89-ml/152090",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/37dfec0941d007c6.jpg",
+      "search_query": "sunscreen skin"
+    },
+    "ba6ed67f54a65e02": {
+      "name": "ارتروهيل قرص",
+      "key": "ba6ed67f54a65e02",
+      "queries": [
+        "tablet"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/ba6ed67f54a65e02.jpg",
+      "search_query": ""
+    },
+    "70b4c9c2966eb1d9": {
+      "name": "اردن اتوپيا ژل بهداشتي بانوان",
+      "key": "70b4c9c2966eb1d9",
+      "queries": [
+        "gel women"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/protocol-for-life-balance-ortho-multi-softgels-for-women-90-softgels/117123",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/70b4c9c2966eb1d9.jpg",
+      "search_query": "gel women"
+    },
+    "79a7df6020321519": {
+      "name": "اردن اتوپيا شوينده بسيار ملايم صورت",
+      "key": "79a7df6020321519",
+      "queries": [
+        "face"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/79a7df6020321519.jpg",
+      "search_query": ""
+    },
+    "0d9ab69b971699e9": {
+      "name": "اردن اتوپيا شوينده ملايم بدن",
+      "key": "0d9ab69b971699e9",
+      "queries": [
+        "body"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/0d9ab69b971699e9.jpg",
+      "search_query": ""
+    },
+    "cdd0af66da5f002d": {
+      "name": "اردن اتوپيا کرم مرطوب کننده اگزوپرو",
+      "key": "cdd0af66da5f002d",
+      "queries": [
+        "cream moisturizer"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/cdd0af66da5f002d.jpg",
+      "search_query": ""
+    },
+    "159923fe150e9ba7": {
+      "name": "اردن اتوپيا کرم مرطوب کننده سنسي پرو",
+      "key": "159923fe150e9ba7",
+      "queries": [
+        "cream moisturizer"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/159923fe150e9ba7.jpg",
+      "search_query": ""
+    },
+    "3760208b9f6e95dc": {
+      "name": "اردن سبوما ژل شستشوي بدن",
+      "key": "3760208b9f6e95dc",
+      "queries": [
+        "gel body"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/3760208b9f6e95dc.jpg",
+      "search_query": ""
+    },
+    "d8b72f59e92d93a7": {
+      "name": "اردن کرم سوختگي روغن ماهي",
+      "key": "d8b72f59e92d93a7",
+      "queries": [
+        "cream oil"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/nivea-essentially-enriched-hand-cream-almond-oil-shea-butter-2-6-oz-74-g/111489",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/d8b72f59e92d93a7.jpg",
+      "search_query": "cream oil"
+    },
+    "27c6b551ec1c8b38": {
+      "name": "ارژي پلاس شربت يوروويتال",
+      "key": "27c6b551ec1c8b38",
+      "queries": [
+        "plus syrup"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/host-defense-mushrooms-elderberry-plus-syrup-4-fl-oz-120-ml/105692",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/27c6b551ec1c8b38.jpg",
+      "search_query": "plus syrup"
+    },
+    "73a343d311f231ad": {
+      "name": "ارژيتال شربت هلث ايد",
+      "key": "73a343d311f231ad",
+      "queries": [
+        "syrup health"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/73a343d311f231ad.jpg",
+      "search_query": ""
+    },
+    "b567126ec5d63f38": {
+      "name": "ارژين مکس اقايان کپسول",
+      "key": "b567126ec5d63f38",
+      "queries": [
+        "max capsule"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/b567126ec5d63f38.jpg",
+      "search_query": ""
+    },
+    "4e03c23b2dd40d13": {
+      "name": "ارومکس قرص گلدن لايف",
+      "key": "4e03c23b2dd40d13",
+      "queries": [
+        "aromax tablet golden",
+        "tablet golden"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/4e03c23b2dd40d13.jpg",
+      "search_query": ""
+    },
+    "3773ee86140488d8": {
+      "name": "اريکه ژل شوينده پوست چرب",
+      "key": "3773ee86140488d8",
+      "queries": [
+        "gel skin oily",
+        "skin oily",
+        "gel skin"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/3773ee86140488d8.jpg",
+      "search_query": ""
+    },
+    "5e77fab64db5f847": {
+      "name": "اريکه ژل کرم مرطوب کننده پوست چرب",
+      "key": "5e77fab64db5f847",
+      "queries": [
+        "gel cream moisturizer skin oily",
+        "cream moisturizer skin oily",
+        "gel cream moisturizer skin"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/5e77fab64db5f847.jpg",
+      "search_query": ""
+    },
+    "fefcf5d4e59c5ac8": {
+      "name": "اريکه سرم ضدچروک بوتاکس",
+      "key": "fefcf5d4e59c5ac8",
+      "queries": [
+        "serum anti wrinkle",
+        "anti wrinkle",
+        "serum anti"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/fefcf5d4e59c5ac8.jpg",
+      "search_query": ""
+    },
+    "2a94288e3432b324": {
+      "name": "اريکه سرم هيالورونيک قيمت جديد",
+      "key": "2a94288e3432b324",
+      "queries": [
+        "serum hyaluronic acid",
+        "hyaluronic acid"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/2a94288e3432b324.jpg",
+      "search_query": ""
+    },
+    "c0757766edecb54e": {
+      "name": "اريکه کرم ترميم کننده زخم",
+      "key": "c0757766edecb54e",
+      "queries": [
+        "cream repair"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/c0757766edecb54e.jpg",
+      "search_query": ""
+    },
+    "57ced0ceb5bffd84": {
+      "name": "اريکه کرم دورچشم 1*4",
+      "key": "57ced0ceb5bffd84",
+      "queries": [
+        "cream eye cream",
+        "eye cream",
+        "cream"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/57ced0ceb5bffd84.jpg",
+      "search_query": ""
+    },
+    "bd7e6ef8cef0d90b": {
+      "name": "اريکه کرم مرطوب کننده پوست خشک",
+      "key": "bd7e6ef8cef0d90b",
+      "queries": [
+        "cream moisturizer skin dry",
+        "moisturizer skin dry",
+        "cream moisturizer skin"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/bd7e6ef8cef0d90b.jpg",
+      "search_query": ""
+    },
+    "ca32d3245656565d": {
+      "name": "اسپريژن قرص مولتي ويتامين ناباروري اقايان",
+      "key": "ca32d3245656565d",
+      "queries": [
+        "tablet multivitamin"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/naturesplus-source-of-life-original-tablets-multivitamin-mineral-supplement-180-tablets/7517",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/ca32d3245656565d.jpg",
+      "search_query": "tablet multivitamin"
+    },
+    "64861551a58987c3": {
+      "name": "اسپيرولينا کپسول",
+      "key": "64861551a58987c3",
+      "queries": [
+        "capsule"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/64861551a58987c3.jpg",
+      "search_query": ""
+    },
+    "3c38f6500d033f53": {
+      "name": "استراتامد ژل10گ",
+      "key": "3c38f6500d033f53",
+      "queries": [
+        "health supplement"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/real-mushrooms-pet-defenders-immune-strength-health-supplement-for-dogs-cats-90-capsules-0-95-oz-27-g/159763",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/3c38f6500d033f53.jpg",
+      "search_query": "health supplement"
+    },
+    "c8592c8d11ea7e13": {
+      "name": "استراگل قطره",
+      "key": "c8592c8d11ea7e13",
+      "queries": [
+        "drops"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/c8592c8d11ea7e13.jpg",
+      "search_query": ""
+    },
+    "be26ad32a6df1cd4": {
+      "name": "استئوکر شربت",
+      "key": "be26ad32a6df1cd4",
+      "queries": [
+        "syrup"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/be26ad32a6df1cd4.jpg",
+      "search_query": ""
+    },
+    "012297cfdc1da68c": {
+      "name": "استئوکر قرص",
+      "key": "012297cfdc1da68c",
+      "queries": [
+        "tablet"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/012297cfdc1da68c.jpg",
+      "search_query": ""
+    },
+    "dc9500c1bcf519b2": {
+      "name": "استئوکينون شربت",
+      "key": "dc9500c1bcf519b2",
+      "queries": [
+        "syrup"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/dc9500c1bcf519b2.jpg",
+      "search_query": ""
+    },
+    "cc66090093fa4b04": {
+      "name": "استئوکينون قرص",
+      "key": "cc66090093fa4b04",
+      "queries": [
+        "tablet"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/cc66090093fa4b04.jpg",
+      "search_query": ""
+    },
+    "f70103520c2ffb8b": {
+      "name": "اسکار استاتيک 10ميل کرم",
+      "key": "f70103520c2ffb8b",
+      "queries": [
+        "cream"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/f70103520c2ffb8b.jpg",
+      "search_query": ""
+    },
+    "9a6a82a81c26538b": {
+      "name": "اسکاي من قرص",
+      "key": "9a6a82a81c26538b",
+      "queries": [
+        "tablet"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/9a6a82a81c26538b.jpg",
+      "search_query": ""
+    },
+    "a0f037961cd8b15c": {
+      "name": "اسکاي وومن قرص",
+      "key": "a0f037961cd8b15c",
+      "queries": [
+        "tablet"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/a0f037961cd8b15c.jpg",
+      "search_query": ""
+    },
+    "dce466dbbe0c120d": {
+      "name": "اسکين وان تونر ويتامين ث",
+      "key": "dce466dbbe0c120d",
+      "queries": [
+        "toner vitamin vitamin c",
+        "vitamin vitamin c",
+        "toner vitamin c"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/dce466dbbe0c120d.jpg",
+      "search_query": ""
+    },
+    "7f170ef663ef4117": {
+      "name": "اسکين وان ژل شستشوي پوست چرب",
+      "key": "7f170ef663ef4117",
+      "queries": [
+        "gel skin oily",
+        "skin oily",
+        "gel skin"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/olly-glowing-skin-gummies-plump-berry-50-gummies/119169",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/7f170ef663ef4117.jpg",
+      "search_query": "skin oily"
+    },
+    "9c9a44833fd56698": {
+      "name": "اسکين وان ژل کرم ضدجوش",
+      "key": "9c9a44833fd56698",
+      "queries": [
+        "gel cream"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/isntree-hyaluronic-acid-aqua-gel-cream-3-38-fl-oz-100-ml/101941",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/9c9a44833fd56698.jpg",
+      "search_query": "gel cream"
+    },
+    "b75d210d2eca6d32": {
+      "name": "اسکين وان ژل کرم مرطوب کننده هيال",
+      "key": "b75d210d2eca6d32",
+      "queries": [
+        "gel cream moisturizer",
+        "cream moisturizer"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/b75d210d2eca6d32.jpg",
+      "search_query": ""
+    },
+    "95cbe2cf98a213bc": {
+      "name": "اسکين وان سرم ويتامين ث",
+      "key": "95cbe2cf98a213bc",
+      "queries": [
+        "serum vitamin vitamin c",
+        "vitamin vitamin c",
+        "serum vitamin c"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/95cbe2cf98a213bc.jpg",
+      "search_query": ""
+    },
+    "152cd9a17179d798": {
+      "name": "اسکين وان کرم ترميم کننده سيکاپلاس",
+      "key": "152cd9a17179d798",
+      "queries": [
+        "cream repair"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/152cd9a17179d798.jpg",
+      "search_query": ""
+    },
+    "ce9a269011e5476c": {
+      "name": "اسکين وان کرم مرطوب کننده هيال",
+      "key": "ce9a269011e5476c",
+      "queries": [
+        "cream moisturizer"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/ce9a269011e5476c.jpg",
+      "search_query": ""
+    },
+    "dfa54850d5d24801": {
+      "name": "اسکين وان ميسلارواتر پوست خشک",
+      "key": "dfa54850d5d24801",
+      "queries": [
+        "skin dry"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/dfa54850d5d24801.jpg",
+      "search_query": ""
+    },
+    "d907ec32a5f73f6e": {
+      "name": "اسليم فول کپسول",
+      "key": "d907ec32a5f73f6e",
+      "queries": [
+        "slim capsule"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/d907ec32a5f73f6e.jpg",
+      "search_query": ""
+    },
+    "bee878f415904ec4": {
+      "name": "اسليم کوئيک قرص",
+      "key": "bee878f415904ec4",
+      "queries": [
+        "slim tablet"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/bee878f415904ec4.jpg",
+      "search_query": ""
+    },
+    "4896b471623a983c": {
+      "name": "اسليم لست - پودر",
+      "key": "4896b471623a983c",
+      "queries": [
+        "slim powder"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/4896b471623a983c.jpg",
+      "search_query": ""
+    },
+    "c926f46c6dac9612": {
+      "name": "اسليم مکس کپسول",
+      "key": "c926f46c6dac9612",
+      "queries": [
+        "slim max capsule",
+        "max capsule"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/c926f46c6dac9612.jpg",
+      "search_query": ""
+    },
+    "8541d28df191b416": {
+      "name": "اسليم ونس",
+      "key": "8541d28df191b416",
+      "queries": [
+        "slim"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/8541d28df191b416.jpg",
+      "search_query": ""
+    },
+    "a8198ab2032d86de": {
+      "name": "اسماويت شربت",
+      "key": "a8198ab2032d86de",
+      "queries": [
+        "syrup"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/a8198ab2032d86de.jpg",
+      "search_query": ""
+    },
+    "d56a2bd37fe91a97": {
+      "name": "اشتها اور شربت باريج",
+      "key": "d56a2bd37fe91a97",
+      "queries": [
+        "syrup"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/d56a2bd37fe91a97.jpg",
+      "search_query": ""
+    },
+    "7ab8f4304c0c52ab": {
+      "name": "اف جي ابرسان پوست خشک",
+      "key": "7ab8f4304c0c52ab",
+      "queries": [
+        "eff hydrating skin dry",
+        "hydrating skin dry"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/gold-bond-diabetics-body-lotion-dry-skin-relief-aloe-for-dry-to-extra-dry-skin-13-oz-368-g/113520",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/7ab8f4304c0c52ab.jpg",
+      "search_query": "eff hydrating skin dry"
+    },
+    "67cbb4b716ab82b2": {
+      "name": "اف جي تونر پوست چرب",
+      "key": "67cbb4b716ab82b2",
+      "queries": [
+        "eff toner skin oily",
+        "toner skin oily",
+        "toner skin"
+      ],
+      "status": "ok",
+      "image_url": "http://cloudinary.images-iherb.com/image/upload/w_800,f_auto,q_auto:good/images/cgn/cgn01325/c/1.jpg",
+      "iherb_url": "https://de.iherb.com/pr/cosrx-aha-bha-clarifying-treatment-toner-5-07-fl-oz-150-ml/73953",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/67cbb4b716ab82b2.jpg",
+      "search_query": "eff toner skin oily"
+    },
+    "8facade12cfa9e6e": {
+      "name": "اف جي تونر پوست خشک",
+      "key": "8facade12cfa9e6e",
+      "queries": [
+        "eff toner skin dry",
+        "toner skin dry",
+        "toner skin"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/8facade12cfa9e6e.jpg",
+      "search_query": ""
+    },
+    "585d5db52d759e6d": {
+      "name": "اف جي ژل شستشوي پوست خشک",
+      "key": "585d5db52d759e6d",
+      "queries": [
+        "eff gel skin dry",
+        "gel skin dry",
+        "gel skin"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/585d5db52d759e6d.jpg",
+      "search_query": ""
+    },
+    "e4f1c4fdaaf5dc26": {
+      "name": "اف جي سرم روشن کننده",
+      "key": "e4f1c4fdaaf5dc26",
+      "queries": [
+        "eff serum brightening",
+        "serum brightening"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/e4f1c4fdaaf5dc26.jpg",
+      "search_query": ""
+    },
+    "a0e70ff2a2930ae0": {
+      "name": "اف جي لوسيون بدن روشن کننده",
+      "key": "a0e70ff2a2930ae0",
+      "queries": [
+        "eff lotion body brightening",
+        "lotion body brightening"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/a0e70ff2a2930ae0.jpg",
+      "search_query": ""
+    },
+    "adc5ff4cc8adde91": {
+      "name": "افتين ژل",
+      "key": "adc5ff4cc8adde91",
+      "queries": [
+        "gel"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/adc5ff4cc8adde91.jpg",
+      "search_query": ""
+    },
+    "85274422f85b7798": {
+      "name": "افروديت قرص",
+      "key": "85274422f85b7798",
+      "queries": [
+        "tablet"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/85274422f85b7798.jpg",
+      "search_query": ""
+    },
+    "48cdaaa139c25f5e": {
+      "name": "اکتي ايميون قرص",
+      "key": "48cdaaa139c25f5e",
+      "queries": [
+        "tablet"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/48cdaaa139c25f5e.jpg",
+      "search_query": ""
+    },
+    "773c0288b5961fcd": {
+      "name": "اکتيويج کپسول",
+      "key": "773c0288b5961fcd",
+      "queries": [
+        "capsule"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/773c0288b5961fcd.jpg",
+      "search_query": ""
+    },
+    "e283bc0092a24553": {
+      "name": "اکسيليا محلول موضعي استريل چشم",
+      "key": "e283bc0092a24553",
+      "queries": [
+        "solution eye"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/e283bc0092a24553.jpg",
+      "search_query": ""
+    },
+    "e46d49cdfafe45ed": {
+      "name": "اکوئيفلکس قرص",
+      "key": "e46d49cdfafe45ed",
+      "queries": [
+        "tablet"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/e46d49cdfafe45ed.jpg",
+      "search_query": ""
+    },
+    "8c5ecc496f20927c": {
+      "name": "اگزوتين کپسول",
+      "key": "8c5ecc496f20927c",
+      "queries": [
+        "capsule"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/8c5ecc496f20927c.jpg",
+      "search_query": ""
+    },
+    "126b4acc847aaee2": {
+      "name": "اگزوفارما کرم دست",
+      "key": "126b4acc847aaee2",
+      "queries": [
+        "cream"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/126b4acc847aaee2.jpg",
+      "search_query": ""
+    },
+    "554c7d4c13e47686": {
+      "name": "اگنوگل قرص گياهي",
+      "key": "554c7d4c13e47686",
+      "queries": [
+        "tablet herbal"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/554c7d4c13e47686.jpg",
+      "search_query": ""
+    },
+    "3184d044bb52a3fb": {
+      "name": "ال ارژنين قرص 1000م يوروويتال",
+      "key": "3184d044bb52a3fb",
+      "queries": [
+        "tablet"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/3184d044bb52a3fb.jpg",
+      "search_query": ""
+    },
+    "664d5026794c0ed2": {
+      "name": "ال کارنيتين 1000م يوروويتال",
+      "key": "664d5026794c0ed2",
+      "queries": [
+        "health supplement"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/664d5026794c0ed2.jpg",
+      "search_query": ""
+    },
+    "28b071a162283484": {
+      "name": "ال کارنيتين 500م يوروويتال",
+      "key": "28b071a162283484",
+      "queries": [
+        "health supplement"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/28b071a162283484.jpg",
+      "search_query": ""
+    },
+    "71afc53f2d2f4409": {
+      "name": "ال کارنيتين ويال 1000 بنیان سلامت",
+      "key": "71afc53f2d2f4409",
+      "queries": [
+        "vial"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/71afc53f2d2f4409.jpg",
+      "search_query": ""
+    },
+    "6d2ce92de7a937c8": {
+      "name": "ال کارنيتين ويال 2000 بنیان سلامت",
+      "key": "6d2ce92de7a937c8",
+      "queries": [
+        "vial"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/6d2ce92de7a937c8.jpg",
+      "search_query": ""
+    },
+    "76db4fc392777217": {
+      "name": "ال کارنيتين ويال 3000",
+      "key": "76db4fc392777217",
+      "queries": [
+        "vial"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/76db4fc392777217.jpg",
+      "search_query": ""
+    },
+    "dda58a32b27c7002": {
+      "name": "ال کارنيتين1000ميلي دانا",
+      "key": "dda58a32b27c7002",
+      "queries": [
+        "health supplement"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/dda58a32b27c7002.jpg",
+      "search_query": ""
+    },
+    "74dfba86a4d8a111": {
+      "name": "ال وايت نخ دندان 50متري",
+      "key": "74dfba86a4d8a111",
+      "queries": [
+        "dental"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/74dfba86a4d8a111.jpg",
+      "search_query": ""
+    },
+    "2e9a15195d45f844": {
+      "name": "الارتريت کپسول",
+      "key": "2e9a15195d45f844",
+      "queries": [
+        "capsule"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/2e9a15195d45f844.jpg",
+      "search_query": ""
+    },
+    "b439fc34238d97f0": {
+      "name": "الاريچ کپسول",
+      "key": "b439fc34238d97f0",
+      "queries": [
+        "capsule"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/b439fc34238d97f0.jpg",
+      "search_query": ""
+    },
+    "ef6653d3ab92c945": {
+      "name": "الپيک کپسول",
+      "key": "ef6653d3ab92c945",
+      "queries": [
+        "capsule"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/ef6653d3ab92c945.jpg",
+      "search_query": ""
+    },
+    "cbbd67c3e9c6d59f": {
+      "name": "الفا پماد سوختگي",
+      "key": "cbbd67c3e9c6d59f",
+      "queries": [
+        "ointment"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/cbbd67c3e9c6d59f.jpg",
+      "search_query": ""
+    },
+    "c488daa5e7f77f64": {
+      "name": "الگومد قرص300 م",
+      "key": "c488daa5e7f77f64",
+      "queries": [
+        "mg"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/c488daa5e7f77f64.jpg",
+      "search_query": ""
+    },
+    "d5535650ef54c8cf": {
+      "name": "المکس مسواک بين دنداني دسته بلند",
+      "key": "d5535650ef54c8cf",
+      "queries": [
+        "toothbrush"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/d5535650ef54c8cf.jpg",
+      "search_query": ""
+    },
+    "cc9c0b9cf0aa0dbf": {
+      "name": "المکس مسواک بين دنداني دسته کوتاه",
+      "key": "cc9c0b9cf0aa0dbf",
+      "queries": [
+        "toothbrush"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/cc9c0b9cf0aa0dbf.jpg",
+      "search_query": ""
+    },
+    "706e805fab530ba2": {
+      "name": "ام ايل روغن شترمرغ قيمت جديد",
+      "key": "706e805fab530ba2",
+      "queries": [
+        "oil"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/706e805fab530ba2.jpg",
+      "search_query": ""
+    },
+    "b9d19749916fc748": {
+      "name": "ام تي زد پودر",
+      "key": "b9d19749916fc748",
+      "queries": [
+        "powder"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/b9d19749916fc748.jpg",
+      "search_query": ""
+    },
+    "b7b74dd2de5a9060": {
+      "name": "ام جي پماد باريج 30گرمي",
+      "key": "b7b74dd2de5a9060",
+      "queries": [
+        "ointment"
+      ],
+      "status": "fallback",
+      "image_url": "static-fallback",
+      "iherb_url": "",
+      "image_file": "/home/hamed/Desktop/pgs/davajoo/pharmacy/data/seed/product_images/b7b74dd2de5a9060.jpg",
+      "search_query": ""
+    }
+  }
+}
