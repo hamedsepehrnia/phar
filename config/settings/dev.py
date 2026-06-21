@@ -8,7 +8,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-# Database — inherits MySQL config from base.py (via .env)
+# Database — inherits PostgreSQL config from base.py (via .env)
 
 # Cache - Local memory for development
 CACHES = {

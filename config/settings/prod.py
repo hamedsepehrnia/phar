@@ -13,7 +13,7 @@ ALLOWED_HOSTS = [
     if host.strip()
 ]
 
-# Database — inherits MySQL config from base.py (via .env)
+# Database — inherits PostgreSQL config from base.py (via .env)
 
 # Cache - Redis for production with fallback
 CACHES = {
