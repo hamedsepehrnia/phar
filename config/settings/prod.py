@@ -7,7 +7,11 @@ from decouple import config
 
 DEBUG = False
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in config('ALLOWED_HOSTS', default='').split(',')
+    if host.strip()
+]
 
 # Database — inherits MySQL config from base.py (via .env)
 
@@ -37,8 +41,12 @@ SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 
-# CSRF Trusted Origins
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='').split(',')
+# CSRF Trusted Origins (must include https:// scheme)
+CSRF_TRUSTED_ORIGINS = [
+    origin.strip()
+    for origin in config('CSRF_TRUSTED_ORIGINS', default='').split(',')
+    if origin.strip()
+]
 
 # Static files - استفاده از CompressedStaticFilesStorage که در صورت نبود فایل خطا نمی‌دهد
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
