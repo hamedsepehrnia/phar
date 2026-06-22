@@ -421,35 +421,9 @@
       <!-- Products -->
       <section class="shop-products">
         {% if products %}
-        <div class="products-grid">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {% for product in products %}
-          <div class="product-card">
-            <a href="{{ product.get_absolute_url }}">
-              {% if product.images.exists %}
-              <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
-              {% else %}
-              <img src="{% static 'images/product/placeholder.jpg' %}" alt="{{ product.name }}">
-              {% endif %}
-            </a>
-            <h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
-            <div class="product-footer">
-              <div class="product-price">
-                {% if product.compare_at_price and product.compare_at_price > product.price %}
-                <span class="old">{{ product.compare_at_price|format_price }}</span>
-                {% endif %}
-                {{ product.price|format_price }} تومان
-              </div>
-              {% if product.is_in_stock %}
-              <form action="{% url 'cart:add' product.id %}" method="POST" style="margin: 0;">
-                {% csrf_token %}
-                <input type="hidden" name="quantity" value="1">
-                <button type="submit" class="product-btn">خرید</button>
-              </form>
-              {% else %}
-              <span style="font-size: 12px; color: #ef4444;">ناموجود</span>
-              {% endif %}
-            </div>
-          </div>
+          {% include 'partials/card_product.html' with product=product %}
           {% endfor %}
         </div>
 

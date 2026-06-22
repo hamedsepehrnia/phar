@@ -19,6 +19,16 @@
     <span class="loader"></span>
   </div>
 
+  <div id="toast-container" class="site-toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  {% if messages %}
+  <div id="django-messages" class="hidden">
+    {% for message in messages %}
+    <span data-django-message="{{ message }}" data-django-message-type="{{ message.tags }}"></span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <div class="h-screen overflow-auto">
     {% include 'partials/header.html' %}
     

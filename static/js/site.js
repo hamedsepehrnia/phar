@@ -253,6 +253,79 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // ========== Toast notifications ==========
+  function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    if (!container || !message) return;
+
+    const toast = document.createElement('div');
+    toast.className = `site-toast site-toast--${type === 'error' ? 'error' : 'success'}`;
+    toast.textContent = message;
+    container.appendChild(toast);
+
+    requestAnimationFrame(() => toast.classList.add('is-visible'));
+
+    setTimeout(() => {
+      toast.classList.remove('is-visible');
+      setTimeout(() => toast.remove(), 300);
+    }, 3200);
+  }
+
+  function updateCartBadge(count) {
+    const cartLink = document.querySelector('[data-cart-link]');
+    if (!cartLink) return;
+
+    let badge = cartLink.querySelector('[data-cart-count]');
+    if (count > 0) {
+      if (!badge) {
+        badge = document.createElement('span');
+        badge.dataset.cartCount = '';
+        badge.className = 'absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary-800 text-xs font-bold text-white';
+        cartLink.appendChild(badge);
+      }
+      badge.textContent = count;
+    } else if (badge) {
+      badge.remove();
+    }
+  }
+
+  document.querySelectorAll('#django-messages [data-django-message]').forEach((el) => {
+    const type = (el.dataset.djangoMessageType || '').includes('error') ? 'error' : 'success';
+    showToast(el.dataset.djangoMessage, type);
+  });
+
+  document.querySelectorAll('.js-add-to-cart-form').forEach((form) => {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          showToast(data.message || 'محصول به سبد خرید افزوده شد');
+          if (typeof data.cart_count === 'number') {
+            updateCartBadge(data.cart_count);
+          }
+        } else {
+          showToast(data.message || 'خطا در افزودن به سبد', 'error');
+        }
+      } catch (err) {
+        showToast('خطا در افزودن به سبد', 'error');
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  });
+
 });
 
 // ========== CSS for animations ==========
@@ -272,6 +345,40 @@ style.textContent = `
   }
   #mega-menu {
     transition: opacity 0.2s ease;
+  }
+  .site-toast-container {
+    position: fixed;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    pointer-events: none;
+    width: min(92vw, 360px);
+  }
+  .site-toast {
+    padding: 0.875rem 1.125rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+    opacity: 0;
+    transform: translateY(-12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+  }
+  .site-toast.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .site-toast--success {
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+  }
+  .site-toast--error {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
   }
 `;
 document.head.appendChild(style);

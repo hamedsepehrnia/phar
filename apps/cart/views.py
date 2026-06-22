@@ -89,7 +89,7 @@ class AddToCartView(CartMixin, View):
         cart = self.get_cart(request)
         cart.add_item(product, quantity)
         
-        message = f'{product.name} به سبد خرید اضافه شد'
+        message = 'محصول به سبد خرید افزوده شد'
         
         if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
             return JsonResponse({

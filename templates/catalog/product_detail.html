@@ -156,7 +156,7 @@
 
           <!-- دکمه افزودن به سبد خرید -->
           {% if product.is_in_stock %}
-          <form action="{% url 'cart:add' product.id %}" method="POST" class="mb-6">
+          <form action="{% url 'cart:add' product.id %}" method="POST" class="mb-6 js-add-to-cart-form">
             {% csrf_token %}
             <div class="flex items-center gap-4">
               <!-- انتخاب تعداد -->

@@ -188,7 +188,7 @@
           <!-- Left: Cart & Account -->
           <div class="flex items-center gap-4">
             <!-- Cart Button -->
-            <a href="{% url 'cart:detail' %}" class="relative inline-flex items-center gap-x-2 rounded-xl border-b-5 border-gray-300 p-2 transition-colors hover:border-primary-800 group">
+            <a href="{% url 'cart:detail' %}" data-cart-link class="relative inline-flex items-center gap-x-2 rounded-xl border-b-5 border-gray-300 p-2 transition-colors hover:border-primary-800 group">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="text-gray-600 group-hover:text-primary-800">
@@ -200,7 +200,7 @@
               </svg>
               <span class="font-dana text-sm font-semibold text-gray-600 group-hover:text-primary-800">سبد خرید</span>
               {% if cart_count > 0 %}
-              <span class="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary-800 text-xs font-bold text-white">
+              <span data-cart-count class="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary-800 text-xs font-bold text-white">
                 {{ cart_count }}
               </span>
               {% endif %}
