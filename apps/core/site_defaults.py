@@ -57,5 +57,20 @@ class SiteSettingsProxy:
         return DEFAULT_ABOUT_PARAGRAPHS
 
     @property
+    def whatsapp_link(self):
+        whatsapp = ''
+        if self._settings is not None:
+            whatsapp = getattr(self._settings, 'whatsapp', '') or ''
+        if whatsapp.startswith('http'):
+            return whatsapp
+        if whatsapp:
+            digits = ''.join(ch for ch in whatsapp if ch.isdigit())
+            if digits:
+                if digits.startswith('0'):
+                    digits = '98' + digits[1:]
+                return f'https://wa.me/{digits}'
+        return ''
+
+    @property
     def has_custom_about(self):
         return bool(self._settings and getattr(self._settings, 'about_content', None))

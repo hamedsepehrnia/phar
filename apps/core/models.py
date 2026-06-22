@@ -91,11 +91,14 @@ class SiteSettings(models.Model):
     @classmethod
     def get_settings(cls):
         """دریافت تنظیمات"""
-        obj, created = cls.objects.get_or_create(
-            pk=1,
-            defaults={'site_name': 'داروخانه دکتر واعظی'}
-        )
-        return obj
+        try:
+            obj, _created = cls.objects.get_or_create(
+                pk=1,
+                defaults={'site_name': 'داروخانه دکتر واعظی'}
+            )
+            return obj
+        except Exception:
+            return None
 
 
 class Slider(models.Model):

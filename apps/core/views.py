@@ -11,7 +11,7 @@ from django.http import Http404
 from urllib.parse import unquote, quote
 import logging
 
-from .models import SiteSettings, Slider, Banner, Page, ContactMessage, FAQ
+from .models import Slider, Banner, Page, ContactMessage, FAQ
 from .forms import ContactForm
 from apps.catalog.models import Category, Product, Brand
 
@@ -94,15 +94,7 @@ class ContactView(View):
     template_name = 'core/contact.html'
     
     def get(self, request):
-        form = ContactForm()
-        settings = SiteSettings.get_settings()
-        
-        context = {
-            'form': form,
-            'settings': settings,
-        }
-        
-        return render(request, self.template_name, context)
+        return render(request, self.template_name, {'form': ContactForm()})
     
     def post(self, request):
         form = ContactForm(request.POST)
@@ -112,14 +104,7 @@ class ContactView(View):
             messages.success(request, 'پیام شما با موفقیت ارسال شد')
             return redirect('core:contact')
         
-        settings = SiteSettings.get_settings()
-        
-        context = {
-            'form': form,
-            'settings': settings,
-        }
-        
-        return render(request, self.template_name, context)
+        return render(request, self.template_name, {'form': form})
 
 
 class PageDetailView(DetailView):

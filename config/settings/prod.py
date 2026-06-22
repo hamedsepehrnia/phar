@@ -2,6 +2,7 @@
 تنظیمات محیط تولید
 Production Settings
 """
+import os
 from .base import *
 from decouple import config
 
@@ -60,6 +61,9 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 
 # Logging
+LOG_DIR = BASE_DIR / 'logs'
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
