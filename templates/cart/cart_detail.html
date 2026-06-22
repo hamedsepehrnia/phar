@@ -3,297 +3,106 @@
 {% load humanize %}
 {% load ui_tags %}
 
-{% block title %}
-سبد خرید - {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}
-{% endblock %}
+{% block title %}سبد خرید - {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}{% endblock %}
 
 {% block content %}
-<main class="flex-1 pb-20 lg:pb-0">
-
-<div class="container mx-auto w-full">
-
-{% site_breadcrumb "خانه|core:home" "سبد خرید" %}
-
-
-{% if cart.items.count > 0 %}
-
-<section class="my-10 flex flex-col justify-between gap-4 p-4 lg:flex-row">
-
-
-<!-- Products -->
-<div class="flex w-full flex-col gap-y-8 lg:w-3/4">
-
-
-<div class="flex items-center justify-between border-b border-gray-300 pb-3">
-
-<span class="flex items-center gap-x-2">
-
-<h2 class="text-xl font-semibold">
-
-سبد خرید
-
-</h2>
-
-<p class="text-gray-500">
-
-({{ cart.items.count }} کالا)
-
-</p>
-
-</span>
-
-
-<form action="{% url 'cart:clear' %}" method="POST">
-
-{% csrf_token %}
-
-<button
-type="submit"
-class="text-red-600 hover:text-red-700 font-medium">
-
-حذف همه
-
-</button>
-
-</form>
-
-</div>
-
-
-{% for item in cart.items.all %}
-
-<div class="flex w-full flex-col gap-6 rounded-xl bg-white p-6 shadow-md transition lg:flex-row">
-
-
-<!-- image -->
-<div class="relative flex w-full items-center justify-center lg:w-1/4">
-
-<a href="{% url 'catalog:product_detail' item.product.slug %}">
-
-{% if item.product.images.first %}
-
-<img
-src="{{ item.product.images.first.image.url }}"
-class="size-48 object-contain">
-
-{% else %}
-
-<img
-src="{% static 'images/product/placeholder.jpg' %}"
-class="size-48 object-contain">
-
-{% endif %}
-
-</a>
-
-</div>
-
-
-<!-- info -->
-<div class="flex flex-1 flex-col justify-between">
-
-<div>
-
-<h2 class="mb-2 text-xl font-semibold text-gray-800">
-
-<a
-href="{% url 'catalog:product_detail' item.product.slug %}"
-class="hover:text-primary-800">
-
-{{ item.product.name }}
-
-</a>
-
-</h2>
-
-</div>
-
-
-<!-- quantity + remove -->
-<div class="mt-4 flex items-center gap-x-4">
-
-
-<form
-action="{% url 'cart:update' item.product.id %}"
-method="POST"
-class="inline-flex">
-
-{% csrf_token %}
-
-
-<div class="flex items-center rounded-lg border border-gray-300 overflow-hidden">
-
-
-<button
-type="submit"
-name="action"
-value="increase"
-class="flex size-9 items-center justify-center text-gray-700 hover:bg-gray-100 transition">
-
-+
-
-</button>
-
-
-<span class="w-10 text-center font-semibold text-gray-700">
-
-{{ item.quantity }}
-
-</span>
-
-
-<button
-type="submit"
-name="action"
-value="decrease"
-class="flex size-9 items-center justify-center text-gray-700 hover:bg-gray-100 transition">
-
-−
-
-</button>
-
-
-</div>
-
-</form>
-
-
-<form
-action="{% url 'cart:remove' item.product.id %}"
-method="POST">
-
-{% csrf_token %}
-
-<button
-type="submit"
-class="flex size-10 items-center justify-center rounded-lg bg-red-50 text-red-600 hover:bg-red-100 transition">
-
-حذف
-
-</button>
-
-</form>
-
-
-</div>
-
-</div>
-
-
-<!-- price -->
-<div class="flex w-full flex-col items-end justify-between lg:w-1/4">
-
-<p class="text-lg font-semibold text-gray-800">
-
-{{ item.total_price|intcomma }} تومان
-
-</p>
-
-</div>
-
-
-</div>
-
-{% endfor %}
-
-</div>
-
-
-<!-- price box -->
-<div class="top-1 flex h-fit w-full flex-col gap-y-4 rounded-xl bg-white p-4 shadow-md lg:sticky lg:w-1/4">
-
-
-<div class="flex items-center justify-between">
-
-<span class="font-medium text-gray-800">
-
-مجموع
-
-</span>
-
-<span class="font-medium text-gray-800">
-
-{{ cart.total|intcomma }} تومان
-
-</span>
-
-</div>
-
-
-<a
-href="{% url 'orders:checkout' %}"
-class="w-full text-center
-bg-primary-600
-hover:bg-primary-700
-active:bg-primary-800
-text-white
-px-8 py-3
-rounded-lg
-font-semibold
-transition-colors
-focus:outline-none
-focus:ring-2
-focus:ring-primary-500
-focus:ring-offset-2">
-
-تسویه حساب
-
-</a>
-
-
-</div>
-
-</section>
-
-
-{% else %}
-
-
-<div class="my-20 flex flex-col items-center justify-center px-4">
-
-
-<h2 class="mb-2 text-xl font-bold text-gray-800">
-
-سبد خرید شما خالی است
-
-</h2>
-
-
-<p class="mb-6 text-gray-500">
-
-برای مشاهده محصولات به فروشگاه مراجعه کنید
-
-</p>
-
-
-<a
-href="{% url 'catalog:shop' %}"
-class="bg-primary-600
-hover:bg-primary-700
-active:bg-primary-800
-text-white
-px-8 py-3
-rounded-lg
-font-semibold
-transition-colors
-focus:outline-none
-focus:ring-2
-focus:ring-primary-500
-focus:ring-offset-2">
-
-مشاهده محصولات
-
-</a>
-
-
-</div>
-
-
-{% endif %}
-
-
-</div>
-
+<main class="cart-page">
+  <div class="cart-page__container">
+
+    {% site_breadcrumb "خانه|core:home" "سبد خرید" %}
+
+    {% if unavailable_items %}
+    <div class="cart-alert">
+      برخی کالاها موجود نیستند. قبل از تسویه حساب، آن‌ها را از سبد حذف کنید.
+    </div>
+    {% endif %}
+
+    {% if cart.items.count > 0 %}
+    <div class="cart-page__layout">
+
+      <section class="cart-panel">
+        <div class="cart-panel__header">
+          <h1 class="cart-panel__title">
+            سبد خرید
+            <span class="cart-panel__count">({{ cart.items.count }} کالا)</span>
+          </h1>
+          <form action="{% url 'cart:clear' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="cart-panel__clear">حذف همه</button>
+          </form>
+        </div>
+
+        {% for item in cart.items.all %}
+        <article class="cart-item">
+          <a href="{% url 'catalog:product_detail' item.product.slug %}" class="cart-item__image">
+            {% if item.product.images.first %}
+            <img src="{{ item.product.images.first.image.url }}" alt="{{ item.product.name }}">
+            {% else %}
+            <img src="{% static 'images/product/placeholder.jpg' %}" alt="{{ item.product.name }}">
+            {% endif %}
+          </a>
+
+          <div class="cart-item__body">
+            <h2 class="cart-item__name">
+              <a href="{% url 'catalog:product_detail' item.product.slug %}">{{ item.product.name }}</a>
+            </h2>
+            <p class="cart-item__unit-price">{{ item.product.price|intcomma }} تومان</p>
+
+            <div class="cart-item__actions">
+              <form action="{% url 'cart:update' item.product.id %}" method="POST" class="inline-flex">
+                {% csrf_token %}
+                <div class="qty-stepper">
+                  <button type="submit" name="action" value="decrease" class="qty-stepper__btn" aria-label="کاهش">−</button>
+                  <span class="qty-stepper__value">{{ item.quantity }}</span>
+                  <button type="submit" name="action" value="increase" class="qty-stepper__btn" aria-label="افزایش">+</button>
+                </div>
+              </form>
+
+              <form action="{% url 'cart:remove' item.product.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="cart-item__remove">حذف</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="cart-item__aside">
+            <span class="cart-item__total">{{ item.total_price|intcomma }} تومان</span>
+          </div>
+        </article>
+        {% endfor %}
+      </section>
+
+      <aside class="cart-summary">
+        <h2 class="cart-summary__title">خلاصه سفارش</h2>
+
+        <div class="cart-summary__row">
+          <span>مجموع</span>
+          <strong>{{ cart.total|intcomma }} تومان</strong>
+        </div>
+
+        <div class="cart-summary__actions">
+          <a href="{% url 'orders:checkout' %}" class="site-btn-primary site-btn-primary--full">تسویه حساب</a>
+          <a href="{% url 'catalog:shop' %}" class="cart-summary__continue">ادامه خرید</a>
+        </div>
+      </aside>
+
+    </div>
+
+    {% else %}
+    <div class="cart-empty">
+      <div class="cart-empty__icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19a2 2 0 1 0 4 0"/>
+          <path d="M12.5 17h-6.5v-14h-2"/>
+          <path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5"/>
+        </svg>
+      </div>
+      <h2 class="cart-empty__title">سبد خرید شما خالی است</h2>
+      <p class="cart-empty__text">برای مشاهده محصولات به فروشگاه مراجعه کنید.</p>
+      <a href="{% url 'catalog:shop' %}" class="site-btn-primary">مشاهده محصولات</a>
+    </div>
+    {% endif %}
+
+  </div>
 </main>
-
 {% endblock %}

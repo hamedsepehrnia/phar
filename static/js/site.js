@@ -141,13 +141,13 @@ document.addEventListener('DOMContentLoaded', function() {
   productThumbs.forEach((thumb, index) => {
     thumb.addEventListener('click', () => {
       productMainImages.forEach(img => img.classList.add('hidden'));
-      productThumbs.forEach(t => t.classList.remove('border-primary-800'));
-      
+      productThumbs.forEach(t => t.classList.remove('is-active'));
+
       const targetImage = document.querySelector(`.product-main-image[data-index="${index}"]`);
       if (targetImage) {
         targetImage.classList.remove('hidden');
       }
-      thumb.classList.add('border-primary-800');
+      thumb.classList.add('is-active');
     });
   });
 
