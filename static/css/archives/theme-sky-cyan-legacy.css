@@ -1,0 +1,79 @@
+/*
+ * ═══════════════════════════════════════════════════════════
+ * آرشیو تم قبلی — Sky/Cyan (قبل از Teal Brand)
+ * تاریخ جایگزینی: 2025-06-23
+ *
+ * این فایل فقط برای بازگردانی دستی است؛ در base.html لود نمی‌شود.
+ * راهنمای کامل: docs/color-theme-backup.md
+ * ═══════════════════════════════════════════════════════════
+ */
+
+/* ── پالت اصلی (Sky/Cyan) ── */
+/*
+Primary (اصلی):     #0ea5e9
+Hover:              #0284c7
+Dark:               #0c4a6e
+Light tints:        #f0f9ff, #e0f2fe, #bae6fd, #7dd3fc, #38bdf8
+Accent cyan:        #06b6d4, #22d3ee, #0891b2
+Shadow RGBA:        rgba(14, 165, 233, …)
+Hover shadow RGBA:  rgba(2, 132, 199, …)
+theme-color:        #0ea5e9
+Footer gradient:    linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #22d3ee 100%)
+Footer glow (purple): rgba(139, 92, 246, 0.4), rgba(109, 40, 217, 0.35), rgba(217, 70, 239, 0.3)
+*/
+
+/* ── بلوک :root قبلی (کپی در cyan-theme-override.css) ── */
+:root.theme-sky-cyan-legacy, :host.theme-sky-cyan-legacy {
+    --color-primary-50: #f0f9ff;
+    --color-primary-100: #e0f2fe;
+    --color-primary-200: #bae6fd;
+    --color-primary-300: #7dd3fc;
+    --color-primary-400: #38bdf8;
+    --color-primary-500: #0ea5e9;
+    --color-primary-600: #0ea5e9;
+    --color-primary-700: #0ea5e9;
+    --color-primary-800: #0ea5e9;
+    --color-primary-900: #0c4a6e;
+
+    --color-purple-400: #38bdf8;
+    --color-purple-500: #0ea5e9;
+
+    --color-indigo-400: #38bdf8;
+    --color-indigo-500: #0ea5e9;
+    --color-indigo-600: #0284c7;
+}
+
+@supports (color: lab(0% 0 0)) {
+    :root.theme-sky-cyan-legacy, :host.theme-sky-cyan-legacy {
+        --color-primary-50: lab(97.5% -3 -5);
+        --color-primary-100: lab(95% -7 -12);
+        --color-primary-200: lab(90% -14 -22);
+        --color-primary-300: lab(82% -18 -30);
+        --color-primary-400: lab(72% -22 -35);
+        --color-primary-500: lab(66% -22 -35);
+        --color-primary-600: lab(66% -22 -35);
+        --color-primary-700: lab(66% -22 -35);
+        --color-primary-800: lab(66% -22 -35);
+        --color-primary-900: lab(35% -12 -18);
+
+        --color-purple-400: lab(72% -22 -35);
+        --color-purple-500: lab(66% -22 -35);
+
+        --color-indigo-400: lab(72% -22 -35);
+        --color-indigo-500: lab(66% -22 -35);
+        --color-indigo-600: lab(58% -20 -32);
+    }
+}
+
+/* ── نگاشت معکوس hex (برای جست‌وجو/جایگزینی در CSS و قالب‌ها) ──
+   #0BB2C4  →  #0ea5e9
+   #0999A8  →  #0284c7
+   #077D89  →  #0c4a6e  (همچنین #0369a1, #075985, #0891b2)
+   #4FD3E0  →  #38bdf8  (همچنین #7dd3fc, #22d3ee)
+   #A8ECF2  →  #bae6fd
+   #D4F4F7  →  #e0f2fe
+   #EAF9FB  →  #f0f9ff
+   #071419  →  (تم جدید — در تم قدیمی نبود)
+   rgba(11, 178, 196  →  rgba(14, 165, 233
+   rgba(9, 153, 168   →  rgba(2, 132, 199
+   ── */

@@ -346,39 +346,5 @@ style.textContent = `
   #mega-menu {
     transition: opacity 0.2s ease;
   }
-  .site-toast-container {
-    position: fixed;
-    top: 1.25rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 99999;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    pointer-events: none;
-    width: min(92vw, 360px);
-  }
-  .site-toast {
-    padding: 0.875rem 1.125rem;
-    border-radius: 0.75rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #fff;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
-    opacity: 0;
-    transform: translateY(-12px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    text-align: center;
-  }
-  .site-toast.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .site-toast--success {
-    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
-  }
-  .site-toast--error {
-    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-  }
 `;
 document.head.appendChild(style);

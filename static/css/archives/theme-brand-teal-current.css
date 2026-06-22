@@ -1,0 +1,33 @@
+/*
+ * ═══════════════════════════════════════════════════════════
+ * تم فعلی — Brand Teal (از 2025-06-23)
+ * این فایل فقط مرجع/آرشیو است؛ در base.html لود نمی‌شود.
+ * ═══════════════════════════════════════════════════════════
+ */
+
+:root.theme-brand-teal, :host.theme-brand-teal {
+    --brand-primary: #0BB2C4;
+    --brand-hover: #0999A8;
+    --brand-dark: #077D89;
+    --brand-light: #4FD3E0;
+    --brand-bg-dark: #071419;
+    --brand-white: #FFFFFF;
+
+    --color-primary-50: #EAF9FB;
+    --color-primary-100: #D4F4F7;
+    --color-primary-200: #A8ECF2;
+    --color-primary-300: #4FD3E0;
+    --color-primary-400: #2BC9D8;
+    --color-primary-500: #0BB2C4;
+    --color-primary-600: #0BB2C4;
+    --color-primary-700: #0999A8;
+    --color-primary-800: #0BB2C4;
+    --color-primary-900: #077D89;
+
+    --color-purple-400: #4FD3E0;
+    --color-purple-500: #0BB2C4;
+
+    --color-indigo-400: #4FD3E0;
+    --color-indigo-500: #0BB2C4;
+    --color-indigo-600: #0999A8;
+}
