@@ -20,51 +20,6 @@
         display: block;
     }
 
-    /* About Page Styles */
-    .about-hero {
-        background: linear-gradient(135deg, #0891b2 0%, #06b6d4 50%, #22d3ee 100%);
-        border-radius: 20px;
-        padding: 40px;
-        color: white;
-        text-align: center;
-        margin-bottom: 40px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .about-hero::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-        animation: pulse-bg 4s ease-in-out infinite;
-    }
-
-    @keyframes pulse-bg {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-    }
-
-    .about-hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .about-hero p {
-        font-size: 1.1rem;
-        opacity: 0.95;
-        max-width: 700px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-        line-height: 1.9;
-    }
-
     /* About Content */
     .about-content {
         background: white;
@@ -245,14 +200,6 @@
     }
 
     @media (max-width: 640px) {
-        .about-hero {
-            padding: 30px 20px;
-        }
-
-        .about-hero h1 {
-            font-size: 1.8rem;
-        }
-
         .about-content,
         .features-section,
         .contact-cta {
@@ -281,7 +228,6 @@
     }
 
     .about-image-hero,
-    .about-hero,
     .about-content,
     .features-section,
     .contact-cta {
@@ -301,11 +247,6 @@
 
         <section class="about-image-hero">
             <img src="{% static 'images/about/about-hero.jpeg' %}" alt="داروخانه دکتر واعظی">
-        </section>
-
-        <section class="about-hero">
-            <h1>درباره {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}</h1>
-            <p>{{ site_settings.about_short }}</p>
         </section>
 
         <section class="about-content">
