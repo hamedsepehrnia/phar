@@ -1,306 +1,4 @@
 {% load static %}
-<style>
-  .pharmacy-footer {
-    position: relative;
-    margin-top: 2.5rem;
-    background: linear-gradient(135deg, #071419 0%, #077D89 55%, #0BB2C4 100%);
-    color: #FFFFFF;
-  }
-  .pharmacy-footer-glow {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-  }
-  .pharmacy-footer-glow-1 {
-    position: absolute;
-    left: -2.5rem;
-    top: 2rem;
-    width: 12rem;
-    height: 12rem;
-    border-radius: 9999px;
-    background: rgba(11, 178, 196, 0.35);
-    filter: blur(80px);
-  }
-  .pharmacy-footer-glow-2 {
-    position: absolute;
-    right: 1.5rem;
-    bottom: 0;
-    width: 16rem;
-    height: 16rem;
-    border-radius: 9999px;
-    background: rgba(7, 125, 137, 0.4);
-    filter: blur(80px);
-  }
-  .pharmacy-footer-glow-3 {
-    position: absolute;
-    left: 50%;
-    top: 33.333%;
-    width: 11rem;
-    height: 11rem;
-    transform: translateX(-50%);
-    border-radius: 9999px;
-    background: rgba(79, 211, 224, 0.25);
-    filter: blur(80px);
-  }
-  .pharmacy-footer-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(7, 20, 25, 0), rgba(7, 125, 137, 0.15), rgba(7, 20, 25, 0.35));
-  }
-  .pharmacy-footer-content {
-    position: relative;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 3.5rem 1rem;
-  }
-  .pharmacy-footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  @media (min-width: 1024px) {
-    .pharmacy-footer-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .pharmacy-footer-content {
-      padding: 4rem 1rem;
-    }
-  }
-
-  /* only add extra bottom padding on small screens where fixed mobile nav covers viewport */
-  @media (max-width: 767px) {
-    .pharmacy-footer { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 72px); }
-  }
-  .pharmacy-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-  .pharmacy-footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .pharmacy-footer-logo img {
-    height: 3.5rem;
-    width: auto;
-    max-width: 190px;
-    object-fit: contain;
-  }
-  .pharmacy-footer-desc {
-    font-size: 0.875rem;
-    line-height: 1.75rem;
-    color: rgba(255, 255, 255, 0.88);
-    max-width: 28rem;
-  }
-  .pharmacy-footer-cta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .pharmacy-footer-btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    border-radius: 0.75rem;
-    background: #ffffff;
-    color: #077D89;
-    padding: 0.625rem 1rem;
-    font-size: 0.875rem;
-    font-weight: 700;
-    box-shadow: 0 10px 15px -3px rgba(11, 178, 196, 0.2);
-    transition: all 0.2s;
-    text-decoration: none;
-  }
-  .pharmacy-footer-btn-primary:hover {
-    transform: translateY(-2px);
-    background: #f8fafc;
-  }
-  .pharmacy-footer-btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 0.75rem;
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.88);
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.2s;
-    text-decoration: none;
-  }
-  .pharmacy-footer-btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-  }
-  .pharmacy-footer-section-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #D4F4F7;
-    margin-bottom: 1rem;
-  }
-  .pharmacy-footer-links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    font-size: 0.875rem;
-  }
-  .pharmacy-footer-links-col {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .pharmacy-footer-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    color: rgba(255, 255, 255, 0.88);
-    transition: all 0.2s;
-    text-decoration: none;
-  }
-  .pharmacy-footer-link:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-  .pharmacy-footer-link-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 9999px;
-    background: rgba(224, 242, 254, 0.6);
-  }
-  .pharmacy-footer-link:hover .pharmacy-footer-link-dot {
-    background: #bae6fd;
-  }
-  .pharmacy-footer-support {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .pharmacy-footer-contact-card {
-    border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .pharmacy-footer-contact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: rgba(255, 255, 255, 0.88);
-    margin-top: 0.75rem;
-  }
-  .pharmacy-footer-contact-item:first-child {
-    margin-top: 0;
-  }
-  .pharmacy-footer-contact-icon {
-    display: flex;
-    width: 2.5rem;
-    height: 2.5rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    flex-shrink: 0;
-  }
-  .pharmacy-footer-contact-label {
-    font-size: 0.75rem;
-    color: rgba(233, 213, 255, 0.7);
-  }
-  .pharmacy-footer-contact-value {
-    font-size: 0.875rem;
-    font-weight: 600;
-  }
-  .pharmacy-footer-social {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: rgba(233, 213, 255, 0.8);
-  }
-  .pharmacy-footer-social-link {
-    display: flex;
-    width: 2.5rem;
-    height: 2.5rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.2s;
-  }
-  .pharmacy-footer-social-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  .pharmacy-footer-social-text {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: rgba(233, 213, 255, 0.7);
-  }
-  .pharmacy-footer-badges {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .pharmacy-footer-badges-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
-    border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .pharmacy-footer-badge-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.75rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem;
-  }
-  .pharmacy-footer-badge-item img {
-    height: 4rem;
-    width: auto;
-    object-fit: contain;
-  }
-  .pharmacy-footer-badge-text {
-    font-size: 0.75rem;
-    line-height: 1.5rem;
-    color: rgba(233, 213, 255, 0.7);
-  }
-  .pharmacy-footer-bottom {
-    position: relative;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1rem 0;
-  }
-  .pharmacy-footer-copyright {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    font-size: 0.75rem;
-    color: rgba(233, 213, 255, 0.7);
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    align-items: center;
-    justify-content: center;
-  }
-  @media (min-width: 768px) {
-    .pharmacy-footer-copyright {
-      font-size: 0.875rem;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .pharmacy-footer-copyright p { margin: 0; }
-    .pharmacy-footer-copyright .footer-left { text-align: left; }
-    .pharmacy-footer-copyright .footer-right { text-align: right; }
-  }
-</style>
 
 <footer class="pharmacy-footer">
   <div class="pharmacy-footer-glow">
@@ -312,12 +10,11 @@
 
   <div class="pharmacy-footer-content">
     <div class="pharmacy-footer-grid">
-      <!-- برند و توضیحات -->
       <div class="pharmacy-footer-brand">
         <div class="pharmacy-footer-logo">
           <img src="{% static 'images/footer-logo.png' %}" alt="{{ site_settings.site_name|default:'داروخانه دکتر واعظی' }}" />
         </div>
-        <p style="font-size:0.85rem; color:rgba(255,255,255,0.88); margin:6px 0 0 0;">با مدیریت امین پرنگ</p>
+        <p class="pharmacy-footer-manager">با مدیریت امین پرنگ</p>
         <p class="pharmacy-footer-desc">{{ site_settings.description|default:"انتخابی مطمئن برای دارو و محصولات بهداشتی با ارسال سریع، بسته‌بندی ایمن و پشتیبانی همراه." }}</p>
         <div class="pharmacy-footer-cta">
           <a href="{% url 'catalog:shop' %}" class="pharmacy-footer-btn-primary">
@@ -328,7 +25,6 @@
         </div>
       </div>
 
-      <!-- دسترسی سریع -->
       <div>
         <h3 class="pharmacy-footer-section-title">دسترسی سریع</h3>
         <div class="pharmacy-footer-links">
@@ -371,7 +67,6 @@
         </div>
       </div>
 
-      <!-- پشتیبانی و تماس -->
       <div class="pharmacy-footer-support">
         <h3 class="pharmacy-footer-section-title">پشتیبانی</h3>
         <div class="pharmacy-footer-contact-card">
@@ -400,20 +95,19 @@
 
         <div class="pharmacy-footer-social">
           {% if site_settings.telegram %}
-          <a href="{{ site_settings.telegram }}" target="_blank" class="pharmacy-footer-social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #D4F4F7;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/></svg>
+          <a href="{{ site_settings.telegram }}" target="_blank" rel="noopener noreferrer" class="pharmacy-footer-social-link" aria-label="تلگرام">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/></svg>
           </a>
           {% endif %}
           {% if site_settings.instagram %}
-          <a href="{{ site_settings.instagram }}" target="_blank" class="pharmacy-footer-social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #D4F4F7;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M16.5 7.5v.01"/></svg>
+          <a href="{{ site_settings.instagram }}" target="_blank" rel="noopener noreferrer" class="pharmacy-footer-social-link" aria-label="اینستاگرام">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M16.5 7.5v.01"/></svg>
           </a>
           {% endif %}
           <span class="pharmacy-footer-social-text">همراه ما باشید</span>
         </div>
       </div>
 
-      <!-- نمادها -->
       <div class="pharmacy-footer-badges">
         <h3 class="pharmacy-footer-section-title">اعتماد و مجوزها</h3>
         <div class="pharmacy-footer-badges-grid">
@@ -434,11 +128,11 @@
 
   <div class="pharmacy-footer-bottom">
     <div class="pharmacy-footer-copyright">
-      <p class="footer-left" style="font-size:0.95rem; margin:0;">
+      <p class="footer-left">
         تمامی حقوق این سایت متعلق به {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }} است.
       </p>
-      <p class="footer-right" style="font-size:0.95rem; margin:0;">
-        طراحی و توسعه توسط <a href="https://sepehrnova.ir/fa/" target="_blank" rel="noopener noreferrer" style="color:#D4F4F7; text-decoration:underline;">تیم سپهرنوا</a>
+      <p class="footer-right">
+        طراحی و توسعه توسط <a href="https://sepehrnova.ir/fa/" target="_blank" rel="noopener noreferrer">تیم سپهرنوا</a>
       </p>
     </div>
   </div>
