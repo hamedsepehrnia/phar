@@ -7,278 +7,230 @@
 {% block content %}
 <main class="flex-1 bg-gradient-to-b from-white via-white to-slate-50 pb-20">
   <!-- Hero / Slider -->
-  <section class="pt-6 lg:pt-10">
+  <section class="pt-6 lg:pt-8">
     <div class="container mx-auto px-4 max-w-6xl">
       {% if sliders %}
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50 via-white to-rose-50 shadow-2xl ring-1 ring-primary-100/70">
-        <div class="absolute inset-0 opacity-60" style="background-image: radial-gradient(circle at 12% 20%, rgba(186,126,253,0.25), transparent 35%), radial-gradient(circle at 82% 12%, rgba(244,114,182,0.22), transparent 28%), radial-gradient(circle at 50% 75%, rgba(125,211,252,0.18), transparent 30%);"></div>
-        <!-- Full-hero shape overlay (distributed shapes) -->
-        <div class="hero-shape-overlay pointer-events-none" aria-hidden="true">
-          <div class="shape pill s1"></div>
-          <div class="shape pill s2"></div>
-          <div class="shape pill s3"></div>
-          <div class="shape capsule c1"></div>
-          <div class="shape capsule c2"></div>
-        
-          <div class="shape bandage bd1"></div>
-          <div class="shape blister bl1"></div>
-        
-        
-        </div>
-        <div class="relative grid items-center gap-8 p-6 md:p-10 lg:p-12 lg:grid-cols-5">
-          <div class="space-y-4 lg:col-span-2">
-            <div class="inline-flex items-center gap-2 rounded-full bg-primary-100/80 px-3 py-1 text-[11px] font-semibold text-primary-800 shadow-sm ring-1 ring-primary-200">تجربه خرید مطمئن و سریع</div>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
-              با {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}
-              <span class="text-primary-800">هر روز سلامت‌تر</span>
-            </h1>
-            <p class="text-xs text-gray-500">انتخابی مطمئن برای دارو و محصولات بهداشتی با ارسال سریع، بسته‌بندی ایمن و پشتیبانی همراه.</p>
-            <p class="text-sm md:text-base text-gray-700 max-w-xl">انتخابی مطمئن برای دارو و محصولات بهداشتی با ارسال سریع، بسته‌بندی ایمن و پشتیبانی همراه.</p>
-            <div class="flex flex-col sm:flex-row w-full items-stretch sm:items-center gap-3 pt-2">
-              <a href="{% url 'catalog:shop' %}" class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-200 transition hover:-translate-y-0.5 hover:bg-primary-800 w-full sm:w-auto">
-                شروع خرید
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 18l6-6"/><path d="M13 6l6 6"/></svg>
-              </a>
-              <a href="#new-products" class="inline-flex items-center gap-2 rounded-xl bg-white/70 px-4 py-2 text-sm font-semibold text-primary-800 shadow-sm ring-1 ring-primary-100 backdrop-blur transition hover:bg-white w-full sm:w-auto justify-center">
-                جدیدترین‌ها
-                <span class="h-6 w-6 rounded-full bg-primary-100 text-center text-[11px] font-bold leading-6 text-primary-800">جدید</span>
+      <div class="relative overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-gray-100/80">
+        <div class="home-hero-slider" id="heroSlider">
+          <div class="home-hero-slider__track">
+            {% for slider in sliders %}
+            <div class="home-hero-slider__slide {% if forloop.first %}is-active{% endif %}">
+              <a href="{{ slider.link|default:'#' }}" class="block h-full">
+                {% if slider.image %}
+                <img src="{{ slider.image.url }}" alt="{{ slider.title }}"
+                     loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                     fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}"
+                     decoding="async"
+                     class="home-hero-slider__img" />
+                {% else %}
+                <div class="home-hero-slider__placeholder">
+                  <span class="text-base font-semibold text-primary-800">{{ slider.title|default:'اسلاید' }}</span>
+                </div>
+                {% endif %}
               </a>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-gray-700 sm:text-sm">
-              <div class="flex items-center gap-2 rounded-xl bg-white/70 px-3 py-2 shadow-sm ring-1 ring-primary-100 backdrop-blur">
-                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary-100 text-primary-800">✓</span>
-                ارسال اکسپرس و بسته‌بندی ایمن
-              </div>
-              <div class="flex items-center gap-2 rounded-xl bg-white/70 px-3 py-2 shadow-sm ring-1 ring-primary-100 backdrop-blur">
-                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">★</span>
-                مشاوره رایگان دارویی و بهداشتی
-              </div>
-            </div>
+            {% endfor %}
           </div>
 
-          <div class="lg:col-span-3">
-            <div class="relative rounded-2xl bg-white/70 p-3 sm:p-4 shadow-xl ring-1 ring-primary-100 backdrop-blur">
-              <div class="absolute -left-10 -top-10 h-28 w-28 rounded-full bg-primary-200/30 blur-3xl"></div>
-              <div class="absolute -right-14 bottom-6 h-32 w-32 rounded-full bg-rose-200/30 blur-3xl"></div>
-              <!-- 3D shapes scene overlay for slider hero -->
-              <div class="absolute inset-0 pointer-events-none">
-                <div class="w-full h-full flex items-center justify-center">
-                  <div class="medical-3d-scene" aria-hidden="true">
-                    <div class="pill-container">
-                      <div class="pill pill-1"></div>
-                      <div class="pill pill-2"></div>
-                      <div class="pill pill-3"></div>
-                      <div class="pill pill-4"></div>
-                    </div>
-
-                    <div class="capsule capsule-1"></div>
-                    <div class="capsule capsule-2"></div>
-
-                    <div class="band-aid"></div>
-                    <div class="thermometer"></div>
-                    <div class="blister"></div>
-                    <div class="medical-cross">
-                      <div class="cross-h"></div>
-                      <div class="cross-v"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="custom-slider" id="heroSlider">
-                <div class="slider-container">
-                  {% for slider in sliders %}
-                  <div class="slide {% if forloop.first %}active{% endif %}">
-                    <a href="{{ slider.link|default:'#' }}" class="block">
-                      {% if slider.image %}
-                      <img src="{{ slider.image.url }}" alt="{{ slider.title }}" 
-                           loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" 
-                           fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}"
-                           decoding="async"
-                           class="w-full h-64 md:h-80 lg:h-[21rem] object-cover rounded-xl" />
-                      {% else %}
-                      <div class="flex h-64 w-full items-center justify-center rounded-xl bg-gradient-to-r from-primary-100 via-white to-rose-100 text-primary-800 ring-1 ring-primary-200">
-                        <div class="text-center">
-                          <span class="text-base font-semibold">تصویر در دسترس نیست</span>
-                          <div class="text-xs opacity-80">{{ slider.title|default:'اسلاید' }}</div>
-                        </div>
-                      </div>
-                      {% endif %}
-                    </a>
-                  </div>
-                  {% endfor %}
-                </div>
-
-                <button class="slider-btn prev-btn" onclick="changeSlide(-1)">
-                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-                <button class="slider-btn next-btn" onclick="changeSlide(1)">
-                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-
-                <div class="slider-dots">
-                  {% for slider in sliders %}
-                  <button class="dot {% if forloop.first %}active{% endif %}" onclick="currentSlide({{ forloop.counter }})"></button>
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
+          {% if sliders|length > 1 %}
+          <button type="button" class="home-hero-slider__btn home-hero-slider__btn--prev" onclick="changeSlide(-1)" aria-label="اسلاید قبلی">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          <button type="button" class="home-hero-slider__btn home-hero-slider__btn--next" onclick="changeSlide(1)" aria-label="اسلاید بعدی">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div class="home-hero-slider__dots">
+            {% for slider in sliders %}
+            <button type="button" class="home-hero-slider__dot {% if forloop.first %}is-active{% endif %}" onclick="currentSlide({{ forloop.counter }})" aria-label="اسلاید {{ forloop.counter }}"></button>
+            {% endfor %}
           </div>
+          {% endif %}
         </div>
       </div>
 
+      {% elif banners_top %}
+      <div class="relative overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-gray-100/80">
+        <div class="home-hero-slider" id="heroSlider">
+          <div class="home-hero-slider__track">
+            {% for banner in banners_top %}
+            <div class="home-hero-slider__slide {% if forloop.first %}is-active{% endif %}">
+              <a href="{{ banner.link|default:'#' }}" class="block h-full">
+                <img src="{{ banner.image.url }}" alt="{{ banner.title }}"
+                     loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                     decoding="async"
+                     class="home-hero-slider__img" />
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+
+          {% if banners_top|length > 1 %}
+          <button type="button" class="home-hero-slider__btn home-hero-slider__btn--prev" onclick="changeSlide(-1)" aria-label="اسلاید قبلی">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          <button type="button" class="home-hero-slider__btn home-hero-slider__btn--next" onclick="changeSlide(1)" aria-label="اسلاید بعدی">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div class="home-hero-slider__dots">
+            {% for banner in banners_top %}
+            <button type="button" class="home-hero-slider__dot {% if forloop.first %}is-active{% endif %}" onclick="currentSlide({{ forloop.counter }})" aria-label="اسلاید {{ forloop.counter }}"></button>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      {% else %}
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-teal-50 via-white to-cyan-50 shadow-lg ring-1 ring-teal-100/60">
+        <div class="px-6 py-14 md:px-12 md:py-20 text-center">
+          <h1 class="text-2xl md:text-4xl font-bold text-gray-900 mb-3">
+            {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}
+          </h1>
+          <p class="text-sm md:text-base text-gray-600 max-w-lg mx-auto mb-8">
+            انتخابی مطمئن برای دارو و محصولات بهداشتی با ارسال سریع و بسته‌بندی ایمن
+          </p>
+          <a href="{% url 'catalog:shop' %}" class="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-teal-800">
+            مشاهده محصولات
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 18l6-6"/><path d="M13 6l6 6"/></svg>
+          </a>
+        </div>
+      </div>
+      {% endif %}
+
+      {% comment %}
+      ——— Hero قدیمی (hero-shape-overlay + medical-3d-scene + pill/capsule CSS) ———
+      {% endcomment %}
+
+      {% if sliders or banners_top %}
       <style>
-        .custom-slider {
+        .home-hero-slider {
           position: relative;
           width: 100%;
-          height: 260px;
+          aspect-ratio: 21 / 8;
+          min-height: 220px;
+          max-height: 480px;
         }
-
-        @media (min-width: 768px) {
-          .custom-slider {
-            height: 320px;
+        @media (max-width: 768px) {
+          .home-hero-slider {
+            aspect-ratio: 16 / 10;
+            min-height: 200px;
+            max-height: 320px;
           }
         }
-
-        @media (min-width: 1024px) {
-          .custom-slider {
-            height: 360px;
-          }
-        }
-
-        .slider-container {
+        .home-hero-slider__track {
           position: relative;
           width: 100%;
           height: 100%;
           overflow: hidden;
-          border-radius: 16px;
         }
-
-        .slide {
+        .home-hero-slider__slide {
           position: absolute;
           inset: 0;
           opacity: 0;
-          transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-          transform: translateX(100%);
+          transition: opacity 0.6s ease;
+          pointer-events: none;
         }
-
-        .slide.active {
+        .home-hero-slider__slide.is-active {
           opacity: 1;
-          transform: translateX(0);
+          pointer-events: auto;
         }
-
-        .slide.prev {
-          transform: translateX(-100%);
+        .home-hero-slider__img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
         }
-
-        .slider-btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background: rgba(169, 84, 252, 0.14);
-          border: 1px solid rgba(169, 84, 252, 0.35);
-          border-radius: 999px;
-          width: 40px;
-          height: 40px;
+        .home-hero-slider__placeholder {
           display: flex;
           align-items: center;
           justify-content: center;
-          cursor: pointer;
-          z-index: 10;
-          color: #6b21a8;
-          transition: all 0.25s ease;
-          backdrop-filter: blur(6px);
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 100%);
         }
-
-        .slider-btn:hover {
-          background: rgba(169, 84, 252, 0.22);
-          transform: translateY(-50%) scale(1.05);
-          box-shadow: 0 10px 30px rgba(169, 84, 252, 0.18);
-        }
-
-        .slider-btn svg {
-          width: 18px;
-          height: 18px;
-        }
-
-        .prev-btn {
-          right: 14px;
-        }
-
-        .next-btn {
-          left: 14px;
-        }
-
-        .slider-dots {
+        .home-hero-slider__btn {
           position: absolute;
-          bottom: 18px;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          border: none;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.92);
+          color: #0f766e;
+          cursor: pointer;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .home-hero-slider__btn:hover {
+          transform: translateY(-50%) scale(1.05);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+        }
+        .home-hero-slider__btn--prev { right: 16px; }
+        .home-hero-slider__btn--next { left: 16px; }
+        .home-hero-slider__dots {
+          position: absolute;
+          bottom: 16px;
           left: 50%;
           transform: translateX(-50%);
+          z-index: 10;
           display: flex;
           gap: 8px;
-          z-index: 10;
-          padding: 6px 10px;
-          background: rgba(255, 255, 255, 0.82);
+          padding: 6px 12px;
+          background: rgba(255, 255, 255, 0.9);
           border-radius: 999px;
-          border: 1px solid rgba(169, 84, 252, 0.15);
-          backdrop-filter: blur(6px);
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         }
-
-        .dot {
-          width: 10px;
-          height: 10px;
-          border-radius: 999px;
+        .home-hero-slider__dot {
+          width: 8px;
+          height: 8px;
+          padding: 0;
           border: none;
-          background: #e0f2fe;
+          border-radius: 50%;
+          background: #cbd5e1;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: all 0.25s ease;
         }
-
-        .dot.active,
-        .dot:hover {
-          background: #0ea5e9;
+        .home-hero-slider__dot.is-active,
+        .home-hero-slider__dot:hover {
+          background: #0d9488;
           width: 24px;
+          border-radius: 999px;
         }
-
-        @media (max-width: 768px) {
-          .slider-btn {
-            display: none;
-          }
-
-          .slider-dots {
-            bottom: 12px;
-          }
+        @media (max-width: 640px) {
+          .home-hero-slider__btn { display: none; }
         }
       </style>
 
       <script>
         let currentSlideIndex = 0;
-        const slides = document.querySelectorAll('#heroSlider .slide');
-        const dots = document.querySelectorAll('#heroSlider .dot');
+        const slides = document.querySelectorAll('#heroSlider .home-hero-slider__slide');
+        const dots = document.querySelectorAll('#heroSlider .home-hero-slider__dot');
         let slideInterval;
 
         function showSlide(index) {
-          slides.forEach((slide, i) => {
-            slide.classList.remove('active', 'prev');
-            if (i === index) {
-              slide.classList.add('active');
-            } else if (i === index - 1 || (index === 0 && i === slides.length - 1)) {
-              slide.classList.add('prev');
-            }
-          });
-
-          dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-          });
-
+          slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+          dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
           currentSlideIndex = index;
         }
 
         function changeSlide(direction) {
-          const newIndex = direction === 1 ? (currentSlideIndex + 1) % slides.length : currentSlideIndex === 0 ? slides.length - 1 : currentSlideIndex - 1;
+          if (!slides.length) return;
+          const newIndex = direction === 1
+            ? (currentSlideIndex + 1) % slides.length
+            : currentSlideIndex === 0 ? slides.length - 1 : currentSlideIndex - 1;
           showSlide(newIndex);
           resetAutoplay();
         }
@@ -288,12 +240,8 @@
           resetAutoplay();
         }
 
-        function autoSlide() {
-          changeSlide(1);
-        }
-
         function startAutoplay() {
-          slideInterval = setInterval(autoSlide, 6000);
+          if (slides.length > 1) slideInterval = setInterval(() => changeSlide(1), 6000);
         }
 
         function resetAutoplay() {
@@ -304,92 +252,19 @@
         if (slides.length > 0) {
           showSlide(0);
           startAutoplay();
-
           const slider = document.getElementById('heroSlider');
-          slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
-          slider.addEventListener('mouseleave', startAutoplay);
+          if (slider) {
+            slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            slider.addEventListener('mouseleave', startAutoplay);
+          }
         }
       </script>
-
-      {% else %}
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50 via-white to-rose-50 text-gray-900 shadow-2xl ring-1 ring-primary-100/80">
-        <div class="absolute inset-0 opacity-70" style="background-image: radial-gradient(circle at 18% 22%, rgba(186,126,253,0.25), transparent 30%), radial-gradient(circle at 82% 10%, rgba(236,72,153,0.2), transparent 26%), radial-gradient(circle at 60% 70%, rgba(16,185,129,0.12), transparent 24%);"></div>
-        <!-- Full-hero shape overlay (distributed shapes) -->
-        <div class="hero-shape-overlay pointer-events-none" aria-hidden="true">
-          <div class="shape pill s1"></div>
-          <div class="shape pill s2"></div>
-          <div class="shape pill s3"></div>
-          <div class="shape pill s4"></div>
-          <!-- mobile-only pill in top-right -->
-          <div class="shape pill mobile-top-right" aria-hidden="true"></div>
-          <div class="shape capsule c1"></div>
-
-          <div class="shape bandage bd1"></div>
-          <div class="shape blister bl1"></div>
-          <div class="shape box bx1"></div>
-        </div>
-        <!-- Centered hero text overlay (does not move shapes) -->
-        <div class="hero-text-overlay" role="region" aria-label="Hero">
-          <div class="hero-text">
-            <h1 class="hero-title">داروخانه دکتر واعظی</h1>
-            
-              <p class="hero-sub">سلامتی شما، اولویت ماست</p>
-
-            <div class="hero-cta-wrapper">
-              <a href="#new-products" class="hero-cta" role="button" aria-label="آخرین محصولات ما">آخرین محصولات ما</a>
-            </div>
-          </div>
-        </div>
-        <div class="relative grid items-center gap-8 px-6 py-12 md:px-12 lg:px-16 lg:grid-cols-2">
-          {% comment %} HERO TEXT & BUTTONS (temporarily commented out)
-          <div class="space-y-4">
-            <div class="inline-flex items-center gap-2 rounded-full bg-primary-100/90 px-3 py-1 text-[10px] font-semibold text-primary-900 shadow-sm ring-1 ring-primary-200">به‌روزترین محصولات دارویی و بهداشتی</div>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">به {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }} خوش آمدید</h1>
-            <p class="text-sm md:text-base text-gray-700 max-w-xl">منتخب برندهای معتبر دارویی و بهداشتی با تضمین اصالت، ارسال سریع و مشاوره تخصصی آنلاین.</p>
-            <div class="flex flex-col sm:flex-row w-full items-stretch sm:items-center gap-3 pt-1">
-              <a href="{% url 'catalog:shop' %}" class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary-800 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-200 transition hover:-translate-y-0.5 hover:bg-primary-900 w-full sm:w-auto">مشاهده محصولات</a>
-              <a href="#new-products" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white/80 px-4 py-2 text-sm font-semibold text-primary-800 shadow-sm ring-1 ring-primary-100 backdrop-blur transition hover:bg-white w-full sm:w-auto">جدیدترین‌ها</a>
-            </div>
-          </div>
-          {% endcomment %}
-          <div class="hidden lg:flex justify-end">
-            <div class="relative w-full max-w-md">
-              <div class="absolute -inset-6 rounded-full bg-primary-200/40 blur-3xl"></div>
-              <div class="relative w-full h-80 flex items-center justify-center">
-                <!-- 3D Medical Illustration using CSS -->
-                <div class="medical-3d-scene">
-                  <!-- Pills Container -->
-                  <div class="pill-container">
-                    <div class="pill pill-1"></div>
-                    <div class="pill pill-2"></div>
-                    <div class="pill pill-3"></div>
-                  </div>
-                  <!-- Medicine Bottle -->
-                  <div class="medicine-bottle">
-                    <div class="bottle-cap"></div>
-                    <div class="bottle-body"></div>
-                    <div class="bottle-label">+</div>
-                  </div>
-                  <!-- Capsules -->
-                  <div class="capsule capsule-1"></div>
-                  <div class="capsule capsule-2"></div>
-                  <!-- Medical Cross -->
-                  <div class="medical-cross">
-                    <div class="cross-h"></div>
-                    <div class="cross-v"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       {% endif %}
     </div>
   </section>
 
   <!-- Quick stats & trust badges -->
-  <section class="pb-6" style="margin-top: 3rem;">
+  <section class="pb-6 pt-8">
     <div class="container mx-auto px-4">
       <div class="rounded-3xl bg-gradient-to-r from-primary-50 via-white to-emerald-50 p-1 ring-1 ring-primary-100/60 shadow-sm">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 rounded-[22px] bg-white/70 p-3 backdrop-blur md:grid-cols-4">
