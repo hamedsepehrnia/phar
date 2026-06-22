@@ -2,6 +2,7 @@
 Admin برای اپ core
 """
 from django.contrib import admin
+from django.shortcuts import redirect
 from django.utils.html import format_html
 from config.admin import custom_admin_site
 from .models import SiteSettings, Slider, Banner, Page, ContactMessage, FAQ
@@ -10,36 +11,73 @@ from .models import SiteSettings, Slider, Banner, Page, ContactMessage, FAQ
 @admin.register(SiteSettings, site=custom_admin_site)
 class SiteSettingsAdmin(admin.ModelAdmin):
     """تنظیمات سایت"""
-    
-    fieldsets = (
-        ('اطلاعات کلی', {
-            'fields': ('site_name', 'site_description', 'logo', 'favicon')
-        }),
-        ('اطلاعات تماس', {
-            'fields': ('phone', 'phone_2', 'email', 'address')
-        }),
-        ('درباره ما', {
-            'fields': ('about_short', 'about_content'),
-            'description': 'اگر خالی باشد، متن پیش‌فرض سایت نمایش داده می‌شود.',
-        }),
-        ('شبکه‌های اجتماعی', {
-            'fields': ('instagram', 'telegram', 'whatsapp')
-        }),
-        ('نقشه و موقعیت', {
-            'fields': ('map_latitude', 'map_longitude', 'map_zoom')
-        }),
-        ('فوتر', {
-            'fields': ('footer_text', 'copyright_text')
-        }),
-        ('سئو', {
-            'fields': ('meta_title', 'meta_description', 'meta_keywords'),
-            'classes': ('collapse',)
-        }),
-    )
-    
+
+    def _db_columns(self):
+        try:
+            from django.db import connection
+            table = SiteSettings._meta.db_table
+            with connection.cursor() as cursor:
+                return {
+                    col.name
+                    for col in connection.introspection.get_table_description(cursor, table)
+                }
+        except Exception:
+            return {f.name for f in SiteSettings._meta.get_fields() if hasattr(f, 'column')}
+
+    def _fields_if_exist(self, *names):
+        columns = self._db_columns()
+        return [name for name in names if name in columns]
+
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = [
+            ('اطلاعات کلی', {
+                'fields': self._fields_if_exist('site_name', 'site_description', 'logo', 'favicon'),
+            }),
+            ('اطلاعات تماس', {
+                'fields': self._fields_if_exist('phone', 'phone_2', 'email', 'address'),
+            }),
+        ]
+        about_fields = self._fields_if_exist('about_short', 'about_content')
+        if about_fields:
+            fieldsets.append((
+                'درباره ما',
+                {
+                    'fields': about_fields,
+                    'description': 'اگر خالی باشد، متن پیش‌فرض سایت نمایش داده می‌شود.',
+                },
+            ))
+        social_fields = self._fields_if_exist('instagram', 'telegram', 'whatsapp')
+        if social_fields:
+            fieldsets.append(('شبکه‌های اجتماعی', {'fields': social_fields}))
+        map_fields = self._fields_if_exist('map_latitude', 'map_longitude', 'map_zoom')
+        if map_fields:
+            fieldsets.append(('نقشه و موقعیت', {'fields': map_fields}))
+        footer_fields = self._fields_if_exist('footer_text', 'copyright_text')
+        if footer_fields:
+            fieldsets.append(('فوتر', {'fields': footer_fields}))
+        seo_fields = self._fields_if_exist('meta_title', 'meta_description', 'meta_keywords')
+        if seo_fields:
+            fieldsets.append((
+                'سئو',
+                {'fields': seo_fields, 'classes': ('collapse',)},
+            ))
+        return [fs for fs in fieldsets if fs[1]['fields']]
+
+    def changelist_view(self, request, extra_context=None):
+        try:
+            obj, _created = SiteSettings.objects.get_or_create(
+                pk=1,
+                defaults={'site_name': 'داروخانه دکتر واعظی'},
+            )
+            return redirect(f'{self.admin_site.name}:core_sitesettings_change', obj.pk)
+        except Exception:
+            return super().changelist_view(request, extra_context)
+
     def has_add_permission(self, request):
-        # فقط یک رکورد مجاز است
-        return not SiteSettings.objects.exists()
+        try:
+            return not SiteSettings.objects.exists()
+        except Exception:
+            return True
     
     def has_delete_permission(self, request, obj=None):
         return False
