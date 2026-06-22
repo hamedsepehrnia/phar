@@ -1,6 +1,7 @@
 """
 ویوهای اپ catalog
 """
+from django.urls import reverse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.views.generic import ListView, DetailView
@@ -209,6 +210,16 @@ class ProductDetailView(View):
         
         # Breadcrumb
         ancestors = product.category.get_ancestors(include_self=True) if product.category else []
+        breadcrumb_items = [
+            {'label': 'خانه', 'url': reverse('core:home')},
+            {'label': 'فروشگاه', 'url': reverse('catalog:shop')},
+        ]
+        if product.category:
+            breadcrumb_items.append({
+                'label': product.category.name,
+                'url': f"{reverse('catalog:shop')}?category={product.category.slug}",
+            })
+        breadcrumb_items.append({'label': product.name, 'url': None})
         
         # محصولات مرتبط
         related_products = product.get_related_products()
@@ -224,6 +235,7 @@ class ProductDetailView(View):
         context = {
             'product': product,
             'ancestors': ancestors,
+            'breadcrumb_items': breadcrumb_items,
             'related_products': related_products,
             'is_in_wishlist': is_in_wishlist,
         }

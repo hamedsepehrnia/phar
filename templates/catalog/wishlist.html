@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load humanize %}
+{% load ui_tags %}
 {% load catalog_tags %}
 
 {% block title %}علاقه‌مندی‌ها - {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }}{% endblock %}
@@ -8,14 +9,7 @@
 {% block content %}
 <main class="flex-1 pb-20 lg:pb-0">
   <div class="container mx-auto px-4 py-6">
-    <!-- Breadcrumb -->
-    <nav class="mb-6">
-      <ol class="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
-        <li><a href="{% url 'core:home' %}" class="hover:text-primary-800">خانه</a></li>
-        <li>/</li>
-        <li class="text-gray-800 font-semibold">علاقه‌مندی‌ها</li>
-      </ol>
-    </nav>
+    {% site_breadcrumb "خانه|core:home" "علاقه‌مندی‌ها" %}
 
     <h1 class="text-2xl font-bold text-gray-800 mb-6">لیست علاقه‌مندی‌ها</h1>
 
@@ -58,21 +52,10 @@
           <!-- دکمه افزودن به سبد خرید -->
           <div>
             {% if item.product.is_in_stock %}
-            <form action="{% url 'cart:add' item.product.id %}" method="POST" class="inline">
+            <form action="{% url 'cart:add' item.product.id %}" method="POST" class="js-add-to-cart-form inline">
               {% csrf_token %}
               <input type="hidden" name="quantity" value="1">
-              <button type="submit"
-                class="bg-primary-800 hover:bg-primary-900 flex items-center justify-center gap-x-2 rounded-lg px-3 py-2 text-xs md:text-sm font-semibold text-white transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                  <path d="M12.5 17h-6.5v-14h-2" />
-                  <path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5" />
-                  <path d="M16 19h6" />
-                  <path d="M19 16v6" />
-                </svg>
-                <span class="hidden sm:inline">افزودن به سبد</span>
-              </button>
+              {% include 'partials/add_to_cart_btn.html' with style='compact' label='افزودن به سبد' %}
             </form>
             {% else %}
             <span class="text-sm text-red-500 font-semibold">ناموجود</span>

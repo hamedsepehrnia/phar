@@ -60,14 +60,10 @@
                     </div>
                     
                     {% if item.product.is_in_stock %}
-                    <form action="{% url 'cart:add' item.product.id %}" method="POST">
+                    <form action="{% url 'cart:add' item.product.id %}" method="POST" class="js-add-to-cart-form">
                       {% csrf_token %}
                       <input type="hidden" name="quantity" value="1">
-                      <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white p-2 rounded-lg transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M12.5 17h-6.5v-14h-2" /><path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5" /><path d="M16 19h6" /><path d="M19 16v6" />
-                        </svg>
-                      </button>
+                      {% include 'partials/add_to_cart_btn.html' with style='icon' %}
                     </form>
                     {% else %}
                     <span class="text-xs text-red-600">ناموجود</span>

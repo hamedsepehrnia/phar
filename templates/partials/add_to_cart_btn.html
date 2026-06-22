@@ -1,0 +1,10 @@
+<button
+  type="submit"
+  class="site-btn-primary{% if style == 'icon' %} site-btn-primary--icon{% elif style == 'compact' %} site-btn-primary--compact{% else %} site-btn-primary--full{% endif %}"
+  aria-label="افزودن به سبد خرید"
+  title="افزودن به سبد خرید">
+  {% include 'partials/icon_cart.svg' %}
+  {% if style != 'icon' %}
+  <span class="site-btn-primary__label">{% if label %}{{ label }}{% else %}افزودن به سبد خرید{% endif %}</span>
+  {% endif %}
+</button>
