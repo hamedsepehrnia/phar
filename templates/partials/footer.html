@@ -3,8 +3,8 @@
   .pharmacy-footer {
     position: relative;
     margin-top: 2.5rem;
-    background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #22d3ee 100%);
-    color: #e0f2fe;
+    background: linear-gradient(135deg, #071419 0%, #077D89 55%, #0BB2C4 100%);
+    color: #FFFFFF;
   }
   .pharmacy-footer-glow {
     position: absolute;
@@ -18,7 +18,7 @@
     width: 12rem;
     height: 12rem;
     border-radius: 9999px;
-    background: rgba(139, 92, 246, 0.4);
+    background: rgba(11, 178, 196, 0.35);
     filter: blur(80px);
   }
   .pharmacy-footer-glow-2 {
@@ -28,7 +28,7 @@
     width: 16rem;
     height: 16rem;
     border-radius: 9999px;
-    background: rgba(109, 40, 217, 0.35);
+    background: rgba(7, 125, 137, 0.4);
     filter: blur(80px);
   }
   .pharmacy-footer-glow-3 {
@@ -39,13 +39,13 @@
     height: 11rem;
     transform: translateX(-50%);
     border-radius: 9999px;
-    background: rgba(217, 70, 239, 0.3);
+    background: rgba(79, 211, 224, 0.25);
     filter: blur(80px);
   }
   .pharmacy-footer-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(107, 33, 168, 0), rgba(107, 33, 168, 0.15), rgba(107, 33, 168, 0.3));
+    background: linear-gradient(to bottom, rgba(7, 20, 25, 0), rgba(7, 125, 137, 0.15), rgba(7, 20, 25, 0.35));
   }
   .pharmacy-footer-content {
     position: relative;
@@ -90,7 +90,7 @@
   .pharmacy-footer-desc {
     font-size: 0.875rem;
     line-height: 1.75rem;
-    color: #e0f2fe;
+    color: rgba(255, 255, 255, 0.88);
     max-width: 28rem;
   }
   .pharmacy-footer-cta {
@@ -106,11 +106,11 @@
     gap: 0.5rem;
     border-radius: 0.75rem;
     background: #ffffff;
-    color: #0284c7;
+    color: #077D89;
     padding: 0.625rem 1rem;
     font-size: 0.875rem;
     font-weight: 700;
-    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.2);
+    box-shadow: 0 10px 15px -3px rgba(11, 178, 196, 0.2);
     transition: all 0.2s;
     text-decoration: none;
   }
@@ -124,7 +124,7 @@
     gap: 0.5rem;
     border-radius: 0.75rem;
     background: rgba(255, 255, 255, 0.1);
-    color: #e0f2fe;
+    color: rgba(255, 255, 255, 0.88);
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
     font-weight: 600;
@@ -138,7 +138,7 @@
   .pharmacy-footer-section-title {
     font-size: 1.125rem;
     font-weight: 600;
-    color: #f0f9ff;
+    color: #D4F4F7;
     margin-bottom: 1rem;
   }
   .pharmacy-footer-links {
@@ -158,7 +158,7 @@
     gap: 0.5rem;
     border-radius: 0.5rem;
     padding: 0.25rem 0.5rem;
-    color: #e0f2fe;
+    color: rgba(255, 255, 255, 0.88);
     transition: all 0.2s;
     text-decoration: none;
   }
@@ -189,7 +189,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: #e0f2fe;
+    color: rgba(255, 255, 255, 0.88);
     margin-top: 0.75rem;
   }
   .pharmacy-footer-contact-item:first-child {
@@ -315,9 +315,9 @@
       <!-- برند و توضیحات -->
       <div class="pharmacy-footer-brand">
         <div class="pharmacy-footer-logo">
-          <img src="{% static 'images/logo.png' %}" alt="{{ site_settings.site_name|default:'داروخانه دکتر واعظی' }}" />
+          <img src="{% static 'images/footer-logo.png' %}" alt="{{ site_settings.site_name|default:'داروخانه دکتر واعظی' }}" />
         </div>
-        <p style="font-size:0.85rem; color:#e0f2fe; margin:6px 0 0 0;">با مدیریت امین پرنگ</p>
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.88); margin:6px 0 0 0;">با مدیریت امین پرنگ</p>
         <p class="pharmacy-footer-desc">{{ site_settings.description|default:"انتخابی مطمئن برای دارو و محصولات بهداشتی با ارسال سریع، بسته‌بندی ایمن و پشتیبانی همراه." }}</p>
         <div class="pharmacy-footer-cta">
           <a href="{% url 'catalog:shop' %}" class="pharmacy-footer-btn-primary">
@@ -401,12 +401,12 @@
         <div class="pharmacy-footer-social">
           {% if site_settings.telegram %}
           <a href="{{ site_settings.telegram }}" target="_blank" class="pharmacy-footer-social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #e0f2fe;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #D4F4F7;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/></svg>
           </a>
           {% endif %}
           {% if site_settings.instagram %}
           <a href="{{ site_settings.instagram }}" target="_blank" class="pharmacy-footer-social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #e0f2fe;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M16.5 7.5v.01"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #D4F4F7;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M16.5 7.5v.01"/></svg>
           </a>
           {% endif %}
           <span class="pharmacy-footer-social-text">همراه ما باشید</span>
@@ -438,7 +438,7 @@
         تمامی حقوق این سایت متعلق به {{ site_settings.site_name|default:"داروخانه دکتر واعظی" }} است.
       </p>
       <p class="footer-right" style="font-size:0.95rem; margin:0;">
-        طراحی و توسعه توسط <a href="https://sepehrnova.ir/fa/" target="_blank" rel="noopener noreferrer" style="color:#f0f9ff; text-decoration:underline;">تیم سپهرنوا</a>
+        طراحی و توسعه توسط <a href="https://sepehrnova.ir/fa/" target="_blank" rel="noopener noreferrer" style="color:#D4F4F7; text-decoration:underline;">تیم سپهرنوا</a>
       </p>
     </div>
   </div>
