@@ -1,9 +1,11 @@
 <button
   type="submit"
-  class="site-btn-primary{% if style == 'icon' %} site-btn-primary--icon{% elif style == 'compact' %} site-btn-primary--compact{% elif style == 'detail' %} site-btn-primary--detail{% else %} site-btn-primary--full{% endif %}"
+  class="site-btn-primary{% if style == 'icon' %} site-btn-primary--icon{% elif style == 'compact' %} site-btn-primary--compact{% elif style == 'detail' %} site-btn-primary--detail{% elif style == 'text' %} site-btn-primary--detail{% else %} site-btn-primary--full{% endif %}"
   aria-label="افزودن به سبد خرید"
   title="افزودن به سبد خرید">
+  {% if style == 'icon' or style == 'compact' %}
   {% include 'partials/icon_cart.svg' %}
+  {% endif %}
   {% if style != 'icon' %}
   <span class="site-btn-primary__label">{% if label %}{{ label }}{% else %}افزودن به سبد خرید{% endif %}</span>
   {% endif %}

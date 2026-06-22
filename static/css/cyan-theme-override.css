@@ -938,10 +938,21 @@ a.bg-primary-800[disabled], button.bg-primary-800[disabled] {
 
 .site-btn-primary--detail {
     width: auto !important;
+    max-width: max-content !important;
     flex: 0 0 auto !important;
+    align-self: center !important;
     min-height: 2.5rem !important;
-    padding: 0.625rem 1.125rem !important;
+    height: auto !important;
+    padding: 0.625rem 1.25rem !important;
     white-space: nowrap !important;
+}
+
+.site-btn-primary svg {
+    stroke: #ffffff !important;
+    flex-shrink: 0 !important;
+    width: 1.125rem !important;
+    height: 1.125rem !important;
+    display: block !important;
 }
 
 .site-btn-secondary {
@@ -993,11 +1004,6 @@ a.bg-primary-800[disabled], button.bg-primary-800[disabled] {
     color: #ffffff !important;
     width: 1.125rem !important;
     height: 1.125rem !important;
-}
-
-.site-btn-primary svg {
-    stroke: #ffffff !important;
-    flex-shrink: 0;
 }
 
 .site-btn-primary:hover,
@@ -2371,8 +2377,7 @@ a:focus-visible {
         align-items: stretch;
     }
 
-    .product-actions .qty-stepper,
-    .product-actions .site-btn-primary--detail {
+    .product-actions .qty-stepper {
         width: 100%;
         justify-content: center;
     }
