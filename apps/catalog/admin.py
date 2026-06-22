@@ -150,6 +150,7 @@ class ProductAdmin(admin.ModelAdmin):
         except (TypeError, ValueError):
             return obj.price
     format_price_display.short_description = 'قیمت'
+    format_price_display.admin_order_field = 'price'
 
     list_display = [
         'name', 'sku', 'category', 'brand', 'format_price_display',
@@ -164,7 +165,9 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     raw_id_fields = ['category', 'brand']
     list_editable = ['is_active', 'stock_quantity']
-    date_hierarchy = 'created_at'
+    list_per_page = 50
+    list_max_show_all = 100
+    show_full_result_count = False
     inlines = [ProductImageInline, ProductAttributeValueInline]
     change_list_template = 'admin/catalog/product/change_list.html'
     
@@ -249,7 +252,7 @@ class ProductAdmin(admin.ModelAdmin):
                     request,
                     f'قیمت {count} محصول با {action_text} {percentage}% بروزرسانی شد.'
                 )
-                return redirect('admin:catalog_product_changelist')
+                return redirect(f'{self.admin_site.name}:catalog_product_changelist')
         else:
             form = BulkPriceChangeForm()
         
@@ -263,11 +266,14 @@ class ProductAdmin(admin.ModelAdmin):
     
     def image_preview(self, obj):
         image = obj.main_image
-        if image:
-            return format_html(
-                '<img src="{}" width="50" height="50" style="object-fit: cover; border-radius: 4px;"/>',
-                image.image.url
-            )
+        if image and image.image:
+            try:
+                return format_html(
+                    '<img src="{}" width="50" height="50" style="object-fit: cover; border-radius: 4px;"/>',
+                    image.image.url
+                )
+            except (ValueError, OSError):
+                return '-'
         return '-'
     image_preview.short_description = 'تصویر'
 

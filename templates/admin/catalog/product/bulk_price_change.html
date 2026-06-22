@@ -5,9 +5,9 @@
 
 {% block breadcrumbs %}
 <div class="breadcrumbs">
-    <a href="{% url 'admin:index' %}">خانه</a>
-    &rsaquo; <a href="{% url 'admin:app_list' app_label='catalog' %}">catalog</a>
-    &rsaquo; <a href="{% url 'admin:catalog_product_changelist' %}">محصولات</a>
+    <a href="{% url 'custom_admin:index' %}">خانه</a>
+    &rsaquo; <a href="{% url 'custom_admin:app_list' app_label='catalog' %}">کاتالوگ</a>
+    &rsaquo; <a href="{% url 'custom_admin:catalog_product_changelist' %}">محصولات</a>
     &rsaquo; {{ title }}
 </div>
 {% endblock %}
