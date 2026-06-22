@@ -1,0 +1,39 @@
+{% load static %}
+{% load catalog_tags %}
+
+<div class="product-card">
+  <a href="{{ product.get_absolute_url }}">
+    {% if product.images.exists %}
+    <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" loading="lazy" decoding="async">
+    {% else %}
+    <img src="{% static 'images/product/placeholder.jpg' %}" alt="{{ product.name }}" loading="lazy" decoding="async">
+    {% endif %}
+  </a>
+  <h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
+  <div class="product-footer">
+    <div class="product-price">
+      {% if product.compare_at_price and product.compare_at_price > product.price %}
+      <span class="old">{{ product.compare_at_price|format_price }}</span>
+      {% endif %}
+      {{ product.price|format_price }} تومان
+    </div>
+    {% if product.is_in_stock %}
+    <form action="{% url 'cart:add' product.id %}" method="POST" class="js-add-to-cart-form" style="margin: 0;">
+      {% csrf_token %}
+      <input type="hidden" name="quantity" value="1">
+      <button type="submit" class="product-btn-icon" aria-label="افزودن به سبد خرید" title="افزودن به سبد خرید">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M4 19a2 2 0 1 0 4 0"/>
+          <path d="M12.5 17h-6.5v-14h-2"/>
+          <path d="M6 5l14 1l-.86 6.017m-2.64 .983h-10.5"/>
+          <path d="M16 19h6"/>
+          <path d="M19 16v6"/>
+        </svg>
+      </button>
+    </form>
+    {% else %}
+    <span class="product-out-of-stock">ناموجود</span>
+    {% endif %}
+  </div>
+</div>

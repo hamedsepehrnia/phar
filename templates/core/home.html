@@ -345,9 +345,9 @@
         <a href="{% url 'catalog:shop' %}?sort=newest" class="text-sm font-semibold text-primary-700 hover:text-primary-800">همه محصولات</a>
       </div>
       {% if new_products %}
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <div class="products-grid">
         {% for product in new_products %}
-          {% include 'partials/card_product.html' with product=product %}
+          {% include 'partials/shop_product_card.html' with product=product %}
         {% endfor %}
       </div>
       {% else %}
@@ -395,9 +395,9 @@
         <a href="{% url 'catalog:shop' %}?sort=popular" class="text-sm font-semibold text-primary-700 hover:text-primary-800">مشاهده همه</a>
       </div>
       {% if popular_products %}
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="products-grid">
         {% for product in popular_products %}
-          {% include 'partials/card_product.html' with product=product %}
+          {% include 'partials/shop_product_card.html' with product=product %}
         {% endfor %}
       </div>
       {% else %}
@@ -421,9 +421,9 @@
         <a href="{% url 'catalog:shop' %}" class="text-sm font-semibold text-primary-700 hover:text-primary-800">مشاهده همه</a>
       </div>
       {% if sale_products %}
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="products-grid">
         {% for product in sale_products %}
-          {% include 'partials/card_product.html' with product=product %}
+          {% include 'partials/shop_product_card.html' with product=product %}
         {% endfor %}
       </div>
       {% else %}
