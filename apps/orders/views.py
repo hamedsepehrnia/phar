@@ -30,7 +30,7 @@ class CheckoutView(LoginRequiredMixin, View):
         
         if not cart or cart.items_count == 0:
             messages.warning(request, 'سبد خرید شما خالی است')
-            return redirect('cart:cart')
+            return redirect('cart:detail')
         
         # بررسی موجودی
         for item in cart.items.select_related('product').all():
@@ -60,16 +60,14 @@ class CheckoutView(LoginRequiredMixin, View):
         
         if not cart or cart.items_count == 0:
             messages.warning(request, 'سبد خرید شما خالی است')
-            return redirect('cart:cart')
+            return redirect('cart:detail')
         
         # دریافت آدرس
         address_id = request.POST.get('address_id')
-        
-        if address_id:
-            # انتخاب آدرس موجود
+
+        if address_id and address_id != 'new':
             address = get_object_or_404(Address, pk=address_id, user=request.user)
         else:
-            # ایجاد آدرس جدید از فرم
             title = request.POST.get('new_address_title', '').strip()
             province = request.POST.get('new_address_province', '').strip()
             city = request.POST.get('new_address_city', '').strip()
@@ -77,13 +75,11 @@ class CheckoutView(LoginRequiredMixin, View):
             postal_code = request.POST.get('new_address_postal_code', '').strip()
             receiver_name = request.POST.get('new_address_receiver_name', '').strip()
             receiver_phone = request.POST.get('new_address_receiver_phone', '').strip()
-            
-            # اعتبارسنجی
+
             if not all([province, city, full_address, postal_code, receiver_name, receiver_phone]):
                 messages.error(request, 'لطفاً تمام فیلدهای آدرس را پر کنید')
                 return redirect('orders:checkout')
-            
-            # ایجاد آدرس جدید
+
             is_first_address = not request.user.addresses.exists()
             address = Address.objects.create(
                 user=request.user,
@@ -94,7 +90,7 @@ class CheckoutView(LoginRequiredMixin, View):
                 postal_code=postal_code,
                 receiver_name=receiver_name,
                 receiver_phone=receiver_phone,
-                is_default=is_first_address  # اولین آدرس به عنوان پیش‌فرض
+                is_default=is_first_address,
             )
         
         # دریافت روش ارسال

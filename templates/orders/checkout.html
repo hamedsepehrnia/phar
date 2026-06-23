@@ -86,20 +86,15 @@
 {% if addresses %}
 انتخاب آدرس
 {% else %}
-ثبت آدرس
+ثبت آدرس تحویل
 {% endif %}
 </h2>
 
-
 {% if addresses %}
-
-<a href="{% url 'dashboard:addresses' %}"
-class="text-sm text-primary-600 hover:text-primary-700 transition-colors">
-
-مدیریت آدرس‌ها
-
-</a>
-
+<button type="button" id="checkout-toggle-new-address"
+class="text-sm text-primary-600 hover:text-primary-700 transition-colors font-semibold">
++ افزودن آدرس جدید
+</button>
 {% endif %}
 
 </div>
@@ -107,9 +102,11 @@ class="text-sm text-primary-600 hover:text-primary-700 transition-colors">
 
 <div class="p-6 space-y-4">
 
+{% if addresses %}
+<div id="checkout-existing-addresses" class="space-y-4">
 {% for address in addresses %}
 
-<label class="flex gap-4 p-4 rounded-xl border transition-all cursor-pointer
+<label class="checkout-address-option flex gap-4 p-4 rounded-xl border transition-all cursor-pointer
 {% if address.is_default %}
 border-primary-500 bg-primary-50
 {% else %}
@@ -120,7 +117,7 @@ border-gray-200 hover:border-primary-400
 name="address_id"
 value="{{ address.id }}"
 {% if address.is_default %}checked{% endif %}
-class="mt-1 text-primary-600 focus:ring-primary-500">
+class="mt-1 text-primary-600 focus:ring-primary-500 checkout-address-radio">
 
 
 <div>
@@ -157,13 +154,75 @@ class="mt-1 text-primary-600 focus:ring-primary-500">
 
 </label>
 
-{% empty %}
-
-<p class="text-sm text-gray-500">
-برای ادامه خرید ابتدا آدرس ثبت کنید
-</p>
-
 {% endfor %}
+</div>
+{% endif %}
+
+<div id="checkout-new-address-panel" class="{% if addresses %}hidden{% endif %}">
+{% if addresses %}
+<label class="flex gap-4 p-4 rounded-xl border border-gray-200 cursor-pointer mb-4 checkout-address-option">
+<input type="radio" name="address_id" value="new" id="checkout-new-address-radio"
+class="mt-1 text-primary-600 focus:ring-primary-500 checkout-address-radio">
+<span class="font-semibold text-gray-800">ارسال به آدرس جدید</span>
+</label>
+{% else %}
+<p class="text-sm text-gray-600 mb-4">
+برای ادامه خرید، آدرس تحویل سفارش را وارد کنید.
+</p>
+{% endif %}
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-gray-700 mb-2">عنوان آدرس</label>
+<input type="text" name="new_address_title" placeholder="مثال: منزل، محل کار"
+class="checkout-address-field w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-600 focus:ring-2 focus:ring-primary-200">
+</div>
+
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">استان <span class="text-red-500">*</span></label>
+<input type="text" name="new_address_province"
+{% if not addresses %}required data-checkout-required{% endif %}
+class="checkout-address-field w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-600 focus:ring-2 focus:ring-primary-200">
+</div>
+
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">شهر <span class="text-red-500">*</span></label>
+<input type="text" name="new_address_city"
+{% if not addresses %}required data-checkout-required{% endif %}
+class="checkout-address-field w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-600 focus:ring-2 focus:ring-primary-200">
+</div>
+
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-gray-700 mb-2">آدرس کامل <span class="text-red-500">*</span></label>
+<textarea name="new_address_full" rows="3"
+{% if not addresses %}required data-checkout-required{% endif %}
+class="checkout-address-field w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-600 focus:ring-2 focus:ring-primary-200 resize-none"></textarea>
+</div>
+
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">کد پستی <span class="text-red-500">*</span></label>
+<input type="text" name="new_address_postal_code" maxlength="10" dir="ltr"
+{% if not addresses %}required data-checkout-required{% endif %}
+class="checkout-address-field w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-600 focus:ring-2 focus:ring-primary-200">
+</div>
+
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">نام گیرنده <span class="text-red-500">*</span></label>
+<input type="text" name="new_address_receiver_name"
+value="{{ user.get_full_name|default:'' }}"
+{% if not addresses %}required data-checkout-required{% endif %}
+class="checkout-address-field w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-600 focus:ring-2 focus:ring-primary-200">
+</div>
+
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-gray-700 mb-2">شماره تماس گیرنده <span class="text-red-500">*</span></label>
+<input type="text" name="new_address_receiver_phone" maxlength="11" dir="ltr"
+value="{{ user.phone|default:'' }}"
+{% if not addresses %}required data-checkout-required{% endif %}
+class="checkout-address-field w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-600 focus:ring-2 focus:ring-primary-200">
+</div>
+</div>
+</div>
 
 </div>
 
@@ -360,4 +419,64 @@ class="block text-center text-sm text-gray-500 hover:text-primary-600 transition
 
 </div>
 </main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleBtn = document.getElementById('checkout-toggle-new-address');
+  const newPanel = document.getElementById('checkout-new-address-panel');
+  const newRadio = document.getElementById('checkout-new-address-radio');
+  const addressRadios = document.querySelectorAll('.checkout-address-radio');
+  const newFields = document.querySelectorAll('.checkout-address-field');
+
+  function setFieldRequired(required) {
+    newFields.forEach((field) => {
+      if (field.name === 'new_address_title') return;
+      if (required) {
+        field.setAttribute('required', 'required');
+      } else {
+        field.removeAttribute('required');
+      }
+    });
+  }
+
+  function setNewAddressMode(active) {
+    if (!newPanel) return;
+    newPanel.classList.toggle('hidden', !active);
+    if (newRadio) {
+      newRadio.checked = active;
+    }
+    if (active) {
+      document.querySelectorAll('.checkout-address-radio').forEach((radio) => {
+        if (radio.value !== 'new') radio.checked = false;
+      });
+      setFieldRequired(true);
+    } else {
+      setFieldRequired(false);
+    }
+  }
+
+  if (toggleBtn && newPanel) {
+    toggleBtn.addEventListener('click', function () {
+      const willShow = newPanel.classList.contains('hidden');
+      setNewAddressMode(willShow);
+    });
+  }
+
+  addressRadios.forEach((radio) => {
+    radio.addEventListener('change', function () {
+      if (radio.value === 'new') {
+        setNewAddressMode(true);
+      } else {
+        setFieldRequired(false);
+      }
+    });
+  });
+
+  if (newPanel && !newPanel.classList.contains('hidden')) {
+    setFieldRequired(true);
+  }
+});
+</script>
 {% endblock %}
