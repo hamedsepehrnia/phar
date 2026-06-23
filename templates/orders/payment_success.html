@@ -8,53 +8,61 @@
 {% block content %}
 <main class="flex-1 pb-20 lg:pb-0">
   <div class="container mx-auto px-4 py-16">
-    <div class="max-w-lg mx-auto text-center">
-      <!-- آیکون موفقیت -->
-      <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-600">
+    <div class="payment-success-page max-w-lg mx-auto text-center">
+      <div class="payment-success-page__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
           <path d="M5 12l5 5l10 -10" />
         </svg>
       </div>
-      
+
       <h1 class="text-2xl font-bold text-gray-800 mb-2">پرداخت با موفقیت انجام شد</h1>
       <p class="text-gray-600 mb-8">سفارش شما با موفقیت ثبت شد و در حال پردازش است</p>
-      
-      <!-- جزئیات سفارش -->
-      <div class="bg-white rounded-xl shadow-md p-6 text-right mb-6">
+
+      <div class="payment-success-page__card text-right mb-6">
         <h2 class="font-bold text-gray-800 mb-4 text-center">جزئیات سفارش</h2>
-        
+
         <div class="space-y-3">
-          <div class="flex items-center justify-between py-2 border-b border-gray-100">
+          <div class="payment-success-page__row">
             <span class="text-gray-600">شماره سفارش</span>
-            <span class="font-semibold text-gray-800">#{{ order.id }}</span>
+            <span class="font-semibold text-gray-800">{{ order.order_number }}</span>
           </div>
-          <div class="flex items-center justify-between py-2 border-b border-gray-100">
-            <span class="text-gray-600">کد پیگیری</span>
-            <span class="font-semibold text-primary-800">{{ order.tracking_code }}</span>
+          <div class="payment-success-page__row">
+            <span class="text-gray-600">کد پیگیری پرداخت</span>
+            <span class="font-semibold text-primary-800" dir="ltr">
+              {% if payment and payment.ref_id %}{{ payment.ref_id }}{% else %}{{ order.order_number }}{% endif %}
+            </span>
           </div>
-          <div class="flex items-center justify-between py-2 border-b border-gray-100">
-            <span class="text-gray-600">تاریخ ثبت</span>
-            <span class="font-semibold text-gray-800">{{ order.created_at|jalali_datetime }}</span>
+          <div class="payment-success-page__row">
+            <span class="text-gray-600">تاریخ پرداخت</span>
+            <span class="font-semibold text-gray-800">
+              {% if order.paid_at %}{{ order.paid_at|jalali_datetime }}{% else %}{{ order.created_at|jalali_datetime }}{% endif %}
+            </span>
           </div>
-          <div class="flex items-center justify-between py-2 border-b border-gray-100">
+          <div class="payment-success-page__row">
             <span class="text-gray-600">مبلغ پرداختی</span>
-            <span class="font-bold text-green-600">{{ order.total_price|intcomma }} تومان</span>
+            <span class="font-bold text-green-600">{{ order.total|intcomma }} تومان</span>
           </div>
-          <div class="flex items-center justify-between py-2">
+          {% if order.tracking_code %}
+          <div class="payment-success-page__row">
+            <span class="text-gray-600">کد رهگیری مرسوله</span>
+            <span class="font-semibold text-gray-800" dir="ltr">{{ order.tracking_code }}</span>
+          </div>
+          {% endif %}
+          <div class="payment-success-page__row payment-success-page__row--last">
             <span class="text-gray-600">وضعیت</span>
-            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">پرداخت شده</span>
+            <span class="payment-success-page__status">پرداخت شده</span>
           </div>
         </div>
       </div>
-      
+
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="{% url 'dashboard:order_detail' order.id %}" 
-           class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+        <a href="{% url 'dashboard:order_detail' order.id %}"
+           class="site-btn-primary payment-success-page__btn">
           مشاهده سفارش
         </a>
-        <a href="{% url 'catalog:shop' %}" 
-           class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-8 py-3 rounded-lg font-semibold transition-colors">
+        <a href="{% url 'catalog:shop' %}"
+           class="payment-success-page__btn-secondary">
           ادامه خرید
         </a>
       </div>

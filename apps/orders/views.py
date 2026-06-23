@@ -290,11 +290,13 @@ class PaymentSuccessView(LoginRequiredMixin, View):
     
     def get(self, request, pk):
         order = get_object_or_404(Order, pk=pk, user=request.user)
-        
+        payment = order.payments.filter(status='success').order_by('-created_at').first()
+
         context = {
             'order': order,
+            'payment': payment,
         }
-        
+
         return render(request, self.template_name, context)
 
 

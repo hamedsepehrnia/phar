@@ -3440,3 +3440,205 @@ a:focus-visible {
         backdrop-filter: blur(2px);
     }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   Payment success page
+   ═══════════════════════════════════════════════════════════ */
+.payment-success-page__icon {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #dcfce7, #f0fdf4);
+    color: #16a34a;
+    box-shadow: 0 12px 30px rgba(22, 163, 74, 0.15);
+}
+
+.payment-success-page__card {
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 18px 40px -18px rgba(7, 20, 25, 0.15);
+}
+
+.payment-success-page__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.payment-success-page__row--last {
+    border-bottom: none;
+}
+
+.payment-success-page__status {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(11, 178, 196, 0.12);
+    color: var(--brand-dark);
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.payment-success-page__btn,
+.payment-success-page__btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.payment-success-page__btn-secondary {
+    background: #f8fafc;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+.payment-success-page__btn-secondary:hover {
+    background: #f0fbfc;
+    color: var(--brand-dark);
+    border-color: rgba(11, 178, 196, 0.35);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   404 page
+   ═══════════════════════════════════════════════════════════ */
+.error-page {
+    position: relative;
+    overflow: hidden;
+}
+
+.error-page__glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.error-page__glow-1,
+.error-page__glow-2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+}
+
+.error-page__glow-1 {
+    top: 10%;
+    right: 10%;
+    width: 280px;
+    height: 280px;
+    background: var(--brand-light);
+}
+
+.error-page__glow-2 {
+    bottom: 5%;
+    left: 8%;
+    width: 220px;
+    height: 220px;
+    background: var(--color-primary-100);
+}
+
+.error-page__card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 24px;
+    padding: 40px 28px;
+    box-shadow: 0 24px 60px -20px rgba(7, 20, 25, 0.18);
+    backdrop-filter: blur(8px);
+}
+
+.error-page__code {
+    font-size: clamp(4rem, 14vw, 6rem);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.error-page__icon {
+    margin-bottom: 20px;
+}
+
+.error-page__title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.error-page__text {
+    color: #64748b;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.error-page__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 640px) {
+    .error-page__actions {
+        flex-direction: row;
+    }
+}
+
+.error-page__btn,
+.error-page__btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.error-page__btn-secondary {
+    background: #fff;
+    color: var(--brand-dark);
+    border: 1px solid rgba(11, 178, 196, 0.35);
+}
+
+.error-page__btn-secondary:hover {
+    background: #f0fbfc;
+}
+
+.error-page__support {
+    font-size: 0.875rem;
+    color: #94a3b8;
+}
+
+.error-page__support a {
+    color: var(--brand-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.error-page__support a:hover {
+    color: var(--brand-dark);
+}

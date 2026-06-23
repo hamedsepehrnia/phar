@@ -13,14 +13,14 @@ class OrderItemInline(admin.TabularInline):
     
     model = OrderItem
     extra = 0
-    readonly_fields = ['product_name', 'product_sku', 'price', 'quantity', 'total_price']
+    readonly_fields = ['product_name', 'product_sku', 'price', 'quantity', 'line_total_display']
     raw_id_fields = ['product']
     
-    def total_price(self, obj):
-        if obj.total_price:
+    def line_total_display(self, obj):
+        if obj.pk:
             return f'{obj.total_price:,} تومان'
         return '-'
-    total_price.short_description = 'جمع'
+    line_total_display.short_description = 'جمع'
 
 
 class PaymentInline(admin.TabularInline):
@@ -45,7 +45,7 @@ class OrderAdmin(admin.ModelAdmin):
     ]
     list_filter = ['status', 'created_at', 'address_province']
     search_fields = ['order_number', 'user__phone', 'receiver_name', 'receiver_phone']
-    date_hierarchy = 'created_at'
+    list_per_page = 50
     raw_id_fields = ['user']
     inlines = [OrderItemInline, PaymentInline]
     readonly_fields = [
@@ -110,21 +110,24 @@ class OrderAdmin(admin.ModelAdmin):
         return jalali_date(obj.paid_at)
     paid_at_jalali_display.short_description = 'تاریخ پرداخت'
     
+    def get_queryset(self, request):
+        return super().get_queryset(request).select_related('user').prefetch_related('items')
+
     def status_badge(self, obj):
-        colors = {
-            'pending': 'warning',
-            'paid': 'info',
-            'processing': 'primary',
-            'shipped': 'secondary',
-            'delivered': 'success',
-            'canceled': 'danger',
-            'returned': 'dark',
+        styles = {
+            'pending': ('#fef3c7', '#92400e'),
+            'paid': ('#dbeafe', '#1d4ed8'),
+            'processing': ('#e0e7ff', '#4338ca'),
+            'shipped': ('#e0f2fe', '#0369a1'),
+            'delivered': ('#dcfce7', '#15803d'),
+            'canceled': ('#fee2e2', '#b91c1c'),
+            'returned': ('#ffedd5', '#c2410c'),
         }
-        color = colors.get(obj.status, 'secondary')
+        bg, fg = styles.get(obj.status, ('#f1f5f9', '#475569'))
         return format_html(
-            '<span style="padding: 3px 10px; border-radius: 4px; '
-            'background-color: var(--{}-bg); color: var(--{});">{}</span>',
-            color, color, obj.status_display
+            '<span style="padding: 3px 10px; border-radius: 999px; '
+            'background-color: {}; color: {}; font-weight: 600;">{}</span>',
+            bg, fg, obj.status_display
         )
     status_badge.short_description = 'وضعیت'
     
