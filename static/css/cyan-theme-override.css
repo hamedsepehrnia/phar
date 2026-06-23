@@ -2937,3 +2937,506 @@ a:focus-visible {
         max-height: 420px;
     }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   Desktop Header — minimal modern navigation
+   ═══════════════════════════════════════════════════════════ */
+@media (min-width: 1024px) {
+    .site-header-wrap {
+        background: rgba(255, 255, 255, 0.92) !important;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .site-header {
+        background: transparent !important;
+        border-bottom: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+
+    .desktop-header {
+        width: 100%;
+    }
+
+    .desktop-header__inner {
+        padding: 14px 0 0;
+    }
+
+    .desktop-header__top {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding-bottom: 12px;
+    }
+
+    .desktop-header__logo {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .desktop-header__logo img {
+        height: 48px;
+        width: auto;
+        max-width: 150px;
+        object-fit: contain;
+    }
+
+    .desktop-header__search {
+        flex: 1;
+        max-width: 520px;
+        margin-inline: auto;
+    }
+
+    .desktop-header__search-form {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .desktop-header__search-icon {
+        position: absolute;
+        right: 16px;
+        color: #94a3b8;
+        pointer-events: none;
+    }
+
+    .desktop-header__search-input {
+        width: 100%;
+        height: 44px;
+        padding: 0 48px 0 18px;
+        border: 1px solid #e2e8f0;
+        border-radius: 999px;
+        background: #f8fafc;
+        color: #1e293b;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .desktop-header__search-input::placeholder {
+        color: #94a3b8;
+        font-weight: 400;
+    }
+
+    .desktop-header__search-input:hover {
+        background: #f1f5f9;
+        border-color: #cbd5e1;
+    }
+
+    .desktop-header__search-input:focus {
+        outline: none;
+        background: #fff;
+        border-color: var(--brand-primary);
+        box-shadow: 0 0 0 4px rgba(11, 178, 196, 0.12);
+    }
+
+    .desktop-header__actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+
+    .desktop-header__action-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 42px;
+        padding: 0 16px;
+        border: 1px solid #e2e8f0;
+        border-radius: 999px;
+        background: #fff;
+        color: #475569;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .desktop-header__action-btn:hover {
+        color: var(--brand-dark);
+        border-color: rgba(11, 178, 196, 0.35);
+        background: #f0fbfc;
+    }
+
+    .desktop-header__action-btn svg {
+        flex-shrink: 0;
+        color: #64748b;
+        transition: color 0.2s ease;
+    }
+
+    .desktop-header__action-btn:hover svg {
+        color: var(--brand-primary);
+    }
+
+    .desktop-header__action-btn--account {
+        max-width: 200px;
+    }
+
+    .desktop-header__action-btn--account span:not(.desktop-header__badge) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .desktop-header__chevron {
+        color: #94a3b8 !important;
+        transition: transform 0.2s ease;
+    }
+
+    .desktop-header__account.is-open .desktop-header__chevron,
+    .desktop-header__account:has(#account-menu:not(.hidden)) .desktop-header__chevron {
+        transform: rotate(180deg);
+    }
+
+    .desktop-header__badge {
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        min-width: 18px;
+        height: 18px;
+        padding: 0 5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+        color: #fff;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        line-height: 1;
+        box-shadow: 0 2px 8px rgba(11, 178, 196, 0.35);
+    }
+
+    .desktop-header__account {
+        position: relative;
+    }
+
+    .desktop-header__account-menu {
+        position: absolute;
+        left: 0;
+        top: calc(100% + 10px);
+        z-index: 60;
+        width: 280px;
+        overflow: hidden;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 20px 50px -12px rgba(7, 20, 25, 0.18);
+        animation: desktopHeaderMenuIn 0.18s ease;
+    }
+
+    @keyframes desktopHeaderMenuIn {
+        from {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .desktop-header__account-profile {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px;
+        background: linear-gradient(135deg, #f0fbfc 0%, #fff 100%);
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .desktop-header__account-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+    }
+
+    .desktop-header__account-name {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin: 0;
+    }
+
+    .desktop-header__account-meta {
+        margin: 2px 0 0;
+        font-size: 0.75rem;
+        color: #64748b;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 180px;
+    }
+
+    .desktop-header__account-links {
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+    }
+
+    .desktop-header__account-footer {
+        padding: 8px;
+        border-top: 1px solid #f1f5f9;
+    }
+
+    .desktop-header__account-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        color: #475569;
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .desktop-header__account-link svg {
+        width: 18px;
+        height: 18px;
+        color: #94a3b8;
+        flex-shrink: 0;
+    }
+
+    .desktop-header__account-link:hover {
+        background: #f8fafc;
+        color: var(--brand-dark);
+    }
+
+    .desktop-header__account-link:hover svg {
+        color: var(--brand-primary);
+    }
+
+    .desktop-header__account-link--danger {
+        color: #dc2626;
+    }
+
+    .desktop-header__account-link--danger svg {
+        color: #f87171;
+    }
+
+    .desktop-header__account-link--danger:hover {
+        background: #fef2f2;
+        color: #b91c1c;
+    }
+
+    .desktop-header__account-guest {
+        padding: 20px;
+    }
+
+    .desktop-header__account-guest p {
+        margin: 0 0 14px;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        color: #64748b;
+    }
+
+    .desktop-header__login-btn {
+        display: block;
+        width: 100%;
+        padding: 11px 16px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+        color: #fff;
+        font-size: 0.875rem;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .desktop-header__login-btn:hover {
+        opacity: 0.92;
+        transform: translateY(-1px);
+    }
+
+    .desktop-header__nav {
+        border-top: 1px solid rgba(15, 23, 42, 0.05);
+        padding: 8px 0 10px;
+    }
+
+    .desktop-header__nav-list {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .desktop-nav-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        color: #64748b;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .desktop-nav-link:hover {
+        color: var(--brand-dark);
+        background: #f0fbfc;
+    }
+
+    .desktop-nav-link.is-active {
+        color: var(--brand-dark);
+        background: rgba(11, 178, 196, 0.12);
+    }
+
+    .desktop-nav-link__chevron {
+        opacity: 0.7;
+        transition: transform 0.2s ease;
+    }
+
+    .desktop-header__mega-wrap:hover .desktop-nav-link__chevron {
+        transform: rotate(180deg);
+    }
+
+    .desktop-header__mega-wrap {
+        position: relative;
+    }
+
+    .desktop-mega-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        z-index: 9999;
+        width: min(900px, calc(100vw - 48px));
+        height: 400px;
+        overflow: hidden;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: 0 24px 60px -16px rgba(7, 20, 25, 0.2);
+        transition: opacity 0.15s ease;
+    }
+
+    .desktop-mega-menu__layout {
+        display: flex;
+        height: 100%;
+    }
+
+    .desktop-mega-menu__sidebar {
+        flex-shrink: 0;
+        width: 220px;
+        max-height: 400px;
+        overflow-y: auto;
+        background: #f8fafc;
+        border-left: 1px solid #f1f5f9;
+        padding: 10px 0;
+    }
+
+    .desktop-mega-menu__categories {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .desktop-mega-menu__category {
+        display: block;
+        padding: 11px 18px;
+        color: #334155;
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-decoration: none;
+        border-right: 3px solid transparent;
+        transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .desktop-mega-menu__category:hover {
+        background: #fff;
+        color: var(--brand-dark);
+    }
+
+    .desktop-mega-menu__category.mega-menu-link-active {
+        background: #fff !important;
+        color: var(--brand-primary) !important;
+        border-right-color: var(--brand-primary);
+        font-weight: 700 !important;
+    }
+
+    .desktop-mega-menu__content {
+        position: relative;
+        flex: 1;
+        max-height: 400px;
+        padding: 20px 24px;
+        overflow: hidden;
+    }
+
+    .desktop-mega-menu__panel {
+        position: absolute;
+        inset: 0;
+        padding: 20px 24px;
+        overflow-y: auto;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+    }
+
+    .desktop-mega-menu__panel.is-visible,
+    .desktop-mega-menu__panel.opacity-100 {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .desktop-mega-menu__view-all {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 18px;
+        color: var(--brand-primary);
+        font-size: 0.8125rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 0.15s ease;
+    }
+
+    .desktop-mega-menu__view-all:hover {
+        color: var(--brand-dark);
+    }
+
+    .desktop-mega-menu__sublist {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 20px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .desktop-mega-menu__sublink {
+        display: block;
+        padding: 6px 0;
+        color: #475569;
+        font-size: 0.875rem;
+        text-decoration: none;
+        transition: color 0.15s ease;
+    }
+
+    .desktop-mega-menu__sublink:hover {
+        color: var(--brand-primary);
+    }
+
+    .desktop-mega-menu__empty {
+        font-size: 0.875rem;
+        color: #94a3b8;
+    }
+
+    #desktop-mega-menu-overlay {
+        backdrop-filter: blur(2px);
+    }
+}

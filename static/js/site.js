@@ -44,13 +44,17 @@ document.addEventListener('DOMContentLoaded', function() {
   if (accountBtn && accountMenu) {
     accountBtn.addEventListener('click', (e) => {
       e.stopPropagation();
+      const isHidden = accountMenu.classList.contains('hidden');
       accountMenu.classList.toggle('hidden');
+      accountBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+      accountDropdown?.classList.toggle('is-open', isHidden);
     });
 
-    // Close on outside click
     document.addEventListener('click', (e) => {
       if (!accountDropdown?.contains(e.target)) {
         accountMenu.classList.add('hidden');
+        accountBtn.setAttribute('aria-expanded', 'false');
+        accountDropdown?.classList.remove('is-open');
       }
     });
   }
@@ -87,19 +91,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   megaMenuCategories.forEach((cat, index) => {
     cat.addEventListener('mouseenter', () => {
-      // Remove active from all
       megaMenuCategories.forEach(c => c.classList.remove('mega-menu-link-active', 'text-primary-800', 'font-semibold'));
       megaMenuSubcategories.forEach(s => {
+        s.classList.remove('is-visible', 'opacity-100', 'pointer-events-auto');
         s.classList.add('opacity-0', 'pointer-events-none');
-        s.classList.remove('opacity-100', 'pointer-events-auto');
       });
-      
-      // Add active to current
+
       cat.classList.add('mega-menu-link-active', 'text-primary-800', 'font-semibold');
       const targetSub = document.querySelector(`.mega-menu-subcategory[data-index="${index}"]`);
       if (targetSub) {
+        targetSub.classList.add('is-visible', 'opacity-100', 'pointer-events-auto');
         targetSub.classList.remove('opacity-0', 'pointer-events-none');
-        targetSub.classList.add('opacity-100', 'pointer-events-auto');
       }
     });
   });
